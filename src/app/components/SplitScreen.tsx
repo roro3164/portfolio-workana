@@ -7,7 +7,7 @@ import RightComponent from "./RightComponent";
 const SplitScreen: React.FC = () => {
 
   return (
-    <div className="relative">
+    <div className="relative h-[85vh]">
       {/* Partie gauche */}
       <div className="left"  >
         <LeftComponent />

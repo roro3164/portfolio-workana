@@ -5,6 +5,7 @@ export default {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{js,jsx,ts,tsx,css}"
   ],
   theme: {
     extend: {
@@ -14,7 +15,11 @@ export default {
       },
       fontFamily: {
         playball: ['Playball', 'cursive'],
-        mono: ['"Courier New"', 'Courier', 'monospace']
+        mono: ['"Courier New"', 'Courier', 'monospace'],
+        jakarta: ['Plus Jakarta Sans', 'sans-serif']
+      },
+      screens: {
+        'xs': '480px', 
       },
     },
   },

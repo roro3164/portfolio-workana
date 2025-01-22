@@ -12,7 +12,7 @@ const RightComponent: React.FC = () => {
       <div className="relative h-[30vh] sm:h-[50vh] lg:h-[65vh] xl:h-[75vh] ">
         <div className="absolute inset-0 ">
           <div
-            className="absolute top-6 right-2 font-mono"
+            className="absolute top-6 right-2 font-mono "
             style={{ fontFamily: "'Courier New', monospace" }}
           >
             <h2 className="text-white text-sm sm:text-base lg:text-3xl">

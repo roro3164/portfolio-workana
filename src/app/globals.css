@@ -9,6 +9,20 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Poppins';
+  src: url('/public/font/Poppins/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400; /* Regular */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/public/font/Plus_Jakarta_Sans/PlusJakartaSans-SemiBold.ttf') format('truetype');
+  font-weight: 600; /* Semi-Bold */
+  font-style: normal;
+}
+
 body {
   background-color: #0F0E12;
   padding: 16px;
@@ -47,6 +61,7 @@ body {
   position: absolute;
   background-color: #0F0E12;
   width: 100%;
+  height: 79%; 
   clip-path: inset(0 50% 0 0);
   transition: clip-path 1s ease-in-out, z-index 1s ease-in-out;
   z-index: 1;
@@ -64,6 +79,7 @@ body {
   position: absolute;
   background-color: #0F0E12;
   width: 100%;
+  height: 80%; 
   clip-path: inset(0 0 0 50%);
   transition: clip-path 1s ease-in-out, z-index 1s ease-in-out;
   z-index: 1
@@ -72,6 +88,7 @@ body {
 .right:hover {
   clip-path: inset(0 0 0 0);
   z-index: 2;
+  
 }
 
-
+/*card*/
