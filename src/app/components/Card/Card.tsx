@@ -1,7 +1,7 @@
 import { CardProps } from './types';
 import { getCardClasses } from './styles/utils';
 import BaseCard from './BaseCard';
-import styles from './styles/card.module.css';
+import styles from './styles/card.module.scss';
 import EaselAnimation from '../EaselAnimation';
 
 
@@ -16,7 +16,11 @@ const Card = ({
   const classes = getCardClasses({ imageAlign, ...styleProps });
 
   return (
-    <BaseCard title={title}>
+    <BaseCard 
+    title={title} 
+    titleAlignment= {classes.titleAlignment}
+  >
+      
       {/* Mobile Content */}
       <div 
         className={`${styles.internBox} ${classes.mobile.visibility}`}

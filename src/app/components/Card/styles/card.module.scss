@@ -1,0 +1,118 @@
+.cardContainer {
+  @apply  mx-auto w-[90%] relative;
+
+}
+
+
+.background {
+  @apply rounded-lg;
+  background-color: #1A181E;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 1),
+              0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+  .background:hover {
+    transform: scale(1.01);
+    border: 0.2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 50px rgba(0, 198, 255, 0.6),
+                0px 0px 10px rgba(255, 255, 255, 0.4),
+                0 0 40px rgba(148, 0, 211, 1);
+  }
+  
+  @mixin glass-base {
+    @apply rounded-lg;
+    background: linear-gradient(#fff2, transparent);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+   }
+   
+   .glass {
+    @include glass-base;
+    @apply p-10;
+   }
+   
+  @mixin titleBoxBase {
+    @apply w-fit mb-8  text-white text-2xl font-jakarta font-semibold px-8 ; 
+    box-shadow: 2.19px 2.19px 2.19px rgba(0, 0, 0, 0.25),
+                inset -1.09px 2.19px 3.82px rgba(255, 255, 255, 0.2);
+    background: linear-gradient(180deg, rgba(89, 64, 211, 0.1) 0%, rgba(46, 33, 109, 0.1) 100%);
+  }
+  .titleBox {
+    @include titleBoxBase;  
+    @apply rounded-lg;
+  }
+  
+  @mixin internBoxBase {
+    @apply rounded-lg p-10;
+    background-color: rgba(7, 0, 0, 0.35);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    
+  }
+
+  .internBox {
+    @include internBoxBase;
+  }
+  
+  .content {
+    @apply text-white  text-xl; /* rajouter poppins */
+  }
+
+/* Service card */
+
+.containerCard {
+  @apply flex flex-col items-center gap-10 xl:flex-row lg:justify-center;
+}
+
+.glassService {
+  @include glass-base;
+  @apply h-[500px] w-[30%] min-w-[316px] rounded-2xl ;
+ }
+
+
+ .internBoxService{
+  @include internBoxBase;
+  @apply p-6 rounded-xl;
+
+ }
+ .titleBoxService {
+  @include titleBoxBase;
+  @apply rounded-full m-auto text-xl text-center py-1;
+ }
+
+
+.upperSection {
+  @apply rounded-t-3xl p-6;
+  background: rgba(255, 255, 255, 0.05);
+ 
+}
+
+.mainCardService {
+  @apply p-6 flex flex-col gap-y-6 ;
+}
+
+.circle {
+  @apply rounded-full  min-w-8 h-8 flex items-center justify-center mr-4 text-white;
+  background: linear-gradient(180deg, rgba(89, 64, 211, 0.1) 0%, rgba(46, 33, 109, 0.1) 100%);
+  box-shadow: 2.19px 2.19px 2.19px rgba(0, 0, 0, 0.25),
+              inset -1.09px 2.19px 3.82px rgba(255, 255, 255, 0.2);
+}
+
+/* Contact card */
+
+.glassContact {
+  @include glass-base;
+  @apply flex flex-col p-10 gap-y-10;
+}
+
+.internBoxContact {
+  @include internBoxBase;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.submitButton {
+  @include titleBoxBase;
+  @apply rounded-full;
+}

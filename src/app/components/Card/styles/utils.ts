@@ -4,7 +4,9 @@ import { StyleProps } from '../types';
 export const getCardClasses = ({ imageAlign, boxPaddings, imageSizeMobile, imageSizeDesktop }: StyleProps) => {
   return {
     // Logique d'alignement pour le titre
-    titleAlignment: imageAlign === "right" ? "lg:mr-auto lg:ml-0" : "lg:ml-auto lg:mr-0",
+    titleAlignment: imageAlign === "right" 
+  ? "mx-auto lg:mr-auto lg:ml-0"
+  : "mx-auto lg:ml-auto lg:mr-0",
     
     // Logique mobile
     mobile: {

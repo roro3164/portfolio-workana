@@ -20,6 +20,7 @@ export default {
       },
       screens: {
         'xs': '480px', 
+        'screenCard': ''
       },
     },
   },

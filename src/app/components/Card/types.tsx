@@ -18,6 +18,7 @@ interface ImageSize {
  // Props pour les styles
  export interface StyleProps {
   imageAlign?: "left" | "right" ;
+  titleAlignment?: string;
   boxPaddings?: BoxPaddings;
   imageSizeMobile?: ImageSize;
   imageSizeDesktop?: ImageSize;
@@ -26,7 +27,10 @@ interface ImageSize {
  // Props pour BaseCard
  export interface BaseCardProps {
   title: string;
-  children: React.ReactNode;
+  titleAlignment?: string;
+  children?: React.ReactNode;
+
+  
  }
  
  // Props pour la Card principale qui étend StyleProps
@@ -37,16 +41,12 @@ interface ImageSize {
   hasEaselAnimation?: boolean;
  }
  
- // Props pour les sous-composants
- export interface CardContentProps {
-  contentClass: string;
-  style: React.CSSProperties;
-  content: string;
- }
- 
- export interface CardImageProps {
-  imageClass: string;
-  style: React.CSSProperties;
-  imageSrc: string;
-  hasEaselAnimation: boolean;
- }
+ export interface CardServiceProps {
+  title: string;
+  description: string;
+  listItems: string[];
+}
+
+export interface CircleListItemProps {
+  text: string;
+}

@@ -2,8 +2,9 @@ import BaseCard from "./components/Card/BaseCard";
 import Card from "./components/Card/Card";
 import Header from "./components/Header";
 import SplitScreen from "./components/SplitScreen";
-import styles from "./components/Card/styles/card.module.css";
-import { Service } from "./components/Services";
+import { ServiceCard } from "./components/Card/ServiceCard";
+import styles from "./components/Card/styles/card.module.scss";
+import { FormCard } from "./components/Card/FormContact";
 
 export default function Home() {
   return (
@@ -98,10 +99,47 @@ export default function Home() {
           }}
         />
 
-        <BaseCard title="Services">
+        <BaseCard title="Services" titleAlignment="mx-auto">
           <div className={styles.internBox}>
-            <Service />
+            <div className={styles.containerCard}>
+            <ServiceCard
+              title="UI/UX Design"
+              description="I design intuitive and visually appealing user experiences tailored to your needs."
+              listItems={[
+                "Wireframes and mockups on Figma",
+                "Interactive prototypes",
+                "Custom graphic design with Photoshop",
+                "User-centered design",
+              ]}
+            />
+
+            <ServiceCard
+              title="Development"
+              description="I turn your designs into modern and high-performing websites."
+              listItems={[
+                "Responsive integration for mobile, tablet, and desktop",
+                "Modern visual effects and animations",
+                "Optimization for fast and reliable performance",
+                "Cross-browser compatibility",
+              ]}
+            />
+
+            <ServiceCard
+              title="Complete Website"
+              description="I offer turnkey solutions, from design to deployment."
+              listItems={[
+                "Landing pages to maximize your conversions",
+                "Modern visual effects and animations",
+                "SEO optimization and fast loading speed",
+                "Hosting, maintenance, and updates included",
+              ]}
+            />
+            </div>
           </div>
+        </BaseCard>
+
+        <BaseCard title="Contact me" titleAlignment="mx-auto">
+              <FormCard></FormCard>
         </BaseCard>
       </section>
     </div>
