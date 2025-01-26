@@ -34,7 +34,7 @@
    }
    
   @mixin titleBoxBase {
-    @apply w-fit mb-8  text-white text-2xl font-jakarta font-semibold px-8 ; 
+    @apply w-fit mb-8  text-white text-2xl font-jakarta font-semibold py-1 px-8 ; 
     box-shadow: 2.19px 2.19px 2.19px rgba(0, 0, 0, 0.25),
                 inset -1.09px 2.19px 3.82px rgba(255, 255, 255, 0.2);
     background: linear-gradient(180deg, rgba(89, 64, 211, 0.1) 0%, rgba(46, 33, 109, 0.1) 100%);
@@ -47,7 +47,8 @@
   @mixin internBoxBase {
     @apply rounded-lg p-10;
     background-color: rgba(7, 0, 0, 0.35);
-    border: 2px solid rgba(255, 255, 255, 0.15);
+    border: 1.5px solid rgba(255, 255, 255, 0.15);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);
     
   }
 
@@ -65,7 +66,7 @@
   @apply flex flex-col items-center gap-10 xl:flex-row lg:justify-center;
 }
 
-.glassService {
+.glassCard {
   @include glass-base;
   @apply h-[500px] w-[30%] min-w-[316px] rounded-2xl ;
  }
@@ -82,7 +83,7 @@
  }
 
 
-.upperSection {
+.boxCard {
   @apply rounded-t-3xl p-6;
   background: rgba(255, 255, 255, 0.05);
  
@@ -108,11 +109,24 @@
 
 .internBoxContact {
   @include internBoxBase;
+  @apply h-4 text-white;
   border: 1px solid rgba(255, 255, 255, 0.25);
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
+.internBoxContact:focus {
+  outline: none;
+  border: 2px solid rgba(89, 64, 211, 0.3);
+}
+
+
+
+.message {
+  @apply h-72;
+}
+
+
 .submitButton {
   @include titleBoxBase;
-  @apply rounded-full;
+  @apply rounded-full w-full p-2;
 }

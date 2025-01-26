@@ -5,6 +5,15 @@ import SplitScreen from "./components/SplitScreen";
 import { ServiceCard } from "./components/Card/ServiceCard";
 import styles from "./components/Card/styles/card.module.scss";
 import { FormCard } from "./components/Card/FormContact";
+import { ProjectsListCard } from "./components/Card/ProjectsListCard";
+
+const projects = [
+  { imageProject: '/image/projects/MockUpSportclubpng.png', logoProject: '/image/projects/logoSportclub.svg', title: 'SportClub', description: 'Description 1' },
+  { imageProject: '/image/projects/mockUpLapin.png', logoProject: '/image/projects/LogoLapin.svg', title: 'Lapin Deco', description: 'Description 2' },
+  { imageProject: '/image/projects/mockUpCrypto.png', logoProject: '/image/projects/logoCrypto.svg', title: 'Crypto Expo Cloud', description: 'Description 3' },
+  { imageProject: '/image/projects/mockUpEco.png', logoProject: '/image/projects/logoEco.svg', title: 'EcoMove', description: 'Description 4' },
+  { imageProject: '/image/projects/mockUpAqui.png', logoProject: '/image/projects/logoAqui.svg', title: 'Aqui Acampaamos', description: 'Description 5' },
+];
 
 export default function Home() {
   return (
@@ -18,6 +27,7 @@ export default function Home() {
           {"<h1>"}Romain Mornet{"</h1>"}
         </h1>
       </div>
+
 
       <SplitScreen />
 
@@ -102,45 +112,49 @@ export default function Home() {
         <BaseCard title="Services" titleAlignment="mx-auto">
           <div className={styles.internBox}>
             <div className={styles.containerCard}>
-            <ServiceCard
-              title="UI/UX Design"
-              description="I design intuitive and visually appealing user experiences tailored to your needs."
-              listItems={[
-                "Wireframes and mockups on Figma",
-                "Interactive prototypes",
-                "Custom graphic design with Photoshop",
-                "User-centered design",
-              ]}
-            />
+              <ServiceCard
+                title="UI/UX Design"
+                description="I design intuitive and visually appealing user experiences tailored to your needs."
+                listItems={[
+                  "Wireframes and mockups on Figma",
+                  "Interactive prototypes",
+                  "Custom graphic design with Photoshop",
+                  "User-centered design",
+                ]}
+              />
 
-            <ServiceCard
-              title="Development"
-              description="I turn your designs into modern and high-performing websites."
-              listItems={[
-                "Responsive integration for mobile, tablet, and desktop",
-                "Modern visual effects and animations",
-                "Optimization for fast and reliable performance",
-                "Cross-browser compatibility",
-              ]}
-            />
+              <ServiceCard
+                title="Development"
+                description="I turn your designs into modern and high-performing websites."
+                listItems={[
+                  "Responsive integration for mobile, tablet, and desktop",
+                  "Modern visual effects and animations",
+                  "Optimization for fast and reliable performance",
+                  "Cross-browser compatibility",
+                ]}
+              />
 
-            <ServiceCard
-              title="Complete Website"
-              description="I offer turnkey solutions, from design to deployment."
-              listItems={[
-                "Landing pages to maximize your conversions",
-                "Modern visual effects and animations",
-                "SEO optimization and fast loading speed",
-                "Hosting, maintenance, and updates included",
-              ]}
-            />
+              <ServiceCard
+                title="Complete Website"
+                description="I offer turnkey solutions, from design to deployment."
+                listItems={[
+                  "Landing pages to maximize your conversions",
+                  "Modern visual effects and animations",
+                  "SEO optimization and fast loading speed",
+                  "Hosting, maintenance, and updates included",
+                ]}
+              />
             </div>
           </div>
         </BaseCard>
 
         <BaseCard title="Contact me" titleAlignment="mx-auto">
-              <FormCard></FormCard>
+          <FormCard></FormCard>
         </BaseCard>
+
+        <ProjectsListCard projects={projects} />
+
+      
       </section>
     </div>
   );

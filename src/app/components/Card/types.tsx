@@ -36,9 +36,10 @@ interface ImageSize {
  // Props pour la Card principale qui étend StyleProps
  export interface CardProps extends StyleProps {
   title: string;
-  internContent: string;
-  imageSrc: string;
-  hasEaselAnimation?: boolean;
+  internContent?: string;
+  imageSrc?: string;
+  hasEaselAnimation?: boolean;  
+  children?: React.ReactNode;
  }
  
  export interface CardServiceProps {
@@ -49,4 +50,16 @@ interface ImageSize {
 
 export interface CircleListItemProps {
   text: string;
+}
+
+
+export interface ProjectCardProps {
+  imageProject: string;
+  logoProject: string;
+  title: string;  // Pour la vue détaillée
+  description?: string;  // Optionnel pour la vue détaillée
+}
+
+export interface ProjectsListCardProps {
+  projects: ProjectCardProps[];
 }
