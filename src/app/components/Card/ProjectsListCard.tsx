@@ -1,66 +1,91 @@
-"use client";
-import BaseCard from "./BaseCard";
-import { ProjectCard } from "./ProjectCard";
-import { ProjectsListCardProps } from "./types";
-import { ProjectCardProps } from "./types";
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import Card from "./Card";
+import React, { useState } from 'react';
+import { ProjectCard } from './ProjectCard';
+import { ProjectsListCardProps } from './types';
 
-export 
-const ProjectsListCard = ({ projects }: ProjectsListCardProps) => {
-  const [selectedProject, setSelectedProject] = useState<ProjectCardProps | null>(null);
+export const ProjectsListCard: React.FC<ProjectsListCardProps> = ({ projects }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Vue par défaut : Card avec éventail
-  if (!selectedProject) {
-    return (
-      <BaseCard title="Projects">
-        <div className="relative h-[400px]">
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              className="absolute"
+  const calculateCardStyle = (index: number) => {
+    const diff = (index - currentIndex + projects.length) % projects.length;
+    
+    let transform = '';
+    let opacity = 1;
+    const zIndex = 30 - diff;
+    
+    if (diff === 0) {
+      transform = 'rotateX(-15deg) translateZ(20px)';
+    } else if (diff === 1) {
+      transform = 'rotateX(-15deg) translateY(40px) translateX(20px) translateZ(-40px)';
+      opacity = 0.9;
+    } else if (diff === 2) {
+      transform = 'rotateX(-15deg) translateY(80px) translateX(40px) translateZ(-80px)';
+      opacity = 0.8;
+    } else {
+      transform = 'rotateX(-15deg) translateY(120px) translateX(60px) translateZ(-120px)';
+      opacity = 0;
+    }
+
+    return {
+      transform,
+      opacity,
+      zIndex,
+    };
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % projects.length);
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
+  };
+
+  return (
+    <div className="relative w-full h-[32rem] overflow-hidden">
+      <div 
+        className="relative w-full h-full flex items-center justify-center bg-gradient-to-b from-gray-900 to-gray-800"
+        style={{ perspective: '2000px' }}
+      >
+        <div 
+          className="relative w-[450px]"
+          style={{ transformStyle: 'preserve-3d' }}
+        >
+          {projects.map((project) => (
+            <div
+              key={project.id}
+              className="absolute w-full transition-all duration-500 ease-out cursor-pointer"
               style={{
-                rotate: `${-15 + (index * 10)}deg`,
-                zIndex: index,
-                transformOrigin: 'bottom center'
+                ...calculateCardStyle(projects.indexOf(project)),
+                transformStyle: 'preserve-3d'
               }}
-              whileHover={{ 
-                y: -20,
-                rotate: 0,
-                zIndex: 50
-              }}
-              onClick={() => setSelectedProject(project)}
+              onClick={() => setCurrentIndex(projects.indexOf(project))}
             >
-              <ProjectCard {...project} />
-            </motion.div>
+              {/* On ne passe que les propriétés nécessaires à ProjectCard */}
+              <ProjectCard
+                imageProject={project.imageProject}
+                logoProject={project.logoProject}
+              />
+            </div>
           ))}
         </div>
-      </BaseCard>
-    );
-  }
 
-  // Vue détaillée : Card avec pile de projets
-  return (
-    <Card
-      title={selectedProject.title}
-      internContent={selectedProject.description}
-      imageAlign="left"
-    >
-      <div className="relative h-[400px]">
-        {projects.map((project, index) => (
-          <div
-            key={index}
-            className="absolute"
-            style={{
-              top: `${index * 10}px`,
-              zIndex: index
-            }}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-6 z-50">
+          <button
+            onClick={handlePrev}
+            className="px-6 py-2.5 bg-white/10 hover:bg-white/20 rounded-full 
+                     text-white text-sm font-medium transition-colors backdrop-blur-sm"
           >
-            <ProjectCard {...project} />
-          </div>
-        ))}
+            Précédent
+          </button>
+          <button
+            onClick={handleNext}
+            className="px-6 py-2.5 bg-white/10 hover:bg-white/20 rounded-full 
+                     text-white text-sm font-medium transition-colors backdrop-blur-sm"
+          >
+            Suivant
+          </button>
+        </div>
       </div>
-    </Card>
+    </div>
   );
 };

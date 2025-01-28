@@ -4,8 +4,8 @@ import { CircleListItem } from './CircleListItem';
 
 
 export const ServiceCard = ({ title, description, listItems }: CardServiceProps) => (
-        <div className={styles.glassCard}>
-            <div className={styles.boxCard}>
+        <div className={styles.glassCardService}>
+            <div className={styles.boxTopCard}>
                 <div className={styles.titleBoxService}>
                   <h3>{title}</h3>
                 </div>

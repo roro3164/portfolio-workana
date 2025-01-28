@@ -52,14 +52,17 @@ export interface CircleListItemProps {
   text: string;
 }
 
-
 export interface ProjectCardProps {
   imageProject: string;
   logoProject: string;
-  title: string;  // Pour la vue détaillée
-  description?: string;  // Optionnel pour la vue détaillée
 }
 
-export interface ProjectsListCardProps {
-  projects: ProjectCardProps[];
+// L'interface Project reste inchangée
+export interface Project {
+  id?: number;
+  imageProject: string;
+  logoProject: string;
+  title?: string;
+  description?: string;
 }
+

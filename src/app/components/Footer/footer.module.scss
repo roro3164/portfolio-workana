@@ -1,0 +1,28 @@
+.footer {
+    @apply text-white mt-20 p-4 ;
+    color: #fff;
+  }
+  .container {
+  @apply flex flex-col  lg:flex-row lg:justify-between items-center gap-y-10 ; 
+  }
+  
+  .email>a {
+    @apply flex flex-col items-center gap-y-2;
+  }
+  .section>ul {
+    @apply flex flex-col  lg:flex-row lg:gap-x-10 items-center gap-y-2;
+  }
+
+  
+  .socialNetwork > ul {
+    @apply flex gap-x-5;  
+  }
+
+ 
+  .icon {
+    @apply w-16;
+  }
+
+ .footerBottom>p {
+    @apply text-center mt-6;
+ }  

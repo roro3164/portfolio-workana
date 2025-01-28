@@ -66,7 +66,7 @@
   @apply flex flex-col items-center gap-10 xl:flex-row lg:justify-center;
 }
 
-.glassCard {
+.glassCardService {
   @include glass-base;
   @apply h-[500px] w-[30%] min-w-[316px] rounded-2xl ;
  }
@@ -83,7 +83,7 @@
  }
 
 
-.boxCard {
+.boxTopCard {
   @apply rounded-t-3xl p-6;
   background: rgba(255, 255, 255, 0.05);
  
@@ -130,3 +130,38 @@
   @include titleBoxBase;
   @apply rounded-full w-full p-2;
 }
+
+.glassCardProject {
+  @include glass-base;
+  @apply flex flex-col rounded-2xl;
+  // Hauteur fixe en pourcentage de la largeur pour maintenir les proportions
+  aspect-ratio: 0.71;
+  width: 100%;
+}
+
+.boxBottomCard {
+  @apply rounded-b-3xl flex justify-center;
+  // Hauteur fixe en pourcentage de la carte parente
+  height: 20%;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.glassCardProject {
+  @include glass-base;
+  @apply flex flex-col rounded-2xl h-[500px] w-[30%] min-w-[316px];
+  // Hauteur fixe en pourcentage de la largeur pour maintenir les proportions
+  
+ 
+}
+
+.boxBottomCard {
+  @apply rounded-b-3xl flex justify-center px-2;
+  // Hauteur fixe en pourcentage de la carte parente
+  height: 20%;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.imageContainer {
+  @apply m-auto p-2;
+}
+
