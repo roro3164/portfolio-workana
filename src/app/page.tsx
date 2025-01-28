@@ -7,6 +7,10 @@ import styles from "./components/Card/styles/card.module.scss";
 import { FormCard } from "./components/Card/FormContact";
 import { Footer } from "./components/Footer/Footer";
 import ProjectCarousel from "./components/Card/ProjectCarousel";
+import LightCursor from "./components/LightCursor";
+import CursorLamp from "./components/CursorLamp";
+import IntenseCursorLight from "./components/IntenseCursorLight";
+
 
 
 const projects = [
@@ -15,7 +19,7 @@ const projects = [
     imageProject: "/image/projects/MockUpSportclubpng.png",
     logoProject: "/image/projects/logoSportclub .svg",
     title: 'Sport Club',
-    description: 'Description détaillée du projet SportClub...',
+    description: 'A passionate UI/UX Designer and Full-Stack Developer.  I design intuitive interfaces using Figma and Photoshop, and develop modern applications with C#, React, and ASP.NET. My goal is to combine design and technology to create projects that are both visually appealing and highly functional ',
   },
   {
     id: 2,
@@ -63,6 +67,7 @@ export default function Home() {
       <SplitScreen />
 
       <section>
+      <IntenseCursorLight />
         <Card
           title="About Me"
           imageAlign="right"
@@ -180,7 +185,8 @@ export default function Home() {
             </div>
           </div>
         </BaseCard>
-
+        
+  
         <BaseCard title="Contact me" titleAlignment="mx-auto">
           <FormCard></FormCard>
         </BaseCard>

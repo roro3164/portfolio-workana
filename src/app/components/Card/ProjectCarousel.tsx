@@ -61,21 +61,23 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ projects }) => {
       } else if (isSelected) {
         transform = 'translate(-120%, -10%) rotate(-12deg) scale(1.1)';
       } else {
-        transform = 'translate(-60%, -10%) rotate(-12deg)';
+        transform = 'translate(-45%, -8%) rotate(-12deg) scale(1.1)';
       }
     } else {
-      const offset = diff * 6;
+      const offset = diff * 12;
       transform = `translate(calc(-50% + ${offset}px), -${offset}px)`;
     }
 
-    const opacity = Math.max(1 - diff * 0.2, 0.4);
+    // Opacité: carte active à 1, les autres plus transparentes
+    const opacity = isActive ? 1 : Math.max(0.4, 1 - diff * 0.3);
     const scale = (isActive && isPaused) || isSelected ? 'scale(1.1)' : 'scale(1)';
     transform = `${transform} ${scale}`;
 
     return {
       transform,
       zIndex,
-      opacity,
+
+      filter: !isActive ? 'blur(0.8px)' : 'none',
       transition: 'all 0.7s ease-in-out',
     };
   };
@@ -99,11 +101,21 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ projects }) => {
 
   return (
     <BaseCard 
-    title={selectedCard !== null ? projects[selectedCard].title || 'Project' : 'Projects'} 
-    titleAlignment={classes.titleAlignment}
-  >
-        <div className={`relative w-full  flex items-center justify-center ${styles.internBox}`}>
+      title={selectedCard !== null ? projects[selectedCard].title || 'Project' : 'Projects'} 
+      titleAlignment={classes.titleAlignment}
+    >
+      <div className={`relative w-full flex items-center justify-center ${styles.internBox}`}>
         <div className="relative w-48 h-80">
+          {/* Description générale - visible seulement quand aucune carte n'est sélectionnée */}
+          {selectedCard === null && (
+            <div className="ml-52 w-96 text-white">
+              <p className="text-lg text-gray-300 leading-relaxed">
+                I&apos;m a full-stack developer who loves working with React and Next.js to create fast, dynamic, and user-friendly web applications.
+              </p>
+            </div>
+          )}
+
+          {/* Cartes du carousel */}
           {projects.map((project, index) => {
             const isActive = index === activeIndex;
             return (
@@ -127,22 +139,22 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ projects }) => {
               </div>
             );
           })}
-        </div>
 
-        {selectedCard !== null && (
-          <div 
-            className="absolute left-1/2 ml-32 w-96 text-white opacity-0"
-            style={{ 
-              animation: 'fadeIn 0.5s ease-out forwards',
-              zIndex: projects.length + 1
-            }}
-          >
-            <p className="text-lg text-gray-300 leading-relaxed">
-              {projects[selectedCard].description}
-            </p>
-          </div>
-        )}
-      
+          {/* Description du projet - visible seulement quand une carte est sélectionnée */}
+          {selectedCard !== null && (
+            <div 
+              className="absolute left-1/2 ml-32 w-96 text-white opacity-0"
+              style={{ 
+                animation: 'fadeIn 0.5s ease-out forwards',
+                zIndex: projects.length + 1
+              }}
+            >
+              <p className="text-lg text-gray-300 leading-relaxed">
+                {projects[selectedCard].description}
+              </p>
+            </div>
+          )}
+        </div>
       </div>
 
       <style jsx global>{`

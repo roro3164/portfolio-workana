@@ -1,6 +1,11 @@
+
+
 .footer {
-    @apply text-white mt-20 p-4 ;
+    @apply text-white mt-20 p-4 rounded-lg ;
     color: #fff;
+    background: linear-gradient(#fff3, transparent);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
   }
   .container {
   @apply flex flex-col  lg:flex-row lg:justify-between items-center gap-y-10 ; 
@@ -8,6 +13,13 @@
   
   .email>a {
     @apply flex flex-col items-center gap-y-2;
+  }
+
+  .section {
+    @apply rounded-lg p-4;
+    background-color: rgba(7, 0, 0, 0.35);
+    border: 1.5px solid rgba(255, 255, 255, 0.15);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);
   }
   .section>ul {
     @apply flex flex-col  lg:flex-row lg:gap-x-10 items-center gap-y-2;

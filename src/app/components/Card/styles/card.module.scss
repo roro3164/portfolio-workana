@@ -22,10 +22,10 @@
   
   @mixin glass-base {
     @apply rounded-lg;
-    background: linear-gradient(#fff2, transparent);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(#fff3, transparent);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(10px);
+  
    }
    
    .glass {
@@ -84,7 +84,7 @@
 
 
 .boxTopCard {
-  @apply rounded-t-3xl p-6;
+  @apply rounded-t-xl p-6;
   background: rgba(255, 255, 255, 0.05);
  
 }
@@ -137,6 +137,7 @@
   // Hauteur fixe en pourcentage de la largeur pour maintenir les proportions
   aspect-ratio: 0.71;
   width: 100%;
+  
 }
 
 .boxBottomCard {
@@ -155,10 +156,9 @@
 }
 
 .boxBottomCard {
-  @apply rounded-b-3xl flex justify-center px-2;
-  // Hauteur fixe en pourcentage de la carte parente
+  @apply rounded-b-xl flex justify-center px-2;
   height: 20%;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(75, 75, 75, 0.7); // Gris neutre avec transparence
 }
 
 .imageContainer {
