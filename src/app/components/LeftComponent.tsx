@@ -1,4 +1,5 @@
 import React from "react";
+import { DesignerAnimation } from "./designerAnimation";
 
 const LeftComponent: React.FC = () => {
   return (
@@ -37,17 +38,7 @@ const LeftComponent: React.FC = () => {
         ></div>
 
         <div>
-          <h2 className="text-white absolute top-3 sm:top-5 font-playball text-2xl sm:text-3xl lg:text-5xl">
-            Designer
-          </h2>
-          <h2 className="text-white absolute top-10 sm:top-14 lg:top-20 xl:top-[85px] left-4 lg:left-10 font-playball text-xl sm:text-2xl lg:text-4xl">
-            UI/UX
-          </h2>
-          <img
-            className="w-16 sm:w-20 lg:w-32 absolute top-16 sm:top-[90px] lg:top-32"
-            src="/image/pictures/hand.svg"
-            alt="hand"
-          />
+          <DesignerAnimation />
         </div>
       </div>
     </div>
