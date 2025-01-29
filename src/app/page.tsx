@@ -7,47 +7,45 @@ import styles from "./components/Card/styles/card.module.scss";
 import { FormCard } from "./components/Card/FormContact";
 import { Footer } from "./components/Footer/Footer";
 import ProjectCarousel from "./components/Card/ProjectCarousel";
-import LightCursor from "./components/LightCursor";
-import CursorLamp from "./components/CursorLamp";
 import IntenseCursorLight from "./components/IntenseCursorLight";
-
-
+import NeonWord from "./components/NeonWord";
 
 const projects = [
   {
     id: 1,
     imageProject: "/image/projects/MockUpSportclubpng.png",
     logoProject: "/image/projects/logoSportclub .svg",
-    title: 'Sport Club',
-    description: 'A passionate UI/UX Designer and Full-Stack Developer.  I design intuitive interfaces using Figma and Photoshop, and develop modern applications with C#, React, and ASP.NET. My goal is to combine design and technology to create projects that are both visually appealing and highly functional ',
+    title: "Sport Club",
+    description:
+      "A passionate UI/UX Designer and Full-Stack Developer.  I design intuitive interfaces using Figma and Photoshop, and develop modern applications with C#, React, and ASP.NET. My goal is to combine design and technology to create projects that are both visually appealing and highly functional ",
   },
   {
     id: 2,
     imageProject: "/image/projects/mockUpLapin.png",
     logoProject: "/image/projects/LogoLapin.svg",
-    title: 'Lapin Project',
-    description: 'Description détaillée du projet Lapin...',
+    title: "Lapin Project",
+    description: "Description détaillée du projet Lapin...",
   },
   {
     id: 3,
     imageProject: "/image/projects/mockUpCrypto.png",
     logoProject: "/image/projects/logoCrypto.svg",
-    title: 'Crypto Platform',
-    description: 'Description détaillée du projet Crypto...',
+    title: "Crypto Platform",
+    description: "Description détaillée du projet Crypto...",
   },
   {
     id: 4,
     imageProject: "/image/projects/mockUpEco.png",
     logoProject: "/image/projects/logoEco.svg",
-    title: 'Eco Project',
-    description: 'Description détaillée du projet Eco...',
+    title: "Eco Project",
+    description: "Description détaillée du projet Eco...",
   },
   {
     id: 5,
     imageProject: "/image/projects/mockUpAqui.png",
     logoProject: "/image/projects/logoAqui.svg",
-    title: 'Aqui Project',
-    description: 'Description détaillée du projet Aqui...',
+    title: "Aqui Project",
+    description: "Description détaillée du projet Aqui...",
   },
 ];
 
@@ -66,8 +64,10 @@ export default function Home() {
 
       <SplitScreen />
 
-      <section>
-      <IntenseCursorLight />
+      <section className="flex flex-col gap-20 px-12 ">
+        <IntenseCursorLight />
+        <NeonWord word="React" className="ml-20" />
+
         <Card
           title="About Me"
           imageAlign="right"
@@ -79,7 +79,7 @@ export default function Home() {
           // Mobile styles
 
           imageSizeMobile={{
-            width: "200px",
+            width: "500px",
             height: "300px",
           }}
           imageSizeDesktop={{
@@ -88,13 +88,15 @@ export default function Home() {
           }}
           boxPaddings={{
             mobile: {
-              top: "128px", // Pour l'espace au-dessus en mobile
+              top: "50%",
             },
             desktop: {
               content: "400px", // Pour l'espace du côté du contenu en desktop
             },
           }}
         />
+
+        <NeonWord word={"<html>"} position="mx-auto" />
 
         <Card
           title="Developer Full-stack"
@@ -104,16 +106,16 @@ export default function Home() {
 
           imageAlign="left"
           imageSizeMobile={{
-            width: "200px",
+            width: "500px",
             height: "300px",
           }}
           imageSizeDesktop={{
-            width: "600px",
+            width: "550px",
             height: "400px",
           }}
           boxPaddings={{
             mobile: {
-              top: "128px", // Pour l'espace au-dessus en mobile
+              top: "350px", // Pour l'espace au-dessus en mobile
             },
             desktop: {
               content: "400px", // Pour l'espace du côté du contenu en desktop
@@ -121,33 +123,42 @@ export default function Home() {
           }}
         />
 
+        <NeonWord word={"</div>"} position="pl-44" />
+
         <Card
-          title="Designer UI/UX"
+          title="UI/UX Designer"
           imageAlign="right"
           internContent="As a UI/UX designer, I thrive on collaborating with teams to bring innovative ideas to life. My approach combines creativity and strategy to design interfaces that are both intuitive and visually compelling. By leveraging tools like Figma and Photoshop, I deliver designs that leave a lasting impression."
           imageSrc="/image/pictures/chevalet.png"
           hasEaselAnimation={true}
           imageSizeMobile={{
-            width: "500px",
-            height: "500px",
+            width: "480px",
+            height: "480px",
           }}
           imageSizeDesktop={{
             width: "500px",
-            height: "700px",
+            height: "650px",
           }}
           boxPaddings={{
             mobile: {
-              top: "128px", // Pour l'espace au-dessus en mobile
+              top: "530px", // Pour l'espace au-dessus en mobile
             },
             desktop: {
               content: "400px", // Pour l'espace du côté du contenu en desktop
             },
           }}
         />
+        <NeonWord word="Tailwind" position="mx-auto " />
 
-<ProjectCarousel projects={projects} />
+        <ProjectCarousel projects={projects} />
 
-        <BaseCard title="Services" titleAlignment="mx-auto">
+        <NeonWord word="Typescript" position=" pl-[70%]" />
+
+        <BaseCard
+          title="Services"
+          titleAlignment="mx-auto"
+          cardAlignment="mx-auto"
+        >
           <div className={styles.internBox}>
             <div className={styles.containerCard}>
               <ServiceCard
@@ -185,17 +196,17 @@ export default function Home() {
             </div>
           </div>
         </BaseCard>
-        
-  
-        <BaseCard title="Contact me" titleAlignment="mx-auto">
+        <NeonWord word={"<section>"}  position="pl-[30%]" />
+        <BaseCard
+          title="Contact me"
+          titleAlignment="mx-auto"
+          cardAlignment="mx-auto"
+        >
           <FormCard></FormCard>
         </BaseCard>
-
-       
-      
       </section>
 
-     <Footer></Footer>
+      <Footer></Footer>
     </div>
   );
 }

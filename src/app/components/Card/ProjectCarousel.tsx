@@ -17,19 +17,30 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ projects }) => {
   const [isExiting, setIsExiting] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [selectedCard, setSelectedCard] = useState<number | null>(null);
+  const [currentProject, setCurrentProject] = useState(projects[0]);
+  const [isChangingDescription, setIsChangingDescription] = useState(false);
 
   const nextSlide = useCallback(() => {
     if (isAnimating || selectedCard !== null) return;
     setIsAnimating(true);
     setIsExiting(true);
+    setIsChangingDescription(true);
     
+    // Premier timing : carte sort
     setTimeout(() => {
       setIsExiting(false);
       setActiveIndex((current) => (current + 1) % projects.length);
     }, 400);
 
+    // Deuxième timing : description change
+    setTimeout(() => {
+      setCurrentProject(projects[(activeIndex + 1) % projects.length]);
+      setIsChangingDescription(false);
+    }, 300);
+
+    // Troisième timing : animation finie
     setTimeout(() => setIsAnimating(false), 800);
-  }, [isAnimating, projects.length, selectedCard]);
+  }, [isAnimating, projects.length, selectedCard, activeIndex, projects]);
 
   useEffect(() => {
     let intervalId: ReturnType<typeof setInterval> | undefined;
@@ -68,15 +79,9 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ projects }) => {
       transform = `translate(calc(-50% + ${offset}px), -${offset}px)`;
     }
 
-    // Opacité: carte active à 1, les autres plus transparentes
-    const opacity = isActive ? 1 : Math.max(0.4, 1 - diff * 0.3);
-    const scale = (isActive && isPaused) || isSelected ? 'scale(1.1)' : 'scale(1)';
-    transform = `${transform} ${scale}`;
-
     return {
       transform,
       zIndex,
-
       filter: !isActive ? 'blur(0.8px)' : 'none',
       transition: 'all 0.7s ease-in-out',
     };
@@ -101,21 +106,19 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ projects }) => {
 
   return (
     <BaseCard 
-      title={selectedCard !== null ? projects[selectedCard].title || 'Project' : 'Projects'} 
+    title={
+      <div 
+        key={currentProject.id} 
+        className={isChangingDescription ? 'fade-out' : 'fade-in'}
+      >
+        {currentProject.title}
+      </div>
+    }
       titleAlignment={classes.titleAlignment}
+      cardAlignment={classes.cardAlignement}
     >
       <div className={`relative w-full flex items-center justify-center ${styles.internBox}`}>
         <div className="relative w-48 h-80">
-          {/* Description générale - visible seulement quand aucune carte n'est sélectionnée */}
-          {selectedCard === null && (
-            <div className="ml-52 w-96 text-white">
-              <p className="text-lg text-gray-300 leading-relaxed">
-                I&apos;m a full-stack developer who loves working with React and Next.js to create fast, dynamic, and user-friendly web applications.
-              </p>
-            </div>
-          )}
-
-          {/* Cartes du carousel */}
           {projects.map((project, index) => {
             const isActive = index === activeIndex;
             return (
@@ -140,20 +143,19 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ projects }) => {
             );
           })}
 
-          {/* Description du projet - visible seulement quand une carte est sélectionnée */}
-          {selectedCard !== null && (
-            <div 
-              className="absolute left-1/2 ml-32 w-96 text-white opacity-0"
-              style={{ 
-                animation: 'fadeIn 0.5s ease-out forwards',
-                zIndex: projects.length + 1
-              }}
-            >
-              <p className="text-lg text-gray-300 leading-relaxed">
-                {projects[selectedCard].description}
-              </p>
-            </div>
-          )}
+          <div 
+            key={currentProject.id}
+            className={`absolute left-1/2 ml-32 w-96 text-white opacity-0 ${
+              isChangingDescription ? 'fade-out' : 'fade-in'
+            }`}
+            style={{ 
+              zIndex: projects.length + 1
+            }}
+          >
+            <p className="text-lg text-gray-300 leading-relaxed">
+              {currentProject.description}
+            </p>
+          </div>
         </div>
       </div>
 
@@ -168,6 +170,40 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ projects }) => {
             transform: translateX(0);
           }
         }
+
+        @keyframes fadeOut {
+          from {
+            opacity: 1;
+            transform: translateX(0);
+          }
+          to {
+            opacity: 0;
+            transform: translateX(20px);
+          }
+        }
+
+        .fade-in {
+          animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        .fade-out {
+          animation: fadeOut 0.3s ease-in forwards;
+        }
+
+        @keyframes titleFade {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.title-fade {
+  animation: titleFade 0.3s ease-out forwards;
+}
       `}</style>
     </BaseCard>
   );

@@ -19,12 +19,13 @@ const Card = ({
     <BaseCard 
     title={title} 
     titleAlignment= {classes.titleAlignment}
+    cardAlignment={classes.cardAlignement}
   >
       
       {/* Mobile Content */}
       <div 
         className={`${styles.internBox} ${classes.mobile.visibility}`}
-        style={classes.mobile.style}
+        style={classes.mobile.style} 
       >
         <p className={styles.content}>{internContent}</p>
       </div>

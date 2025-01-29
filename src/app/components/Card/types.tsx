@@ -22,6 +22,7 @@ interface ImageSize {
   boxPaddings?: BoxPaddings;
   imageSizeMobile?: ImageSize;
   imageSizeDesktop?: ImageSize;
+  cardAlignment?: string;
  }
  
  // Props pour BaseCard
@@ -29,6 +30,7 @@ interface ImageSize {
   title?: string;
   titleAlignment?: string;
   children?: React.ReactNode;
+  cardAlignment?: string;
 
   
  }

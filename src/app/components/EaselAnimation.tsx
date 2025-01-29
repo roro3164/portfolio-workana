@@ -79,10 +79,10 @@ const EaselAnimation = () => {
       <style jsx>{`
         .easel-animation {
           position: absolute;
-          top: 40%;
-          left: 40%;
+          top: 48%;
+          left: 50%;
           transform: translate(-50%, -60%);
-          width: 180px;
+          width: 250px;
           z-index: 20;
           pointer-events: none;
         }

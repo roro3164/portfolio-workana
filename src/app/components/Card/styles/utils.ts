@@ -3,8 +3,13 @@ import { StyleProps } from '../types';
 // utils.ts
 export const getCardClasses = ({ imageAlign, boxPaddings, imageSizeMobile, imageSizeDesktop }: StyleProps) => {
   return {
+
     // Logique d'alignement pour le titre
     titleAlignment: imageAlign === "right" 
+  ? "mx-auto lg:mr-auto lg:ml-0"
+  : "mx-auto lg:ml-auto lg:mr-0",
+
+  cardAlignement: imageAlign === "right" 
   ? "mx-auto lg:mr-auto lg:ml-0"
   : "mx-auto lg:ml-auto lg:mr-0",
     
@@ -30,7 +35,7 @@ export const getCardClasses = ({ imageAlign, boxPaddings, imageSizeMobile, image
         paddingRight: imageAlign === "right" ? boxPaddings?.desktop?.content : undefined
       },
       imagePosition: `absolute ${
-        imageAlign === "right" ? "right-[-6rem]" : "left-[-6rem]"
+        imageAlign === "right" ? "right-[-8rem]" : "left-[-8rem]"
       }`,
       imageStyle: {
         width: imageSizeDesktop?.width,
