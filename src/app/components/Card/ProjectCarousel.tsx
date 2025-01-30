@@ -1,16 +1,17 @@
 "use client";
 import React, { useState, useEffect, useCallback } from 'react';
 import { Project } from './types';
-import BaseCard from './BaseCard';
+
 import { ProjectCard } from './ProjectCard';
 import styles from './styles/card.module.scss';
 import { getCardClasses } from './styles/utils';
+import { BaseCard } from './BaseCard';
 
 interface ProjectCarouselProps {
   projects: Project[];
 }
 
-const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ projects }) => {
+export const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ projects }) => {
   const classes = getCardClasses({ imageAlign: 'left' });
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -30,7 +31,7 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ projects }) => {
     setTimeout(() => {
       setIsExiting(false);
       setActiveIndex((current) => (current + 1) % projects.length);
-    }, 400);
+    }, 600);
 
     // Deuxième timing : description change
     setTimeout(() => {
@@ -68,11 +69,11 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ projects }) => {
     
     if (isActive) {
       if (isExiting && !isSelected) {
-        transform = 'translate(-250%, -10%) rotate(-12deg)';
+        transform = 'translate(-180%, -10%) rotate(-12deg)';
       } else if (isSelected) {
         transform = 'translate(-120%, -10%) rotate(-12deg) scale(1.1)';
       } else {
-        transform = 'translate(-45%, -8%) rotate(-12deg) scale(1.1)';
+        transform = 'translate(-45%, -8%) rotate(-12deg) scale(0.95) translateZ(0)'; // Position de base modifiée
       }
     } else {
       const offset = diff * 12;
@@ -105,7 +106,7 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ projects }) => {
   };
 
   return (
-    <BaseCard 
+    <BaseCard
     title={
       <div 
         key={currentProject.id} 
@@ -117,7 +118,7 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ projects }) => {
       titleAlignment={classes.titleAlignment}
       cardAlignment={classes.cardAlignement}
     >
-      <div className={`relative w-full flex items-center justify-center ${styles.internBox}`}>
+      <div className={`relative w-full flex items-center justify-center perspective-2000 ${styles.internBox}`}>
         <div className="relative w-48 h-80">
           {projects.map((project, index) => {
             const isActive = index === activeIndex;
@@ -133,7 +134,7 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ projects }) => {
                 onMouseEnter={isActive ? handleMouseEnter : undefined}
                 onMouseLeave={isActive ? handleMouseLeave : undefined}
                 onClick={() => handleCardClick(index)}
-                className="cursor-pointer"
+                className={`cursor-pointer ${isActive ? 'active-card' : ''}`}
               >
                 <ProjectCard
                   imageProject={project.imageProject}
@@ -204,6 +205,58 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ projects }) => {
 .title-fade {
   animation: titleFade 0.3s ease-out forwards;
 }
+.active-card {
+    position: relative;
+    transform-style: preserve-3d;
+  }
+
+  .active-card:hover {
+    animation: bounce3D 4s infinite ease-in-out;
+  }
+
+  @keyframes bounce3D {
+    0%, 100% {
+      transform: translate(-45%, -8%) rotate(-12deg) scale(0.95) translateZ(0);
+    }
+    50% {
+      transform: translate(-45%, -8%) rotate(-12deg) scale(1.15) translateZ(50px);
+    }
+  }
+
+  .active-card > div {
+    position: relative;
+    overflow: hidden;
+  }
+
+  // Gardez l'effet shine existant
+  .active-card > div::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transform: skewX(-15deg);
+    animation: shine 2.5s infinite;
+    z-index: 2;
+    border-radius: inherit;
+  }
+
+  @keyframes shine {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+  
       `}</style>
     </BaseCard>
   );

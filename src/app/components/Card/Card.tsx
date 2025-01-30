@@ -1,8 +1,9 @@
 import { CardProps } from './types';
 import { getCardClasses } from './styles/utils';
-import BaseCard from './BaseCard';
+
 import styles from './styles/card.module.scss';
 import EaselAnimation from '../EaselAnimation';
+import { BaseCard } from './BaseCard';
 
 
 const Card = ({
@@ -16,7 +17,7 @@ const Card = ({
   const classes = getCardClasses({ imageAlign, ...styleProps });
 
   return (
-    <BaseCard 
+    <BaseCard
     title={title} 
     titleAlignment= {classes.titleAlignment}
     cardAlignment={classes.cardAlignement}

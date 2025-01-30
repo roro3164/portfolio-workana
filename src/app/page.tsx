@@ -1,4 +1,4 @@
-import BaseCard from "./components/Card/BaseCard";
+
 import Card from "./components/Card/Card";
 import Header from "./components/Header";
 import SplitScreen from "./components/SplitScreen";
@@ -9,6 +9,7 @@ import { Footer } from "./components/Footer/Footer";
 import ProjectCarousel from "./components/Card/ProjectCarousel";
 import IntenseCursorLight from "./components/IntenseCursorLight";
 import NeonWord from "./components/NeonWord";
+import { BaseCard } from "./components/Card/BaseCard";
 
 const projects = [
   {

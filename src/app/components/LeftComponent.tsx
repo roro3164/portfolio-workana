@@ -1,5 +1,6 @@
 import React from "react";
-import { DesignerAnimation } from "./designerAnimation";
+import { DesignerAnimation } from "./DesignerAnimation";
+
 
 const LeftComponent: React.FC = () => {
   return (
