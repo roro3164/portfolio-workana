@@ -1,0 +1,33 @@
+.left {
+    position: absolute;
+    background-color: #0F0E12;
+    width: 100%;
+    height: 79%; 
+    clip-path: inset(0 50% 0 0);
+    transition: clip-path 1s ease-in-out, z-index 1s ease-in-out;
+    z-index: 1;
+  }
+  
+  .left:hover {
+    clip-path: inset(0 0 0 0);
+    z-index: 2;
+  }
+  
+  .right {
+    position: absolute;
+    background-color: #0F0E12;
+    width: 100%;
+    height: 80%; 
+    clip-path: inset(0 0 0 50%);
+    transition: clip-path 1s ease-in-out, z-index 1s ease-in-out;
+    z-index: 1;
+  }
+  
+  .right:hover {
+    clip-path: inset(0 0 0 0);
+    z-index: 2;
+  }
+
+  .developer {
+    font-family: "Courier New", monospace;
+  }

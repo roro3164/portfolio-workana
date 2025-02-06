@@ -19,7 +19,7 @@ export const getCardClasses = ({ imageAlign, boxPaddings, imageSizeMobile, image
       style: {
         paddingTop: boxPaddings?.mobile?.top
       },
-      imagePosition: "absolute left-1/2 -translate-x-1/2",
+      imagePosition: "absolute ",
       imageStyle: {
         width: imageSizeMobile?.width,
         height: imageSizeMobile?.height,

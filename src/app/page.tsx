@@ -1,7 +1,7 @@
 
 import Card from "./components/Card/Card";
-import Header from "./components/Header";
-import SplitScreen from "./components/SplitScreen";
+import Header from "./components/Header/Header";
+import SplitScreen from "./components/Main/SplitScreen";
 import { ServiceCard } from "./components/Card/ServiceCard";
 import styles from "./components/Card/styles/card.module.scss";
 import { FormCard } from "./components/Card/FormContact";
@@ -10,6 +10,7 @@ import ProjectCarousel from "./components/Card/ProjectCarousel";
 import IntenseCursorLight from "./components/IntenseCursorLight";
 import NeonWord from "./components/NeonWord";
 import { BaseCard } from "./components/Card/BaseCard";
+
 
 const projects = [
   {
@@ -53,19 +54,16 @@ const projects = [
 export default function Home() {
   return (
     <div>
-      <Header></Header>
-      <div
-        className=" right-5 text-right font-mono"
-        style={{ fontFamily: "'Courier New', monospace" }}
-      >
-        <h1 className="text-white text-base sm:text-3xl lg:text-4xl">
-          {"<h1>"}Romain Mornet{"</h1>"}
-        </h1>
-      </div>
+      <Header></Header> 
+      <SplitScreen></SplitScreen>
 
+<<<<<<< Updated upstream
       <SplitScreen />
 
       <section className="flex flex-col gap-20 px-12 ">
+=======
+      <section className=" flex flex-col gap-20 sm:p-12 ">
+>>>>>>> Stashed changes
         <IntenseCursorLight />
         <NeonWord word="React" className="ml-20" />
 
@@ -80,8 +78,8 @@ export default function Home() {
           // Mobile styles
 
           imageSizeMobile={{
-            width: "500px",
-            height: "300px",
+            width: "200px",
+            height: "200px",
           }}
           imageSizeDesktop={{
             width: "500px",
@@ -89,7 +87,7 @@ export default function Home() {
           }}
           boxPaddings={{
             mobile: {
-              top: "50%",
+              top: "300px",
             },
             desktop: {
               content: "400px", // Pour l'espace du côté du contenu en desktop
@@ -107,8 +105,8 @@ export default function Home() {
 
           imageAlign="left"
           imageSizeMobile={{
-            width: "500px",
-            height: "300px",
+            width: "200px",
+            height: "200px",
           }}
           imageSizeDesktop={{
             width: "550px",
@@ -133,8 +131,8 @@ export default function Home() {
           imageSrc="/image/pictures/chevalet.png"
           hasEaselAnimation={true}
           imageSizeMobile={{
-            width: "480px",
-            height: "480px",
+            width: "200px",
+            height: "200px",
           }}
           imageSizeDesktop={{
             width: "500px",
@@ -151,8 +149,13 @@ export default function Home() {
         />
         <NeonWord word="Tailwind" position="mx-auto " />
 
+<<<<<<< Updated upstream
         <ProjectCarousel projects={projects} />
 
+=======
+        <CardProject projects={projects}/>
+        
+>>>>>>> Stashed changes
         <NeonWord word="Typescript" position=" pl-[70%]" />
 
         <BaseCard

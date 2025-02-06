@@ -3,9 +3,36 @@
 @tailwind utilities;
 
 @font-face {
+<<<<<<< Updated upstream:src/app/globals.css
   font-family: 'Playball';
   src: url('/fonts/Playball-Regular.ttf') format('truetype');
   font-weight: normal;
+=======
+  font-family: 'Poppins';
+  src: url('/font/Poppins/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400; /* Regular */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/font/Poppins/Poppins-ExtraLight.ttf') format('truetype');
+  font-weight: 300; 
+  font-style: light;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/font/Plus_Jakarta_Sans/PlusJakartaSans-SemiBold.ttf') format('truetype');
+  font-weight: 600; /* Semi-Bold */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/public/font/Plus_Jakarta_Sans/PlusJakartaSans-ExtraLight.ttf') format('truetype');
+  font-weight: 300; 
+>>>>>>> Stashed changes:src/app/styles/globals.css
   font-style: normal;
 }
 
@@ -16,16 +43,36 @@
   font-style: normal;
 }
 
+<<<<<<< Updated upstream:src/app/globals.css
 @font-face {
   font-family: 'Plus Jakarta Sans';
   src: url('/public/font/Plus_Jakarta_Sans/PlusJakartaSans-SemiBold.ttf') format('truetype');
   font-weight: 600; /* Semi-Bold */
   font-style: normal;
 }
+=======
+
+@font-face {
+  font-family: 'Montserrat A1';
+  src: url('/font/Montserrat_A1/MontserratAlt1-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: light;
+}
+
+
+>>>>>>> Stashed changes:src/app/styles/globals.css
 
 body {
   background-color: #0F0E12;
-  padding: 16px;
+  padding: 2rem;
+
+ 
+}
+
+@media (max-width: 1024px) {
+  body {
+    padding: 1rem;
+  }
 }
 
 @layer utilities {
@@ -57,40 +104,31 @@ body {
    }
  }
 
- .left {
+ .left, .right {
   position: absolute;
-  background-color: #0F0E12;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 79%; 
+  /* On enlève height fixe pour laisser le contenu définir la hauteur */
+  height: auto;
+  transition: clip-path 1s ease-in-out, z-index 1s ease-in-out;
+  background-color: #0F0E12;
+}
+
+.left {
   clip-path: inset(0 50% 0 0);
-  transition: clip-path 1s ease-in-out, z-index 1s ease-in-out;
   z-index: 1;
-  
 }
 
-.left:hover {
-  clip-path: inset(0 0 0 0);
-  z-index: 2;
-  
-}
-
-/* right */
 .right {
-  position: absolute;
-  background-color: #0F0E12;
-  width: 100%;
-  height: 80%; 
   clip-path: inset(0 0 0 50%);
-  transition: clip-path 1s ease-in-out, z-index 1s ease-in-out;
-  z-index: 1
+  z-index: 1;
 }
 
-.right:hover {
+.left:hover, .right:hover {
   clip-path: inset(0 0 0 0);
   z-index: 2;
-  
 }
-
 /*card*/
 
 .neonWordBody {

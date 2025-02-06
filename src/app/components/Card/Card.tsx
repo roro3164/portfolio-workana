@@ -44,8 +44,13 @@ const Card = ({
         className={`${classes.mobile.imagePosition} ${classes.mobile.visibility}`}
         style={classes.mobile.imageStyle}
       >
+<<<<<<< Updated upstream
         <img src={imageSrc} alt="Card decoration" className="w-full h-full object-contain" />
         {hasEaselAnimation && <EaselAnimation />}
+=======
+        <img src={imageSrc} alt="Card decoration" className="w-full h-full object-contain " />
+        {hasEaselAnimation && <EaselAnimation />} 
+>>>>>>> Stashed changes
       </div>
 
       {/* Desktop Image */}

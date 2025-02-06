@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -16,7 +17,8 @@ export default {
       fontFamily: {
         playball: ['Playball', 'cursive'],
         mono: ['"Courier New"', 'Courier', 'monospace'],
-        jakarta: ['Plus Jakarta Sans', 'sans-serif']
+        jakarta: ['Plus Jakarta Sans', 'sans-serif'],
+        montserrat: ['Montserrat A1', 'sans-serif']
       },
       screens: {
         'xs': '480px', 
