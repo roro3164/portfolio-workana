@@ -1,10 +1,8 @@
 import { CardProps } from './types';
 import { getCardClasses } from './styles/utils';
-
 import styles from './styles/card.module.scss';
 import EaselAnimation from '../EaselAnimation';
-import { BaseCard } from './BaseCard';
-
+import BaseCard from './BaseCard';
 
 const Card = ({
   title,
@@ -18,21 +16,20 @@ const Card = ({
 
   return (
     <BaseCard
-    title={title} 
-    titleAlignment= {classes.titleAlignment}
-    cardAlignment={classes.cardAlignement}
-  >
-      
+      title={title}
+      titleAlignment={classes.titleAlignment}
+      cardAlignment={classes.cardAlignement}
+    >
       {/* Mobile Content */}
-      <div 
+      <div
         className={`${styles.internBox} ${classes.mobile.visibility}`}
-        style={classes.mobile.style} 
+        style={classes.mobile.style}
       >
         <p className={styles.content}>{internContent}</p>
       </div>
 
       {/* Desktop Content */}
-      <div 
+      <div
         className={`${styles.internBox} ${classes.desktop.visibility}`}
         style={classes.desktop.style}
       >
@@ -40,28 +37,24 @@ const Card = ({
       </div>
 
       {/* Mobile Image */}
-      <div 
+      <div
         className={`${classes.mobile.imagePosition} ${classes.mobile.visibility}`}
         style={classes.mobile.imageStyle}
       >
-<<<<<<< Updated upstream
-        <img src={imageSrc} alt="Card decoration" className="w-full h-full object-contain" />
+        <img src={imageSrc} alt="Card decoration" className="w-full h-full object-contain hover:scale-110 transition-transform duration-300" />
         {hasEaselAnimation && <EaselAnimation />}
-=======
-        <img src={imageSrc} alt="Card decoration" className="w-full h-full object-contain " />
-        {hasEaselAnimation && <EaselAnimation />} 
->>>>>>> Stashed changes
       </div>
 
       {/* Desktop Image */}
-      <div 
+      <div
         className={`${classes.desktop.imagePosition} ${classes.desktop.visibility}`}
         style={classes.desktop.imageStyle}
       >
-        <img src={imageSrc} alt="Card decoration" className="w-full h-full object-contain" />
+        <img src={imageSrc} alt="Card decoration" className="w-full h-full object-contain hover:scale-110 transition-transform duration-300" />
         {hasEaselAnimation && <EaselAnimation />}
       </div>
     </BaseCard>
   );
 };
+
 export default Card;

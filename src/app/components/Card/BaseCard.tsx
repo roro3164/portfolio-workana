@@ -54,3 +54,5 @@ export const BaseCard = ({
     </motion.div>
   </motion.div>
 );
+
+export default BaseCard;

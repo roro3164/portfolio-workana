@@ -1,0 +1,247 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Playball';
+  src: url('/fonts/Playball-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-family: 'Poppins';
+  src: url('/font/Poppins/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400; /* Regular */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/font/Poppins/Poppins-ExtraLight.ttf') format('truetype');
+  font-weight: 300; 
+  font-style: light;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/font/Plus_Jakarta_Sans/PlusJakartaSans-ExtraLight.ttf') format('truetype');
+  font-weight: 300; 
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/font/Plus_Jakarta_Sans/PlusJakartaSans-SemiBold.ttf') format('truetype');
+  font-weight: 600; /* Semi-Bold */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/font/Plus_Jakarta_Sans/PlusJakartaSans-Bold.ttf') format('truetype');
+  font-weight: 700; /* Bold */
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/public/font/Poppins/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400; /* Regular */
+  font-style: normal;
+}
+
+
+
+@font-face {
+  font-family: 'Montserrat A1';
+  src: url('/font/Montserrat_A1/MontserratAlt1-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: light;
+}
+
+
+
+body {
+  background-color: #0F0E12;
+  padding: 2rem;
+
+ 
+}
+
+@media (max-width: 1024px) {
+  body {
+    padding: 1rem;
+  }
+}
+
+@layer utilities {
+  .neon-word {
+    @apply text-xs sm:text-lg md:text-xl lg:text-2xl xl:text-3xl transition-all duration-1000 ease-in-out;
+    font-family: "Courier New", monospace;
+
+     /* Couleur principale : dégradé violet-bleu */
+     background: linear-gradient(to bottom, #e0e0ff, #4b0082, #1e90ff);
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+ 
+     /* Lueur néon amplifiée */
+     text-shadow:
+       0 0 15px #4b0082,    /* Première couche violet foncé */
+       0 0 25px #1e90ff,    /* Deuxième couche bleu électrique */
+       0 0 35px #6a5acd,    /* Troisième couche bleu-violet lumineux */
+       0 0 45px #4b0082,    /* Quatrième couche violet intense */
+       0 0 60px #1e90ff,    /* Cinquième couche bleu vif */
+       0 0 80px #6a5acd,    /* Dernière couche pour diffusion maximale */
+       0 0 100px #1e90ff;   /* Effet supplémentaire lointain */
+   }
+ 
+   .dimmed {
+     opacity: 0.3;
+     text-shadow:
+       0 0 10px #2c2c54, /* Violet sombre pour l'effet atténué */
+       0 0 15px #3b3b98;
+   }
+ }
+
+ .left, .right {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* On enlève height fixe pour laisser le contenu définir la hauteur */
+  height: auto;
+  transition: clip-path 1s ease-in-out, z-index 1s ease-in-out;
+  background-color: #0F0E12;
+}
+
+.left {
+  clip-path: inset(0 50% 0 0);
+  z-index: 1;
+}
+
+.right {
+  clip-path: inset(0 0 0 50%);
+  z-index: 1;
+}
+
+.left:hover, .right:hover {
+  clip-path: inset(0 0 0 0);
+  z-index: 2;
+}
+/*card*/
+
+.neonWordBody {
+  color: white;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.glow-button {
+  --glow-color: rgb(217, 176, 255);
+  --glow-spread-color: rgba(191, 123, 255, 0.781);
+  --enhanced-glow-color: rgb(231, 206, 255);
+  --btn-color: rgb(100, 61, 136);
+  border: .25em solid var(--glow-color);
+  padding: 1em 3em;
+  color: var(--glow-color);
+  font-size: 15px;
+  font-weight: bold;
+  background-color: var(--btn-color);
+  border-radius: 1em;
+  outline: none;
+  box-shadow: 0 0 1em .25em var(--glow-color),
+         0 0 4em 1em var(--glow-spread-color),
+         inset 0 0 .75em .25em var(--glow-color);
+  text-shadow: 0 0 .5em var(--glow-color);
+  position: relative;
+  transition: all 0.3s;
+}
+
+.glow-button::after {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  top: 120%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--glow-spread-color);
+  filter: blur(2em);
+  opacity: .7;
+  transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
+}
+
+.glow-button:hover {
+  color: var(--btn-color);
+  background-color: var(--glow-color);
+  box-shadow: 0 0 1em .25em var(--glow-color),
+         0 0 4em 2em var(--glow-spread-color),
+         inset 0 0 .75em .25em var(--glow-color);
+}
+
+.glow-button:active {
+  box-shadow: 0 0 0.6em .25em var(--glow-color),
+         0 0 2.5em 2em var(--glow-spread-color),
+         inset 0 0 .5em .25em var(--glow-color);
+}

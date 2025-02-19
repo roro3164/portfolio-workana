@@ -1,33 +1,178 @@
+/* Styles pour la disposition des sections gauche et droite */
+.left, .right {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto; /* Laisse le contenu définir la hauteur */
+  transition: clip-path 10s ease-in-out, z-index 10s ease-in-out;
+  background-color: #0F0E12;
+}
+
 .left {
+  clip-path: inset(0 50% 0 0);
+  z-index: 1;
+}
+
+.right {
+  clip-path: inset(0 0 0 50%);
+  z-index: 1;
+  
+}
+
+/* 🟢 Effet d'expansion sur hover */
+.left:hover {
+  clip-path: inset(0 0 0 0);
+  z-index: 2;
+}
+
+.right:hover {
+  clip-path: inset(0 0 0 0);
+  z-index: 2;
+}
+
+/* 🔥 Barre laser entre les deux sections */
+.laser {
+  position: absolute;
+  left: 50%; /* Position initiale : Milieu */
+  top: 0;
+  background-color: purple;
+  width: 5px;
+  height: 100vh;
+  z-index: 3;
+  transition: left 1s ease-in-out; /* Synchronisé avec clip-path */
+}
+
+.left:hover ~ .laser {
+  left: 100%; /* Déplace la barre à droite quand la gauche s'agrandit */
+  transform: translateX(-50%);
+}
+
+.right:hover ~ .laser {
+  left: 0%; /* Déplace la barre à gauche quand la droite s'agrandit */
+  transform: translateX(0%);
+}
+
+.contact_btn {
+  position: absolute;
+  bottom: 23%;
+  left: 5%;
+  border: 2px solid transparent;
+  width: 15em; /* Plus compact, environ 192px */
+  height: 3.5em; /* Plus compact, environ 48px */
+  border: #4B0082 solid 3px; /* Bordure légèrement plus fine */
+  border-radius: 12px; /* Border radius moderne */
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #d6d1d1 100%
+  );
+  cursor: pointer;
+  transition: all 450ms ease-in-out;
+  padding: 0 1.2em;
+  overflow: hidden;
+
+  &::before {
+    content: '';
     position: absolute;
-    background-color: #0F0E12;
-    width: 100%;
-    height: 79%; 
-    clip-path: inset(0 50% 0 0);
-    transition: clip-path 1s ease-in-out, z-index 1s ease-in-out;
-    z-index: 1;
-  }
-  
-  .left:hover {
-    clip-path: inset(0 0 0 0);
-    z-index: 2;
-  }
-  
-  .right {
-    position: absolute;
-    background-color: #0F0E12;
-    width: 100%;
-    height: 80%; 
-    clip-path: inset(0 0 0 50%);
-    transition: clip-path 1s ease-in-out, z-index 1s ease-in-out;
-    z-index: 1;
-  }
-  
-  .right:hover {
-    clip-path: inset(0 0 0 0);
-    z-index: 2;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    transform: translateX(-100%) rotate(45deg);
+    animation: none;
   }
 
-  .developer {
-    font-family: "Courier New", monospace;
+  &:hover::before {
+    animation: shine 1.5s infinite;
   }
+
+  .text {
+    font-weight: 700;
+    font-family: 'Plus Jakarta Sans';
+    color: #4B0082;
+    font-size: 24px;
+    z-index: 1;
+  }
+
+  .mail_icon {
+    width: 30px;
+    height: 24px;
+    transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+    transform-origin: center;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  &:hover {
+    background: linear-gradient(0deg, #4B0082, #2B0047);
+    border: 2px solid white;
+    box-shadow: 
+      inset 0px 1px 0px 0px rgba(255, 255, 255, 0.2),
+      inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
+      inset 0px 2px 5px rgba(0, 0, 0, 0.5),
+      0px 0px 0px 2px rgba(255, 255, 255, 0.1),
+      0px 0px 80px 0px rgba(153, 23, 255, 0.3);
+    transform: translateY(-2px);
+
+    .text {
+      color: white;
+    }
+
+    .mail_icon {
+      filter: brightness(0) invert(1);
+      animation: wiggle 0.5s ease-in-out infinite;
+      transform-origin: center;
+    }
+  }
+
+  &:active {
+    transform: scale(0.95) translateY(-2px);
+    animation: bounce 0.3s ease-in-out;
+    box-shadow: 
+      inset 0px 2px 8px rgba(0, 0, 0, 0.6),
+      inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
+      0px 0px 0px 2px rgba(255, 255, 255, 0.1),
+      0px 0px 80px 0px rgba(153, 23, 255, 0.3);
+  }
+}
+
+@keyframes bounce {
+  0% { transform: scale(0.95) translateY(-2px); }
+  50% { transform: scale(0.97) translateY(-1px); }
+  100% { transform: scale(0.95) translateY(-2px); }
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(45deg);
+  }
+}
+
+@keyframes wiggle {
+  0% { transform: rotate(-10deg); }
+  50% { transform: rotate(10deg); }
+  100% { transform: rotate(-10deg); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-2px); }
+  100% { transform: translateY(0px); }
+}

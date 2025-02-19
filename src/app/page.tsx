@@ -6,10 +6,12 @@ import { ServiceCard } from "./components/Card/ServiceCard";
 import styles from "./components/Card/styles/card.module.scss";
 import { FormCard } from "./components/Card/FormContact";
 import { Footer } from "./components/Footer/Footer";
-import ProjectCarousel from "./components/Card/ProjectCarousel";
+
 import IntenseCursorLight from "./components/IntenseCursorLight";
 import NeonWord from "./components/NeonWord";
-import { BaseCard } from "./components/Card/BaseCard";
+import BaseCard from "./components/Card/BaseCard";
+import { CardProject } from "./components/Card/CarouselCard";
+
 
 
 const projects = [
@@ -57,13 +59,10 @@ export default function Home() {
       <Header></Header> 
       <SplitScreen></SplitScreen>
 
-<<<<<<< Updated upstream
-      <SplitScreen />
-
-      <section className="flex flex-col gap-20 px-12 ">
-=======
+     
+{/* 
+      <section className="flex flex-col gap-20 px-12 "> */}
       <section className=" flex flex-col gap-20 sm:p-12 ">
->>>>>>> Stashed changes
         <IntenseCursorLight />
         <NeonWord word="React" className="ml-20" />
 
@@ -136,7 +135,7 @@ export default function Home() {
           }}
           imageSizeDesktop={{
             width: "500px",
-            height: "650px",
+            height: "580px",
           }}
           boxPaddings={{
             mobile: {
@@ -149,13 +148,8 @@ export default function Home() {
         />
         <NeonWord word="Tailwind" position="mx-auto " />
 
-<<<<<<< Updated upstream
-        <ProjectCarousel projects={projects} />
-
-=======
-        <CardProject projects={projects}/>
+        <CardProject projects={projects} />
         
->>>>>>> Stashed changes
         <NeonWord word="Typescript" position=" pl-[70%]" />
 
         <BaseCard
@@ -187,6 +181,8 @@ export default function Home() {
                 ]}
               />
 
+           
+
               <ServiceCard
                 title="Complete Website"
                 description="I offer turnkey solutions, from design to deployment."
@@ -209,7 +205,7 @@ export default function Home() {
           <FormCard></FormCard>
         </BaseCard>
       </section>
-
+      
       <Footer></Footer>
     </div>
   );
