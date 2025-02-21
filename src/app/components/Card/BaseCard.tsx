@@ -10,25 +10,12 @@ export const BaseCard = ({
   titleAlignment = "",
   cardAlignment = "",
 }: BaseCardProps) => (
-  <motion.div
-    className={`${styles.cardContainer} ${cardAlignment}`}
-    initial={{ opacity: 0, scale: 0.95 }}
-    whileInView={{
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    }}
-    viewport={{ once: true }}
-  >
-    <motion.div
-      className={styles.background}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-    >
+  <div className={`${styles.cardContainer} ${cardAlignment}`}>
+    <div className={styles.hiddenContainer}>
+      <div className={styles.animationContainer}></div>
+    </div>
+    
+    <div className={styles.background}>
       <motion.div
         className={styles.glass}
         initial={{ opacity: 0 }}
@@ -51,8 +38,8 @@ export const BaseCard = ({
           {children}
         </motion.div>
       </motion.div>
-    </motion.div>
-  </motion.div>
+    </div>
+  </div>
 );
 
 export default BaseCard;

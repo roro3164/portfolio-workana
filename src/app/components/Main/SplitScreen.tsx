@@ -1,11 +1,13 @@
 "use client";
+import { useState } from 'react';
 import ContactButton from "./ContactButton";
 import { DesignerAnimation } from "./DesignerAnimation";
 import LeftComponent from "./LeftComponent";
 import RightComponent from "./RightComponent";
-import styles from "./main.module.scss"; 
 
 const SplitScreen: React.FC = () => {
+  const [activeZone, setActiveZone] = useState<'left' | 'right' | null>(null);
+
   return (
     <div className="relative w-full">
       {/* Conteneur invisible pour définir la hauteur */}
@@ -13,23 +15,100 @@ const SplitScreen: React.FC = () => {
         <LeftComponent />
       </div>
 
-      {/* Section gauche */}
-      <div className={styles.left}>
-        <DesignerAnimation />
-        <LeftComponent />
-        <ContactButton />
-   
+      {/* Section gauche en fond */}
+      <div className="absolute inset-0 bg-[#0F0E12]" style={{ zIndex: 1 }}>
+        <div className="relative">
+          <DesignerAnimation />
+          <LeftComponent />
+        </div>
       </div>
 
- 
-
-      {/* Section droite */}
-      <div className={styles.right}>
+      {/* Section droite avec clip-path */}
+      <div 
+        className="absolute inset-0 bg-[#0F0E12] transition-all duration-700"
+        style={{
+          clipPath: activeZone === 'left'
+            ? 'inset(0 0 0 100%)'
+            : activeZone === 'right'
+              ? 'inset(0 0 0 0)'
+              : 'inset(0 0 0 50%)',
+          zIndex: activeZone === 'right' ? 5 : 2
+        }}
+      >
         <RightComponent />
       </div>
 
-      {/* Effet de gradient en bas */}
-      <div className="absolute bottom-16 -left-8 -right-8 h-12 bg-gradient-to-t from-[#0F0E12] via-[#0F0E12]/70 to-transparent z-10"></div>
+      {/* Barre verticale avec effet laser */}
+      <div 
+        className="absolute top-0 bottom-0 transition-all mt-5 duration-700 md:h-[560px]"
+        style={{
+          left: activeZone === 'left' ? '100%' : 
+                activeZone === 'right' ? '0' : '50%',
+          transform: 'translateX(-50%)',
+          zIndex: 6,
+          width: '2px',
+          backgroundColor: '#6a5acd',
+          boxShadow: `
+            0 0 10px #4b0082,
+            0 0 20px #1e90ff,
+            0 0 30px #6a5acd,
+            0 0 40px #4b0082,
+            0 0 50px #1e90ff,
+            0 0 70px #6a5acd
+          `,
+        }}
+      >
+
+        {/* Effet laser qui monte et descend */}
+        <div 
+          className="absolute w-full"
+          style={{
+            height: '25%', // Utilisation d'une valeur relative
+            background: 'linear-gradient(180deg, transparent,#6a5acd, #ffffff, #6a5acd, transparent)',
+            boxShadow: '0 0 20px #bc13fe',
+            animation: 'laserMove 4s linear infinite',
+            opacity: 0.8
+          }}
+        />
+      </div>
+
+      {/* Styles pour les animations */}
+      <style jsx>{`
+        @keyframes laserMove {
+          0% {
+            top: 0;
+          }
+          50% {
+            top: 75%; /* Utilisation d'une valeur relative */
+          }
+          100% {
+            top: 0;
+          }
+        }
+      `}</style>
+
+      {/* Zones de hover */}
+      <div 
+        className="absolute top-0 bottom-0 w-1/2 left-0 cursor-pointer"
+        style={{ zIndex: 7 }}
+        onMouseEnter={() => setActiveZone('left')}
+        onMouseLeave={() => setActiveZone(null)}
+      />
+      <div 
+        className="absolute top-0 bottom-0 w-1/2 right-0 cursor-pointer"
+        style={{ zIndex: 7 }}
+        onMouseEnter={() => setActiveZone('right')}
+        onMouseLeave={() => setActiveZone(null)}
+      />
+
+      {/* Contact Button avec z-index élevé */}
+      <div className="absolute" style={{ zIndex: 20, bottom: '23%', left: '0%' }}>
+        <ContactButton />
+      </div>
+
+      {/* Effet de gradient */}
+      
+      <div className="absolute bottom-0 md:bottom-16 -left-8 -right-8 h-12 bg-gradient-to-t from-[#0F0E12] via-[#0F0E12]/70 to-transparent z-10" />
     </div>
   );
 };

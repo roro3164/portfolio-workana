@@ -56,15 +56,17 @@ const projects = [
 export default function Home() {
   return (
     <div>
-      <Header></Header> 
+      <div className="mb-6">
+        <Header></Header> 
+      </div>
+      
       <SplitScreen></SplitScreen>
 
      
 {/* 
       <section className="flex flex-col gap-20 px-12 "> */}
-      <section className=" flex flex-col gap-20 sm:p-12 ">
+      <section className=" flex flex-col mt-5 sm:mt-0 gap-5 sm:gap-20 sm:p-12 ">
         <IntenseCursorLight />
-        <NeonWord word="React" className="ml-20" />
 
         <Card
           title="About Me"
@@ -206,7 +208,8 @@ export default function Home() {
         </BaseCard>
       </section>
       
-      <Footer></Footer>
+        <Footer></Footer>
+     
     </div>
   );
 }

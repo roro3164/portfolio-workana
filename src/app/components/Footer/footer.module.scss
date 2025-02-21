@@ -1,40 +1,100 @@
-
-
 .footer {
-    @apply text-white mt-20 p-4 rounded-lg ;
-    color: #fff;
-    background: linear-gradient(#fff3, transparent);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
+  @apply text-white mt-20 p-4 rounded-lg;
+  color: #fff;
+  background: linear-gradient(#fff3, transparent);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
+  transition: transform 0.6s ease-in-out, filter 0.3s ease-in-out;
+  &:hover {
+    border: 2px solid rgba(106, 90, 205, 0.3);
   }
-  .container {
-  @apply flex flex-col  lg:flex-row lg:justify-between items-center gap-y-10 ; 
-  }
+}
+
+.container {
+  @apply flex flex-col lg:flex-row lg:justify-between items-center gap-y-10;
   
-  .email>a {
-    @apply flex flex-col items-center gap-y-2;
-  }
+}
 
-  .section {
-    @apply rounded-lg p-4;
-    background-color: rgba(7, 0, 0, 0.35);
-    border: 1.5px solid rgba(255, 255, 255, 0.15);
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);
-  }
-  .section>ul {
-    @apply flex flex-col  lg:flex-row lg:gap-x-10 items-center gap-y-2;
-  }
 
+
+.email>a {
+  @apply flex flex-col items-center gap-y-2;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
   
-  .socialNetwork > ul {
-    @apply flex gap-x-5;  
+  &:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.8));
   }
+}
 
+.sectionNav {
+  @apply rounded-lg p-4;
+  background-color: rgba(7, 0, 0, 0.35);
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);
+  
+}
+
+.sectionNav>ul {
+  @apply flex flex-col lg:flex-row lg:gap-x-10 items-center gap-y-2;
+}
+
+.sectionNav>ul>li {
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+   
+  &:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.8));
+  }
+}
+
+
+.socialNetwork > ul {
+  @apply flex gap-x-5;
+  
+}
+
+.socialNetwork > ul > li {
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 30px rgba(139, 92, 246, 0.8));
+  }  
+}
+
+.socialNetwork > ul > li > a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
  
-  .icon {
-    @apply w-16;
-  }
+}
 
- .footerBottom>p {
-    @apply text-center mt-6;
- }  
+.socialNetwork > ul > li:hover .iconHover {
+  visibility: visible;
+  transition: visibility 0.3s ease;
+  filter: drop-shadow(0 0 30px rgba(139, 92, 246, 0.7));
+ 
+  
+
+}
+
+
+.icon {
+  @apply w-16;
+  
+  
+}
+
+.iconHover {
+  @apply w-10;
+  visibility: hidden;
+}
+
+.iconHover:hover {
+  display: block;
+}
+
+.footerBottom>p {
+  @apply text-center mt-6;
+}

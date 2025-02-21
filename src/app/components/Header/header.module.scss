@@ -1,54 +1,112 @@
 .gradientText {
+  font-size: 24px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: white;  
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  font-family: 'Montserrat A1';
+  
+  /* Responsive font size */
+  @media (min-width: 640px) {
+    font-size: 36px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 42px;
+  }
+}
 
-   font-size: 50px;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: white;  
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-    font-family: 'Montserrat A1';
-   }
+.violetDev {
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: #6a5acd;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  -webkit-text-stroke: 0.2px white;
+}
 
-   .violetDev {
-   
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: rgb(66, 7, 148);
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-    -webkit-text-stroke: 0.4px white;
-   }
+.navLink {
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  
+  font-size: 1rem;
+  
+  @media (min-width: 1200px) {
+    font-size: 1.5rem;
+  }
+}
 
-   .navLink {
-      text-decoration: none;
-      color: white;
-      transition: all 0.3s ease-in-out;
-    }
+.navLink:hover {
+  text-shadow: 
+    0 0 20px #8a2be2, 
+    0 0 40px #9400d3, 
+    0 0 60px #6a5acd, 
+    0 0 80px #4b0082;
+  animation: neonPulse 1.5s infinite alternate;
+  transform: scale(1.1);
+}
+
+/* Mobile menu styles */
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(15, 14, 18, 0.98);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 40;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.mobileMenu.open {
+  transform: translateX(0);
+}
+
+.mobileNavLink {
+  color: white;
+  font-size: 1.5rem;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #6a5acd;
+    transition: width 0.3s ease;
+  }
+  
+  &:hover {
+    color: #6a5acd;
     
-    .navLink:hover {
-      text-shadow: 
-        0 0 15px #6a5acd, 
-        0 0 25px #4b0082, 
-        0 0 35px #1e90ff, 
-        0 0 45px #6a5acd, 
-        0 0 60px #4b0082, 
-        0 0 80px #1e90ff, 
-        0 0 100px #6a5acd;
-      animation: neonBlink 1.5s infinite alternate;
-      transform: scale(1.1);
+    &::after {
+      width: 100%;
     }
-    
-    @keyframes neonBlink {
-      0% {
-        opacity: 1;
-        text-shadow: 
-          0 0 20px #6a5acd, 
-          0 0 30px #4b0082, 
-          0 0 40px #1e90ff;
-      }
-      100% {
-        opacity: 0.8;
-        text-shadow: 
-          0 0 30px #6a5acd, 
-          0 0 40px #4b0082, 
-          0 0 50px #1e90ff;
-      }
-    }
+  }
+}
+
+@keyframes neonPulse {
+  0% {
+    text-shadow: 
+      0 0 15px #8a2be2, 
+      0 0 30px #9400d3, 
+      0 0 45px #6a5acd, 
+      0 0 60px #4b0082;
+  }
+  100% {
+    text-shadow: 
+      0 0 25px #8a2be2, 
+      0 0 50px #9400d3, 
+      0 0 70px #6a5acd, 
+      0 0 90px #4b0082;
+  }
+}

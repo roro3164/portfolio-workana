@@ -1,56 +1,111 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const WORDS = ["Designer", "ui/ux"];
 
 export const DesignerAnimation = () => {
   const [currentWord, setCurrentWord] = useState(0);
   const [currentLetterIndex, setCurrentLetterIndex] = useState(-1);
-  const letterWidth = 15;
+  const [windowWidth, setWindowWidth] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
 
+  // Calcul des dimensions responsive ajusté
+  const getResponsiveValues = () => {
+    // Mobile (moins de 640px)
+    if (windowWidth < 640) {
+      return {
+        letterWidth: 12,
+        wordSpacing: 30,
+        brushSize: { width: 100, height: 160 },
+        brushOffset: { x: -50, y: -12 },
+        containerMaxWidth: 250,
+        fontSize: 22
+      };
+    }
+    // Tablette (640px à 1024px)
+    else if (windowWidth < 1024) {
+      return {
+        letterWidth: 16,
+        wordSpacing: 50,
+        brushSize: { width: 150, height: 250 },
+        brushOffset: { x: -75, y: -18 },
+        containerMaxWidth: 350,
+        fontSize: 36
+      };
+    }
+    // Desktop (plus de 1024px)
+    else {
+      return {
+        letterWidth: 20,
+        wordSpacing: 70,
+        brushSize: { width: 200, height: 320 },
+        brushOffset: { x: -100, y: -25 },
+        containerMaxWidth: 450,
+        fontSize: 48
+      };
+    }
+  };
+
+  // Effet pour mesurer la largeur de la fenêtre
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    
+    // Initialiser la largeur au chargement
+    handleResize();
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Animation pour taper le texte
   useEffect(() => {
     if (currentLetterIndex < WORDS[currentWord].length) {
       const timer = setTimeout(() => {
         setCurrentLetterIndex((prev) => prev + 1);
-      }, 300); // Changé de 200 à 400 pour ralentir l'animation
+      }, 300);
       return () => clearTimeout(timer);
     } else if (currentWord < WORDS.length - 1) {
-      // Continue au prochain mot seulement si ce n'est pas le dernier
       const nextWordTimer = setTimeout(() => {
         setCurrentWord((prev) => prev + 1);
         setCurrentLetterIndex(-1);
       }, 1000);
       return () => clearTimeout(nextWordTimer);
     }
-    // Supprimé le else qui réinitialisait à 0
   }, [currentLetterIndex, currentWord]);
 
+  const { letterWidth, wordSpacing, brushSize, brushOffset, containerMaxWidth, fontSize } = getResponsiveValues();
+
   return (
-    <div className="easel-animation z-10">
+    <div 
+      className="easel-animation z-10" 
+      ref={containerRef} 
+      style={{ maxWidth: `${containerMaxWidth}px` }}
+    >
       <div className="writing-area">
         {WORDS.map((word, wordIndex) => (
           <div
             key={word}
             className="word-container"
             style={{
-              top: `${wordIndex * (window.innerWidth < 640 ? 15 : 55)}px`,
+              top: `${wordIndex * wordSpacing}px`,
               opacity: wordIndex <= currentWord ? 1 : 0,
             }}
           >
             {word.split("").map((char, charIndex) => (
               <span
                 key={charIndex}
-                className={`letter ${
-                  char === " " ? "space" : ""
-                } text-white text-sm sm:text-base lg:text-5xl`}
+                className="letter"
                 style={{
+                  fontSize: `${fontSize}px`,
                   opacity:
                     wordIndex < currentWord ||
                     (wordIndex === currentWord &&
                       charIndex <= currentLetterIndex)
                       ? 1
                       : 0,
-                  ...(char === " " && { marginRight: "0.5rem" }), // Ajoute un espace pour les espaces
+                  ...(char === " " && { marginRight: "0.5rem" }),
                 }}
               >
                 {char}
@@ -66,9 +121,11 @@ export const DesignerAnimation = () => {
           alt="Brush"
           className="brush"
           style={{
-            left: `${(currentLetterIndex + 1) * letterWidth - 90}px`,
-            top: `${currentWord * 45 - 20}px`,
+            left: `${(currentLetterIndex + 1) * letterWidth + brushOffset.x}px`,
+            top: `${currentWord * wordSpacing + brushOffset.y}px`,
             opacity: currentLetterIndex < WORDS[currentWord].length ? 1 : 0,
+            width: `${brushSize.width}px`,
+            height: `${brushSize.height}px`,
           }}
         />
       )}
@@ -76,18 +133,27 @@ export const DesignerAnimation = () => {
       <style jsx>{`
         .easel-animation {
           position: absolute;
-          top: 0%;
-          left: 6%;
-          transform: none; /* Enlève le transform qui affectait le positionnement */
-          width: 250px;
+          top: 0;
+          left: 0;
+          width: 100%;
           z-index: 20;
           pointer-events: none;
+          padding-left: 0; /* Supprimé le padding-left de 6% */
 
           .writing-area {
             position: relative;
             width: 100%;
-            height: 200px;
-            padding: 0.5rem;
+            height: auto;
+            min-height: 120px;
+            padding-left: 2px; /* Très petit padding pour éviter de coller au bord */
+            
+            @media (min-width: 640px) {
+              min-height: 180px;
+            }
+            
+            @media (min-width: 1024px) {
+              min-height: 220px;
+            }
           }
 
           .word-container {
@@ -100,23 +166,16 @@ export const DesignerAnimation = () => {
 
           .letter {
             font-family: "Brush Script MT", cursive;
-
+            color: white;
             text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
             display: inline-block;
             transition: opacity 0.2s;
           }
 
-          .space {
-            margin-right: 0.5rem;
-          }
-
           .brush {
             position: absolute;
-            width: 180px;
-            height: 300px;
             object-fit: contain;
             z-index: 2;
-            transform: rotate(-15deg);
             transition: all 0.2s ease-out;
             animation: paintStroke 0.4s ease-in-out infinite;
           }

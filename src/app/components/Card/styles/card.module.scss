@@ -4,6 +4,7 @@
   padding: 3px;
   width: 95%;
   position: relative;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 
   &:hover {
     .animationContainer {
@@ -11,10 +12,11 @@
     }
     
     filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.5));
+    transform: scale(1.05);
   }
 }
 
-
+//hover animation
 .hiddenContainer {
   position: absolute; 
   border-radius: 10px;
@@ -35,8 +37,8 @@
   background: conic-gradient(
     transparent 0deg,
     transparent 30deg,
-    #8b5cf6 60deg,
-    #8b5cf6 120deg,
+    #6a5acd 60deg,
+    rgb(106, 90, 205) 120deg,
     transparent 150deg,
     transparent 360deg
   );
@@ -66,23 +68,10 @@
  
   background-color: #1A181E;
   border: 1px solid rgba(255, 255, 255, 0.25);
-
-  
-  
   
 }
 
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
 
-@keyframes pulse {
-  from { opacity: 0.4; }
-  to { opacity: 0.7; }
-}
-
- 
   
   @mixin glass-base {
     @apply rounded-lg;
@@ -101,7 +90,7 @@
     @apply w-fit mb-8  text-white text-2xl font-jakarta font-semibold py-1 px-8 ; 
     box-shadow: 2.19px 2.19px 2.19px rgba(0, 0, 0, 0.25),
                 inset -1.09px 2.19px 3.82px rgba(255, 255, 255, 0.2);
-    background: linear-gradient(180deg, rgba(89, 64, 211, 0.1) 0%, rgba(46, 33, 109, 0.1) 100%);
+    background: linear-gradient(180deg, rgba(106, 90, 205, 0.1) 0%, rgba(46, 33, 109, 0.1) 100%); 
   }
   .titleBox {
     @include titleBoxBase;  
@@ -130,11 +119,19 @@
 
 .containerCard {
   @apply flex flex-col items-center gap-10 xl:flex-row lg:justify-center;
+  
+
+ 
 }
 
 .glassCardService {
   @include glass-base;
   @apply h-[500px] w-[30%] min-w-[316px] rounded-2xl ;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+
+  &:hover {
+    transform: scale(1.05);
+  }
  }
 
 
