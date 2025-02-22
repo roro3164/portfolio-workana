@@ -8,7 +8,7 @@ const LeftComponent: React.FC = () => {
       <div 
         className="w-full h-[90%] bg-center xl:bg-top bg-cover bg-no-repeat"
         style={{
-          backgroundImage: "url('/image/pictures/bgDesign.png')",
+          backgroundImage: "url('image/pictures/bgDesign0.png')",
          
         }}
       >
