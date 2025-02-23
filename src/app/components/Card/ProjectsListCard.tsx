@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ProjectCard } from './ProjectCard';
+import { ProjectCard } from './Carousel/ProjectCard';
 import { ProjectsListCardProps } from './types';
 
 export const ProjectsListCard: React.FC<ProjectsListCardProps> = ({ projects }) => {

@@ -1,5 +1,5 @@
 import { Project } from "./types";
-import styles from './styles/card.module.scss';
+import styles from './Carousel.module.scss';
 
 export const ProjectCard: React.FC<Project> = ({imageProject, logoProject}) => (
     <div className={styles.glassCardProject}>

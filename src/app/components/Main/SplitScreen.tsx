@@ -108,7 +108,7 @@ const SplitScreen: React.FC = () => {
 
       {/* Effet de gradient */}
       
-      <div className="absolute bottom-0 md:bottom-16 -left-8 -right-8 h-12 bg-gradient-to-t from-[#0F0E12] via-[#0F0E12]/70 to-transparent z-10" />
+      <div className="absolute w-full bottom-0 md:bottom-16 -left-8 -right-8 h-12 bg-gradient-to-t from-[#0F0E12] via-[#0F0E12]/70 to-transparent z-10" />
     </div>
   );
 };

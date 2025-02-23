@@ -1,16 +1,18 @@
 
-import Card from "./components/Card/Card";
+
 import Header from "./components/Header/Header";
 import SplitScreen from "./components/Main/SplitScreen";
-import { ServiceCard } from "./components/Card/ServiceCard";
+
 import styles from "./components/Card/styles/card.module.scss";
-import { FormCard } from "./components/Card/FormContact";
+import { FormCard } from "./components/Card/Form/FormContact";
 import { Footer } from "./components/Footer/Footer";
 
 import IntenseCursorLight from "./components/IntenseCursorLight";
 import NeonWord from "./components/NeonWord";
-import BaseCard from "./components/Card/BaseCard";
-import { CardProject } from "./components/Card/CarouselCard";
+import BaseCard from "./components/Card/BaseCard/BaseCard";
+import CarouselCard, { CardProject } from "./components/Card/Carousel/CarouselCard";
+import NormalCard from "./components/Card/NormalCard/NormalCard";
+import { ServiceCard } from "./components/Card/ServiceCard/ServiceCard";
 
 
 
@@ -68,7 +70,7 @@ export default function Home() {
       <section className=" flex flex-col mt-5 sm:mt-0 gap-5 sm:gap-20 sm:p-12 ">
         <IntenseCursorLight />
 
-        <Card
+        <NormalCard
           title="About Me"
           imageAlign="right"
           internContent="Hi, I’m a passionate UI/UX Designer and Full-Stack Developer from the sunny south of France, based in Montpellier.
@@ -79,8 +81,8 @@ export default function Home() {
           // Mobile styles
 
           imageSizeMobile={{
-            width: "200px",
-            height: "200px",
+            width: "230px",
+            height: "230px",
           }}
           imageSizeDesktop={{
             width: "500px",
@@ -88,7 +90,7 @@ export default function Home() {
           }}
           boxPaddings={{
             mobile: {
-              top: "300px",
+              top: "240px",
             },
             desktop: {
               content: "400px", // Pour l'espace du côté du contenu en desktop
@@ -98,7 +100,7 @@ export default function Home() {
 
         <NeonWord word={"<html>"} position="mx-auto" />
 
-        <Card
+        <NormalCard
           title="Developer Full-stack"
           internContent="I’m a full-stack developer who loves working with React and Next.js to create fast, dynamic, and user-friendly web applications. I also enjoy working with HTML, CSS, and JavaScript, and I’ve had the chance to explore Angular as well. On the backend, I build solid APIs with C# and ASP.NET. I’m always curious and excited to learn new technologies, making every project an opportunity to grow and deliver something awesome."
           imageSrc="/image/pictures/laptop.png"
@@ -106,7 +108,7 @@ export default function Home() {
 
           imageAlign="left"
           imageSizeMobile={{
-            width: "200px",
+            width: "300px",
             height: "200px",
           }}
           imageSizeDesktop={{
@@ -115,7 +117,7 @@ export default function Home() {
           }}
           boxPaddings={{
             mobile: {
-              top: "350px", // Pour l'espace au-dessus en mobile
+              top: "230px", // Pour l'espace au-dessus en mobile
             },
             desktop: {
               content: "400px", // Pour l'espace du côté du contenu en desktop
@@ -125,15 +127,15 @@ export default function Home() {
 
         <NeonWord word={"</div>"} position="pl-44" />
 
-        <Card
+        <NormalCard
           title="UI/UX Designer"
           imageAlign="right"
           internContent="As a UI/UX designer, I thrive on collaborating with teams to bring innovative ideas to life. My approach combines creativity and strategy to design interfaces that are both intuitive and visually compelling. By leveraging tools like Figma and Photoshop, I deliver designs that leave a lasting impression."
           imageSrc="/image/pictures/chevalet.png"
           hasEaselAnimation={true}
           imageSizeMobile={{
-            width: "200px",
-            height: "200px",
+            width: "450px",
+            height: "450px",
           }}
           imageSizeDesktop={{
             width: "500px",
@@ -141,7 +143,7 @@ export default function Home() {
           }}
           boxPaddings={{
             mobile: {
-              top: "530px", // Pour l'espace au-dessus en mobile
+              top: "470px", // Pour l'espace au-dessus en mobile
             },
             desktop: {
               content: "400px", // Pour l'espace du côté du contenu en desktop
@@ -150,7 +152,7 @@ export default function Home() {
         />
         <NeonWord word="Tailwind" position="mx-auto " />
 
-        <CardProject projects={projects} />
+        <CarouselCard projects={projects} />
         
         <NeonWord word="Typescript" position=" pl-[70%]" />
 

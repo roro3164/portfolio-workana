@@ -1,9 +1,9 @@
 "use client";
 import React, { useState, useEffect, useCallback } from "react";
 import { Project } from "./types";
-import styles from "./styles/card.module.scss";
-import { getCardClasses } from "./styles/utils";
-import BaseCard from "./BaseCard";
+import styles from "./Carousel.module.scss";
+import { getCardClasses } from "../NormalCard/utils";
+import BaseCard from "../BaseCard/BaseCard";
 import { ProjectCard } from "./ProjectCard";
 
 interface ProjectCarouselProps {

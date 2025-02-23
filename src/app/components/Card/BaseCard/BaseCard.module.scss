@@ -1,0 +1,47 @@
+// BaseCard.module.scss
+.cardContainer {
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    &:hover {
+      .animationContainer {
+        opacity: 1;
+      }
+      filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.5));
+      transform: scale(1.05);
+    }
+  }
+  
+  .animationContainer {
+    position: absolute;
+    border-radius: 10px;
+    inset: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+      transparent 0deg,
+      transparent 30deg,
+      #6a5acd 60deg,
+      rgb(106, 90, 205) 120deg,
+      transparent 150deg,
+      transparent 360deg
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    animation: rotate 4s linear infinite;
+  }
+  
+  .glass {
+    // Uniquement les effets spéciaux impossible en Tailwind
+    background: linear-gradient(rgba(255, 255, 255, 0.2), transparent);
+  }
+  
+  .titleBox {
+    // Uniquement les effets spéciaux
+    box-shadow: 2.19px 2.19px 2.19px rgba(0, 0, 0, 0.25),
+                inset -1.09px 2.19px 3.82px rgba(255, 255, 255, 0.2);
+    background: linear-gradient(180deg, rgba(106, 90, 205, 0.1) 0%, rgba(46, 33, 109, 0.1) 100%);
+  }
+  
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }

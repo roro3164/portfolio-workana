@@ -1,5 +1,3 @@
-
-
 "use client";
 import React, { useState, useEffect } from 'react';
 
@@ -53,7 +51,7 @@ const EaselAnimation = () => {
                 className={`letter ${char === ' ' ? 'space' : ''}`}
                 style={{
                   opacity: wordIndex < currentWord || (wordIndex === currentWord && charIndex <= currentLetterIndex) ? 1 : 0,
-                  ...(char === ' ' && { marginRight: '0.5rem' }) // Ajoute un espace pour les espaces
+                  ...(char === ' ' && { marginRight: '0.5rem' })
                 }}
               >
                 {char}
@@ -79,8 +77,8 @@ const EaselAnimation = () => {
       <style jsx>{`
         .easel-animation {
           position: absolute;
-          top: 48%;
-          left: 50%;
+          top: 50%;
+          left: 58%;
           transform: translate(-50%, -60%);
           width: 250px;
           z-index: 20;
@@ -97,14 +95,15 @@ const EaselAnimation = () => {
         .word-container {
           position: absolute;
           left: 0;
-          white-space: normal;
+          white-space: nowrap;
+          text-align: left;
           line-height: 1.2;
           transition: opacity 0.3s;
         }
 
         .letter {
           font-family: 'Brush Script MT', cursive;
-          font-size: 2.2rem;
+          font-size: 1.7rem;
           color: #000;
           text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
           display: inline-block;
@@ -136,6 +135,11 @@ const EaselAnimation = () => {
           .easel-animation {
             transform: translate(-50%, -55%);
           }
+
+          .word-container {
+            font-size: 1.5rem;
+            line-height: 1.1;
+          }
         }
       `}</style>
     </div>
@@ -143,3 +147,4 @@ const EaselAnimation = () => {
 };
 
 export default EaselAnimation;
+

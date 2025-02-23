@@ -1,0 +1,103 @@
+@use '/src/app/styles/mixins.scss' as mixins;
+
+//card
+
+.internBox {
+    @apply rounded-lg p-10;
+    background-color: rgba(7, 0, 0, 0.35);
+    border: 1.5px solid rgba(255, 255, 255, 0.15);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);
+  }
+  
+//cardProject
+.glassCardProject {
+    @include mixins.glass-base;
+    @apply flex flex-col rounded-2xl;
+    height: 500px;
+    width: 30%;
+    min-width: 316px; // On enlève cette contrainte pour mobile
+  
+    @media (max-width: 1024px) {
+      width: 192px;
+      height: 288px;
+      border-radius: 10px;
+      min-width: unset; // Important : annule le min-width pour mobile
+    }
+  }
+
+  
+  .imageContainer {
+    @apply m-auto p-2;
+    height: 80%;
+  
+    @media (max-width: 768px) {
+      height: 75%;
+      padding: 1px; // Réduit le padding pour mobile
+    }
+  }
+  
+  .boxBottomCard {
+    @apply rounded-b-xl flex justify-center px-2;
+    height: 20%;
+    background: rgba(75, 75, 75, 0.7);
+  
+    @media (max-width: 768px) {
+      height: 25%;
+      padding: 0 1px; // Réduit le padding pour mobile
+    }
+  }
+  
+  // Carousel controls
+  .carouselContainer {
+    &:hover .carouselControls {
+      opacity: 1;
+    }
+  }
+  
+// Animations de fade
+// Container du carousel
+.carouselWrapper {
+    @apply relative w-1/2 h-80;
+  }
+  
+  // Styles de carte
+  .carouselCard {
+    @apply absolute cursor-pointer;
+    transition: all 0.7s ease-in-out;
+  }
+  
+  .inactive {
+    filter: blur(0.8px);
+  }
+  
+  .activeCard {
+    &:hover {
+      animation: bounce3D 4s infinite ease-in-out;
+    }
+  
+    > div {
+      position: relative;
+      overflow: hidden;
+  
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transform: skewX(-15deg);
+        animation: shine 2.5s infinite;
+        z-index: 2;
+        border-radius: inherit;
+      }
+    }
+  }
+  
+  
