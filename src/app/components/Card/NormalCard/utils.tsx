@@ -1,9 +1,15 @@
 import { StyleProps } from '../types';
 
 // utils.ts
-export const getCardClasses = ({ imageAlign, boxPaddings, imageSizeMobile, imageSizeDesktop }: StyleProps) => {
+export const getCardClasses = ({ 
+  imageAlign, 
+  boxPaddings, 
+  imageSizeMobile, 
+  imageSizeDesktop,
+  boxStyle, // Nouvelle prop, pas utilisée ici mais transmise pour la cohérence
+  hoverType  // Nouvelle prop, pas utilisée ici mais transmise pour la cohérence
+}: StyleProps) => {
   return {
-
     // Logique d'alignement pour le titre
     titleAlignment: imageAlign === "right" 
       ? "mx-auto lg:mr-auto lg:ml-0"
@@ -34,8 +40,8 @@ export const getCardClasses = ({ imageAlign, boxPaddings, imageSizeMobile, image
         paddingLeft: imageAlign === "left" ? boxPaddings?.desktop?.content : undefined,
         paddingRight: imageAlign === "right" ? boxPaddings?.desktop?.content : undefined
       },
-      imagePosition: `absolute ${
-        imageAlign === "right" ? "right-[-8rem]" : "left-[-8rem]"
+      imagePosition: `absolute z-10 ${
+        imageAlign === "right" ? "right-[-8rem]" : "left-[-4rem]"
       }`,
       imageStyle: {
         width: imageSizeDesktop?.width,

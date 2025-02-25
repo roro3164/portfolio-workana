@@ -3,8 +3,9 @@ import React, { useState, useEffect, useCallback } from "react";
 import { Project } from "./types";
 import styles from "./Carousel.module.scss";
 import { getCardClasses } from "../NormalCard/utils";
-import BaseCard from "../BaseCard/BaseCard";
 import { ProjectCard } from "./ProjectCard";
+import BaseCard from "../BaseCard/BaseCard";
+import VioletHover from "../hover/VioletHover";
 
 interface ProjectCarouselProps {
   projects: Project[];
@@ -40,7 +41,7 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
       setIsChangingDescription(false);
     }, 300);
 
-    // Troisième timing : l’animation est terminée
+    // Troisième timing : l'animation est terminée
     setTimeout(() => setIsAnimating(false), 800);
   }, [isAnimating, selectedCard, activeIndex, projects]);
 
@@ -124,7 +125,7 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
       cardAlignment={classes.cardAlignement}
     >
       {/* Conteneur parent en flex pour deux colonnes */}
-      <div className={`${styles.internBox} flex w-full`}>
+      <div className="flex w-full">
         {/* 1ère colonne : le carrousel */}
         <div
           className="relative w-1/2 h-80"
@@ -146,22 +147,25 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
           ))}
         </div>
 
-        {/* 2ème colonne : la description */}
-        <div
-          key={currentProject.id}
-          className={`
-            w-1/2 
-        
-            text-white 
-            
-           
-           
-            ${isChangingDescription ? "fade-out" : "fade-in"} 
-          `}
-        >
-          <p className="text-lg pl-12 text-gray-300 leading-relaxed">
-            {currentProject.description}
-          </p>
+        {/* 2ème colonne : la description avec Hover */}
+        <div className="w-1/2 ">
+          <VioletHover>
+            <div className="bg-[#100E12]">
+            <div className={`${styles.internBox}`}>
+              <div
+                key={currentProject.id}
+                className={`
+                  text-white 
+                  ${isChangingDescription ? "fade-out" : "fade-in"} 
+                `}
+              >
+                <p className="text-lg pl-12 text-gray-300 leading-relaxed">
+                  {currentProject.description}
+                </p>
+              </div>
+            </div>
+            </div>
+          </VioletHover>
         </div>
       </div>
 

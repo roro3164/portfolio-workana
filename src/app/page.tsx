@@ -1,18 +1,13 @@
-
-
 import Header from "./components/Header/Header";
 import SplitScreen from "./components/Main/SplitScreen";
-
-import styles from "./components/Card/styles/card.module.scss";
 import { FormCard } from "./components/Card/Form/FormContact";
 import { Footer } from "./components/Footer/Footer";
-
-import IntenseCursorLight from "./components/IntenseCursorLight";
-import NeonWord from "./components/NeonWord";
-import BaseCard from "./components/Card/BaseCard/BaseCard";
+import IntenseCursorLight from "./components/AnimationsGlobals/IntenseCursorLight";
+import NeonWord from "./components/AnimationsGlobals/NeonWord";
 import CarouselCard, { CardProject } from "./components/Card/Carousel/CarouselCard";
 import NormalCard from "./components/Card/NormalCard/NormalCard";
 import { ServiceCard } from "./components/Card/ServiceCard/ServiceCard";
+import { BaseCard } from "./components/Card/BaseCard/BaseCard";
 
 
 
@@ -58,16 +53,18 @@ const projects = [
 export default function Home() {
   return (
     <div>
-      <div className="mb-6">
-        <Header></Header> 
+      <div className="home">
+        <div className="mb-6">
+          <Header></Header> 
+        </div>
+
+        <SplitScreen></SplitScreen>
       </div>
-      
-      <SplitScreen></SplitScreen>
 
      
 {/* 
       <section className="flex flex-col gap-20 px-12 "> */}
-      <section className=" flex flex-col mt-5 sm:mt-0 gap-5 sm:gap-20 sm:p-12 ">
+      <section className="sectionCard flex flex-col mt-5 sm:mt-0 gap-5 sm:gap-36 sm:p-12 ">
         <IntenseCursorLight />
 
         <NormalCard
@@ -78,6 +75,8 @@ export default function Home() {
 
           Outside of work, I’m a big fan of traveling, discovering new places, and finding inspiration in different cultures. Whether it’s through exploring the latest tech trends or enjoying the Mediterranean lifestyle, I’m always looking for fresh ideas to bring into my projects."
           imageSrc="/image/pictures/photoAbout.png"
+          boxStyle="purple"
+          hoverType = "white"
           // Mobile styles
 
           imageSizeMobile={{
@@ -104,6 +103,7 @@ export default function Home() {
           title="Developer Full-stack"
           internContent="I’m a full-stack developer who loves working with React and Next.js to create fast, dynamic, and user-friendly web applications. I also enjoy working with HTML, CSS, and JavaScript, and I’ve had the chance to explore Angular as well. On the backend, I build solid APIs with C# and ASP.NET. I’m always curious and excited to learn new technologies, making every project an opportunity to grow and deliver something awesome."
           imageSrc="/image/pictures/laptop.png"
+          
           // Mobile styles
 
           imageAlign="left"
@@ -112,15 +112,15 @@ export default function Home() {
             height: "200px",
           }}
           imageSizeDesktop={{
-            width: "550px",
-            height: "400px",
+            width: "800px",
+            height: "800px",
           }}
           boxPaddings={{
             mobile: {
               top: "230px", // Pour l'espace au-dessus en mobile
             },
             desktop: {
-              content: "400px", // Pour l'espace du côté du contenu en desktop
+              content: "720px", // Pour l'espace du côté du contenu en desktop
             },
           }}
         />
@@ -132,21 +132,22 @@ export default function Home() {
           imageAlign="right"
           internContent="As a UI/UX designer, I thrive on collaborating with teams to bring innovative ideas to life. My approach combines creativity and strategy to design interfaces that are both intuitive and visually compelling. By leveraging tools like Figma and Photoshop, I deliver designs that leave a lasting impression."
           imageSrc="/image/pictures/chevalet.png"
+          
           hasEaselAnimation={true}
           imageSizeMobile={{
             width: "450px",
             height: "450px",
           }}
           imageSizeDesktop={{
-            width: "500px",
-            height: "580px",
+            width: "700px",
+            height: "780px",
           }}
           boxPaddings={{
             mobile: {
               top: "470px", // Pour l'espace au-dessus en mobile
             },
             desktop: {
-              content: "400px", // Pour l'espace du côté du contenu en desktop
+              content: "420px", // Pour l'espace du côté du contenu en desktop
             },
           }}
         />
@@ -161,8 +162,8 @@ export default function Home() {
           titleAlignment="mx-auto"
           cardAlignment="mx-auto"
         >
-          <div className={styles.internBox}>
-            <div className={styles.containerCard}>
+        
+            <div className="flex justify-between">
               <ServiceCard
                 title="UI/UX Design"
                 description="I design intuitive and visually appealing user experiences tailored to your needs."
@@ -197,7 +198,7 @@ export default function Home() {
                   "Hosting, maintenance, and updates included",
                 ]}
               />
-            </div>
+            
           </div>
         </BaseCard>
         <NeonWord word={"<section>"}  position="pl-[30%]" />

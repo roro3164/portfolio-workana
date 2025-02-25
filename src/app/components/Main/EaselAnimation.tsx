@@ -41,7 +41,7 @@ const EaselAnimation = () => {
             key={word}
             className="word-container"
             style={{
-              top: `${wordIndex * 45}px`,
+              top: `${wordIndex * 60}px`,
               opacity: wordIndex <= currentWord ? 1 : 0
             }}
           >
@@ -67,8 +67,8 @@ const EaselAnimation = () => {
           alt="Brush" 
           className="brush"
           style={{
-            left: `${(currentLetterIndex + 1) * letterWidth - 20}px`,
-            top: `${currentWord * 45 - 20}px`,
+            left: `${(currentLetterIndex + 1) * letterWidth + 30}px`,
+            top: `${currentWord * 60 + 10}px`,
             opacity: currentLetterIndex < WORDS[currentWord].length ? 1 : 0
           }}
         />
@@ -77,8 +77,8 @@ const EaselAnimation = () => {
       <style jsx>{`
         .easel-animation {
           position: absolute;
-          top: 50%;
-          left: 58%;
+          top: 43%;
+          left: 46%;
           transform: translate(-50%, -60%);
           width: 250px;
           z-index: 20;
@@ -103,7 +103,7 @@ const EaselAnimation = () => {
 
         .letter {
           font-family: 'Brush Script MT', cursive;
-          font-size: 1.7rem;
+          font-size: 3rem;
           color: #000;
           text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
           display: inline-block;
@@ -116,19 +116,19 @@ const EaselAnimation = () => {
 
         .brush {
           position: absolute;
-          width: 40px;
-          height: 100px;
+          width: 100px;
+          height: 150px;
           object-fit: contain;
           z-index: 2;
-          transform: rotate(-25deg);
+          transform: rotate(-15deg);
           transition: all 0.2s ease-out;
           animation: paintStroke 0.4s ease-in-out infinite;
         }
 
         @keyframes paintStroke {
-          0% { transform: rotate(-25deg) translateY(0); }
-          50% { transform: rotate(-25deg) translateY(2px); }
-          100% { transform: rotate(-25deg) translateY(0); }
+          0% { transform: rotate(-15deg) translateY(0); }
+          50% { transform: rotate(-15deg) translateY(2px); }
+          100% { transform: rotate(-15deg) translateY(0); }
         }
 
         @media (max-width: 1024px) {

@@ -1,33 +1,37 @@
-// Types utilitaires nécessaires pour NormalCard
-interface ImageSize {
-    width: string;
-    height: string;
-  }
-  
-  interface BoxPaddings {
-    mobile?: {
-      top?: string;
-    };
-    desktop?: {
-      content?: string;
-    };
-  }
-  
-  // Props de style spécifiques à NormalCard
-  interface StyleProps {
+// Définition des props de style existantes
+export interface StyleProps {
     imageAlign?: "left" | "right";
-    titleAlignment?: string;
-    boxPaddings?: BoxPaddings;
-    imageSizeMobile?: ImageSize;
-    imageSizeDesktop?: ImageSize;
-    cardAlignment?: string;
+    boxPaddings?: {
+      mobile?: {
+        top?: string;
+      };
+      desktop?: {
+        content?: string;
+      };
+    };
+    imageSizeMobile?: {
+      width?: string;
+      height?: string;
+    };
+    imageSizeDesktop?: {
+      width?: string;
+      height?: string;
+    };
+    // Nouvelles options de style
+    boxStyle?: "default" | "purple";
+    hoverType?: "white" | "purple";
   }
   
-  // Props principales de NormalCard
-  export interface NormalCardProps extends StyleProps {
+  // Définition des props pour NormalCard
+  export interface NormalCardProps {
     title: string;
-    internContent?: string;
+    internContent: string;
     imageSrc?: string;
-    hasEaselAnimation?: boolean;  
-    children?: React.ReactNode;
+    imageAlign?: "left" | "right";
+    hasEaselAnimation?: boolean;
+    boxStyle?: "default" | "purple";
+    hoverType?: "purple" | "white";
+    boxPaddings?: StyleProps["boxPaddings"];
+    imageSizeMobile?: StyleProps["imageSizeMobile"];
+    imageSizeDesktop?: StyleProps["imageSizeDesktop"];
   }
