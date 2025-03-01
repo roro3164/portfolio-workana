@@ -1,0 +1,99 @@
+.scrollSection {
+    min-height: 200vh; /* Plus grand que la hauteur de la fenêtre pour avoir de la marge pour le scroll */
+    position: relative;
+  }
+  
+  .stickyContainer {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .laptopContainer {
+    position: relative;
+    width: 100%;
+    max-width: 48rem; /* Équivalent de max-w-3xl en Tailwind */
+    margin: 0 auto;
+    transform: scale(1.25); /* Pour agrandir l'image */
+  }
+  
+  .frameContainer {
+    position: relative;
+    width: 100%;
+  }
+  
+  .laptopFrame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    transition: opacity 0.1s ease;
+  }
+  
+  .animationIndicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 0.875rem;
+    color: white;
+    opacity: 0.6;
+  }
+  
+  /* Animation basée sur le scroll - Syntaxe moderne */
+  @supports (animation-timeline: scroll()) {
+    .scrollSection {
+      scroll-timeline-name: --laptop-timeline;
+      scroll-timeline-axis: block;
+    }
+    
+    /* Animation d'ouverture */
+    @keyframes openLaptop {
+      0% { opacity: 1; }     /* Frame 1 (fermé) */
+      50% { opacity: 0; }    /* Transition vers frame suivante */
+      100% { opacity: 0; }   /* Invisible à la fin */
+    }
+    
+    @keyframes showFrame {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    /* Configurer chaque frame pour qu'elle apparaisse à un moment précis du scroll */
+    .laptopFrame {
+      animation-timeline: --laptop-timeline;
+      animation-range: entry 0% exit 100%;
+      animation-fill-mode: both;
+      opacity: 0;
+    }
+    
+    /* Configurer chaque frame individuellement */
+    .laptopFrame[data-frame="0"] {
+      animation-name: showFrame, openLaptop;
+      animation-range: entry 0% entry 10%, entry 10% entry 20%;
+    }
+    
+    .laptopFrame[data-frame="1"] {
+      animation-name: showFrame;
+      animation-range: entry 10% entry 20%;
+    }
+    
+    /* Continuer pour chaque frame... */
+    .laptopFrame[data-frame="2"] {
+      animation-name: showFrame;
+      animation-range: entry 15% entry 25%;
+    }
+    
+    /* ... frames 3 à 16 ... */
+    
+    .laptopFrame[data-frame="17"] {
+      animation-name: showFrame, openLaptop;
+      animation-range: entry 80% entry 90%, entry 90% exit 0%;
+    }
+  }

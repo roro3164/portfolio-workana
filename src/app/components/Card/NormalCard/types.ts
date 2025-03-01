@@ -1,37 +1,42 @@
-// Définition des props de style existantes
+// NormalCard/types.ts
+import React from "react";
+
 export interface StyleProps {
-    imageAlign?: "left" | "right";
-    boxPaddings?: {
-      mobile?: {
-        top?: string;
-      };
-      desktop?: {
-        content?: string;
-      };
+  imageAlign?: "left" | "right";
+  boxStyle?: "default" | "purple";
+  hoverType?: "white" | "purple";
+
+  // Tailles de l’image (mobile/desktop)
+  imageSizeMobile?: {
+    width?: string;
+    height?: string;
+  };
+  imageSizeDesktop?: {
+    width?: string;
+    height?: string;
+  };
+
+  // Paddings (mobile/desktop)
+  boxPaddings?: {
+    mobile?: {
+      top?: string;
     };
-    imageSizeMobile?: {
-      width?: string;
-      height?: string;
+    desktop?: {
+      content?: string;
     };
-    imageSizeDesktop?: {
-      width?: string;
-      height?: string;
-    };
-    // Nouvelles options de style
-    boxStyle?: "default" | "purple";
-    hoverType?: "white" | "purple";
-  }
-  
-  // Définition des props pour NormalCard
-  export interface NormalCardProps {
-    title: string;
-    internContent: string;
-    imageSrc?: string;
-    imageAlign?: "left" | "right";
-    hasEaselAnimation?: boolean;
-    boxStyle?: "default" | "purple";
-    hoverType?: "purple" | "white";
-    boxPaddings?: StyleProps["boxPaddings"];
-    imageSizeMobile?: StyleProps["imageSizeMobile"];
-    imageSizeDesktop?: StyleProps["imageSizeDesktop"];
-  }
+  };
+
+  /**
+   * Objets de style pour affiner la position de l'image
+   * en mobile et desktop, par exemple top, left, transform, etc.
+   */
+  imagePositionMobile?: React.CSSProperties;
+  imagePositionDesktop?: React.CSSProperties;
+}
+
+export interface NormalCardProps extends StyleProps {
+  title: string;
+  internContent?: string;
+  imageSrc?: string;
+  hasEaselAnimation?: boolean;
+}

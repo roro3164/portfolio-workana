@@ -3,5 +3,5 @@ export interface BaseCardProps {
     titleAlignment?: string;
     children?: React.ReactNode;
     cardAlignment?: string;
-   }
    
+}

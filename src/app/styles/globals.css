@@ -248,3 +248,7 @@ body {
          0 0 2.5em 2em var(--glow-spread-color),
          inset 0 0 .5em .25em var(--glow-color);
 }
+
+section {
+  scroll-margin-top: 120px; /* Ajuste selon la hauteur de ton header */
+}

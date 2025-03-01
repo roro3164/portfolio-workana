@@ -11,7 +11,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="relative flex justify-between items-center h-10 lg:h-16 mb-2 ">     
+    <header className="relative flex justify-between items-center h-10 lg:h-16 mb-16 ">     
       {/* Logo SVG remplaçant le texte avec effet de lueur */}
       <div className="h-6 lg:h-10 relative">
         <div className="absolute inset-0 filter blur-[6px] opacity-50">
@@ -40,7 +40,7 @@ const Header: React.FC = () => {
         <a href="#developer" className={styles.navLink}>Developer</a>
         <a href="#designer" className={styles.navLink}>Designer</a>
         <a href="#projects" className={styles.navLink}>Projects</a>
-        <a href="#service" className={styles.navLink}>Services</a>
+        <a href="#services" className={styles.navLink}>Services</a>
         <a href="#contact" className={styles.navLink}>Contact</a>
       </nav>
 
@@ -65,7 +65,7 @@ const Header: React.FC = () => {
           <a href="#developer" className={styles.mobileNavLink} onClick={toggleMenu}>Developer</a>
           <a href="#designer" className={styles.mobileNavLink} onClick={toggleMenu}>Designer</a>
           <a href="#projects" className={styles.mobileNavLink} onClick={toggleMenu}>Projects</a>
-          <a href="#service" className={styles.mobileNavLink} onClick={toggleMenu}>Services</a>
+          <a href="#services" className={styles.mobileNavLink} onClick={toggleMenu}>Services</a>
           <a href="#contact" className={styles.mobileNavLink} onClick={toggleMenu}>Contact</a>
         </nav>
       </div>

@@ -1,20 +1,42 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from "react";
 
 const WORDS = [
   "Prototyping",
   "Wireframing",
-  "Accessibility Design", 
-  "Design Systems"
+  "Accessibility Design",
+  "Design Systems",
 ];
 
-const EaselAnimation = () => {
+export default function EaselAnimation() {
   const [currentWord, setCurrentWord] = useState(0);
   const [currentLetterIndex, setCurrentLetterIndex] = useState(-1);
+
+  // Largeur pour le pinceau (à chaque lettre on avance de 15px)
   const letterWidth = 15;
 
+  // lineSpacing pour séparer les lignes : 60 (desktop), 30 (mobile)
+  const [lineSpacing, setLineSpacing] = useState(60);
+
+  // Au montage ou au resize, on ajuste lineSpacing
   useEffect(() => {
-    if (currentLetterIndex < WORDS[currentWord].length) {
+    function handleResize() {
+      if (window.innerWidth <= 768) {
+        setLineSpacing(40);  // plus compact en mobile
+      } else {
+        setLineSpacing(60);  // espacement standard
+      }
+    }
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Animation : incrémente currentLetterIndex, puis passe au mot suivant, etc.
+  useEffect(() => {
+    const wordLength = WORDS[currentWord].length;
+
+    if (currentLetterIndex < wordLength) {
       const timer = setTimeout(() => {
         setCurrentLetterIndex(prev => prev + 1);
       }, 200);
@@ -25,6 +47,7 @@ const EaselAnimation = () => {
           setCurrentWord(prev => prev + 1);
           setCurrentLetterIndex(-1);
         } else {
+          // on reboucle au début
           setCurrentWord(0);
           setCurrentLetterIndex(-1);
         }
@@ -38,20 +61,24 @@ const EaselAnimation = () => {
       <div className="writing-area">
         {WORDS.map((word, wordIndex) => (
           <div
-            key={word}
+            key={wordIndex}
             className="word-container"
             style={{
-              top: `${wordIndex * 60}px`,
-              opacity: wordIndex <= currentWord ? 1 : 0
+              // On utilise lineSpacing pour espacer verticalement
+              top: `${wordIndex * lineSpacing}px`,
+              opacity: wordIndex <= currentWord ? 1 : 0,
             }}
           >
-            {word.split('').map((char, charIndex) => (
+            {word.split("").map((char, charIndex) => (
               <span
                 key={charIndex}
-                className={`letter ${char === ' ' ? 'space' : ''}`}
+                className={`letter ${char === " " ? "space" : ""}`}
                 style={{
-                  opacity: wordIndex < currentWord || (wordIndex === currentWord && charIndex <= currentLetterIndex) ? 1 : 0,
-                  ...(char === ' ' && { marginRight: '0.5rem' })
+                  opacity:
+                    wordIndex < currentWord ||
+                    (wordIndex === currentWord && charIndex <= currentLetterIndex)
+                      ? 1
+                      : 0,
                 }}
               >
                 {char}
@@ -61,15 +88,16 @@ const EaselAnimation = () => {
         ))}
       </div>
 
+      {/* Le pinceau : suit le currentLetterIndex et currentWord * lineSpacing */}
       {currentWord < WORDS.length && (
-        <img 
-          src="/image/pictures/pincel.png" 
-          alt="Brush" 
+        <img
+          src="/image/pictures/pincel.png"
+          alt="Brush"
           className="brush"
           style={{
             left: `${(currentLetterIndex + 1) * letterWidth + 30}px`,
-            top: `${currentWord * 60 + 10}px`,
-            opacity: currentLetterIndex < WORDS[currentWord].length ? 1 : 0
+            top: `${currentWord * lineSpacing + 10}px`,
+            opacity: currentLetterIndex < WORDS[currentWord].length ? 1 : 0,
           }}
         />
       )}
@@ -77,8 +105,8 @@ const EaselAnimation = () => {
       <style jsx>{`
         .easel-animation {
           position: absolute;
-          top: 43%;
-          left: 46%;
+          top: 44%;
+          left: 49%;
           transform: translate(-50%, -60%);
           width: 250px;
           z-index: 20;
@@ -97,13 +125,12 @@ const EaselAnimation = () => {
           left: 0;
           white-space: nowrap;
           text-align: left;
-          line-height: 1.2;
           transition: opacity 0.3s;
         }
 
         .letter {
-          font-family: 'Brush Script MT', cursive;
-          font-size: 3rem;
+          font-family: "Brush Script MT", cursive;
+          font-size: 2.5rem;
           color: #000;
           text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
           display: inline-block;
@@ -126,25 +153,29 @@ const EaselAnimation = () => {
         }
 
         @keyframes paintStroke {
-          0% { transform: rotate(-15deg) translateY(0); }
-          50% { transform: rotate(-15deg) translateY(2px); }
-          100% { transform: rotate(-15deg) translateY(0); }
+          0% {
+            transform: rotate(-15deg) translateY(0);
+          }
+          50% {
+            transform: rotate(-15deg) translateY(2px);
+          }
+          100% {
+            transform: rotate(-15deg) translateY(0);
+          }
         }
 
+        /* Ta media query pour repositionner .easel-animation en dessous de 1024px */
         @media (max-width: 1024px) {
           .easel-animation {
-            transform: translate(-50%, -55%);
+            top: 54%;
+            left: 61%;
           }
 
-          .word-container {
-            font-size: 1.5rem;
-            line-height: 1.1;
+          .letter {
+            font-size: 1.8rem;
           }
         }
       `}</style>
     </div>
   );
-};
-
-export default EaselAnimation;
-
+}

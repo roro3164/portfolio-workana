@@ -15,12 +15,12 @@ export const Footer: React.FC = () => {
 
         <div className={styles.sectionNav}>        
           <ul>
-            <li><a href="">About</a></li>
-            <li><a href="">Developer</a></li>
-            <li><a href="">Designer</a></li>
-            <li><a href="">Projects</a></li>
-            <li><a href="">Services</a></li>
-            <li><a href="">Contact</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#developer">Developer</a></li>
+            <li><a href="#designer">Designer</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
 
