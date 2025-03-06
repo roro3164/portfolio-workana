@@ -10,6 +10,7 @@ import CarouselCard, {
 import NormalCard from "./components/Card/NormalCard/NormalCard";
 import { ServiceCard } from "./components/Card/ServiceCard/ServiceCard";
 import BaseCard from "./components/Card/BaseCard/BaseCard";
+import LaptopGif from "./components/Card/AnimationLaptop/laptopGif";
 
 const projects = [
   {
@@ -23,7 +24,7 @@ const projects = [
   {
     id: 2,
     imageProject: "/image/projects/mockUpLapin.png",
-    logoProject: "/image/projects/LogoLapin.svg",
+    logoProject: "/image/projects/LogoLapin.png",
     title: "Lapin Project",
     description: "Description détaillée du projet Lapin...",
   },
@@ -87,6 +88,11 @@ export default function Home() {
               width: "500px",
               height: "500px",
             }}
+
+            imagePositionDesktop={{
+              
+              right: "-5%",
+            }}
             boxPaddings={{
               mobile: {
                 top: "240px",
@@ -106,13 +112,11 @@ export default function Home() {
             internContent="I’m a full-stack developer who loves working with React and Next.js to create fast, dynamic, and user-friendly web applications. I also enjoy working with HTML, CSS, and JavaScript, and I’ve had the chance to explore Angular as well. On the backend, I build solid APIs with C# and ASP.NET. I’m always curious and excited to learn new technologies, making every project an opportunity to grow and deliver something awesome."
             imageSrc="/image/pictures/laptop.png"
             imageAlign="left"
+             customBreakpoint="xl"
             // Mobile styles
-            imageSizeMobile={{
-              width: "350px",
-              height: "200px",
-            }}
+            
             imagePositionMobile={{
-              top: "-40%",
+              top: "0%",
               left: "50%",
             }}
             // Desktop
@@ -121,12 +125,12 @@ export default function Home() {
               height: "1000px",
             }}
             imagePositionDesktop={{
-              top: "30%",
+              top: "100%",
               left: "-14%",
             }}
             boxPaddings={{
               mobile: {
-                top: "230px", // Pour l'espace au-dessus en mobile
+                top: "", // Pour l'espace au-dessus en mobile
               },
               desktop: {
                 content: "720px", // Pour l'espace du côté du contenu en desktop
@@ -149,15 +153,15 @@ export default function Home() {
               height: "450px",
             }}
             imageSizeDesktop={{
-              width: "700px",
-              height: "700px",
+              width: "680px",
+              height: "680px",
             }}
             boxPaddings={{
               mobile: {
                 top: "500px", // Pour l'espace au-dessus en mobile
               },
               desktop: {
-                content: "420px", // Pour l'espace du côté du contenu en desktop
+                content: "450px", // Pour l'espace du côté du contenu en desktop
               },
             }}
           />
@@ -176,7 +180,7 @@ export default function Home() {
             titleAlignment="mx-auto"
             cardAlignment="mx-auto"
           >
-            <div className="flex justify-between items-center flex-col gap-10 sm:flex-row">
+            <div className="flex justify-between items-center flex-col gap-10 xl:flex-row">
               <ServiceCard
                 title="UI/UX Design"
                 description="I design intuitive and visually appealing user experiences tailored to your needs."
@@ -225,6 +229,8 @@ export default function Home() {
           </BaseCard>
         </section>
       </section>
+
+      
 
       <Footer></Footer>
     </div>

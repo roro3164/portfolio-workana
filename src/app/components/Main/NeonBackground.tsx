@@ -27,8 +27,8 @@ const NeonBackground: React.FC = () => {
         <span className="neon-word">{"<html>"}</span>
         <span className="neon-word">{"React"}</span>
         <span className="neon-word">{"<div>"}</span>
-        <span className="neon-word hidden sm:inline">{"<div>"}</span>
-        <span className="neon-word hidden sm:inline">{"React"}</span>
+        <span className="neon-word">{"React"}</span>
+        <span className="neon-word">{"<div>"}</span>
         
    
       </div>

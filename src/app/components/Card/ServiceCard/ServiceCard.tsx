@@ -22,7 +22,7 @@ export const ServiceCard = ({
             className={`
         mx-auto text-center
         text-white text-xl font-jakarta font-semibold
-        py-1 px-6 w-fit rounded-full
+        py-1 px-10 w-fit rounded-full
         ${styles.titleBox}
       `}
           >
@@ -37,7 +37,7 @@ export const ServiceCard = ({
         ${styles.internBox}
       `}
           >
-            <p className="text-white text-xl">{description}</p>
+            <p className="text-white text-lg sm:text-xl">{description}</p>
           </div>
 
           <div className="flex flex-col gap-2">

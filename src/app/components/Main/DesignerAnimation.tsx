@@ -17,7 +17,7 @@ export const DesignerAnimation = () => {
         letterWidth: 12,
         wordSpacing: 30,
         brushSize: { width: 100, height: 160 },
-        brushOffset: { x: -50, y: -12 },
+        brushOffset: { x: -100, y: -12 },
         containerMaxWidth: 250,
         fontSize: 22
       };
@@ -28,7 +28,7 @@ export const DesignerAnimation = () => {
         letterWidth: 16,
         wordSpacing: 50,
         brushSize: { width: 150, height: 250 },
-        brushOffset: { x: -75, y: -18 },
+        brushOffset: { x: -130, y: -18 },
         containerMaxWidth: 350,
         fontSize: 36
       };
@@ -39,7 +39,7 @@ export const DesignerAnimation = () => {
         letterWidth: 20,
         wordSpacing: 70,
         brushSize: { width: 200, height: 320 },
-        brushOffset: { x: -100, y: -25 },
+        brushOffset: { x: -180, y: -25 },
         containerMaxWidth: 450,
         fontSize: 48
       };
@@ -167,7 +167,7 @@ export const DesignerAnimation = () => {
           .letter {
             font-family: "Brush Script MT", cursive;
             color: white;
-            text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
             display: inline-block;
             transition: opacity 0.2s;
           }

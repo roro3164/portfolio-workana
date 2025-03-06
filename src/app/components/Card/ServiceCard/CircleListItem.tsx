@@ -12,6 +12,6 @@ export const CircleListItem = ({ text }: CircleListItemProps) => (
     `}>
       ✓
     </div>
-    <span className="text-white">{text}</span>
+    <span className="text-white text-sm lg:text-base">{text}</span>
   </div>
 );

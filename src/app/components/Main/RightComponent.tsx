@@ -20,7 +20,7 @@ const RightComponent: React.FC = () => {
         />
         {/* Background neon */}
         <div className="absolute -z-10 inset-0 ;">
-        <h2 className="font-mono text-white text-right  text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl tracking-wider">
+        <h2 className="font-mono text-white text-right  text-[12px] sm:text-base md:text-xl lg:text-2xl xl:text-3xl tracking-wider">
   {"<h2>"}Developer{"</h2>"}
 </h2>
         

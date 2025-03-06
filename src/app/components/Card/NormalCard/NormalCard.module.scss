@@ -32,3 +32,34 @@
   @apply text-white text-xl ;
 
 }
+
+.customShadow {
+  transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.customShadow:hover {
+  filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.5));
+  transform: scale(1.1); // Assure la compatibilité avec scale
+}
+
+.textContainer {
+  /* Valeur par défaut de padding-top */
+  padding-top: 20px;
+}
+
+/* Media queries pour les cartes laptop uniquement */
+.laptopCard.textContainer {
+  @media (max-width: 639px) {
+    padding-top: 150px;
+  }
+  /* sm : 640px à 767px */
+  @media (min-width: 640px) and (max-width: 767px) {
+    padding-top: 320px;
+  }
+
+  /* lg : 1024px à 1279px */
+  @media (min-width: 768px) and (max-width: 1279px) {
+    padding-top: 410px;
+  }
+ 
+}

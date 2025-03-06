@@ -21,7 +21,7 @@ export default function EaselAnimation() {
   // Au montage ou au resize, on ajuste lineSpacing
   useEffect(() => {
     function handleResize() {
-      if (window.innerWidth <= 768) {
+      if (window.innerWidth <= 1023) {
         setLineSpacing(40);  // plus compact en mobile
       } else {
         setLineSpacing(60);  // espacement standard

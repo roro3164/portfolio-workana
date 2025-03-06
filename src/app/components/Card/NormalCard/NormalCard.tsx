@@ -1,14 +1,13 @@
-// NormalCard.tsx
 import React from "react";
 import { NormalCardProps } from "./types";
 import { getCardClasses } from "./utils";
-import EaselAnimation from "../EaselAnimation"; 
-import LaptopAnimation from "../LaptopAnimation";
+import EaselAnimation from "../EaselAnimation";
 
 import styles from "./NormalCard.module.scss";
 import { BaseCard } from "../BaseCard/BaseCard";
 import { Hover } from "../hover/Hover";
 import VioletHover from "../hover/VioletHover";
+import LaptopGif from "../AnimationLaptop/laptopGif";
 
 const NormalCard = ({
   title,
@@ -19,27 +18,32 @@ const NormalCard = ({
   boxStyle = "default",
   hoverType = "purple",
 
-  // Nouvelles props
+  // Props de style
   imagePositionMobile,
   imagePositionDesktop,
+  imageSizeMobile,
+  imageSizeDesktop,
+  boxPaddings,
 
-  ...styleProps
+  // Prop pour le breakpoint (déjà gérée dans utils)
+  customBreakpoint,
+
+  ...rest
 }: NormalCardProps) => {
-  // On injecte tout dans getCardClasses
   const classes = getCardClasses({
     imageAlign,
-    boxStyle,
-    hoverType,
+    boxPaddings,
+    imageSizeMobile,
+    imageSizeDesktop,
     imagePositionMobile,
     imagePositionDesktop,
-    ...styleProps,
+    customBreakpoint,
+    ...rest,
   });
 
-  // Style de la box (purple ou default)
   const boxStyleClass = boxStyle === "purple" ? styles.BoxPurple : styles.Box;
-
-  // Sélection du hover
   const HoverComponent = hoverType === "purple" ? VioletHover : Hover;
+  const isLaptop = title === "Developer Full-stack";
 
   return (
     <BaseCard
@@ -49,9 +53,11 @@ const NormalCard = ({
     >
       <HoverComponent>
         <div className="bg-[#100E12] rounded-xl">
-          {/* Mobile Content */}
+          {/* Bloc de contenu Mobile */}
           <div
-            className={`${boxStyleClass} ${classes.mobile.visibility}`}
+            className={`${boxStyleClass} ${classes.mobile.visibility} ${
+              isLaptop ? styles.laptopCard : ""
+            } ${isLaptop ? styles.textContainer : ""}`}
             style={classes.mobile.style}
           >
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white leading-relaxed">
@@ -59,7 +65,7 @@ const NormalCard = ({
             </p>
           </div>
 
-          {/* Desktop Content */}
+          {/* Bloc de contenu Desktop */}
           <div
             className={`${boxStyleClass} ${classes.desktop.visibility}`}
             style={classes.desktop.style}
@@ -71,35 +77,35 @@ const NormalCard = ({
         </div>
       </HoverComponent>
 
-      {/* Mobile Image */}
+      {/* Image Mobile */}
       <div
         className={`${classes.mobile.imagePosition} ${classes.mobile.visibility}`}
         style={classes.mobile.imageStyle}
       >
-        {title === "Developer Full-stack" ? (
-          <LaptopAnimation />
+        {isLaptop ? (
+          <LaptopGif />
         ) : (
           <img
             src={imageSrc}
             alt="Card decoration"
-            className="w-full h-full object-contain hover:scale-110 transition-transform duration-300"
+            className={`${styles.customShadow} w-full h-full object-contain hover:scale-110 transition-transform duration-300`}
           />
         )}
         {hasEaselAnimation && <EaselAnimation />}
       </div>
 
-      {/* Desktop Image */}
+      {/* Image Desktop */}
       <div
         className={`${classes.desktop.imagePosition} ${classes.desktop.visibility}`}
         style={classes.desktop.imageStyle}
       >
-        {title === "Developer Full-stack" ? (
-          <LaptopAnimation />
+        {isLaptop ? (
+          <LaptopGif />
         ) : (
           <img
             src={imageSrc}
             alt="Card decoration"
-            className="w-full h-full object-contain hover:scale-110 transition-transform duration-300"
+            className={`${styles.customShadow} w-full h-full object-contain`}
           />
         )}
         {hasEaselAnimation && <EaselAnimation />}

@@ -25,7 +25,8 @@ export interface StyleProps {
       content?: string;
     };
   };
-
+ // Nouvelle prop pour le breakpoint custom
+ customBreakpoint?: string; // ex: "md", "xl", etc.
   /**
    * Objets de style pour affiner la position de l'image
    * en mobile et desktop, par exemple top, left, transform, etc.
