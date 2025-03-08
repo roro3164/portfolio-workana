@@ -6,6 +6,7 @@ import { getCardClasses } from "../NormalCard/utils";
 import { ProjectCard } from "./ProjectCard";
 import BaseCard from "../BaseCard/BaseCard";
 import VioletHover from "../hover/VioletHover";
+import { CircleListItem } from "../ServiceCard/CircleListItem";
 
 interface ProjectCarouselProps {
   projects: Project[];
@@ -18,6 +19,7 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
+  const [isGoingBack, setIsGoingBack] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [selectedCard, setSelectedCard] = useState<number | null>(null);
   const [currentProject, setCurrentProject] = useState(projects[0]);
@@ -25,23 +27,45 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
 
   const nextSlide = useCallback(() => {
     if (isAnimating || selectedCard !== null) return;
+    setIsGoingBack(false);
     setIsAnimating(true);
     setIsExiting(true);
     setIsChangingDescription(true);
 
-    // Premier timing : la carte sort
     setTimeout(() => {
       setIsExiting(false);
       setActiveIndex((current) => (current + 1) % projects.length);
     }, 600);
 
-    // Deuxième timing : on change la description
     setTimeout(() => {
       setCurrentProject(projects[(activeIndex + 1) % projects.length]);
       setIsChangingDescription(false);
     }, 300);
 
-    // Troisième timing : l'animation est terminée
+    setTimeout(() => setIsAnimating(false), 800);
+  }, [isAnimating, selectedCard, activeIndex, projects]);
+
+  const previousSlide = useCallback(() => {
+    if (isAnimating || selectedCard !== null) return;
+    setIsGoingBack(true);
+    setIsAnimating(true);
+    setIsExiting(true);
+    setIsChangingDescription(true);
+
+    setTimeout(() => {
+      setIsExiting(false);
+      setActiveIndex(
+        (current) => (current - 1 + projects.length) % projects.length
+      );
+    }, 600);
+
+    setTimeout(() => {
+      setCurrentProject(
+        projects[(activeIndex - 1 + projects.length) % projects.length]
+      );
+      setIsChangingDescription(false);
+    }, 300);
+
     setTimeout(() => setIsAnimating(false), 800);
   }, [isAnimating, selectedCard, activeIndex, projects]);
 
@@ -70,8 +94,10 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
     const zIndex = projects.length - diff;
 
     if (isActive) {
-      if (isExiting && !isSelected) {
-        transform = "translate(-180%, -10%) rotate(-12deg)";
+      if (isExiting) {
+        transform = isGoingBack
+          ? "translate(100%, -10%) rotate(12deg)"
+          : "translate(-180%, -10%) rotate(-12deg)";
       } else if (isSelected) {
         transform = "translate(-120%, -10%) rotate(-12deg) scale(1.1)";
       } else {
@@ -105,10 +131,26 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
   };
 
   const handleCardClick = (index: number) => {
-    if (index === activeIndex) {
-      setSelectedCard(selectedCard === null ? index : null);
-      setIsPaused(selectedCard === null);
+    if (index === activeIndex && projects[index].moreInfoUrl) {
+      window.open(projects[index].moreInfoUrl, "_blank", "noopener,noreferrer");
     }
+  };
+
+  const handleDotClick = (index: number) => {
+    if (isAnimating || selectedCard !== null || index === activeIndex) return;
+    setIsGoingBack(index < activeIndex);
+    setIsAnimating(true);
+    setIsExiting(true);
+
+    setTimeout(() => {
+      setActiveIndex(index);
+      setIsExiting(false);
+    }, 600);
+
+    setTimeout(() => {
+      setCurrentProject(projects[index]);
+      setIsAnimating(false);
+    }, 800);
   };
 
   return (
@@ -124,14 +166,68 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
       titleAlignment={classes.titleAlignment}
       cardAlignment={classes.cardAlignement}
     >
-      {/* Conteneur parent en flex pour deux colonnes */}
-      <div className="flex w-full">
-        {/* 1ère colonne : le carrousel */}
+      <div className="relative flex w-full">
+        {/* Colonne Carrousel */}
         <div
-          className="relative w-1/2 h-80"
+          className="absolute mt-[20%] w-1/2 h-80"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
+          <div className="absolute bottom-[-170px] left-1/2 -translate-x-1/2 flex items-center gap-6 z-50">
+            {/* Flèche gauche */}
+            <div
+              className="nav-arrow"
+              onClick={(e) => {
+                e.stopPropagation();
+                previousSlide();
+              }}
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+              >
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
+            </div>
+
+            {/* Points */}
+            <div className="flex gap-4">
+              {projects.map((_, index) => (
+                <div
+                  key={index}
+                  className={`dot ${index === activeIndex ? "active" : ""}`}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleDotClick(index);
+                  }}
+                />
+              ))}
+            </div>
+
+            {/* Flèche droite */}
+            <div
+              className="nav-arrow"
+              onClick={(e) => {
+                e.stopPropagation();
+                nextSlide();
+              }}
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+              >
+                <path d="M9 18l6-6-6-6" />
+              </svg>
+            </div>
+          </div>
+
+          {/* Cartes */}
           {projects.map((project, index) => (
             <div
               key={project.id}
@@ -147,23 +243,99 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
           ))}
         </div>
 
-        {/* 2ème colonne : la description avec Hover */}
-        <div className="w-1/2 ">
+        {/* 2ème colonne : la description */}
+        <div className="w-full ">
           <VioletHover>
             <div className="bg-[#100E12]">
-            <div className={`${styles.internBox}`}>
-              <div
-                key={currentProject.id}
-                className={`
-                  text-white 
-                  ${isChangingDescription ? "fade-out" : "fade-in"} 
-                `}
-              >
-                <p className="text-lg pl-12 text-gray-300 leading-relaxed">
-                  {currentProject.description}
-                </p>
+              {/* Ajout de 'flex' ici pour séparer la partie vide (gauche) et la partie contenu (droite) */}
+              <div className={`${styles.internBox} flex min-h-[780px] 2xl:min-h-[870px]`}>
+                {/* Moitié gauche vide */}
+                <div className="w-1/2" />
+
+                {/* Moitié droite : contenu */}
+                <div
+                  key={currentProject.id}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  className={`w-1/2 ${
+                    isChangingDescription ? "fade-out" : "fade-in"
+                  }`}
+                >
+                  {/* Partie Description */}
+                  <div className="flex flex-col gap-6">
+                    {/* Introduction */}
+                    <p className="text-gray-300 text-lg leading-relaxed">
+                      {currentProject.description?.split("\n\n")[0]}
+                    </p>
+
+                    {/* Sections avec titre et listes */}
+                    {currentProject.sections?.map((section, index) => (
+                      <div key={index} className="flex flex-col gap-4">
+                        <h3
+                          className={`
+        text-left
+        text-white text-base font-jakarta font-semibold
+        py-0.5 px-4 w-fit rounded-full
+        ${styles.titleBox}
+      `}
+                        >
+                          {section.title}
+                        </h3>
+                        <div className="space-y-2">
+                          {section.content.map((item, itemIndex) => (
+                            <CircleListItem
+                              className="min-w-4 h-4 text-sm"
+                              key={itemIndex}
+                              text={item.replace("✓ ", "")}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Partie Technologies */}
+                  {currentProject.technologies && (
+                    <div className="mt-6">
+                      <p className="text-sm text-gray-400 mb-3">
+                        Technologies used:
+                      </p>
+                      <div className="flex flex-wrap gap-4">
+                        {currentProject.technologies.map((tech, index) => (
+                          <div key={index} className="flex items-center gap-2">
+                            <img
+                              src={tech.icon}
+                              alt={tech.name}
+                              className="h-8 w-8 object-contain"
+                            />
+                            <span className="text-sm text-gray-400">
+                              {tech.name}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Note/Additional Text */}
+                  {currentProject.note && (
+                    <div className="mt-6">
+                      <p className="text-sm text-gray-300 italic">
+                        {currentProject.note}
+                      </p>
+                    </div>
+                  )}
+
+                  {/* Indication de clic */}
+                  {currentProject.moreInfoUrl && (
+                    <div className="mt-4">
+                      <span className="text-sm text-gray-400">
+                        Click the card to explore
+                      </span>
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
             </div>
           </VioletHover>
         </div>
@@ -248,6 +420,41 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
           100% {
             left: 100%;
           }
+        }
+
+        .nav-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.nav-arrow:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #333;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.dot.active {
+  background:#8b5cf680;
+ 
+  transform: scale(1.3);
+}
+
+      
         }
       `}</style>
     </BaseCard>

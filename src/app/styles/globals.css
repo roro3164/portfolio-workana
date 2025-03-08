@@ -29,23 +29,24 @@
 @font-face {
   font-family: 'Plus Jakarta Sans';
   src: url('/font/Plus_Jakarta_Sans/PlusJakartaSans-Medium.ttf') format('truetype');
-  font-weight: 500; /* Semi-Bold */
-  font-style: bold;
+  font-weight: 500; /* Medium */
+  font-style: normal; 
 }
 
 @font-face {
   font-family: 'Plus Jakarta Sans';
   src: url('/font/Plus_Jakarta_Sans/PlusJakartaSans-SemiBold.ttf') format('truetype');
   font-weight: 600; /* Semi-Bold */
-  font-style: bold;
+  font-style: normal;
 }
 
 @font-face {
   font-family: 'Plus Jakarta Sans';
   src: url('/font/Plus_Jakarta_Sans/PlusJakartaSans-Bold.ttf') format('truetype');
   font-weight: 700; /* Bold */
-  font-style: normal;
+  font-style: normal; 
 }
+
 
 
 @font-face {

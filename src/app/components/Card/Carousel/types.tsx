@@ -9,6 +9,13 @@ export interface ProjectCardProps {
     logoProject?: string;
     title?: string;
     description?: string;
+    moreInfoUrl?: string;
+    technologies?: Technology[];
+    sections?: { // Ajoutez cette interface
+      title: string;
+      content: string[];
+    }[];
+    note?: string;
   }
   
   export interface ProjectCarouselProps {

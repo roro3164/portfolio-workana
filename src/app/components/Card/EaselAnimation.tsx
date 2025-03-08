@@ -164,8 +164,8 @@ export default function EaselAnimation() {
           }
         }
 
-        /* Ta media query pour repositionner .easel-animation en dessous de 1024px */
-        @media (max-width: 1024px) {
+     
+        @media (max-width: 1280px) {
           .easel-animation {
             top: 54%;
             left: 61%;

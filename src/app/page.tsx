@@ -10,46 +10,8 @@ import CarouselCard, {
 import NormalCard from "./components/Card/NormalCard/NormalCard";
 import { ServiceCard } from "./components/Card/ServiceCard/ServiceCard";
 import BaseCard from "./components/Card/BaseCard/BaseCard";
-import LaptopGif from "./components/Card/AnimationLaptop/laptopGif";
+import { projects } from "./components/Card/Carousel/projectsData";
 
-const projects = [
-  {
-    id: 1,
-    imageProject: "/image/projects/MockUpSportclubpng.png",
-    logoProject: "/image/projects/logoSportclub .svg",
-    title: "Sport Club",
-    description:
-      "A passionate UI/UX Designer and Full-Stack Developer.  I design intuitive interfaces using Figma and Photoshop, and develop modern applications with C#, React, and ASP.NET. My goal is to combine design and technology to create projects that are both visually appealing and highly functional ",
-  },
-  {
-    id: 2,
-    imageProject: "/image/projects/mockUpLapin.png",
-    logoProject: "/image/projects/LogoLapin.png",
-    title: "Lapin Project",
-    description: "Description détaillée du projet Lapin...",
-  },
-  {
-    id: 3,
-    imageProject: "/image/projects/mockUpCrypto.png",
-    logoProject: "/image/projects/logoCrypto.svg",
-    title: "Crypto Platform",
-    description: "Description détaillée du projet Crypto...",
-  },
-  {
-    id: 4,
-    imageProject: "/image/projects/mockUpEco.png",
-    logoProject: "/image/projects/logoEco.svg",
-    title: "Eco Project",
-    description: "Description détaillée du projet Eco...",
-  },
-  {
-    id: 5,
-    imageProject: "/image/projects/mockUpAqui.png",
-    logoProject: "/image/projects/logoAqui.svg",
-    title: "Aqui Project",
-    description: "Description détaillée du projet Aqui...",
-  },
-];
 
 export default function Home() {
   return (
@@ -112,7 +74,7 @@ export default function Home() {
             internContent="I’m a full-stack developer who loves working with React and Next.js to create fast, dynamic, and user-friendly web applications. I also enjoy working with HTML, CSS, and JavaScript, and I’ve had the chance to explore Angular as well. On the backend, I build solid APIs with C# and ASP.NET. I’m always curious and excited to learn new technologies, making every project an opportunity to grow and deliver something awesome."
             imageSrc="/image/pictures/laptop.png"
             imageAlign="left"
-             customBreakpoint="xl"
+          
             // Mobile styles
             
             imagePositionMobile={{
@@ -126,7 +88,7 @@ export default function Home() {
             }}
             imagePositionDesktop={{
               top: "100%",
-              left: "-14%",
+              left: "-12%",
             }}
             boxPaddings={{
               mobile: {

@@ -1,5 +1,6 @@
 export interface CircleListItemProps {
     text: string;
+    className?: string;
   }
   
   // Types pour le ServiceCard

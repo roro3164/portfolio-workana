@@ -52,7 +52,7 @@ export const getCardClasses = ({
     // --- Mobile ---
     mobile: {
       // block jusqu'à breakpoint, puis hidden
-      visibility: `block ${breakpoint}:hidden`,
+      visibility: `block xl:hidden`,
       style: {
         paddingTop: boxPaddings?.mobile?.top,
       },
@@ -63,7 +63,7 @@ export const getCardClasses = ({
     // --- Desktop ---
     desktop: {
       // hidden jusqu'à breakpoint, puis block
-      visibility: `hidden ${breakpoint}:block`,
+      visibility: `hidden xl:block`,
       style: {
         paddingLeft:
           imageAlign === "left" ? boxPaddings?.desktop?.content : undefined,
