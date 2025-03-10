@@ -1,12 +1,14 @@
 "use client";
-import { useState } from 'react';
+import { motion } from "framer-motion";
+import { useState } from "react";
 import ContactButton from "./ContactButton";
 import { DesignerAnimation } from "./DesignerAnimation";
 import LeftComponent from "./LeftComponent";
 import RightComponent from "./RightComponent";
 
+
 const SplitScreen: React.FC = () => {
-  const [activeZone, setActiveZone] = useState<'left' | 'right' | null>(null);
+  const [activeZone, setActiveZone] = useState<"left" | "right" | null>(null);
 
   return (
     <div className="relative w-full">
@@ -18,36 +20,51 @@ const SplitScreen: React.FC = () => {
       {/* Section gauche en fond */}
       <div className="absolute inset-0 bg-[#0F0E12]" style={{ zIndex: 1 }}>
         <div className="relative">
-          <DesignerAnimation />
+          <motion.div
+            initial={{ opacity: 0, y: 50 }} // Part de 50px plus bas et invisible
+            animate={{ opacity: 1, y: 0 }} // Monte à 0 (position normale) et devient visible
+            transition={{
+              delay: 14, // Commence après 13s
+              duration: 2, // Animation de 2s
+              ease: "easeOut",
+            }}
+          >
+            <DesignerAnimation />
+          </motion.div>
           <LeftComponent />
         </div>
       </div>
 
       {/* Section droite avec clip-path */}
-      <div 
+      <div
         className="absolute inset-0 bg-[#0F0E12] transition-all duration-700"
         style={{
-          clipPath: activeZone === 'left'
-            ? 'inset(0 0 0 100%)'
-            : activeZone === 'right'
-              ? 'inset(0 0 0 0)'
-              : 'inset(0 0 0 50%)',
-          zIndex: activeZone === 'right' ? 5 : 2
+          clipPath:
+            activeZone === "left"
+              ? "inset(0 0 0 100%)"
+              : activeZone === "right"
+              ? "inset(0 0 0 0)"
+              : "inset(0 0 0 50%)",
+          zIndex: activeZone === "right" ? 5 : 2,
         }}
       >
         <RightComponent />
       </div>
 
       {/* Barre verticale avec effet laser */}
-      <div 
+      <div
         className="absolute top-0 bottom-0 transition-all mt-5 duration-700 md:h-[560px]"
         style={{
-          left: activeZone === 'left' ? '100%' : 
-                activeZone === 'right' ? '0' : '50%',
-          transform: 'translateX(-50%)',
+          left:
+            activeZone === "left"
+              ? "100%"
+              : activeZone === "right"
+              ? "0"
+              : "50%",
+          transform: "translateX(-50%)",
           zIndex: 6,
-          width: '2px',
-          backgroundColor: '#6a5acd',
+          width: "2px",
+          backgroundColor: "#6a5acd",
           boxShadow: `
             0 0 10px #4b0082,
             0 0 20px #1e90ff,
@@ -58,16 +75,16 @@ const SplitScreen: React.FC = () => {
           `,
         }}
       >
-
         {/* Effet laser qui monte et descend */}
-        <div 
+        <div
           className="absolute w-full"
           style={{
-            height: '25%', // Utilisation d'une valeur relative
-            background: 'linear-gradient(180deg, transparent,#6a5acd, #ffffff, #6a5acd, transparent)',
-            boxShadow: '0 0 20px #bc13fe',
-            animation: 'laserMove 4s linear infinite',
-            opacity: 0.8
+            height: "25%", // Utilisation d'une valeur relative
+            background:
+              "linear-gradient(180deg, transparent,#6a5acd, #ffffff, #6a5acd, transparent)",
+            boxShadow: "0 0 20px #bc13fe",
+            animation: "laserMove 4s linear infinite",
+            opacity: 0.8,
           }}
         />
       </div>
@@ -88,26 +105,42 @@ const SplitScreen: React.FC = () => {
       `}</style>
 
       {/* Zones de hover */}
-      <div 
+      <div
         className="absolute top-0 bottom-0 w-1/2 left-0 cursor-pointer"
         style={{ zIndex: 7 }}
-        onMouseEnter={() => setActiveZone('left')}
+        onMouseEnter={() => setActiveZone("left")}
         onMouseLeave={() => setActiveZone(null)}
       />
-      <div 
+      <div
         className="absolute top-0 bottom-0 w-1/2 right-0 cursor-pointer"
         style={{ zIndex: 7 }}
-        onMouseEnter={() => setActiveZone('right')}
+        onMouseEnter={() => setActiveZone("right")}
         onMouseLeave={() => setActiveZone(null)}
       />
 
       {/* Contact Button avec z-index élevé */}
-      <div className="absolute" style={{ zIndex: 20, bottom: '23%', left: '0%' }}>
-        <ContactButton />
+
+      <div
+        className="absolute"
+        style={{ zIndex: 20, bottom: "23%", left: "0%" }}
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 50 }} // Part de 50px plus bas et invisible
+          animate={{ opacity: 1, y: 0 }} // Monte à 0 (position normale) et devient visible
+          transition={{
+            delay: 14, // Commence après 13s
+            duration: 2, // Animation de 2s
+            ease: "easeOut",
+          }}
+        >
+          <ContactButton />
+        </motion.div>
       </div>
 
+      {/* Overlay */}
+
       {/* Effet de gradient */}
-      
+
       <div className="absolute w-full bottom-0 md:bottom-16 -left-8 -right-8 h-12 bg-gradient-to-t from-[#0F0E12] via-[#0F0E12]/70 to-transparent z-10" />
     </div>
   );
