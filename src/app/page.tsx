@@ -55,7 +55,7 @@ export default function Home() {
             I love creating intuitive and visually engaging designs with tools like Figma and Photoshop, while building modern and efficient applications using C#, React, and ASP.NET. My goal is to bridge design and technology to create solutions that are both practical and beautiful.
 
           Outside of work, I’m a big fan of traveling, discovering new places, and finding inspiration in different cultures. Whether it’s through exploring the latest tech trends or enjoying the Mediterranean lifestyle, I’m always looking for fresh ideas to bring into my projects."
-              imageSrc="/image/pictures/photoAbout.png"
+              imageSrc="/image/pictures/photoAbout.webp"
               boxStyle="purple"
               hoverType="white"
               // Mobile styles
