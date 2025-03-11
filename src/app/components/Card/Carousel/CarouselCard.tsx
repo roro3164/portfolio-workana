@@ -1,5 +1,5 @@
 "use client";
-import { Project } from '../types';
+import { Project } from './types';
 import { DesktopCarousel } from './DesktopCarousel';
 import { MobileCarousel } from './MobileCarousel';
 
