@@ -5,8 +5,8 @@ export interface ProjectCardProps {
   
   export interface Project {
     id?: number;
-    imageProject?: string;
-    logoProject?: string;
+    imageProject: string;
+    logoProject: string;
     title?: string;
     description?: string;
     moreInfoUrl?: string;
@@ -18,6 +18,11 @@ export interface ProjectCardProps {
     note?: string;
   }
   
+  export interface Technology {
+    name: string;
+    icon: string;
+  }
+   
   export interface ProjectCarouselProps {
     projects: Project[];
   }

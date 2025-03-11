@@ -1,5 +1,5 @@
 export interface BaseCardProps {
-    title?: string;
+    title?: React.ReactNode; 
     titleAlignment?: string;
     children?: React.ReactNode;
     cardAlignment?: string;

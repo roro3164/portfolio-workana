@@ -127,7 +127,6 @@ export const MobileCarousel = ({ projects }: MobileProjectCarouselProps) => {
               {projects.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => handleDotClick(index)}
                   className={`w-2 h-2 rounded-full transition-colors ${
                     index === activeIndex ? "bg-[#8b5cf680]" : "bg-gray-600"
                   }`}

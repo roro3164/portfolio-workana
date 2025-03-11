@@ -14,10 +14,12 @@ export const FormCard = () => {
   const [status, setStatus] = useState({
     submitted: false,
     submitting: false,
-    error: null,
+    error: null as string | null,
   });
 
-  const handleChange = (e) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -25,7 +27,7 @@ export const FormCard = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus({ submitted: false, submitting: true, error: null });
 
@@ -45,14 +47,21 @@ export const FormCard = () => {
       }
 
       setStatus({ submitted: true, submitting: false, error: null });
-      setFormData({ firstName: "", lastName: "", message: "" });
+      setFormData({ firstName: "", lastName: "", email: "", message: "" });
 
-      // Reset status after 5 seconds
       setTimeout(() => {
         setStatus({ submitted: false, submitting: false, error: null });
       }, 5000);
-    } catch (error) {
-      setStatus({ submitted: false, submitting: false, error: error.message });
+    } catch (error: unknown) {
+      let message = "An unknown error occurred";
+      if (error instanceof Error) {
+        message = error.message;
+      }
+      setStatus({
+        submitted: false,
+        submitting: false,
+        error: message,
+      });
     }
   };
 

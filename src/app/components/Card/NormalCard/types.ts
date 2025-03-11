@@ -38,6 +38,6 @@ export interface StyleProps {
 export interface NormalCardProps extends StyleProps {
   title: string;
   internContent?: string;
-  imageSrc?: string;
+  imageSrc: string;
   hasEaselAnimation?: boolean;
 }
