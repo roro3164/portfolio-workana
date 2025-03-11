@@ -124,7 +124,7 @@ export default function Home() {
             title="UI/UX Designer"
             imageAlign="right"
             internContent="As a UI/UX designer, I thrive on collaborating with teams to bring innovative ideas to life. My approach combines creativity and strategy to design interfaces that are both intuitive and visually compelling. By leveraging tools like Figma and Photoshop, I deliver designs that leave a lasting impression."
-            imageSrc="/image/pictures/chevalet.png"
+            imageSrc="/image/pictures/chevalet.webp"
             hasEaselAnimation={true}
             imageSizeMobile={{
               width: "300px",

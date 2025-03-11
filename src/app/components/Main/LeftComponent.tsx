@@ -10,13 +10,13 @@ const LeftComponent: React.FC = () => {
       <div 
         className="w-full h-[90%] bg-center xl:bg-top bg-cover bg-no-repeat"
         style={{
-          backgroundImage: "url('image/pictures/bgDesign0.png')",
+          backgroundImage: "url('image/pictures/bgDesign0.webp')",
          
         }}
       >
         <motion.img
         className="relative z-0 w-full h-full object-contain"
-        src="/image/pictures/portraitDesign.png"
+        src="/image/pictures/portraitDesign.webp"
         alt="portrait design"
         initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}

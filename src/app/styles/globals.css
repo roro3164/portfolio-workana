@@ -65,7 +65,7 @@
   font-style: light;
 }
 
-
+html, body { overflow-x: hidden; }
 
 body {
   

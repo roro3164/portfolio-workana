@@ -12,7 +12,7 @@ const RightComponent: React.FC = () => {
       <div className="relative w-full h-[90%]">
       <motion.img
         className="relative z-0 w-full h-full object-contain"
-        src="/image/pictures/portraitDev.png"
+        src="/image/pictures/portraitDev.webp"
         alt="portrait dev"
         initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}

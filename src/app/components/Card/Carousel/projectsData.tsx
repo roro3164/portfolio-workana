@@ -3,7 +3,7 @@ import { Project } from "./types";
 export const projects: Project[] = [
   {
     id: 1,
-    imageProject: "/image/projects/MockUpSportclubpng.png",
+    imageProject: "/image/projects/MockUpSportclubpng.webp",
     logoProject: "/image/projects/logoSportclub .svg",
     title: "Sport Club",
     description: "Comprehensive UX redesign for a leading Argentine fitness chain with over 500k active users. Focused on user interviews, tree testing, and mid-fidelity wireframes (MFVD) to validate and refine a new app architecture.",
@@ -43,7 +43,7 @@ export const projects: Project[] = [
   },
   {
     id: 2,
-    imageProject: "/image/projects/mockUpLapin.png",
+    imageProject: "/image/projects/mockUpLapin.webp",
     logoProject: "/image/projects/LogoLapin.png",
     title: "Lapin Deco",
     description: "Self-initiated e-commerce project for a home decor and furniture store, designed and developed from concept to deployment to showcase both design and front-end development skills.",
@@ -79,7 +79,7 @@ export const projects: Project[] = [
   },
   {
     id: 3,
-    imageProject: "/image/projects/mockUpCrypto.png",
+    imageProject: "/image/projects/mockUpCrypto.webp",
     logoProject: "/image/projects/logoCrypto.svg",
     title: "Crypto Cloud Expo",
     description: "Single-page React application designed for a temporary cryptocurrency conference in Dubai. Focused on creating a visually striking landing page with strong conversion elements.",
@@ -115,7 +115,7 @@ export const projects: Project[] = [
   },
   {
     id: 4,
-    imageProject: "/image/projects/mockUpEco.png",
+    imageProject: "/image/projects/mockUpEco.webp",
     logoProject: "/image/projects/logoEco.svg",
     title: "EcoMove",
     description: "Full-stack platform promoting eco-friendly mobility solutions, developed as a certification project for .NET Application Developer certification.",
@@ -156,7 +156,7 @@ export const projects: Project[] = [
   },
   {
     id: 5,
-    imageProject: "/image/projects/mockUpAqui.png",
+    imageProject: "/image/projects/mockUpAqui.webp",
     logoProject: "/image/projects/logoAqui.svg",
     title: "Aqui Acampamos",
     description: "Comprehensive camping reservation platform for Argentina, featuring interactive maps, advanced search filters, and secure booking functionality.",

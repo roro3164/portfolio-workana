@@ -91,7 +91,7 @@ export default function EaselAnimation() {
       {/* Le pinceau : suit le currentLetterIndex et currentWord * lineSpacing */}
       {currentWord < WORDS.length && (
         <img
-          src="/image/pictures/pincel.png"
+          src="/image/pictures/pincel.webp"
           alt="Brush"
           className="brush"
           style={{
