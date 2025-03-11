@@ -7,9 +7,7 @@ import { FormCard } from "./components/Card/Form/FormContact";
 import { Footer } from "./components/Footer/Footer";
 import IntenseCursorLight from "./components/IntenseCursorLight";
 import NeonWord from "./components/NeonWord";
-import CarouselCard, {
-  CardProject,
-} from "./components/Card/Carousel/CarouselCard";
+import CarouselCard from "./components/Card/Carousel/CarouselCard";
 import NormalCard from "./components/Card/NormalCard/NormalCard";
 import { ServiceCard } from "./components/Card/ServiceCard/ServiceCard";
 import BaseCard from "./components/Card/BaseCard/BaseCard";

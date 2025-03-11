@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { useState } from "react";
 import ContactButton from "../../Main/ContactButton";
 import VioletHover from "../hover/VioletHover";
@@ -8,19 +8,20 @@ export const FormCard = () => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
-    message: ""
+    email: "",
+    message: "",
   });
   const [status, setStatus] = useState({
     submitted: false,
     submitting: false,
-    error: null
+    error: null,
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -29,28 +30,27 @@ export const FormCard = () => {
     setStatus({ submitted: false, submitting: true, error: null });
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
+      const response = await fetch("/api/contact", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(formData),
       });
 
       const data = await response.json();
-      
+
       if (!response.ok) {
         throw new Error(data.error || "An error occurred");
       }
 
       setStatus({ submitted: true, submitting: false, error: null });
       setFormData({ firstName: "", lastName: "", message: "" });
-      
+
       // Reset status after 5 seconds
       setTimeout(() => {
         setStatus({ submitted: false, submitting: false, error: null });
       }, 5000);
-      
     } catch (error) {
       setStatus({ submitted: false, submitting: false, error: error.message });
     }
@@ -78,6 +78,15 @@ export const FormCard = () => {
             placeholder="Last Name"
             required
           />
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            className={styles.internBoxContact}
+            placeholder="Your Email"
+            required
+          />
           <textarea
             name="message"
             value={formData.message}
@@ -86,23 +95,23 @@ export const FormCard = () => {
             placeholder="Your message"
             required
           ></textarea>
-          
+
           <div className="mx-auto">
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               disabled={status.submitting}
               className={status.submitting ? "opacity-50" : ""}
             >
               <ContactButton />
             </button>
           </div>
-          
+
           {status.submitted && (
             <div className="text-green-500 mt-4 text-center">
               Your message has been sent successfully!
             </div>
           )}
-          
+
           {status.error && (
             <div className="text-red-500 mt-4 text-center">
               Error: {status.error}
@@ -113,4 +122,3 @@ export const FormCard = () => {
     </VioletHover>
   );
 };
-

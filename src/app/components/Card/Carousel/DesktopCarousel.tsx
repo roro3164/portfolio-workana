@@ -7,6 +7,7 @@ import { ProjectCard } from "./ProjectCard";
 import BaseCard from "../BaseCard/BaseCard";
 import VioletHover from "../hover/VioletHover";
 import { CircleListItem } from "../ServiceCard/CircleListItem";
+import Image from "next/image";
 
 interface ProjectCarouselProps {
   projects: Project[];
@@ -21,7 +22,7 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
   const [isExiting, setIsExiting] = useState(false);
   const [isGoingBack, setIsGoingBack] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
-  const [selectedCard, setSelectedCard] = useState<number | null>(null);
+  const [selectedCard] = useState<number | null>(null);
   const [currentProject, setCurrentProject] = useState(projects[0]);
   const [isChangingDescription, setIsChangingDescription] = useState(false);
 
@@ -248,7 +249,9 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
           <VioletHover>
             <div className="bg-[#100E12]">
               {/* Ajout de 'flex' ici pour séparer la partie vide (gauche) et la partie contenu (droite) */}
-              <div className={`${styles.internBox} flex min-h-[780px] 2xl:min-h-[870px]`}>
+              <div
+                className={`${styles.internBox} flex min-h-[780px] 2xl:min-h-[870px]`}
+              >
                 {/* Moitié gauche vide */}
                 <div className="w-1/2" />
 
@@ -284,7 +287,7 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
                         <div className="space-y-2">
                           {section.content.map((item, itemIndex) => (
                             <CircleListItem
-                              className="min-w-4 h-4 text-sm"
+                              className="min-w-5 h-5 text-sm"
                               key={itemIndex}
                               text={item.replace("✓ ", "")}
                             />
@@ -303,10 +306,13 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
                       <div className="flex flex-wrap gap-4">
                         {currentProject.technologies.map((tech, index) => (
                           <div key={index} className="flex items-center gap-2">
-                            <img
+                            <Image
                               src={tech.icon}
                               alt={tech.name}
-                              className="h-8 w-8 object-contain"
+                              width={32} 
+                              height={32} 
+                              className="object-contain"
+                           
                             />
                             <span className="text-sm text-gray-400">
                               {tech.name}

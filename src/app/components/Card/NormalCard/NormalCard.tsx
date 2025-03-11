@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image"; // <-- Import du composant Image
 import { NormalCardProps } from "./types";
 import { getCardClasses } from "./utils";
 import EaselAnimation from "../EaselAnimation";
@@ -25,7 +26,7 @@ const NormalCard = ({
   imageSizeDesktop,
   boxPaddings,
 
-  // Prop pour le breakpoint (déjà gérée dans utils)
+  // Prop pour le breakpoint (gérée dans utils)
   customBreakpoint,
 
   ...rest
@@ -85,9 +86,11 @@ const NormalCard = ({
         {isLaptop ? (
           <LaptopGif />
         ) : (
-          <img
+          <Image
             src={imageSrc}
             alt="Card decoration"
+            width={600} 
+            height={400} 
             className={`${styles.customShadow} w-full h-full object-contain hover:scale-110 transition-transform duration-300`}
           />
         )}
@@ -102,9 +105,11 @@ const NormalCard = ({
         {isLaptop ? (
           <LaptopGif />
         ) : (
-          <img
+          <Image
             src={imageSrc}
             alt="Card decoration"
+            width={600} 
+            height={400} 
             className={`${styles.customShadow} w-full h-full object-contain`}
           />
         )}

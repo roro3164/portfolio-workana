@@ -4,44 +4,52 @@ import React, { useState, useEffect, useRef } from "react";
 const WORDS = ["Designer", "ui/ux"];
 
 export const DesignerAnimation = () => {
+  const [startAnimation, setStartAnimation] = useState(false);
   const [currentWord, setCurrentWord] = useState(0);
   const [currentLetterIndex, setCurrentLetterIndex] = useState(-1);
   const [windowWidth, setWindowWidth] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  // 1) Au montage, on lance un timer de 14s avant de commencer l'animation
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setStartAnimation(true);
+    }, 14000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   // Calcul des dimensions responsive ajusté
   const getResponsiveValues = () => {
-    // Mobile (moins de 640px)
     if (windowWidth < 640) {
+      // Mobile
       return {
         letterWidth: 12,
         wordSpacing: 30,
         brushSize: { width: 100, height: 160 },
         brushOffset: { x: -100, y: -12 },
         containerMaxWidth: 250,
-        fontSize: 22
+        fontSize: 22,
       };
-    }
-    // Tablette (640px à 1024px)
-    else if (windowWidth < 1024) {
+    } else if (windowWidth < 1024) {
+      // Tablette
       return {
         letterWidth: 16,
         wordSpacing: 50,
         brushSize: { width: 150, height: 250 },
         brushOffset: { x: -130, y: -18 },
         containerMaxWidth: 350,
-        fontSize: 36
+        fontSize: 36,
       };
-    }
-    // Desktop (plus de 1024px)
-    else {
+    } else {
+      // Desktop
       return {
         letterWidth: 20,
         wordSpacing: 70,
         brushSize: { width: 200, height: 320 },
         brushOffset: { x: -180, y: -25 },
         containerMaxWidth: 450,
-        fontSize: 48
+        fontSize: 48,
       };
     }
   };
@@ -51,36 +59,41 @@ export const DesignerAnimation = () => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
-    
-    // Initialiser la largeur au chargement
-    handleResize();
-    
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    handleResize(); // Initialiser la largeur au chargement
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Animation pour taper le texte
+  // 2) Animation pour taper le texte, uniquement si "startAnimation" est true
   useEffect(() => {
+    // Si on n'a pas encore démarré l'animation, on ne fait rien
+    if (!startAnimation) return;
+
+    // Si on est en train de taper un mot
     if (currentLetterIndex < WORDS[currentWord].length) {
       const timer = setTimeout(() => {
         setCurrentLetterIndex((prev) => prev + 1);
       }, 300);
       return () => clearTimeout(timer);
-    } else if (currentWord < WORDS.length - 1) {
+    } 
+    // Si on a fini un mot et qu'il en reste un autre
+    else if (currentWord < WORDS.length - 1) {
       const nextWordTimer = setTimeout(() => {
         setCurrentWord((prev) => prev + 1);
         setCurrentLetterIndex(-1);
       }, 1000);
       return () => clearTimeout(nextWordTimer);
     }
-  }, [currentLetterIndex, currentWord]);
+  }, [startAnimation, currentLetterIndex, currentWord]);
 
-  const { letterWidth, wordSpacing, brushSize, brushOffset, containerMaxWidth, fontSize } = getResponsiveValues();
+  const { letterWidth, wordSpacing, brushSize, brushOffset, containerMaxWidth, fontSize } =
+    getResponsiveValues();
 
   return (
-    <div 
-      className="easel-animation z-10" 
-      ref={containerRef} 
+    <div
+      className="easel-animation z-10"
+      ref={containerRef}
       style={{ maxWidth: `${containerMaxWidth}px` }}
     >
       <div className="writing-area">
@@ -101,8 +114,7 @@ export const DesignerAnimation = () => {
                   fontSize: `${fontSize}px`,
                   opacity:
                     wordIndex < currentWord ||
-                    (wordIndex === currentWord &&
-                      charIndex <= currentLetterIndex)
+                    (wordIndex === currentWord && charIndex <= currentLetterIndex)
                       ? 1
                       : 0,
                   ...(char === " " && { marginRight: "0.5rem" }),
@@ -115,7 +127,8 @@ export const DesignerAnimation = () => {
         ))}
       </div>
 
-      {currentWord < WORDS.length && (
+      {/* 3) Affichage du "pinceau" (brush) uniquement si l'animation est démarrée */}
+      {startAnimation && currentWord < WORDS.length && (
         <img
           src="/image/pictures/hand.svg"
           alt="Brush"
@@ -138,14 +151,13 @@ export const DesignerAnimation = () => {
           width: 100%;
           z-index: 20;
           pointer-events: none;
-          padding-left: 0; /* Supprimé le padding-left de 6% */
 
           .writing-area {
             position: relative;
             width: 100%;
             height: auto;
             min-height: 120px;
-            padding-left: 2px; /* Très petit padding pour éviter de coller au bord */
+            padding-left: 2px;
             
             @media (min-width: 640px) {
               min-height: 180px;

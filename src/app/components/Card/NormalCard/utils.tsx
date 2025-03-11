@@ -8,13 +8,9 @@ export const getCardClasses = ({
   imageSizeDesktop,
   imagePositionMobile,
   imagePositionDesktop,
-
-  // Notre nouvelle prop
-  customBreakpoint,
 }: StyleProps) => {
-  // Si la prop n'est pas définie, on met 'lg'
-  const breakpoint = customBreakpoint || "lg";
-
+ 
+ 
   const defaultDesktopPosition: CSSProperties = {
     top: "50%",
     transform: "translateY(-50%)",

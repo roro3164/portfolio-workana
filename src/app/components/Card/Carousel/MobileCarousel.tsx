@@ -7,6 +7,7 @@ import styles from "./Carousel.module.scss";
 import { BaseCard } from "../BaseCard/BaseCard";
 import VioletHover from "../hover/VioletHover";
 import { CircleListItem } from "../ServiceCard/CircleListItem";
+import Image from "next/image";
 
 interface MobileProjectCarouselProps {
   projects: Project[];
@@ -62,7 +63,7 @@ export const MobileCarousel = ({ projects }: MobileProjectCarouselProps) => {
   const getCardStyle = (index: number) => {
     const diff = (index - activeIndex + projects.length) % projects.length;
     const isActive = diff === 0;
-    let transform = isActive
+    const transform = isActive
       ? isExiting
         ? "translate(-180%, -10%) rotate(-12deg)"
         : "translate(-45%, -8%) rotate(-12deg) scale(0.95)"
@@ -163,7 +164,7 @@ export const MobileCarousel = ({ projects }: MobileProjectCarouselProps) => {
                     <div className="space-y-2">
                       {section.content.map((item, itemIndex) => (
                         <CircleListItem
-                          className="min-w-4 h-4 text-xs"
+                          className="min-w-5 h-5 text-sm"
                           key={itemIndex}
                           text={item.replace("✓ ", "")}
                         />
@@ -182,10 +183,12 @@ export const MobileCarousel = ({ projects }: MobileProjectCarouselProps) => {
                   <div className="flex flex-wrap gap-3">
                     {currentProject.technologies.map((tech, index) => (
                       <div key={index} className="flex items-center gap-2">
-                        <img
+                        <Image
                           src={tech.icon}
                           alt={tech.name}
-                          className="h-5 w-5 object-contain"
+                          width={20} // 5 x 4 = 20px (équivalent à Tailwind "h-5 w-5")
+                          height={20}
+                          className="object-contain"
                         />
                         <span className="text-xs text-gray-400">
                           {tech.name}
