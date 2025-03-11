@@ -70,7 +70,11 @@ export default {
   			montserrat: [
   				'Montserrat A1',
   				'sans-serif'
-  			]
+  			],
+			  poppins: [
+				'Poppins',
+				'sans-serif'
+			]
   		},
   		screens: {
   			xs: '480px',

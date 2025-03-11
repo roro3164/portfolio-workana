@@ -1,3 +1,5 @@
+"use client";
+import { motion } from "framer-motion";
 import React from "react";
 
 const LeftComponent: React.FC = () => {
@@ -12,11 +14,14 @@ const LeftComponent: React.FC = () => {
          
         }}
       >
-        <img
-          className="w-full h-full object-contain"
-          src="/image/pictures/portraitDesign.png"
-          alt="portrait"
-        />
+        <motion.img
+        className="relative z-0 w-full h-full object-contain"
+        src="/image/pictures/portraitDesign.png"
+        alt="portrait design"
+        initial={{ scale: 0.95, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 14.2, duration: 1.5 }}
+      />
       </div>
     </div>
   );

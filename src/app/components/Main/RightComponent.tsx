@@ -10,19 +10,23 @@ const RightComponent: React.FC = () => {
     <div className="relative w-full md:h-[650px]">
       {/* Conteneur principal pour l'image et le background */}
       <div className="relative w-full h-[90%]">
-        <img
-          className="w-full h-full object-contain "
-          src="/image/pictures/portraitDev.png"
-          alt="portrait dev"
-        />
+      <motion.img
+        className="relative z-0 w-full h-full object-contain"
+        src="/image/pictures/portraitDev.png"
+        alt="portrait dev"
+        initial={{ scale: 0.95, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 14.2, duration: 1.5 }}
+      />
+
         {/* Background neon */}
         <div className="absolute -z-10 inset-0 ;">
           <motion.div
-            initial={{ opacity: 0, y: 50 }} // Part de 50px plus bas et invisible
-            animate={{ opacity: 1, y: 0 }} // Monte à 0 (position normale) et devient visible
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }} 
             transition={{
-              delay: 14, // Commence après 13s
-              duration: 2, // Animation de 2s
+              delay: 14.5, // Commence après 13s
+              duration: 0.8, // Animation de 2s
               ease: "easeOut",
             }}
           >

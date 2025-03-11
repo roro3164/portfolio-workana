@@ -23,13 +23,9 @@ export default function Home() {
         <div className="mb-6">
           <motion.div
             className="home"
-            initial={{ opacity: 0, y: 50 }} // Part de 50px plus bas et invisible
-            animate={{ opacity: 1, y: 0 }} // Monte à 0 (position normale) et devient visible
-            transition={{
-              delay: 13, // Commence après 13s
-              duration: 2, // Animation de 2s
-              ease: "easeOut",
-            }}
+            initial={{ y: -50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 13.5, duration: 1 }}
           >
             <Header />
           </motion.div>
@@ -39,10 +35,8 @@ export default function Home() {
         <SplitScreen></SplitScreen>
 
     
-      </div>
-
-      {/* 
-      <section className="flex flex-col gap-20 px-12 "> */}
+      </div> 
+    
       <section className="sectionCard flex flex-col mt-5 sm:mt-0 gap-5 sm:gap-36 sm:p-12 ">
         <IntenseCursorLight />
 
@@ -51,7 +45,7 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }} // Monte à 0 (position normale) et devient visible
           transition={{
             delay: 14, // Commence après 13s
-            duration: 2, // Animation de 2s
+            duration: 1, // Animation de 2s
             ease: "easeOut",
           }}
         >

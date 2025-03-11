@@ -20,12 +20,12 @@ const SplitScreen: React.FC = () => {
       {/* Section gauche en fond */}
       <div className="absolute inset-0 bg-[#0F0E12]" style={{ zIndex: 1 }}>
         <div className="relative">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }} // Part de 50px plus bas et invisible
-            animate={{ opacity: 1, y: 0 }} // Monte à 0 (position normale) et devient visible
+        <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }} 
             transition={{
-              delay: 14, // Commence après 13s
-              duration: 2, // Animation de 2s
+              delay: 14.5, // Commence après 13s
+              duration: 0.8, // Animation de 2s
               ease: "easeOut",
             }}
           >
@@ -125,12 +125,9 @@ const SplitScreen: React.FC = () => {
         style={{ zIndex: 20, bottom: "23%", left: "0%" }}
       >
         <motion.div
-          initial={{ opacity: 0, y: 50 }} // Part de 50px plus bas et invisible
-          animate={{ opacity: 1, y: 0 }} // Monte à 0 (position normale) et devient visible
-          transition={{
-            delay: 14, // Commence après 13s
-            duration: 2, // Animation de 2s
-            ease: "easeOut",
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 14.8, type: "spring"
           }}
         >
           <ContactButton />
