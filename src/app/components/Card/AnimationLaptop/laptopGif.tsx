@@ -7,9 +7,11 @@ const LaptopGif = () => {
   const [animationState, setAnimationState] = useState<
     "closed" | "opening" | "open" | "closing"
   >("closed");
+
+  // On déclare le type union | null et on passe null comme valeur initiale
   const laptopRef = useRef<HTMLDivElement>(null);
-  const observerRef = useRef<IntersectionObserver>();
-  const animationTimer = useRef<NodeJS.Timeout>();
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const animationTimer = useRef<NodeJS.Timeout | null>(null);
 
   // Préchargement côté client uniquement
   useEffect(() => {
@@ -19,7 +21,6 @@ const LaptopGif = () => {
       "/image/laptopAnimationGif/openLaptop.png",
       "/image/laptopAnimationGif/closeLaptop.png",
     ];
-
     preloadImages.forEach((src) => {
       const img = new window.Image();
       img.src = src;
@@ -52,7 +53,10 @@ const LaptopGif = () => {
   }, []);
 
   const handleVisibilityChange = (isVisible: boolean) => {
-    clearTimeout(animationTimer.current);
+    // On vérifie si animationTimer.current n’est pas null avant de l’utiliser
+    if (animationTimer.current) {
+      clearTimeout(animationTimer.current);
+    }
 
     setAnimationState((prev) => {
       if (isVisible && prev !== "open") return "opening";
@@ -93,8 +97,6 @@ const LaptopGif = () => {
   };
 
   const { src, alt } = getImageSource();
-
-  // On détecte si c'est un GIF pour le marquer en "unoptimized"
   const isGif = src.endsWith(".gif");
 
   return (
@@ -107,9 +109,8 @@ const LaptopGif = () => {
         height={700}
         priority
         className={styles.laptopImage}
-        unoptimized={isGif} // <-- important pour les GIF animés
+        unoptimized={isGif}
         onLoad={() => {
-          // Remplace onLoadingComplete par onLoad
           window.dispatchEvent(new Event("resize"));
         }}
       />
