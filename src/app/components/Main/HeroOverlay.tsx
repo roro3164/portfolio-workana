@@ -54,15 +54,15 @@ export default function HeroOverlay({
         setTimeout(() => {
           setTextIndex(textIndex + 1);
           setCharIndex(0);
-        }, 1000);
+        }, 700); // pause entre phrases réduite (au lieu de 1000ms)
       } 
       // Dernière phrase terminée, déclenchement du fade-out
       else {
         setTimeout(() => {
           setFadeOut(true);
-        }, 2500);
+        }, 2000); // temps avant fade-out réduit (au lieu de 2500ms)
       }
-    }, 80);
+    }, 65); // vitesse de frappe (au lieu de 80ms)
 
     return () => clearTimeout(textTimer);
   }, [charIndex, textIndex, showOverlay]);
@@ -72,7 +72,7 @@ export default function HeroOverlay({
     if (fadeOut) {
       const timer = setTimeout(() => {
         setShowOverlay(false);
-      }, 1500);
+      }, 1000); // durée du fade-out (au lieu de 1500ms)
       return () => clearTimeout(timer);
     }
   }, [fadeOut]);
@@ -97,8 +97,9 @@ export default function HeroOverlay({
         pointer-events-auto
       "
       style={{
+        // Transition plus courte (1s) au lieu de 1.5s
         transition:
-          "opacity 1500ms cubic-bezier(0.33,1,0.68,1), transform 1500ms cubic-bezier(0.33,1,0.68,1)",
+          "opacity 1000ms cubic-bezier(0.33,1,0.68,1), transform 1000ms cubic-bezier(0.33,1,0.68,1)",
         opacity: fadeOut ? 0 : 1,
         // Sur mobile, on évite le scale pour ne pas “zoomer”
         transform: isMobile
@@ -151,7 +152,7 @@ export default function HeroOverlay({
               `}
               style={{
                 transition: fadeOut
-                  ? "transform 1500ms cubic-bezier(0.33,1,0.68,1), opacity 1500ms cubic-bezier(0.33,1,0.68,1)"
+                  ? "transform 1000ms cubic-bezier(0.33,1,0.68,1), opacity 1000ms cubic-bezier(0.33,1,0.68,1)"
                   : "transform 400ms ease-out, opacity 400ms ease-out",
                 transform: fadeOut ? "translateY(2rem)" : "translateY(0)",
               }}

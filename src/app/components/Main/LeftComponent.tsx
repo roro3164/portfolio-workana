@@ -14,6 +14,7 @@ const LeftComponent: React.FC = () => {
           className="w-full h-full object-cover xl:object-top object-center"
           width={1000}
           height={650}
+          priority
           style={{ position: 'absolute', top: 0, left: 0 }}
         />
         

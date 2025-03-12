@@ -21,9 +21,9 @@ const SplitScreen: React.FC = () => {
         <div className="relative">
           <motion.div
             initial={{ opacity: 0, x: -100 }}
-            animate={{ opacity: 1, x: 0 }} 
+            animate={{ opacity: 1, x: 0 }}
             transition={{
-              delay: 0, 
+              delay: 0,
               duration: 0.8,
               ease: "easeOut",
             }}
@@ -122,13 +122,15 @@ const SplitScreen: React.FC = () => {
         className="absolute"
         style={{ zIndex: 20, bottom: "23%", left: "0%" }}
       >
-        <motion.div
-          initial={{ y: 100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0, type: "spring" }}
-        >
-          <ContactButton />
-        </motion.div>
+        <a href="#contact">
+          <motion.div
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0, type: "spring" }}
+          >
+            <ContactButton />
+          </motion.div>
+        </a>
       </div>
 
       {/* Effet de gradient en bas */}
