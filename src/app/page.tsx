@@ -19,13 +19,7 @@ export default function Home() {
 
   return (
     <div>
-      {/* Affichage de l’overlay tant qu’il n’est pas terminé */}
-      {!overlayFinished && (
-        <HeroOverlay onOverlayFinish={() => setOverlayFinished(true)} />
-      )}
-      
-      {/* Dès que l’overlay est terminé, on affiche le reste du contenu */}
-      {overlayFinished && (
+    
         <div className="home">
           <div className="mb-6">
             <motion.div
