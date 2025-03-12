@@ -88,18 +88,25 @@ export default function HeroOverlay({
 
   return (
     <div
-      className="hero-overlay fixed inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-[#0F0E12] via-[#0F0E12] to-[#0F0E12]/90 text-white font-jakarta z-50 overflow-hidden pointer-events-auto"
+      className="
+        hero-overlay fixed inset-0
+        flex flex-col items-center justify-center
+        bg-gradient-to-br from-[#0F0E12] via-[#0F0E12] to-[#0F0E12]/90
+        text-white font-jakarta
+        z-50 overflow-hidden
+        pointer-events-auto
+      "
       style={{
         transition:
           "opacity 1500ms cubic-bezier(0.33,1,0.68,1), transform 1500ms cubic-bezier(0.33,1,0.68,1)",
         opacity: fadeOut ? 0 : 1,
-        // Sur mobile, on n'applique pas le scale afin d'éviter le zoom
+        // Sur mobile, on évite le scale pour ne pas “zoomer”
         transform: isMobile
           ? (fadeOut ? "translateY(2rem)" : "translateY(0)")
           : (fadeOut ? "scale(1.1)" : "scale(1)"),
       }}
     >
-      <div className="relative text-center max-w-5xl px-6">
+      <div className="relative text-center max-w-5xl px-4 sm:px-6">
         {/* Blobs décoratifs */}
         <div className="absolute -top-24 -left-24 w-64 h-64 bg-gradient-to-r from-[#8b5cf6] to-transparent rounded-full blur-3xl opacity-30" />
         <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-gradient-to-r from-[#1e90ff] to-transparent rounded-full blur-3xl opacity-30" />
@@ -117,14 +124,27 @@ export default function HeroOverlay({
             gradientClasses = "bg-gradient-to-r from-gray-100 to-gray-400";
           }
 
+          // Ajuster la taille du texte selon l'index et l'écran
+          // - Les premières phrases sont plus petites en mobile
+          // - La dernière phrase est un peu plus grande
+          const textSizeClasses = idx === PHRASES.length - 1
+            ? "text-3xl sm:text-5xl md:text-7xl italic leading-tight mt-4 sm:mt-10"
+            : "text-2xl sm:text-4xl md:text-6xl";
+
           return (
             <h1
               key={idx}
               className={`
                 font-bold tracking-wide
-                ${ idx === PHRASES.length - 1 ? "text-7xl italic mt-10 leading-tight" : "text-6xl" }
-                ${ idx === textIndex ? "opacity-100 h-auto" : idx < textIndex ? "opacity-50 h-auto text-4xl mb-3" : "opacity-0 h-0 overflow-hidden" }
-                ${ idx === textIndex && idx < PHRASES.length - 1 ? "mb-6" : "" }
+                ${textSizeClasses}
+                ${
+                  idx === textIndex
+                    ? "opacity-100 h-auto"
+                    : idx < textIndex
+                      ? "opacity-50 h-auto text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3"
+                      : "opacity-0 h-0 overflow-hidden"
+                }
+                ${idx === textIndex && idx < PHRASES.length - 1 ? "mb-4 sm:mb-6" : ""}
                 text-transparent bg-clip-text
                 ${gradientClasses}
                 drop-shadow-sm
@@ -139,7 +159,12 @@ export default function HeroOverlay({
               {idx < textIndex ? phrase : phrase.substring(0, charIndex)}
               {/* Curseur clignotant */}
               {idx === textIndex && !fadeOut && (
-                <span className="inline-block w-2 h-14 bg-gradient-to-b from-[#1e90ff] to-[#8b5cf6] ml-1 animate-pulse"></span>
+                <span
+                  className="inline-block w-2 ml-1 bg-gradient-to-b from-[#1e90ff] to-[#8b5cf6] 
+                             animate-pulse
+                             h-5 sm:h-8 md:h-14 align-middle"
+                  style={{ verticalAlign: "middle" }}
+                />
               )}
             </h1>
           );

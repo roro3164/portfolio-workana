@@ -61,7 +61,7 @@ const NormalCard = ({
             } ${isLaptop ? styles.textContainer : ""}`}
             style={classes.mobile.style}
           >
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white leading-relaxed">
+            <p className="text-sm text-center sm:text-base md:text-lg lg:text-xl text-white leading-relaxed">
               {internContent}
             </p>
           </div>

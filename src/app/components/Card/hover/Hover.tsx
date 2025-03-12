@@ -18,7 +18,7 @@ export const Hover: React.FC<HoverProps> = ({ children, className = "" }) => {
     const observer = new IntersectionObserver(
       ([entry]) => setIsVisible(entry.isIntersecting),
       {
-        threshold: 0.9,
+        threshold: 0.3,
         rootMargin: "0px",
       }
     );

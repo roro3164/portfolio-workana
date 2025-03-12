@@ -23,7 +23,7 @@ export const VioletHover: React.FC<VioletHoverProps> = ({
         setIsVisible(entry.isIntersecting);
       },
       {
-        threshold: 0.4,
+        threshold: 0.3,
         rootMargin: "0px",
       }
     );

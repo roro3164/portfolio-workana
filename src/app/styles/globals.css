@@ -92,33 +92,32 @@ body {
 
 @layer utilities {
   .neon-word {
-    @apply text-xs sm:text-lg md:text-xl lg:text-2xl xl:text-3xl transition-all duration-1000 ease-in-out;
+    /* Corriger la syntaxe pour utiliser les classes Tailwind disponibles */
+    @apply text-xs sm:text-lg md:text-xl lg:text-2xl xl:text-3xl transition-all duration-1000;
     font-family: "Courier New", monospace;
 
-     /* Couleur principale : dégradé violet-bleu */
-     background: linear-gradient(to bottom, #e0e0ff, #4b0082, #1e90ff);
-     -webkit-background-clip: text;
-     -webkit-text-fill-color: transparent;
- 
-     /* Lueur néon amplifiée */
-     text-shadow:
-       0 0 15px #4b0082,    /* Première couche violet foncé */
-       0 0 25px #1e90ff,    /* Deuxième couche bleu électrique */
-       0 0 35px #6a5acd,    /* Troisième couche bleu-violet lumineux */
-       0 0 45px #4b0082,    /* Quatrième couche violet intense */
-       0 0 60px #1e90ff,    /* Cinquième couche bleu vif */
-       0 0 80px #6a5acd,    /* Dernière couche pour diffusion maximale */
-       0 0 100px #1e90ff;   /* Effet supplémentaire lointain */
-   }
- 
-   .dimmed {
-     opacity: 0.3;
-     text-shadow:
-       0 0 10px #2c2c54, /* Violet sombre pour l'effet atténué */
-       0 0 15px #3b3b98;
-   }
- }
+    /* Couleur principale : dégradé violet-bleu */
+    background: linear-gradient(to bottom, #e0e0ff, #4b0082, #1e90ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
 
+    /* Lueur néon avec moins de couches mais effet conservé */
+    text-shadow:
+      0 0 15px #4b0082,
+      0 0 30px #1e90ff,
+      0 0 50px #6a5acd;
+  }
+
+  .dimmed {
+    opacity: 0.2; /* Plus sombre pour un contraste plus fort */
+    text-shadow:
+      0 0 10px #2c2c54;
+    /* Ici on ne peut pas utiliser @apply pour les transitions spécifiques */
+    transition: all 800ms ease-in; 
+  }
+}
  .left, .right {
   position: absolute;
   top: 0;
@@ -145,10 +144,6 @@ body {
   z-index: 2;
 }
 /*card*/
-
-.neonWordBody {
-  color: white;
-}
 
 @layer base {
   :root {

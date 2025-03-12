@@ -99,7 +99,7 @@ Outside of work, I’m a big fan of traveling, discovering new places, and findi
                 }}
                 boxPaddings={{
                   mobile: {
-                    top: "",
+                    top: "170px",
                   },
                   desktop: {
                     content: "720px",
@@ -109,7 +109,7 @@ Outside of work, I’m a big fan of traveling, discovering new places, and findi
             </section>
 
 
-            <section id="designer">
+            <section id="designer" className="lg:mb-40 lg:mt-32">
               <NormalCard
                 title="UI/UX Designer"
                 imageAlign="right"

@@ -141,9 +141,9 @@ export const MobileCarousel = ({ projects }: MobileProjectCarouselProps) => {
                 isChangingContent ? styles.fadeOut : styles.fadeIn
               }`}
             >
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-8">
                 {/* Introduction */}
-                <p className="text-gray-300 text-base leading-relaxed">
+                <p className="text-gray-300 text-center text-base leading-relaxed">
                   {currentProject.description?.split("\n\n")[0]}
                 </p>
 
