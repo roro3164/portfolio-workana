@@ -74,6 +74,10 @@ export default {
 			  poppins: [
 				'Poppins',
 				'sans-serif'
+			],
+			brush: [
+				'brush',
+				'sans-serif'
 			]
   		},
   		screens: {

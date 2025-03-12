@@ -6,7 +6,6 @@ import { DesignerAnimation } from "./DesignerAnimation";
 import LeftComponent from "./LeftComponent";
 import RightComponent from "./RightComponent";
 
-
 const SplitScreen: React.FC = () => {
   const [activeZone, setActiveZone] = useState<"left" | "right" | null>(null);
 
@@ -20,12 +19,12 @@ const SplitScreen: React.FC = () => {
       {/* Section gauche en fond */}
       <div className="absolute inset-0 bg-[#0F0E12]" style={{ zIndex: 1 }}>
         <div className="relative">
-        <motion.div
+          <motion.div
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }} 
             transition={{
-              delay: 14.5, // Commence après 13s
-              duration: 0.8, // Animation de 2s
+              delay: 0, 
+              duration: 0.8,
               ease: "easeOut",
             }}
           >
@@ -75,11 +74,11 @@ const SplitScreen: React.FC = () => {
           `,
         }}
       >
-        {/* Effet laser qui monte et descend */}
+        {/* Effet laser animé */}
         <div
           className="absolute w-full"
           style={{
-            height: "25%", // Utilisation d'une valeur relative
+            height: "25%",
             background:
               "linear-gradient(180deg, transparent,#6a5acd, #ffffff, #6a5acd, transparent)",
             boxShadow: "0 0 20px #bc13fe",
@@ -89,14 +88,14 @@ const SplitScreen: React.FC = () => {
         />
       </div>
 
-      {/* Styles pour les animations */}
+      {/* Styles pour l'animation du laser */}
       <style jsx>{`
         @keyframes laserMove {
           0% {
             top: 0;
           }
           50% {
-            top: 75%; /* Utilisation d'une valeur relative */
+            top: 75%;
           }
           100% {
             top: 0;
@@ -118,26 +117,21 @@ const SplitScreen: React.FC = () => {
         onMouseLeave={() => setActiveZone(null)}
       />
 
-      {/* Contact Button avec z-index élevé */}
-
+      {/* Bouton de contact avec animation */}
       <div
         className="absolute"
         style={{ zIndex: 20, bottom: "23%", left: "0%" }}
       >
         <motion.div
-            initial={{ y: 100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 14.8, type: "spring"
-          }}
+          initial={{ y: 100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0, type: "spring" }}
         >
           <ContactButton />
         </motion.div>
       </div>
 
-      {/* Overlay */}
-
-      {/* Effet de gradient */}
-
+      {/* Effet de gradient en bas */}
       <div className="absolute w-full bottom-0 md:bottom-16 -left-8 -right-8 h-12 bg-gradient-to-t from-[#0F0E12] via-[#0F0E12]/70 to-transparent z-10" />
     </div>
   );

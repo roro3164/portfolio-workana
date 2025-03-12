@@ -65,6 +65,13 @@
   font-style: light;
 }
 
+@font-face {
+  font-family: 'brush';
+  src: url('/font/brush.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
 html, body { overflow-x: hidden; }
 
 body {

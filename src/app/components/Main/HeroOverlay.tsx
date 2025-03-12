@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 
-// 1) On définit le tableau en dehors du composant
+// Tableau des phrases à afficher
 const PHRASES = [
   "Creation",
   "Innovation",
@@ -18,8 +18,17 @@ export default function HeroOverlay({
   const [textIndex, setTextIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [fadeOut, setFadeOut] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Bloque le scroll quand l'overlay est visible
+  // Détection du mobile (largeur < 640px)
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Bloque le scroll tant que l'overlay est visible
   useEffect(() => {
     if (showOverlay) {
       document.body.style.overflow = "hidden";
@@ -31,23 +40,23 @@ export default function HeroOverlay({
     };
   }, [showOverlay]);
 
-  // Tape le texte lettre par lettre
+  // Animation type "machine à écrire" pour le texte
   useEffect(() => {
     if (!showOverlay) return;
 
     const textTimer = setTimeout(() => {
-      // On tape la phrase en cours
+      // On affiche progressivement la phrase en cours
       if (charIndex < PHRASES[textIndex].length) {
         setCharIndex(charIndex + 1);
       } 
-      // Si la phrase est finie, on passe à la suivante
+      // Passage à la phrase suivante
       else if (textIndex < PHRASES.length - 1) {
         setTimeout(() => {
           setTextIndex(textIndex + 1);
           setCharIndex(0);
         }, 1000);
       } 
-      // Si c'était la dernière phrase, on attend et on fade-out
+      // Dernière phrase terminée, déclenchement du fade-out
       else {
         setTimeout(() => {
           setFadeOut(true);
@@ -58,7 +67,7 @@ export default function HeroOverlay({
     return () => clearTimeout(textTimer);
   }, [charIndex, textIndex, showOverlay]);
 
-  // Gère le fade-out
+  // Gère le fade-out et la disparition de l'overlay
   useEffect(() => {
     if (fadeOut) {
       const timer = setTimeout(() => {
@@ -68,7 +77,7 @@ export default function HeroOverlay({
     }
   }, [fadeOut]);
 
-  // Quand l'overlay disparaît, on déclenche le callback
+  // Déclenche le callback quand l'overlay disparaît
   useEffect(() => {
     if (!showOverlay) {
       onOverlayFinish?.();
@@ -79,30 +88,24 @@ export default function HeroOverlay({
 
   return (
     <div
-      className="
-        fixed inset-0
-        flex flex-col items-center justify-center
-        bg-gradient-to-br from-[#0F0E12] via-[#0F0E12] to-[#0F0E12]/90
-        text-white font-jakarta
-        z-50 overflow-hidden
-        pointer-events-auto
-      "
+      className="hero-overlay fixed inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-[#0F0E12] via-[#0F0E12] to-[#0F0E12]/90 text-white font-jakarta z-50 overflow-hidden pointer-events-auto"
       style={{
-        // Transition plus courte (1.5s) au lieu de 3s
         transition:
-          "opacity 1500ms cubic-bezier(0.33,1,0.68,1), " +
-          "transform 1500ms cubic-bezier(0.33,1,0.68,1)",
+          "opacity 1500ms cubic-bezier(0.33,1,0.68,1), transform 1500ms cubic-bezier(0.33,1,0.68,1)",
         opacity: fadeOut ? 0 : 1,
-        transform: fadeOut ? "scale(1.1)" : "scale(1)",
+        // Sur mobile, on n'applique pas le scale afin d'éviter le zoom
+        transform: isMobile
+          ? (fadeOut ? "translateY(2rem)" : "translateY(0)")
+          : (fadeOut ? "scale(1.1)" : "scale(1)"),
       }}
     >
       <div className="relative text-center max-w-5xl px-6">
-        {/* Décorations en blobs de couleur */}
+        {/* Blobs décoratifs */}
         <div className="absolute -top-24 -left-24 w-64 h-64 bg-gradient-to-r from-[#8b5cf6] to-transparent rounded-full blur-3xl opacity-30" />
         <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-gradient-to-r from-[#1e90ff] to-transparent rounded-full blur-3xl opacity-30" />
 
         {PHRASES.map((phrase, idx) => {
-          // Choix du gradient selon l'index
+          // Choix du gradient en fonction de l'index
           let gradientClasses = "";
           if (idx === 0) {
             gradientClasses = "bg-gradient-to-r from-[#1e90ff] to-white";
@@ -119,19 +122,9 @@ export default function HeroOverlay({
               key={idx}
               className={`
                 font-bold tracking-wide
-                ${
-                  idx === PHRASES.length - 1 
-                    ? "text-7xl italic mt-10 leading-tight" 
-                    : "text-6xl"
-                }
-                ${
-                  idx === textIndex
-                    ? "opacity-100 h-auto"
-                    : idx < textIndex
-                      ? "opacity-50 h-auto text-4xl mb-3" 
-                      : "opacity-0 h-0 overflow-hidden"
-                }
-                ${idx === textIndex && idx < PHRASES.length - 1 ? "mb-6" : ""}
+                ${ idx === PHRASES.length - 1 ? "text-7xl italic mt-10 leading-tight" : "text-6xl" }
+                ${ idx === textIndex ? "opacity-100 h-auto" : idx < textIndex ? "opacity-50 h-auto text-4xl mb-3" : "opacity-0 h-0 overflow-hidden" }
+                ${ idx === textIndex && idx < PHRASES.length - 1 ? "mb-6" : "" }
                 text-transparent bg-clip-text
                 ${gradientClasses}
                 drop-shadow-sm
