@@ -79,7 +79,6 @@ Outside of work, I’m a big fan of traveling, discovering new places, and findi
               </section>
             
 
-            <NeonWord word={"<html>"} position="mx-auto" />
 
             <section id="developer">
               <NormalCard
@@ -110,7 +109,6 @@ Outside of work, I’m a big fan of traveling, discovering new places, and findi
               />
             </section>
 
-            <NeonWord word={"</div>"} position="pl-44" />
 
             <section id="designer">
               <NormalCard
@@ -137,13 +135,11 @@ Outside of work, I’m a big fan of traveling, discovering new places, and findi
                 }}
               />
             </section>
-            <NeonWord word="Tailwind" position="mx-auto " />
+          
 
             <section id="projects">
               <CarouselCard projects={projects} />
             </section>
-
-            <NeonWord word="Typescript" position=" pl-[70%]" />
 
             <section id="services">
               <BaseCard
@@ -188,7 +184,6 @@ Outside of work, I’m a big fan of traveling, discovering new places, and findi
               </BaseCard>
             </section>
 
-            <NeonWord word={"<section>"} position="pl-[30%]" />
 
             <section id="contact">
               <BaseCard

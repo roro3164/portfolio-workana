@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import React from "react";
-import NeonBackground from "./NeonBackground";
 
 const RightComponent: React.FC = () => {
   return (
@@ -31,7 +30,7 @@ const RightComponent: React.FC = () => {
             </h2>
           </motion.div>
 
-          <NeonBackground />
+        
         </div>
       </div>
     </div>
