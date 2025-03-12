@@ -11,7 +11,7 @@ const SplitScreen: React.FC = () => {
 
   return (
     <div className="relative w-full">
-      {/* Conteneur invisible pour définir la hauteur */}
+      {/* Conteneur invisible (si indispensable pour la hauteur) */}
       <div className="invisible">
         <LeftComponent />
       </div>
@@ -19,12 +19,12 @@ const SplitScreen: React.FC = () => {
       {/* Section gauche en fond */}
       <div className="absolute inset-0 bg-[#0F0E12]" style={{ zIndex: 1 }}>
         <div className="relative">
+          {/* DesignerAnimation sans delay, durée raccourcie si possible */}
           <motion.div
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{
-              delay: 0,
-              duration: 0.8,
+              duration: 0.8, // pas de delay
               ease: "easeOut",
             }}
           >
@@ -34,9 +34,9 @@ const SplitScreen: React.FC = () => {
         </div>
       </div>
 
-      {/* Section droite avec clip-path */}
+      {/* Section droite avec clip-path (transition raccourcie) */}
       <div
-        className="absolute inset-0 bg-[#0F0E12] transition-all duration-700"
+        className="absolute inset-0 bg-[#0F0E12] transition-all duration-500"
         style={{
           clipPath:
             activeZone === "left"
@@ -50,9 +50,9 @@ const SplitScreen: React.FC = () => {
         <RightComponent />
       </div>
 
-      {/* Barre verticale avec effet laser */}
+      {/* Barre verticale (transition raccourcie) */}
       <div
-        className="absolute top-0 bottom-0 transition-all mt-5 duration-700 md:h-[560px]"
+        className="absolute top-0 bottom-0 transition-all mt-5 duration-500 md:h-[560px]"
         style={{
           left:
             activeZone === "left"
@@ -88,7 +88,7 @@ const SplitScreen: React.FC = () => {
         />
       </div>
 
-      {/* Styles pour l'animation du laser */}
+      {/* Animation laser */}
       <style jsx>{`
         @keyframes laserMove {
           0% {
@@ -117,7 +117,7 @@ const SplitScreen: React.FC = () => {
         onMouseLeave={() => setActiveZone(null)}
       />
 
-      {/* Bouton de contact avec animation */}
+      {/* Bouton de contact */}
       <div
         className="absolute"
         style={{ zIndex: 20, bottom: "23%", left: "0%" }}
@@ -126,7 +126,7 @@ const SplitScreen: React.FC = () => {
           <motion.div
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0, type: "spring" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <ContactButton />
           </motion.div>

@@ -7,22 +7,27 @@ const RightComponent: React.FC = () => {
   return (
     <div className="relative w-full md:h-[650px]">
       <div className="relative w-full h-[90%]">
+        {/* Portrait dev (réduction de durée, pas de delay) */}
         <motion.img
           className="relative z-0 w-full h-full object-contain"
           src="/image/pictures/portraitDev.webp"
           alt="portrait dev"
           initial={{ scale: 0.95, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 0, duration: 1.5 }}
+          transition={{
+            duration: 0.8, // Au lieu de 1.5s
+            ease: "easeOut",
+          }}
         />
 
+        {/* Texte "Developer" et NeonBackground */}
         <div className="absolute -z-10 inset-0">
           <motion.div
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{
-              delay: 0,
-              duration: 0.8,
+              // Pas de delay
+              duration: 0.6,
               ease: "easeOut",
             }}
           >
