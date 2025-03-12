@@ -44,7 +44,7 @@ export const projects: Project[] = [
   {
     id: 2,
     imageProject: "/image/projects/mockUpLapin.webp",
-    logoProject: "/image/projects/LogoLapin.png",
+    logoProject: "/image/projects/LogoLapin.svg",
     title: "Lapin Deco",
     description: "Self-initiated e-commerce project for a home decor and furniture store, designed and developed from concept to deployment to showcase both design and front-end development skills.",
     sections: [

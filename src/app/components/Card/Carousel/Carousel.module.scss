@@ -3,13 +3,12 @@
 //card
 
 .internBox {
-    @apply rounded-lg;
-    background: linear-gradient(#fff3, transparent);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
-    padding: 50px;
+  @apply rounded-lg p-5 sm:p-12;
+  background: linear-gradient(#fff3, transparent);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
 }
-  
+
 //cardProject
 .glassCardProject {
     @include mixins.glass-base;
