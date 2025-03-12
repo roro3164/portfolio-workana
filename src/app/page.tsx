@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import React, { useState } from "react";
 import Header from "./components/Header/Header";
 import SplitScreen from "./components/Main/SplitScreen";
 import { FormCard } from "./components/Card/Form/FormContact";
@@ -12,20 +11,13 @@ import NormalCard from "./components/Card/NormalCard/NormalCard";
 import { ServiceCard } from "./components/Card/ServiceCard/ServiceCard";
 import BaseCard from "./components/Card/BaseCard/BaseCard";
 import { projects } from "./components/Card/Carousel/projectsData";
-import HeroOverlay from "./components/Main/HeroOverlay";
+
 
 export default function Home() {
-  const [overlayFinished, setOverlayFinished] = useState(false);
+
 
   return (
     <div>
-      {/* Affichage de l’overlay tant qu’il n’est pas terminé */}
-      {!overlayFinished && (
-        <HeroOverlay onOverlayFinish={() => setOverlayFinished(true)} />
-      )}
-      
-      {/* Dès que l’overlay est terminé, on affiche le reste du contenu */}
-      {overlayFinished && (
         <div className="home">
           <div className="mb-6">
             <motion.div
@@ -197,7 +189,6 @@ Outside of work, I’m a big fan of traveling, discovering new places, and findi
 
           <Footer />
         </div>
-      )}
     </div>
   );
 }
