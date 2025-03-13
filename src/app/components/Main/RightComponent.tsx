@@ -1,24 +1,33 @@
 "use client";
 import { motion } from "framer-motion";
 import React from "react";
+import Image from "next/image";
 import NeonBackground from "./NeonBackground";
 
 const RightComponent: React.FC = () => {
   return (
     <div className="relative w-full md:h-[650px]">
       <div className="relative w-full h-[90%]">
-        {/* Portrait dev (réduction de durée, pas de delay) */}
-        <motion.img
-          className="relative z-0 w-full h-full object-contain"
-          src="/image/pictures/portraitDev.webp"
-          alt="portrait dev"
+        {/* Portrait dev avec Next/Image et priority */}
+        <motion.div
+          className="relative z-0 w-full h-full"
           initial={{ scale: 0.95, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{
-            duration: 0.8, // Au lieu de 1.5s
+            duration: 0.8,
             ease: "easeOut",
           }}
-        />
+        >
+          <Image
+            src="/image/pictures/portraitDev.webp"
+            alt="portrait dev"
+            className="object-contain"
+            fill
+            priority
+            sizes="(max-width: 768px) 100vw, 50vw"
+            quality={85}
+          />
+        </motion.div>
 
         {/* Texte "Developer" et NeonBackground */}
         <div className="absolute -z-10 inset-0">
@@ -26,7 +35,6 @@ const RightComponent: React.FC = () => {
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{
-              // Pas de delay
               duration: 0.6,
               ease: "easeOut",
             }}

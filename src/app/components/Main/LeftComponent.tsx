@@ -12,25 +12,30 @@ const LeftComponent: React.FC = () => {
           src="/image/pictures/bgDesign0.webp"
           alt="background design"
           className="w-full h-full object-cover xl:object-top object-center"
-          width={1200}      // Ajustez selon vos besoins, 1000 -> 1200 px
+          width={1200} // Ajustez selon vos besoins, 1000 -> 1200 px
           height={800}
-          priority          // Gardez si vous jugez l'arrière-plan comme LCP
+          priority // Gardez si vous jugez l'arrière-plan comme LCP
           style={{ position: "absolute", top: 0, left: 0 }}
         />
 
-        {/* Portrait avec animation (réduction de durée) */}
-        <motion.img
-          className="relative z-10 w-full h-full object-contain"
-          src="/image/pictures/portraitDesign.webp"
-          alt="portrait design"
+        <motion.div
+          className="relative z-10 w-full h-full"
           initial={{ scale: 0.95, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{
-            // Pas de delay
-            duration: 0.8,  // Réduit de 1.5s à 0.8s
+            duration: 0.8,
             ease: "easeOut",
           }}
-        />
+        >
+          <Image
+            src="/image/pictures/portraitDesign.webp"
+            alt="portrait design"
+            className="w-full h-full object-contain"
+            width={1200}
+            height={800}
+            priority
+          />
+        </motion.div>
       </div>
     </div>
   );
