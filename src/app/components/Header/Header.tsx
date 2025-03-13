@@ -12,7 +12,7 @@ const Header: React.FC = () => {
 
   return (
     <header className="relative flex justify-between items-center h-10 lg:h-16 mb-16 ">     
-      {/* Logo SVG remplaçant le texte avec effet de lueur */}
+ 
       <div className="h-6 lg:h-10 relative">
         <div className="absolute inset-0 filter blur-[6px] opacity-50">
           <Image
@@ -20,7 +20,6 @@ const Header: React.FC = () => {
             alt=""
             width={150}
             height={40}
-            priority
             className="w-auto h-full"
           />
         </div>
@@ -29,7 +28,6 @@ const Header: React.FC = () => {
           alt="ROMAIN DEV Logo"
           width={150}
           height={40}
-          priority
           className="w-auto h-14 lg:h-20 relative"
         />
       </div>
