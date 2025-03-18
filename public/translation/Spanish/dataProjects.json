@@ -1,0 +1,256 @@
+{
+    "projects": [
+      {
+        "id": 1,
+        "imageProject": "/image/projects/MockUpSportclubpng.webp",
+        "logoProject": "/image/projects/logoSportclub .svg",
+        "title": "Sport Club",
+        "description": "Rediseño completo de la UX para una importante cadena de gimnasios en Argentina con más de 500k usuarios activos. Centrado en entrevistas con usuarios, pruebas de arquitectura (tree testing) y wireframes de media fidelidad (MFVD) para validar y refinar la nueva arquitectura de la aplicación.",
+        "sections": [
+          {
+            "title": "Investigación UX y Estrategia",
+            "content": [
+              "Realización de entrevistas con usuarios",
+              "Pruebas de arquitectura con Maze",
+              "Creación de wireframes de media fidelidad para iteraciones rápidas"
+            ]
+          },
+          {
+            "title": "Mejoras Clave",
+            "content": [
+              "Proceso de onboarding simplificado (7 → 3 pasos)",
+              "Sistema de calendario visual para clases",
+              "Seguimiento de entrenamientos y uso de redes sociales",
+              "Renovación del programa de fidelidad"
+            ]
+          },
+          {
+            "title": "Sistema de Diseño Visual",
+            "content": [
+              "Establecimiento de directrices de animación UI",
+              "Implementación de modo oscuro",
+              "Niveles de contraste según WCAG",
+              "Actualización del sistema de iconos"
+            ]
+          }
+        ],
+        "technologies": [
+          {
+            "name": "Figma",
+            "icon": "/image/technoIcons/figma.svg"
+          }
+        ],
+        "note": "Este proyecto fue realizado como parte de mi certificación UI/UX, enfocado exclusivamente en el diseño sin desarrollo.",
+        "moreInfoUrl": "https://www.behance.net/gallery/166552523/Rediseno-SportClub"
+      },
+      {
+        "id": 2,
+        "imageProject": "/image/projects/mockUpLapin.webp",
+        "logoProject": "/image/projects/LogoLapin.svg",
+        "title": "Lapin Deco",
+        "description": "Proyecto de comercio electrónico autoiniciado para una tienda de decoración y muebles, diseñado y desarrollado de principio a fin para mostrar tanto las habilidades de diseño como de desarrollo front-end.",
+        "sections": [
+          {
+            "title": "Diseño e Identidad Visual",
+            "content": [
+              "Interfaz moderna con navegación intuitiva",
+              "Identidad de marca cohesiva para la exhibición de productos",
+              "Micro-interacciones para mejorar la experiencia de usuario",
+              "Visualización personalizada de categorías de productos"
+            ]
+          },
+          {
+            "title": "Aspectos Destacados del Desarrollo",
+            "content": [
+              "Arquitectura HTML5/CSS3 & SASS",
+              "Compatibilidad con múltiples navegadores",
+              "Sistema de cuadrícula responsive",
+              "Optimización de Lighthouse (puntaje 95+)",
+              "Código manual sin frameworks"
+            ]
+          }
+        ],
+        "technologies": [
+          {
+            "name": "HTML5",
+            "icon": "/image/technoIcons/html.svg"
+          },
+          {
+            "name": "CSS3",
+            "icon": "/image/technoIcons/css.svg"
+          },
+          {
+            "name": "SASS",
+            "icon": "/image/technoIcons/sass.svg"
+          },
+          {
+            "name": "Figma",
+            "icon": "/image/technoIcons/figma.svg"
+          }
+        ],
+        "note": "Proyecto personal que demuestra habilidades de diseño y desarrollo de extremo a extremo.",
+        "moreInfoUrl": "https://roro3164.github.io/Lapin-Deco/index.html"
+      },
+      {
+        "id": 3,
+        "imageProject": "/image/projects/mockUpCrypto.webp",
+        "logoProject": "/image/projects/logoCrypto.svg",
+        "title": "Crypto Cloud Expo",
+        "description": "Aplicación React de una sola página diseñada para una conferencia temporal sobre criptomonedas en Dubái. Se centra en crear una página de destino visualmente llamativa con fuertes elementos de conversión.",
+        "sections": [
+          {
+            "title": "Diseño y Desarrollo",
+            "content": [
+              "Diseño con temática de criptomonedas",
+              "Componentes interactivos en React",
+              "Enfoque mobile-first",
+              "Integración de programa y ponentes",
+              "Optimización para la generación de leads"
+            ]
+          },
+          {
+            "title": "Características Técnicas",
+            "content": [
+              "Arquitectura de componentes en React.js",
+              "Estilos con Tailwind CSS",
+              "Optimizado para velocidad y SEO",
+              "Transiciones animadas de interfaz",
+              "Validación y envío de formularios"
+            ]
+          }
+        ],
+        "technologies": [
+          {
+            "name": "Figma",
+            "icon": "/image/technoIcons/figma.svg"
+          },
+          {
+            "name": "React",
+            "icon": "/image/technoIcons/react.svg"
+          },
+          {
+            "name": "Tailwind CSS",
+            "icon": "/image/technoIcons/tailwindcss.svg"
+          },
+          {
+            "name": "GitHub",
+            "icon": "/image/technoIcons/github.svg"
+          }
+        ],
+        "note": "Sitio temporal creado para un evento único, destacando habilidades de prototipado rápido."
+      },
+      {
+        "id": 4,
+        "imageProject": "/image/projects/mockUpEco.webp",
+        "logoProject": "/image/projects/logoEco.svg",
+        "title": "EcoMove",
+        "description": "Plataforma full-stack que promueve soluciones de movilidad ecológicas, desarrollada como parte de la certificación de Desarrollador .NET.",
+        "sections": [
+          {
+            "title": "Logros de Diseño",
+            "content": [
+              "Prototipos y wireframes en Figma",
+              "Sistema de UI con temática ecológica",
+              "Diseño de panel de control interactivo",
+              "Enfoque centrado en la accesibilidad",
+              "Mapeo del recorrido del usuario"
+            ]
+          },
+          {
+            "title": "Implementación Técnica",
+            "content": [
+              "Front-end con Angular/Tailwind",
+              "API REST en .NET 8/C#",
+              "Base de datos MySQL con Docker",
+              "Sistema de autenticación JWT",
+              "Entity Framework Core",
+              "Modelado y optimización de la base de datos",
+              "Endpoints de API seguros"
+            ]
+          }
+        ],
+        "technologies": [
+          {
+            "name": "Figma",
+            "icon": "/image/technoIcons/figma.svg"
+          },
+          {
+            "name": "Angular",
+            "icon": "/image/technoIcons/angular.svg"
+          },
+          {
+            "name": "Tailwind CSS",
+            "icon": "/image/technoIcons/tailwindcss.svg"
+          },
+          {
+            "name": "C#",
+            "icon": "/image/technoIcons/csharp.svg"
+          },
+          {
+            "name": ".NET",
+            "icon": "/image/technoIcons/NET core.svg"
+          },
+          {
+            "name": "Docker",
+            "icon": "/image/technoIcons/docker.svg"
+          },
+          {
+            "name": "MySQL",
+            "icon": "/image/technoIcons/mySql.svg"
+          }
+        ],
+        "note": "Proyecto final para la certificación de Desarrollador .NET, demostrando habilidades tanto en diseño como en desarrollo full-stack."
+      },
+      {
+        "id": 5,
+        "imageProject": "/image/projects/mockUpAqui.webp",
+        "logoProject": "/image/projects/logoAqui.svg",
+        "title": "Aqui Acampamos",
+        "description": "Plataforma de reservas de camping para Argentina, con mapas interactivos, filtros de búsqueda avanzados y funcionalidad de reserva segura.",
+        "sections": [
+          {
+            "title": "Proceso de Diseño",
+            "content": [
+              "Prototipado mobile-first",
+              "Maquetas interactivas en Figma",
+              "Optimización del flujo de usuario",
+              "Desarrollo de identidad de marca",
+              "Diseño de logotipo y lenguaje visual"
+            ]
+          },
+          {
+            "title": "Stack Técnico",
+            "content": [
+              "Front-end con Next.js/TypeScript",
+              "Filtros de búsqueda dinámicos",
+              "Optimización de rendimiento SSR",
+              "Integración de mapas interactivos",
+              "Diseño responsive para todos los dispositivos",
+              "Capacidades de PWA"
+            ]
+          }
+        ],
+        "technologies": [
+          {
+            "name": "Next.js",
+            "icon": "/image/technoIcons/Next.js.svg"
+          },
+          {
+            "name": "TypeScript",
+            "icon": "/image/technoIcons/typescript.svg"
+          },
+          {
+            "name": "Tailwind CSS",
+            "icon": "/image/technoIcons/tailwindcss.svg"
+          },
+          {
+            "name": "Figma",
+            "icon": "/image/technoIcons/figma.svg"
+          }
+        ],
+        "note": "Proyecto en desarrollo: se están implementando nuevas funcionalidades.",
+        "moreInfoUrl": "https://aquiacampamos-phi.vercel.app/"
+      }
+    ]
+  }
+  

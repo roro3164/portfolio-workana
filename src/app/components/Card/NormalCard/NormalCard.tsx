@@ -1,14 +1,17 @@
 import React from "react";
-import Image from "next/image"; // <-- Import du composant Image
+import Image from "next/image";
 import { NormalCardProps } from "./types";
 import { getCardClasses } from "./utils";
 import EaselAnimation from "../EaselAnimation";
-
 import styles from "./NormalCard.module.scss";
 import { BaseCard } from "../BaseCard/BaseCard";
 import { Hover } from "../hover/Hover";
 import VioletHover from "../hover/VioletHover";
 import LaptopGif from "../AnimationLaptop/laptopGif";
+
+interface ExtendedNormalCardProps extends NormalCardProps {
+  isLaptop?: boolean;
+}
 
 const NormalCard = ({
   title,
@@ -18,19 +21,17 @@ const NormalCard = ({
   hasEaselAnimation = false,
   boxStyle = "default",
   hoverType = "purple",
-
+  isLaptop = false,
   // Props de style
   imagePositionMobile,
   imagePositionDesktop,
   imageSizeMobile,
   imageSizeDesktop,
   boxPaddings,
-
   // Prop pour le breakpoint (gérée dans utils)
   customBreakpoint,
-
   ...rest
-}: NormalCardProps) => {
+}: ExtendedNormalCardProps) => {
   const classes = getCardClasses({
     imageAlign,
     boxPaddings,
@@ -44,7 +45,6 @@ const NormalCard = ({
 
   const boxStyleClass = boxStyle === "purple" ? styles.BoxPurple : styles.Box;
   const HoverComponent = hoverType === "purple" ? VioletHover : Hover;
-  const isLaptop = title === "Developer Full-stack";
 
   return (
     <BaseCard

@@ -2,12 +2,19 @@
 import { useState } from "react";
 import Image from "next/image";
 import styles from './header.module.scss';
+import { useTranslation } from 'react-i18next';
 
 const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const { t, i18n } = useTranslation();
+  
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  // Fonction pour changer de langue
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
   };
 
   return (
@@ -32,14 +39,30 @@ const Header: React.FC = () => {
         />
       </div>
       
+      {/* Sélecteur de langue */}
+      <div className="absolute top-0 right-0 mt-2 mr-20 lg:mr-2 flex gap-2">
+        <button 
+          onClick={() => changeLanguage('fr')} 
+          className={`px-2 py-1 text-sm rounded ${i18n.language === 'fr' ? 'bg-white/20' : ''}`}
+        >
+          FR
+        </button>
+        <button 
+          onClick={() => changeLanguage('es')} 
+          className={`px-2 py-1 text-sm rounded ${i18n.language === 'es' ? 'bg-white/20' : ''}`}
+        >
+          ES
+        </button>
+      </div>
+      
       {/* Menu pour Desktop */}
       <nav className="hidden lg:flex lg:gap-14 text-xl font-jakarta">
-        <a href="#about" className={styles.navLink}>About</a>
-        <a href="#developer" className={styles.navLink}>Developer</a>
-        <a href="#designer" className={styles.navLink}>Designer</a>
-        <a href="#projects" className={styles.navLink}>Projects</a>
-        <a href="#services" className={styles.navLink}>Services</a>
-        <a href="#contact" className={styles.navLink}>Contact</a>
+        <a href="#about" className={styles.navLink}>{t('header.about')}</a>
+        <a href="#developer" className={styles.navLink}>{t('header.developer')}</a>
+        <a href="#designer" className={styles.navLink}>{t('header.designer')}</a>
+        <a href="#projects" className={styles.navLink}>{t('header.projects')}</a>
+        <a href="#services" className={styles.navLink}>{t('header.services')}</a>
+        <a href="#contact" className={styles.navLink}>{t('header.contact')}</a>
       </nav>
 
       {/* Bouton Hamburger pour Mobile */}
@@ -47,7 +70,7 @@ const Header: React.FC = () => {
         <button 
           onClick={toggleMenu} 
           className="relative w-8 h-6 flex flex-col justify-between items-center focus:outline-none group"
-          aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+          aria-label={menuOpen ? t('header.closeMenu') : t('header.openMenu')}
         >
           <span 
             className={`block w-full h-[3px] bg-white rounded-full transform transition-all duration-300 ease-in-out group-active:scale-90 ${
@@ -83,42 +106,42 @@ const Header: React.FC = () => {
             className="text-white text-2xl transform transition-transform duration-300 active:scale-95"
             onClick={toggleMenu}
           >
-            About
+            {t('header.about')}
           </a>
           <a 
             href="#developer" 
             className="text-white text-2xl transform transition-transform duration-300 active:scale-95"
             onClick={toggleMenu}
           >
-            Developer
+            {t('header.developer')}
           </a>
           <a 
             href="#designer" 
             className="text-white text-2xl transform transition-transform duration-300 active:scale-95"
             onClick={toggleMenu}
           >
-            Designer
+            {t('header.designer')}
           </a>
           <a 
             href="#projects" 
             className="text-white text-2xl transform transition-transform duration-300 active:scale-95"
             onClick={toggleMenu}
           >
-            Projects
+            {t('header.projects')}
           </a>
           <a 
             href="#services" 
             className="text-white text-2xl transform transition-transform duration-300 active:scale-95"
             onClick={toggleMenu}
           >
-            Services
+            {t('header.services')}
           </a>
           <a 
             href="#contact" 
             className="text-white text-2xl transform transition-transform duration-300 active:scale-95"
             onClick={toggleMenu}
           >
-            Contact
+            {t('header.contact')}
           </a>
         </nav>
       </div>

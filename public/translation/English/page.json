@@ -1,0 +1,61 @@
+{
+    "header": {
+      "about": "About",
+      "developer": "Developer",
+      "designer": "Designer",
+      "projects": "Projects",
+      "services": "Services",
+      "contact": "Contact",
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu"
+    },
+    "about": {
+      "title": "About Me",
+      "content": "Hello, I am a passionate UI/UX Designer and Full-Stack Developer from the sunny south of France, based in Montpellier. I love creating intuitive and visually engaging designs using tools like Figma and Photoshop, while developing modern and efficient applications with C#, React, and ASP.NET. My goal is to bridge design and technology to create solutions that are both practical and aesthetically pleasing. Outside of work, I enjoy traveling, discovering new places, and finding inspiration in different cultures. Whether it’s exploring the latest tech trends or enjoying the Mediterranean lifestyle, I am always looking for new ideas to incorporate into my projects."
+    },
+    "developer": {
+      "title": "Full-Stack Developer",
+      "content": "I am a full-stack developer who loves working with React and Next.js to create fast, dynamic, and user-friendly web applications. I also enjoy working with HTML, CSS, and JavaScript, and I've had the opportunity to explore Angular as well. On the backend, I build robust APIs with C# and ASP.NET. I am always curious and excited to learn new technologies, making every project an opportunity to grow and deliver something exceptional."
+    },
+    "designer": {
+      "title": "UI/UX Designer",
+      "content": "As a UI/UX designer, I thrive on collaborating with teams to bring innovative ideas to life. My approach combines creativity and strategy to design interfaces that are both intuitive and visually compelling. By leveraging tools like Figma and Photoshop, I deliver designs that leave a lasting impression."
+    },
+    "services": {
+      "title": "Services",
+      "uiux": {
+        "title": "UI/UX Design",
+        "description": "I create intuitive and visually appealing user experiences tailored to your needs.",
+        "items": [
+          "Wireframes and mockups using Figma",
+          "Interactive prototypes",
+          "Custom graphic design with Photoshop",
+          "User-centered design"
+        ]
+      },
+      "development": {
+        "title": "Development",
+        "description": "I turn your designs into modern, high-performing websites.",
+        "items": [
+          "Responsive integration for mobile, tablet, and desktop",
+          "Modern visual effects and animations",
+          "Optimization for fast and reliable performance",
+          "Cross-browser compatibility"
+        ]
+      },
+      "website": {
+        "title": "Complete Website",
+        "description": "I offer turnkey solutions from design to deployment.",
+        "items": [
+          "Landing pages to maximize your conversions",
+          "Modern visual effects and animations",
+          "SEO optimization and fast loading speeds",
+          "Hosting, maintenance, and updates included"
+        ]
+      }
+    },
+    "contact": {
+      "title": "Contact"
+    }
+  }
+  
