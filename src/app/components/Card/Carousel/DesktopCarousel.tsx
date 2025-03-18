@@ -13,9 +13,7 @@ interface ProjectCarouselProps {
   projects: Project[];
 }
 
-export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
-  projects,
-}) => {
+export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({ projects }) => {
   const classes = getCardClasses({ imageAlign: "left" });
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -23,8 +21,10 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
   const [isGoingBack, setIsGoingBack] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [selectedCard] = useState<number | null>(null);
-  const [currentProject, setCurrentProject] = useState(projects[0]);
   const [isChangingDescription, setIsChangingDescription] = useState(false);
+
+  // Au lieu de stocker "currentProject" dans un state, on le calcule directement
+  const currentProject = projects[activeIndex];
 
   const nextSlide = useCallback(() => {
     if (isAnimating || selectedCard !== null) return;
@@ -39,12 +39,11 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
     }, 600);
 
     setTimeout(() => {
-      setCurrentProject(projects[(activeIndex + 1) % projects.length]);
       setIsChangingDescription(false);
     }, 300);
 
     setTimeout(() => setIsAnimating(false), 800);
-  }, [isAnimating, selectedCard, activeIndex, projects]);
+  }, [isAnimating, selectedCard, projects.length]);
 
   const previousSlide = useCallback(() => {
     if (isAnimating || selectedCard !== null) return;
@@ -55,21 +54,17 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
 
     setTimeout(() => {
       setIsExiting(false);
-      setActiveIndex(
-        (current) => (current - 1 + projects.length) % projects.length
-      );
+      setActiveIndex((current) => (current - 1 + projects.length) % projects.length);
     }, 600);
 
     setTimeout(() => {
-      setCurrentProject(
-        projects[(activeIndex - 1 + projects.length) % projects.length]
-      );
       setIsChangingDescription(false);
     }, 300);
 
     setTimeout(() => setIsAnimating(false), 800);
-  }, [isAnimating, selectedCard, activeIndex, projects]);
+  }, [isAnimating, selectedCard, projects.length]);
 
+  // Carrousel automatique
   useEffect(() => {
     let intervalId: ReturnType<typeof setInterval> | undefined;
 
@@ -78,13 +73,17 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
         nextSlide();
       }, 3000);
     }
-
     return () => {
       if (intervalId) {
         clearInterval(intervalId);
       }
     };
   }, [isPaused, nextSlide, selectedCard]);
+
+  // (Optionnel) Pour réinitialiser le slide à 0 si la liste change (changement de langue)
+  // useEffect(() => {
+  //   setActiveIndex(0);
+  // }, [projects]);
 
   const getCardStyle = (index: number) => {
     const diff = (index - activeIndex + projects.length) % projects.length;
@@ -149,7 +148,6 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
     }, 600);
 
     setTimeout(() => {
-      setCurrentProject(projects[index]);
       setIsAnimating(false);
     }, 800);
   };
@@ -158,10 +156,10 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
     <BaseCard
       title={
         <div
-          key={currentProject.id}
+          key={currentProject?.id}
           className={isChangingDescription ? "fade-out" : "fade-in"}
         >
-          {currentProject.title}
+          {currentProject?.title}
         </div>
       }
       titleAlignment={classes.titleAlignment}
@@ -183,13 +181,7 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
                 previousSlide();
               }}
             >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="white"
-              >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white">
                 <path d="M15 18l-6-6 6-6" />
               </svg>
             </div>
@@ -216,13 +208,7 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
                 nextSlide();
               }}
             >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="white"
-              >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white">
                 <path d="M9 18l6-6-6-6" />
               </svg>
             </div>
@@ -245,42 +231,37 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
         </div>
 
         {/* 2ème colonne : la description */}
-        <div className="w-full ">
+        <div className="w-full">
           <VioletHover>
             <div className="bg-[#100E12]">
-              {/* Ajout de 'flex' ici pour séparer la partie vide (gauche) et la partie contenu (droite) */}
-              <div
-                className={`${styles.internBox} flex min-h-[780px] 2xl:min-h-[870px]`}
-              >
+              <div className={`${styles.internBox} flex min-h-[780px] 2xl:min-h-[870px]`}>
                 {/* Moitié gauche vide */}
                 <div className="w-1/2" />
 
                 {/* Moitié droite : contenu */}
                 <div
-                  key={currentProject.id}
+                  key={currentProject?.id}
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
-                  className={`w-1/2 ${
-                    isChangingDescription ? "fade-out" : "fade-in"
-                  }`}
+                  className={`w-1/2 ${isChangingDescription ? "fade-out" : "fade-in"}`}
                 >
                   {/* Partie Description */}
                   <div className="flex flex-col gap-6">
                     {/* Introduction */}
                     <p className="text-gray-300 text-lg leading-relaxed">
-                      {currentProject.description?.split("\n\n")[0]}
+                      {currentProject?.description?.split("\n\n")[0]}
                     </p>
 
                     {/* Sections avec titre et listes */}
-                    {currentProject.sections?.map((section, index) => (
+                    {currentProject?.sections?.map((section, index) => (
                       <div key={index} className="flex flex-col gap-4">
                         <h3
                           className={`
-        text-left
-        text-white text-base font-jakarta font-semibold
-        py-0.5 px-4 w-fit rounded-full
-        ${styles.titleBox}
-      `}
+                            text-left
+                            text-white text-base font-jakarta font-semibold
+                            py-0.5 px-4 w-fit rounded-full
+                            ${styles.titleBox}
+                          `}
                         >
                           {section.title}
                         </h3>
@@ -298,25 +279,20 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
                   </div>
 
                   {/* Partie Technologies */}
-                  {currentProject.technologies && (
+                  {currentProject?.technologies && (
                     <div className="mt-6">
-                      <p className="text-sm text-gray-400 mb-3">
-                        Technologies used:
-                      </p>
+                      <p className="text-sm text-gray-400 mb-3">Technologies used:</p>
                       <div className="flex flex-wrap gap-4">
                         {currentProject.technologies.map((tech, index) => (
                           <div key={index} className="flex items-center gap-2">
                             <Image
                               src={tech.icon}
                               alt={tech.name}
-                              width={32} 
-                              height={32} 
+                              width={32}
+                              height={32}
                               className="object-contain"
-                           
                             />
-                            <span className="text-sm text-gray-400">
-                              {tech.name}
-                            </span>
+                            <span className="text-sm text-gray-400">{tech.name}</span>
                           </div>
                         ))}
                       </div>
@@ -324,20 +300,16 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
                   )}
 
                   {/* Note/Additional Text */}
-                  {currentProject.note && (
+                  {currentProject?.note && (
                     <div className="mt-6">
-                      <p className="text-sm text-gray-300 italic">
-                        {currentProject.note}
-                      </p>
+                      <p className="text-sm text-gray-300 italic">{currentProject.note}</p>
                     </div>
                   )}
 
                   {/* Indication de clic */}
-                  {currentProject.moreInfoUrl && (
+                  {currentProject?.moreInfoUrl && (
                     <div className="mt-4">
-                      <span className="text-sm text-gray-400">
-                        Click the card to explore
-                      </span>
+                      <span className="text-sm text-gray-400">Click the card to explore</span>
                     </div>
                   )}
                 </div>
@@ -382,12 +354,10 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
         @keyframes bounce3D {
           0%,
           100% {
-            transform: translate(-45%, -8%) rotate(-12deg) scale(0.95)
-              translateZ(0);
+            transform: translate(-45%, -8%) rotate(-12deg) scale(0.95) translateZ(0);
           }
           50% {
-            transform: translate(-45%, -8%) rotate(-12deg) scale(1.15)
-              translateZ(50px);
+            transform: translate(-45%, -8%) rotate(-12deg) scale(1.15) translateZ(50px);
           }
         }
 
@@ -429,38 +399,34 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
         }
 
         .nav-arrow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.1);
+          transition: all 0.3s ease;
+          cursor: pointer;
+        }
 
-.nav-arrow:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: scale(1.1);
-}
+        .nav-arrow:hover {
+          background: rgba(255, 255, 255, 0.2);
+          transform: scale(1.1);
+        }
 
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #333;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
+        .dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: #333;
+          transition: all 0.3s ease;
+          cursor: pointer;
+        }
 
-.dot.active {
-  background:#8b5cf680;
- 
-  transform: scale(1.3);
-}
-
-      
+        .dot.active {
+          background: #8b5cf680;
+          transform: scale(1.3);
         }
       `}</style>
     </BaseCard>

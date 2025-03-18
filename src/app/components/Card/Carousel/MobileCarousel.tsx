@@ -18,10 +18,12 @@ export const MobileCarousel = ({ projects }: MobileProjectCarouselProps) => {
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const [isChangingContent, setIsChangingContent] = useState(false);
-  const [currentProject, setCurrentProject] = useState(projects[0]);
   const [isExiting, setIsExiting] = useState(false);
 
   const classes = getCardClasses({ imageAlign: "left" });
+
+  // On calcule le projet courant en fonction de l'activeIndex
+  const currentProject = projects[activeIndex];
 
   const handleSwipe = (isLeftSwipe: boolean) => {
     setIsExiting(true);
@@ -33,7 +35,6 @@ export const MobileCarousel = ({ projects }: MobileProjectCarouselProps) => {
         : (activeIndex - 1 + projects.length) % projects.length;
 
       setActiveIndex(newIndex);
-      setCurrentProject(projects[newIndex]);
       setIsExiting(false);
     }, 300);
 
@@ -44,12 +45,12 @@ export const MobileCarousel = ({ projects }: MobileProjectCarouselProps) => {
 
   const handleTouchEnd = () => {
     if (touchStart === null || touchEnd === null) return;
-
     const distance = touchStart - touchEnd;
+
+    // Si on a swipé suffisamment
     if (Math.abs(distance) > 50) {
       handleSwipe(distance > 0);
     }
-
     setTouchStart(null);
     setTouchEnd(null);
   };
@@ -79,11 +80,16 @@ export const MobileCarousel = ({ projects }: MobileProjectCarouselProps) => {
     };
   };
 
+  // (Optionnel) Pour réinitialiser le slide à 0 si la liste change
+  // useEffect(() => {
+  //   setActiveIndex(0);
+  // }, [projects]);
+
   return (
     <BaseCard
       title={
         <div className={isChangingContent ? styles.fadeOut : styles.fadeIn}>
-          {currentProject.title}
+          {currentProject?.title}
         </div>
       }
       titleAlignment={classes.titleAlignment}
@@ -107,11 +113,7 @@ export const MobileCarousel = ({ projects }: MobileProjectCarouselProps) => {
                   className={`
                     w-56 h-80
                     ${styles.cardWrapper}
-                    ${
-                      index !== activeIndex
-                        ? "opacity-50 blur-[1px]"
-                        : "cursor-pointer"
-                    }
+                    ${index !== activeIndex ? "opacity-50 blur-[1px]" : "cursor-pointer"}
                   `}
                 >
                   <ProjectCard
@@ -136,27 +138,23 @@ export const MobileCarousel = ({ projects }: MobileProjectCarouselProps) => {
             </div>
 
             {/* Partie Description */}
-            <div
-              className={`px-4 w-full ${
-                isChangingContent ? styles.fadeOut : styles.fadeIn
-              }`}
-            >
+            <div className={`px-4 w-full ${isChangingContent ? styles.fadeOut : styles.fadeIn}`}>
               <div className="flex flex-col gap-8">
                 {/* Introduction */}
                 <p className="text-gray-300 text-center text-base leading-relaxed">
-                  {currentProject.description?.split("\n\n")[0]}
+                  {currentProject?.description?.split("\n\n")[0]}
                 </p>
 
                 {/* Sections avec titre et listes */}
-                {currentProject.sections?.map((section, index) => (
+                {currentProject?.sections?.map((section, index) => (
                   <div key={index} className="flex flex-col gap-3">
                     <h3
                       className={`
-            text-left
-            text-white text-sm font-jakarta font-semibold
-            py-0.5 px-3 w-fit rounded-full
-            ${styles.titleBox}
-          `}
+                        text-left
+                        text-white text-sm font-jakarta font-semibold
+                        py-0.5 px-3 w-fit rounded-full
+                        ${styles.titleBox}
+                      `}
                     >
                       {section.title}
                     </h3>
@@ -174,24 +172,20 @@ export const MobileCarousel = ({ projects }: MobileProjectCarouselProps) => {
               </div>
 
               {/* Partie Technologies */}
-              {currentProject.technologies && (
+              {currentProject?.technologies && (
                 <div className="mt-4">
-                  <p className="text-sm text-gray-400 mb-2">
-                    Technologies used:
-                  </p>
+                  <p className="text-sm text-gray-400 mb-2">Technologies used:</p>
                   <div className="flex flex-wrap gap-3">
                     {currentProject.technologies.map((tech, index) => (
                       <div key={index} className="flex items-center gap-2">
                         <Image
                           src={tech.icon}
                           alt={tech.name}
-                          width={20} // 5 x 4 = 20px (équivalent à Tailwind "h-5 w-5")
+                          width={20}
                           height={20}
                           className="object-contain"
                         />
-                        <span className="text-xs text-gray-400">
-                          {tech.name}
-                        </span>
+                        <span className="text-xs text-gray-400">{tech.name}</span>
                       </div>
                     ))}
                   </div>
@@ -199,20 +193,16 @@ export const MobileCarousel = ({ projects }: MobileProjectCarouselProps) => {
               )}
 
               {/* Note/Additional Text */}
-              {currentProject.note && (
+              {currentProject?.note && (
                 <div className="mt-4">
-                  <p className="text-xs text-gray-300 italic">
-                    {currentProject.note}
-                  </p>
+                  <p className="text-xs text-gray-300 italic">{currentProject.note}</p>
                 </div>
               )}
 
               {/* Indication de clic */}
-              {currentProject.moreInfoUrl && (
+              {currentProject?.moreInfoUrl && (
                 <div className="mt-3 text-center">
-                  <span className="text-xs text-gray-400">
-                    Click the card to explore
-                  </span>
+                  <span className="text-xs text-gray-400">Click the card to explore</span>
                 </div>
               )}
             </div>
