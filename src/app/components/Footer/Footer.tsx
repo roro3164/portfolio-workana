@@ -1,18 +1,37 @@
 import React from "react";
-import Image from "next/image"; // <-- Import du composant Image
+import Image from "next/image";
 import styles from "./footer.module.scss";
+import { useTranslation } from "react-i18next";
 
 export const Footer: React.FC = () => {
+  // Votre defaultNS est "page", donc on peut se contenter de useTranslation()
+  // ou faire useTranslation(["page"]) si vous préférez.
+  const { t } = useTranslation();
+
+  // Fonction pour faire défiler jusqu'au formulaire de contact
+  const scrollToContactForm = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        {/* Email */}
+        {/* Lien e-mail -> fait défiler vers la section contact */}
         <div className={styles.email}>
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+          <a
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToContactForm();
+            }}
+          >
             <Image
               src="/image/icons/mail.svg"
-              alt="GitHub"
-              width={24}     // Valeurs approximatives (à ajuster si besoin)
+              alt="Email"
+              width={24}
               height={24}
               className={styles.icon}
             />
@@ -20,31 +39,31 @@ export const Footer: React.FC = () => {
           </a>
         </div>
 
-        {/* Navigation */}
+        {/* Navigation : on va chercher "footer.navigation.*" dans page.json */}
         <div className={styles.sectionNav}>
           <ul>
             <li>
-              <a href="#about">About</a>
+              <a href="#about">{t("footer.navigation.about")}</a>
             </li>
             <li>
-              <a href="#developer">Developer</a>
+              <a href="#developer">{t("footer.navigation.developer")}</a>
             </li>
             <li>
-              <a href="#designer">Designer</a>
+              <a href="#designer">{t("footer.navigation.designer")}</a>
             </li>
             <li>
-              <a href="#projects">Projects</a>
+              <a href="#projects">{t("footer.navigation.projects")}</a>
             </li>
             <li>
-              <a href="#services">Services</a>
+              <a href="#services">{t("footer.navigation.services")}</a>
             </li>
             <li>
-              <a href="#contact">Contact</a>
+              <a href="#contact">{t("footer.navigation.contact")}</a>
             </li>
           </ul>
         </div>
 
-        {/* Réseaux sociaux */}
+        {/* Réseaux sociaux : on va chercher "footer.social.*" dans page.json */}
         <div className={styles.socialNetwork}>
           <ul>
             {/* GitHub */}
@@ -68,7 +87,7 @@ export const Footer: React.FC = () => {
                   height={24}
                   className={styles.icon}
                 />
-                GitHub
+                {t("footer.social.github")}
               </a>
             </li>
 
@@ -93,7 +112,7 @@ export const Footer: React.FC = () => {
                   height={24}
                   className={styles.icon}
                 />
-                LinkedIn
+                {t("footer.social.linkedin")}
               </a>
             </li>
 
@@ -118,16 +137,17 @@ export const Footer: React.FC = () => {
                   height={24}
                   className={styles.icon}
                 />
-                Behance
+                {t("footer.social.behance")}
               </a>
             </li>
           </ul>
         </div>
       </div>
 
-      {/* Footer bottom */}
+      {/* Bas de page */}
       <div className={styles.footerBottom}>
-        <p>© 2025 Romain Mornet. All rights reserved</p>
+        {/* On va chercher "footer" -> "copyright" */}
+        <p>{t("footer.copyright", { year: new Date().getFullYear() })}</p>
       </div>
     </footer>
   );

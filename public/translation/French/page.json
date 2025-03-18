@@ -1,60 +1,77 @@
 {
-    "header": {
+  "header": {
+    "about": "À propos",
+    "developer": "Développeur",
+    "designer": "Designer",
+    "projects": "Projets",
+    "services": "Services",
+    "contact": "Contact",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu"
+  },
+  "about": {
+    "title": "À propos de moi",
+    "content": "Bonjour, je suis un Designer UI/UX et Développeur Full-Stack passionné, originaire du sud de la France, basé à Montpellier. J'aime créer des designs intuitifs et visuellement attrayants avec des outils comme Figma et Photoshop, tout en développant des applications modernes et efficaces avec C#, React et ASP.NET. Mon objectif est de faire le lien entre le design et la technologie pour créer des solutions à la fois pratiques et esthétiques. En dehors du travail, j'adore voyager, découvrir de nouveaux endroits et trouver de l'inspiration dans différentes cultures. Que ce soit en explorant les dernières tendances technologiques ou en profitant de l'art de vivre méditerranéen, je suis toujours à la recherche de nouvelles idées à intégrer dans mes projets."
+  },
+  "developer": {
+    "title": "Développeur Full-stack",
+    "content": "Je suis un développeur full-stack qui aime travailler avec React et Next.js pour créer des applications web rapides, dynamiques et conviviales. J'apprécie également travailler avec HTML, CSS et JavaScript, et j'ai eu l'occasion d'explorer Angular aussi. Côté backend, je construis des API solides avec C# et ASP.NET. Je suis toujours curieux et enthousiaste à l'idée d'apprendre de nouvelles technologies, faisant de chaque projet une opportunité de progresser et de livrer quelque chose d'exceptionnel."
+  },
+  "designer": {
+    "title": "Designer UI/UX",
+    "content": "En tant que designer UI/UX, je m'épanouis en collaborant avec des équipes pour donner vie à des idées innovantes. Mon approche combine créativité et stratégie pour concevoir des interfaces à la fois intuitives et visuellement convaincantes. En utilisant des outils comme Figma et Photoshop, je livre des designs qui laissent une impression durable."
+  },
+  "services": {
+    "title": "Services",
+    "uiux": {
+      "title": "Design UI/UX",
+      "description": "Je conçois des expériences utilisateur intuitives et visuellement attrayantes, adaptées à vos besoins.",
+      "items": [
+        "Wireframes et maquettes sur Figma",
+        "Prototypes interactifs",
+        "Design graphique personnalisé avec Photoshop",
+        "Design centré sur l'utilisateur"
+      ]
+    },
+    "development": {
+      "title": "Développement",
+      "description": "Je transforme vos designs en sites web modernes et performants.",
+      "items": [
+        "Intégration responsive pour mobile, tablette et ordinateur",
+        "Effets visuels modernes et animations",
+        "Optimisation pour des performances rapides et fiables",
+        "Compatibilité cross-browser"
+      ]
+    },
+    "website": {
+      "title": "Site Web Complet",
+      "description": "J'offre des solutions clé en main, de la conception au déploiement.",
+      "items": [
+        "Pages d'atterrissage pour maximiser vos conversions",
+        "Effets visuels modernes et animations",
+        "Optimisation SEO et vitesse de chargement rapide",
+        "Hébergement, maintenance et mises à jour inclus"
+      ]
+    }
+  },
+  "contact": {
+    "title": "Contact"
+  },
+
+  "footer": {
+    "navigation": {
       "about": "À propos",
       "developer": "Développeur",
       "designer": "Designer",
       "projects": "Projets",
       "services": "Services",
-      "contact": "Contact",
-      "openMenu": "Ouvrir le menu",
-      "closeMenu": "Fermer le menu"
+      "contact": "Contact"
     },
-    "about": {
-      "title": "À propos de moi",
-      "content": "Bonjour, je suis un Designer UI/UX et Développeur Full-Stack passionné, originaire du sud de la France, basé à Montpellier. J'aime créer des designs intuitifs et visuellement attrayants avec des outils comme Figma et Photoshop, tout en développant des applications modernes et efficaces avec C#, React et ASP.NET. Mon objectif est de faire le lien entre le design et la technologie pour créer des solutions à la fois pratiques et esthétiques. En dehors du travail, j'adore voyager, découvrir de nouveaux endroits et trouver de l'inspiration dans différentes cultures. Que ce soit en explorant les dernières tendances technologiques ou en profitant de l'art de vivre méditerranéen, je suis toujours à la recherche de nouvelles idées à intégrer dans mes projets."
+    "social": {
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "behance": "Behance"
     },
-    "developer": {
-      "title": "Développeur Full-stack",
-      "content": "Je suis un développeur full-stack qui aime travailler avec React et Next.js pour créer des applications web rapides, dynamiques et conviviales. J'apprécie également travailler avec HTML, CSS et JavaScript, et j'ai eu l'occasion d'explorer Angular aussi. Côté backend, je construis des API solides avec C# et ASP.NET. Je suis toujours curieux et enthousiaste à l'idée d'apprendre de nouvelles technologies, faisant de chaque projet une opportunité de progresser et de livrer quelque chose d'exceptionnel."
-    },
-    "designer": {
-      "title": "Designer UI/UX",
-      "content": "En tant que designer UI/UX, je m'épanouis en collaborant avec des équipes pour donner vie à des idées innovantes. Mon approche combine créativité et stratégie pour concevoir des interfaces à la fois intuitives et visuellement convaincantes. En utilisant des outils comme Figma et Photoshop, je livre des designs qui laissent une impression durable."
-    },
-    "services": {
-      "title": "Services",
-      "uiux": {
-        "title": "Design UI/UX",
-        "description": "Je conçois des expériences utilisateur intuitives et visuellement attrayantes, adaptées à vos besoins.",
-        "items": [
-          "Wireframes et maquettes sur Figma",
-          "Prototypes interactifs",
-          "Design graphique personnalisé avec Photoshop",
-          "Design centré sur l'utilisateur"
-        ]
-      },
-      "development": {
-        "title": "Développement",
-        "description": "Je transforme vos designs en sites web modernes et performants.",
-        "items": [
-          "Intégration responsive pour mobile, tablette et ordinateur",
-          "Effets visuels modernes et animations",
-          "Optimisation pour des performances rapides et fiables",
-          "Compatibilité cross-browser"
-        ]
-      },
-      "website": {
-        "title": "Site Web Complet",
-        "description": "J'offre des solutions clé en main, de la conception au déploiement.",
-        "items": [
-          "Pages d'atterrissage pour maximiser vos conversions",
-          "Effets visuels modernes et animations",
-          "Optimisation SEO et vitesse de chargement rapide",
-          "Hébergement, maintenance et mises à jour inclus"
-        ]
-      }
-    },
-    "contact": {
-      "title": "Contact"
-    }
+    "copyright": "© {{year}} Romain. Tous droits réservés."
   }
+}

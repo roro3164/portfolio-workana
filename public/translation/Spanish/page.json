@@ -56,5 +56,22 @@
     },
     "contact": {
       "title": "Contacto"
-    }
+    },
+
+    "footer": {
+    "navigation": {
+      "about": "Sobre mí",
+      "developer": "Desarrollador",
+      "designer": "Diseñador",
+      "projects": "Proyectos",
+      "services": "Servicios",
+      "contact": "Contacto"
+    },
+    "social": {
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "behance": "Behance"
+    },
+    "copyright": "© {{year}} Romain. Todos los derechos reservados."
+  }
   }
