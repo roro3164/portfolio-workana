@@ -21,6 +21,13 @@
     "title": "Designer UI/UX",
     "content": "En tant que designer UI/UX, je m'épanouis en collaborant avec des équipes pour donner vie à des idées innovantes. Mon approche combine créativité et stratégie pour concevoir des interfaces à la fois intuitives et visuellement convaincantes. En utilisant des outils comme Figma et Photoshop, je livre des designs qui laissent une impression durable."
   },
+  "contactme": {
+    "title": "Contactez-moi"
+  },
+  "projects": {
+    "technologiesUsed": "Technologies utilisées :",
+    "clickToExplore": "Cliquez sur la carte pour explorer"
+  },
   "services": {
     "title": "Services",
     "uiux": {
@@ -54,9 +61,17 @@
       ]
     }
   },
-  "contact": {
-    "title": "Contact"
+ 
+  "contactForm": {
+    "title": "Contact",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "email": "Votre e-mail",
+    "message": "Votre message",
+    "success": "Votre message a été envoyé avec succès !",
+    "error": "Erreur"
   },
+  
 
   "footer": {
     "navigation": {

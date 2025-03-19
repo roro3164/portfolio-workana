@@ -10,7 +10,7 @@ import CarouselCard from "./components/Card/Carousel/CarouselCard";
 import NormalCard from "./components/Card/NormalCard/NormalCard";
 import { ServiceCard } from "./components/Card/ServiceCard/ServiceCard";
 import BaseCard from "./components/Card/BaseCard/BaseCard";
-import "../../i18n"; // <-- Assurez-vous que le chemin vers votre config i18n est correct
+import "../../i18n"; 
 import { useTranslation } from "react-i18next";
 import { Project } from "./components/Card/Carousel/types";
 
@@ -152,7 +152,7 @@ export default function Page() {
           {/* Section CONTACT */}
           <section id="contact">
             <BaseCard
-              title={t("contact.title")}
+              title={t("contactForm.title")}
               titleAlignment="mx-auto"
               cardAlignment="mx-auto"
             >

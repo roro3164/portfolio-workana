@@ -13,7 +13,7 @@ export const ServiceCard = ({
       <div className="bg-[#100E12] rounded-xl">
       <div
         className={`
-    rounded-xl h-[500px] 
+    rounded-xl h-[550px] 
     ${styles.glassCard}
   `}
       >

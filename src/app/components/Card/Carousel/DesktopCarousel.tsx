@@ -8,12 +8,15 @@ import BaseCard from "../BaseCard/BaseCard";
 import VioletHover from "../hover/VioletHover";
 import { CircleListItem } from "../ServiceCard/CircleListItem";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 interface ProjectCarouselProps {
   projects: Project[];
 }
 
-export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({ projects }) => {
+export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
+  projects,
+}) => {
   const classes = getCardClasses({ imageAlign: "left" });
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -54,7 +57,9 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({ projects }) =>
 
     setTimeout(() => {
       setIsExiting(false);
-      setActiveIndex((current) => (current - 1 + projects.length) % projects.length);
+      setActiveIndex(
+        (current) => (current - 1 + projects.length) % projects.length
+      );
     }, 600);
 
     setTimeout(() => {
@@ -152,6 +157,8 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({ projects }) =>
     }, 800);
   };
 
+  const { t } = useTranslation();
+
   return (
     <BaseCard
       title={
@@ -181,7 +188,13 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({ projects }) =>
                 previousSlide();
               }}
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+              >
                 <path d="M15 18l-6-6 6-6" />
               </svg>
             </div>
@@ -208,7 +221,13 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({ projects }) =>
                 nextSlide();
               }}
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+              >
                 <path d="M9 18l6-6-6-6" />
               </svg>
             </div>
@@ -234,7 +253,9 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({ projects }) =>
         <div className="w-full">
           <VioletHover>
             <div className="bg-[#100E12]">
-              <div className={`${styles.internBox} flex min-h-[780px] 2xl:min-h-[870px]`}>
+              <div
+                className={`${styles.internBox} flex min-h-[780px] 2xl:min-h-[870px]`}
+              >
                 {/* Moitié gauche vide */}
                 <div className="w-1/2" />
 
@@ -243,7 +264,9 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({ projects }) =>
                   key={currentProject?.id}
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
-                  className={`w-1/2 ${isChangingDescription ? "fade-out" : "fade-in"}`}
+                  className={`w-1/2 ${
+                    isChangingDescription ? "fade-out" : "fade-in"
+                  }`}
                 >
                   {/* Partie Description */}
                   <div className="flex flex-col gap-6">
@@ -281,7 +304,10 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({ projects }) =>
                   {/* Partie Technologies */}
                   {currentProject?.technologies && (
                     <div className="mt-6">
-                      <p className="text-sm text-gray-400 mb-3">Technologies used:</p>
+                      {/* Remplace "Technologies used:" par t("projects.technologiesUsed") */}
+                      <p className="text-sm text-gray-400 mb-3">
+                        {t("projects.technologiesUsed")}
+                      </p>
                       <div className="flex flex-wrap gap-4">
                         {currentProject.technologies.map((tech, index) => (
                           <div key={index} className="flex items-center gap-2">
@@ -292,7 +318,9 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({ projects }) =>
                               height={32}
                               className="object-contain"
                             />
-                            <span className="text-sm text-gray-400">{tech.name}</span>
+                            <span className="text-sm text-gray-400">
+                              {tech.name}
+                            </span>
                           </div>
                         ))}
                       </div>
@@ -302,14 +330,19 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({ projects }) =>
                   {/* Note/Additional Text */}
                   {currentProject?.note && (
                     <div className="mt-6">
-                      <p className="text-sm text-gray-300 italic">{currentProject.note}</p>
+                      <p className="text-sm text-gray-300 italic">
+                        {currentProject.note}
+                      </p>
                     </div>
                   )}
 
                   {/* Indication de clic */}
                   {currentProject?.moreInfoUrl && (
                     <div className="mt-4">
-                      <span className="text-sm text-gray-400">Click the card to explore</span>
+                      {/* Remplace "Click the card to explore" par t("projects.clickToExplore") */}
+                      <span className="text-sm text-gray-400">
+                        {t("projects.clickToExplore")}
+                      </span>
                     </div>
                   )}
                 </div>
@@ -354,10 +387,12 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({ projects }) =>
         @keyframes bounce3D {
           0%,
           100% {
-            transform: translate(-45%, -8%) rotate(-12deg) scale(0.95) translateZ(0);
+            transform: translate(-45%, -8%) rotate(-12deg) scale(0.95)
+              translateZ(0);
           }
           50% {
-            transform: translate(-45%, -8%) rotate(-12deg) scale(1.15) translateZ(50px);
+            transform: translate(-45%, -8%) rotate(-12deg) scale(1.15)
+              translateZ(50px);
           }
         }
 

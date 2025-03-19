@@ -4,7 +4,13 @@ import ContactButton from "../../Main/ContactButton";
 import VioletHover from "../hover/VioletHover";
 import styles from "./Form.module.scss";
 
+// 1. Importer useTranslation
+import { useTranslation } from "react-i18next";
+
 export const FormCard = () => {
+  // 2. Récupérer la fonction t
+  const { t } = useTranslation();
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -75,7 +81,8 @@ export const FormCard = () => {
             value={formData.firstName}
             onChange={handleChange}
             className={styles.internBoxContact}
-            placeholder="First Name"
+            // 3. Utiliser t("...") pour le placeholder
+            placeholder={t("contactForm.firstName")}
             required
           />
           <input
@@ -84,7 +91,7 @@ export const FormCard = () => {
             value={formData.lastName}
             onChange={handleChange}
             className={styles.internBoxContact}
-            placeholder="Last Name"
+            placeholder={t("contactForm.lastName")}
             required
           />
           <input
@@ -93,7 +100,7 @@ export const FormCard = () => {
             value={formData.email}
             onChange={handleChange}
             className={styles.internBoxContact}
-            placeholder="Your Email"
+            placeholder={t("contactForm.email")}
             required
           />
           <textarea
@@ -101,7 +108,7 @@ export const FormCard = () => {
             value={formData.message}
             onChange={handleChange}
             className={`${styles.internBoxContact} ${styles.message}`}
-            placeholder="Your message"
+            placeholder={t("contactForm.message")}
             required
           ></textarea>
 
@@ -117,13 +124,13 @@ export const FormCard = () => {
 
           {status.submitted && (
             <div className="text-green-500 mt-4 text-center">
-              Your message has been sent successfully!
+              {t("contactForm.success")}
             </div>
           )}
 
           {status.error && (
             <div className="text-red-500 mt-4 text-center">
-              Error: {status.error}
+              {t("contactForm.error")} : {status.error}
             </div>
           )}
         </form>
