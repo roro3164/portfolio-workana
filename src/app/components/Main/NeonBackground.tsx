@@ -45,8 +45,8 @@ const NeonBackground: React.FC = () => {
 
       {/* Troisième ligne */}
       <div className="grid grid-cols-5 gap-x-4 justify-items-center">
-        <span className="neon-word">{"Tailwind"}</span>
-        <span className="neon-word">{"<body>"}</span>
+        <span className="neon-word">{""}</span>
+        <span className="neon-word">{""}</span>
         <span className="neon-word">{"C#"}</span>
         <span className="neon-word">{"HTML5"}</span>
         <span className="neon-word">{"<header>"}</span>

@@ -9,7 +9,7 @@ const LeftComponent: React.FC = () => {
       <div className="w-full h-[90%] relative">
         {/* Image d'arrière-plan (Next.js) */}
         <Image
-          src="/image/pictures/bgDesign0.webp"
+          src="/image/pictures/bgDesign.png"
           alt="background design"
           className="w-full h-full object-cover xl:object-top object-center"
           width={1200} // Ajustez selon vos besoins, 1000 -> 1200 px

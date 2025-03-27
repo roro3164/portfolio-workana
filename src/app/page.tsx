@@ -14,6 +14,7 @@ import "../../i18n";
 import { useTranslation } from "react-i18next";
 import { Project } from "./components/Card/Carousel/types";
 
+
 export default function Page() {
   // On indique qu'on veut utiliser les namespaces "page" et "dataProjects"
   const { t } = useTranslation(["page", "dataProjects"]);

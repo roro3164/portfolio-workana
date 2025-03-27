@@ -5,13 +5,21 @@ import ContactButton from "./ContactButton";
 import { DesignerAnimation } from "./DesignerAnimation";
 import LeftComponent from "./LeftComponent";
 import RightComponent from "./RightComponent";
+import HeroOverlay from "./HeroOverlay";
 
 const SplitScreen: React.FC = () => {
   const [activeZone, setActiveZone] = useState<"left" | "right" | null>(null);
+  // État pour assombrir le fond lors du hover sur le bouton
+  const [dimOverlay, setDimOverlay] = useState(false);
 
   return (
+    // Ce conteneur est en relative, ce qui permet à HeroOverlay (en absolute)
+    // de se positionner par rapport à lui
     <div className="relative w-full">
-      {/* Conteneur invisible (si indispensable pour la hauteur) */}
+      {/* Intégration de l'overlay dans SplitScreen */}
+      <HeroOverlay onOverlayFinish={() => console.log("Overlay terminé !")} />
+
+      {/* Conteneur invisible pour conserver la hauteur */}
       <div className="invisible">
         <LeftComponent />
       </div>
@@ -19,14 +27,10 @@ const SplitScreen: React.FC = () => {
       {/* Section gauche en fond */}
       <div className="absolute inset-0 bg-[#0F0E12]" style={{ zIndex: 1 }}>
         <div className="relative">
-          {/* DesignerAnimation sans delay, durée raccourcie si possible */}
           <motion.div
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{
-              duration: 0.8, // pas de delay
-              ease: "easeOut",
-            }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <DesignerAnimation />
           </motion.div>
@@ -34,7 +38,7 @@ const SplitScreen: React.FC = () => {
         </div>
       </div>
 
-      {/* Section droite avec clip-path (transition raccourcie) */}
+      {/* Section droite avec clip-path */}
       <div
         className="absolute inset-0 bg-[#0F0E12] transition-all duration-500"
         style={{
@@ -50,7 +54,7 @@ const SplitScreen: React.FC = () => {
         <RightComponent />
       </div>
 
-      {/* Barre verticale (transition raccourcie) */}
+      {/* Barre verticale (effet laser) */}
       <div
         className="absolute top-0 bottom-0 transition-all mt-5 duration-500 md:h-[560px]"
         style={{
@@ -74,13 +78,12 @@ const SplitScreen: React.FC = () => {
           `,
         }}
       >
-        {/* Effet laser animé */}
         <div
           className="absolute w-full"
           style={{
             height: "25%",
             background:
-              "linear-gradient(180deg, transparent,#6a5acd, #ffffff, #6a5acd, transparent)",
+              "linear-gradient(180deg, transparent, #6a5acd, #ffffff, #6a5acd, transparent)",
             boxShadow: "0 0 20px #bc13fe",
             animation: "laserMove 4s linear infinite",
             opacity: 0.8,
@@ -88,7 +91,6 @@ const SplitScreen: React.FC = () => {
         />
       </div>
 
-      {/* Animation laser */}
       <style jsx>{`
         @keyframes laserMove {
           0% {
@@ -103,7 +105,7 @@ const SplitScreen: React.FC = () => {
         }
       `}</style>
 
-      {/* Zones de hover */}
+      {/* Zones de hover gauche/droite */}
       <div
         className="absolute top-0 bottom-0 w-1/2 left-0 cursor-pointer"
         style={{ zIndex: 7 }}
@@ -117,13 +119,20 @@ const SplitScreen: React.FC = () => {
         onMouseLeave={() => setActiveZone(null)}
       />
 
+      {/* Overlay d'assombrissement supplémentaire (au hover sur le bouton) */}
+      {dimOverlay && (
+        <div
+          className="absolute inset-0 bg-[#0F0E12] bg-opacity-50 transition-all duration-300 pointer-events-none"
+          style={{ zIndex: 15 }}
+        />
+      )}
+
       {/* Bouton de contact */}
-      <div
-        className="absolute"
-        style={{ zIndex: 20, bottom: "23%", left: "0%" }}
-      >
+      <div className="absolute" style={{ zIndex: 20, bottom: "14%", left: "0%" }}>
         <a href="#contact">
           <motion.div
+            onMouseEnter={() => setDimOverlay(true)}
+            onMouseLeave={() => setDimOverlay(false)}
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -134,7 +143,7 @@ const SplitScreen: React.FC = () => {
       </div>
 
       {/* Effet de gradient en bas */}
-      <div className="absolute w-full bottom-0 md:bottom-16 -left-8 -right-8 h-12 bg-gradient-to-t from-[#0F0E12] via-[#0F0E12]/70 to-transparent z-10" />
+      <div className="absolute w-full bottom-0 md:bottom-16 -left-8 -right-8 h-16 bg-gradient-to-t from-[#0F0E12] via-[#0F0E12]/70 to-transparent z-10" />
     </div>
   );
 };

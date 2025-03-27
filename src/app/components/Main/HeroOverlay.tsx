@@ -1,175 +1,201 @@
 "use client";
 import React, { useState, useEffect } from "react";
 
-// Tableau des phrases à afficher
-const PHRASES = [
-  "Creation",
-  "Innovation",
-  "Development",
-  "\"I build ultra-modern design & code for attractive websites.\""
-];
-
-export default function HeroOverlay({
-  onOverlayFinish,
-}: {
+type HeroOverlayProps = {
   onOverlayFinish?: () => void;
-}) {
-  const [showOverlay, setShowOverlay] = useState(true);
-  const [textIndex, setTextIndex] = useState(0);
+};
+
+export default function HeroOverlay({ onOverlayFinish }: HeroOverlayProps) {
+  // Les deux premières lignes (disparaissent pendant l'animation)
+  const linesFade = ["L'art du design", "Puissance du code"];
+  // La troisième ligne (reste après l'animation)
+  const linePersist =
+    "Créons ensemble le site web qui propulsera votre succès";
+
+  // Contrôle de l'overlay
+  const [overlayVisible, setOverlayVisible] = useState(true);
+
+  // Machine à écrire pour les lignes 1 et 2
+  const [lineIndex, setLineIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
+
+  // Une fois terminées les lignes 1 et 2, on passe à la 3e
+  const [typingThirdLine, setTypingThirdLine] = useState(false);
+  const [charIndex3, setCharIndex3] = useState(0);
+
+  // Texte tapé pour les lignes 1 et 2
+  const [typedTexts, setTypedTexts] = useState(["", ""]);
+
+  // Pour gérer le fade-out final (lorsque les 2 premières lignes disparaissent)
   const [fadeOut, setFadeOut] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
 
-  // Détection du mobile (largeur < 640px)
+  // Blocage du scroll pendant que l'overlay est visible
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 640);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  // Bloque le scroll tant que l'overlay est visible
-  useEffect(() => {
-    if (showOverlay) {
+    if (overlayVisible) {
       document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
     }
     return () => {
       document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
     };
-  }, [showOverlay]);
+  }, [overlayVisible]);
 
-  // Animation type "machine à écrire" pour le texte
+  // Machine à écrire
   useEffect(() => {
-    if (!showOverlay) return;
+    if (!overlayVisible) return;
 
-    const textTimer = setTimeout(() => {
-      // On affiche progressivement la phrase en cours
-      if (charIndex < PHRASES[textIndex].length) {
-        setCharIndex(charIndex + 1);
-      } 
-      // Passage à la phrase suivante
-      else if (textIndex < PHRASES.length - 1) {
-        setTimeout(() => {
-          setTextIndex(textIndex + 1);
-          setCharIndex(0);
-        }, 700); // pause entre phrases réduite (au lieu de 1000ms)
-      } 
-      // Dernière phrase terminée, déclenchement du fade-out
-      else {
-        setTimeout(() => {
-          setFadeOut(true);
-        }, 2000); // temps avant fade-out réduit (au lieu de 2500ms)
+    if (!typingThirdLine) {
+      // Traitement des lignes 1 et 2
+      if (lineIndex >= linesFade.length) {
+        setTypingThirdLine(true);
+        return;
       }
-    }, 65); // vitesse de frappe (au lieu de 80ms)
+      const currentLine = linesFade[lineIndex];
+      if (charIndex < currentLine.length) {
+        const timer = setTimeout(() => {
+          setTypedTexts((prev) => {
+            const newTexts = [...prev];
+            newTexts[lineIndex] += currentLine[charIndex];
+            return newTexts;
+          });
+          setCharIndex(charIndex + 1);
+        }, 60);
+        return () => clearTimeout(timer);
+      } else {
+        const pauseTimer = setTimeout(() => {
+          setLineIndex(lineIndex + 1);
+          setCharIndex(0);
+        }, 700);
+        return () => clearTimeout(pauseTimer);
+      }
+    } else {
+      // Traitement de la 3ème ligne
+      if (charIndex3 < linePersist.length) {
+        const timer = setTimeout(() => {
+          setCharIndex3(charIndex3 + 1);
+        }, 60);
+        return () => clearTimeout(timer);
+      } else {
+        const fadeTimer = setTimeout(() => {
+          setFadeOut(true);
+        }, 800);
+        return () => clearTimeout(fadeTimer);
+      }
+    }
+  }, [overlayVisible, typingThirdLine, lineIndex, charIndex, charIndex3]);
 
-    return () => clearTimeout(textTimer);
-  }, [charIndex, textIndex, showOverlay]);
-
-  // Gère le fade-out et la disparition de l'overlay
+  // Masquage final de l'overlay et callback une fois le fade-out terminé
   useEffect(() => {
     if (fadeOut) {
-      const timer = setTimeout(() => {
-        setShowOverlay(false);
-      }, 1000); // durée du fade-out (au lieu de 1500ms)
-      return () => clearTimeout(timer);
+      const removeTimer = setTimeout(() => {
+        setOverlayVisible(false);
+        onOverlayFinish?.();
+      }, 1000);
+      return () => clearTimeout(removeTimer);
     }
-  }, [fadeOut]);
+  }, [fadeOut, onOverlayFinish]);
 
-  // Déclenche le callback quand l'overlay disparaît
-  useEffect(() => {
-    if (!showOverlay) {
-      onOverlayFinish?.();
-    }
-  }, [showOverlay, onOverlayFinish]);
+  // Si l'overlay est complètement masqué et qu'on n'est pas en train de taper la 3ème ligne, ne rien afficher
+  if (!overlayVisible && !typingThirdLine) return null;
 
-  if (!showOverlay) return null;
+  // Style commun pour toutes les phrases
+  const textStyleAllLines: React.CSSProperties = {
+    color: "#fff",
+    textShadow: `
+      0 0 5px rgba(153, 23, 255, 0.8),
+      0 0 10px rgba(153, 23, 255, 0.8)
+    `,
+  };
 
   return (
     <div
-      className="
-        hero-overlay fixed inset-0
-        flex flex-col items-center justify-center
-        bg-gradient-to-br from-[#0F0E12] via-[#0F0E12] to-[#0F0E12]/90
-        text-white font-jakarta
-        z-50 overflow-hidden
-        pointer-events-auto
-      "
       style={{
-        // Transition plus courte (1s) au lieu de 1.5s
-        transition:
-          "opacity 1000ms cubic-bezier(0.33,1,0.68,1), transform 1000ms cubic-bezier(0.33,1,0.68,1)",
-        opacity: fadeOut ? 0 : 1,
-        // Sur mobile, on évite le scale pour ne pas “zoomer”
-        transform: isMobile
-          ? (fadeOut ? "translateY(2rem)" : "translateY(0)")
-          : (fadeOut ? "scale(1.1)" : "scale(1)"),
+        position: "absolute",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        pointerEvents: "none",
+        zIndex: 50,
       }}
     >
-      <div className="relative text-center max-w-5xl px-4 sm:px-6">
-        {/* Blobs décoratifs */}
-        <div className="absolute -top-24 -left-24 w-64 h-64 bg-gradient-to-r from-[#8b5cf6] to-transparent rounded-full blur-3xl opacity-30" />
-        <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-gradient-to-r from-[#1e90ff] to-transparent rounded-full blur-3xl opacity-30" />
-
-        {PHRASES.map((phrase, idx) => {
-          // Choix du gradient en fonction de l'index
-          let gradientClasses = "";
-          if (idx === 0) {
-            gradientClasses = "bg-gradient-to-r from-[#1e90ff] to-white";
-          } else if (idx === 1) {
-            gradientClasses = "bg-gradient-to-r from-[#8b5cf6] to-white";
-          } else if (idx === 2) {
-            gradientClasses = "bg-gradient-to-r from-white to-white/80";
-          } else if (idx === 3) {
-            gradientClasses = "bg-gradient-to-r from-gray-100 to-gray-400";
-          }
-
-          // Ajuster la taille du texte selon l'index et l'écran
-          // - Les premières phrases sont plus petites en mobile
-          // - La dernière phrase est un peu plus grande
-          const textSizeClasses = idx === PHRASES.length - 1
-            ? "text-3xl sm:text-5xl md:text-7xl italic leading-tight mt-4 sm:mt-10"
-            : "text-2xl sm:text-4xl md:text-6xl";
-
-          return (
-            <h1
-              key={idx}
-              className={`
-                font-bold tracking-wide
-                ${textSizeClasses}
-                ${
-                  idx === textIndex
-                    ? "opacity-100 h-auto"
-                    : idx < textIndex
-                      ? "opacity-50 h-auto text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3"
-                      : "opacity-0 h-0 overflow-hidden"
-                }
-                ${idx === textIndex && idx < PHRASES.length - 1 ? "mb-4 sm:mb-6" : ""}
-                text-transparent bg-clip-text
-                ${gradientClasses}
-                drop-shadow-sm
-              `}
-              style={{
-                transition: fadeOut
-                  ? "transform 1000ms cubic-bezier(0.33,1,0.68,1), opacity 1000ms cubic-bezier(0.33,1,0.68,1)"
-                  : "transform 400ms ease-out, opacity 400ms ease-out",
-                transform: fadeOut ? "translateY(2rem)" : "translateY(0)",
-              }}
-            >
-              {idx < textIndex ? phrase : phrase.substring(0, charIndex)}
-              {/* Curseur clignotant */}
-              {idx === textIndex && !fadeOut && (
-                <span
-                  className="inline-block w-2 ml-1 bg-gradient-to-b from-[#1e90ff] to-[#8b5cf6] 
-                             animate-pulse
-                             h-5 sm:h-8 md:h-14 align-middle"
-                  style={{ verticalAlign: "middle" }}
-                />
-              )}
-            </h1>
-          );
-        })}
+      {/* Fond semi-transparent */}
+      {overlayVisible && (
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundColor: "rgba(15, 14, 18, 0.4)",
+            transition: "opacity 700ms",
+            opacity: fadeOut ? 0 : 1,
+          }}
+        />
+      )}
+  
+      {/* Les deux premières lignes dans un bloc avec transition */}
+      {overlayVisible && (
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            transition: "opacity 700ms",
+            opacity: fadeOut ? 0 : 1,
+          }}
+        >
+          {/* Ligne 1 (centre gauche) */}
+          <h1
+            className="font-jakarta italic text-4xl sm:text-4xl md:text-5xl font-bold"
+            style={{
+              ...textStyleAllLines,
+              position: "absolute",
+              top: "40%",
+              left: "35%",
+              transform: "translate(-50%, -50%)",
+            }}
+          >
+            {typedTexts[0]}
+          </h1>
+  
+          {/* Ligne 2 (centre droite) */}
+          <h1
+            className="font-jakarta italic text-3xl sm:text-4xl md:text-5xl font-bold"
+            style={{
+              ...textStyleAllLines,
+              position: "absolute",
+              top: "40%",
+              left: "67%",
+              transform: "translate(-50%, -50%)",
+            }}
+          >
+            {typedTexts[1]}
+          </h1>
+        </div>
+      )}
+  
+      {/* Ligne 3, qui reste affichée */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: "13%",
+          left: "22.5%",
+          transform: "translate(-50%, -50%)",
+          width: "45%",
+          textAlign: "left",
+          ...textStyleAllLines,
+        }}
+      >
+        <h2 className="font-jakarta italic text-2xl sm:text-3xl md:text-[39px] font-medium"
+          style={{
+            display: "block",
+            height: "auto",
+            minHeight: "3em", 
+          }}>
+          {linePersist.substring(0, charIndex3)}
+        </h2>
       </div>
     </div>
   );
