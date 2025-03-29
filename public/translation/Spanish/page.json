@@ -9,6 +9,11 @@
       "openMenu": "Abrir menú",
       "closeMenu": "Cerrar menú"
     },
+    "sentences": {
+    "first": "Arte del diseño",
+    "second": "Poder del código",
+    "third": "Creemos juntos el sitio web que impulsará tu éxito"
+  },
     "about": {
       "title": "Sobre mí",
       "content": "Hola, soy un Diseñador UI/UX y Desarrollador Full-Stack apasionado del sur de Francia, radicado en Montpellier. Me encanta crear diseños intuitivos y visualmente atractivos con herramientas como Figma y Photoshop, mientras desarrollo aplicaciones modernas y eficientes usando C#, React y ASP.NET. Mi objetivo es unir el diseño y la tecnología para crear soluciones que sean tanto prácticas como hermosas. Fuera del trabajo, soy un gran aficionado a viajar, descubrir nuevos lugares y encontrar inspiración en diferentes culturas. Ya sea explorando las últimas tendencias tecnológicas o disfrutando del estilo de vida mediterráneo, siempre estoy buscando ideas frescas para incorporar en mis proyectos."

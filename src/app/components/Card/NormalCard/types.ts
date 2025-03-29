@@ -21,6 +21,9 @@ export interface StyleProps {
     mobile?: {
       top?: string;
     };
+    tablet?: {
+      top?: string;
+    };
     desktop?: {
       content?: string;
     };

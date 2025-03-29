@@ -77,7 +77,8 @@ export default function Page() {
               imageSizeDesktop={{ width: "1000px", height: "1000px" }}
               imagePositionDesktop={{ top: "100%", left: "-12%" }}
               boxPaddings={{
-                mobile: { top: "170px" },
+                mobile: { top: "400px" },
+                tablet: { top: "500px" },
                 desktop: { content: "720px" },
               }}
             />

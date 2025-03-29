@@ -27,7 +27,8 @@ const Header: React.FC = () => {
 
   // Retourne l'icône du drapeau selon la langue active
   const getCurrentFlag = () => {
-    switch (i18n.language) {
+    const shortLang = i18n.language?.substring(0, 2); // "fr-FR" → "fr"
+    switch (shortLang) {
       case "fr":
         return "/image/icons/frenchFlag.svg";
       case "es":
@@ -37,7 +38,7 @@ const Header: React.FC = () => {
         return "/image/icons/englishFlag.svg";
     }
   };
-
+  
   return (
     <>
       {/* HEADER PRINCIPAL */}

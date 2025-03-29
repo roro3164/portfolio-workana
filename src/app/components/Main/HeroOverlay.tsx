@@ -1,35 +1,26 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 type HeroOverlayProps = {
   onOverlayFinish?: () => void;
 };
 
 export default function HeroOverlay({ onOverlayFinish }: HeroOverlayProps) {
-  // Les deux premières lignes (disparaissent pendant l'animation)
-  const linesFade = ["L'art du design", "Puissance du code"];
-  // La troisième ligne (reste après l'animation)
-  const linePersist =
-    "Créons ensemble le site web qui propulsera votre succès";
+  const { t } = useTranslation("page");
 
-  // Contrôle de l'overlay
+  // Traductions
+  const linesFade = [t("sentences.first"), t("sentences.second")];
+  const linePersist = t("sentences.third");
+
   const [overlayVisible, setOverlayVisible] = useState(true);
-
-  // Machine à écrire pour les lignes 1 et 2
   const [lineIndex, setLineIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
-
-  // Une fois terminées les lignes 1 et 2, on passe à la 3e
   const [typingThirdLine, setTypingThirdLine] = useState(false);
   const [charIndex3, setCharIndex3] = useState(0);
-
-  // Texte tapé pour les lignes 1 et 2
   const [typedTexts, setTypedTexts] = useState(["", ""]);
-
-  // Pour gérer le fade-out final (lorsque les 2 premières lignes disparaissent)
   const [fadeOut, setFadeOut] = useState(false);
 
-  // Blocage du scroll pendant que l'overlay est visible
   useEffect(() => {
     if (overlayVisible) {
       document.body.style.overflow = "hidden";
@@ -44,12 +35,10 @@ export default function HeroOverlay({ onOverlayFinish }: HeroOverlayProps) {
     };
   }, [overlayVisible]);
 
-  // Machine à écrire
   useEffect(() => {
     if (!overlayVisible) return;
 
     if (!typingThirdLine) {
-      // Traitement des lignes 1 et 2
       if (lineIndex >= linesFade.length) {
         setTypingThirdLine(true);
         return;
@@ -73,7 +62,6 @@ export default function HeroOverlay({ onOverlayFinish }: HeroOverlayProps) {
         return () => clearTimeout(pauseTimer);
       }
     } else {
-      // Traitement de la 3ème ligne
       if (charIndex3 < linePersist.length) {
         const timer = setTimeout(() => {
           setCharIndex3(charIndex3 + 1);
@@ -88,7 +76,6 @@ export default function HeroOverlay({ onOverlayFinish }: HeroOverlayProps) {
     }
   }, [overlayVisible, typingThirdLine, lineIndex, charIndex, charIndex3]);
 
-  // Masquage final de l'overlay et callback une fois le fade-out terminé
   useEffect(() => {
     if (fadeOut) {
       const removeTimer = setTimeout(() => {
@@ -99,10 +86,8 @@ export default function HeroOverlay({ onOverlayFinish }: HeroOverlayProps) {
     }
   }, [fadeOut, onOverlayFinish]);
 
-  // Si l'overlay est complètement masqué et qu'on n'est pas en train de taper la 3ème ligne, ne rien afficher
   if (!overlayVisible && !typingThirdLine) return null;
 
-  // Style commun pour toutes les phrases
   const textStyleAllLines: React.CSSProperties = {
     color: "#fff",
     textShadow: `
@@ -123,7 +108,6 @@ export default function HeroOverlay({ onOverlayFinish }: HeroOverlayProps) {
         zIndex: 50,
       }}
     >
-      {/* Fond semi-transparent */}
       {overlayVisible && (
         <div
           style={{
@@ -135,8 +119,7 @@ export default function HeroOverlay({ onOverlayFinish }: HeroOverlayProps) {
           }}
         />
       )}
-  
-      {/* Les deux premières lignes dans un bloc avec transition */}
+
       {overlayVisible && (
         <div
           style={{
@@ -146,28 +129,27 @@ export default function HeroOverlay({ onOverlayFinish }: HeroOverlayProps) {
             opacity: fadeOut ? 0 : 1,
           }}
         >
-          {/* Ligne 1 (centre gauche) */}
           <h1
-            className="font-jakarta italic text-4xl sm:text-4xl md:text-5xl font-bold"
+            className="font-jakarta italic text-[15px] sm:text-2xl md:text-4xl font-bold"
             style={{
               ...textStyleAllLines,
               position: "absolute",
-              top: "40%",
+              top: "35%",
               left: "35%",
+              width: "45%",
               transform: "translate(-50%, -50%)",
             }}
           >
             {typedTexts[0]}
           </h1>
-  
-          {/* Ligne 2 (centre droite) */}
           <h1
-            className="font-jakarta italic text-3xl sm:text-4xl md:text-5xl font-bold"
+            className="font-jakarta italic text-[15px] sm:text-2xl md:text-4xl font-bold"
             style={{
               ...textStyleAllLines,
               position: "absolute",
-              top: "40%",
-              left: "67%",
+              top: "35%",
+              left: "80%",
+              width: "45%",
               transform: "translate(-50%, -50%)",
             }}
           >
@@ -175,25 +157,25 @@ export default function HeroOverlay({ onOverlayFinish }: HeroOverlayProps) {
           </h1>
         </div>
       )}
-  
-      {/* Ligne 3, qui reste affichée */}
+
       <div
         style={{
           position: "absolute",
-          bottom: "13%",
-          left: "22.5%",
-          transform: "translate(-50%, -50%)",
+          bottom: "25%",
+          left: "23%",
+          transform: "translateX(-50%)",
           width: "45%",
           textAlign: "left",
           ...textStyleAllLines,
         }}
       >
-        <h2 className="font-jakarta italic text-2xl sm:text-3xl md:text-[39px] font-medium"
+        <h2
+          className="font-jakarta italic text-[15px] sm:text-3xl md:text-[39px] font-medium"
           style={{
             display: "block",
-            height: "auto",
-            minHeight: "3em", 
-          }}>
+            minHeight: "3.5em",
+          }}
+        >
           {linePersist.substring(0, charIndex3)}
         </h2>
       </div>
