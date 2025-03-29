@@ -9,8 +9,7 @@ export const getCardClasses = ({
   imagePositionMobile,
   imagePositionDesktop,
 }: StyleProps) => {
- 
- 
+
   const defaultDesktopPosition: CSSProperties = {
     top: "50%",
     transform: "translateY(-50%)",
@@ -20,6 +19,7 @@ export const getCardClasses = ({
     top: "0%",
   };
 
+  // Styles d'image desktop
   const desktopImageStyle: CSSProperties = {
     width: imageSizeDesktop?.width,
     height: imageSizeDesktop?.height,
@@ -27,6 +27,7 @@ export const getCardClasses = ({
     ...imagePositionDesktop,
   };
 
+  // Styles d'image mobile/tablet
   const mobileImageStyle: CSSProperties = {
     width: imageSizeMobile?.width,
     height: imageSizeMobile?.height,
@@ -45,10 +46,9 @@ export const getCardClasses = ({
         ? "mx-auto lg:mr-auto lg:ml-0"
         : "mx-auto lg:ml-auto lg:mr-0",
 
-    // --- Mobile ---
+    // --- Mobile (<640px) ---
     mobile: {
-      // block jusqu'à breakpoint, puis hidden
-      visibility: `block xl:hidden`,
+      visibility: "block sm:hidden", // visible en dessous de 640px
       style: {
         paddingTop: boxPaddings?.mobile?.top,
       },
@@ -56,10 +56,19 @@ export const getCardClasses = ({
       imageStyle: mobileImageStyle,
     },
 
-    // --- Desktop ---
+    // --- Tablet (640px – 1280px) ---
+    tablet: {
+      visibility: "hidden sm:block xl:hidden", // visible de 640px à 1279px
+      style: {
+        paddingTop: boxPaddings?.tablet?.top,
+      },
+      imagePosition: "absolute left-1/2 transform -translate-x-1/2",
+      imageStyle: mobileImageStyle, // on réutilise le même style "mobile"
+    },
+
+    // --- Desktop (≥1280px) ---
     desktop: {
-      // hidden jusqu'à breakpoint, puis block
-      visibility: `hidden xl:block`,
+      visibility: "hidden xl:block",
       style: {
         paddingLeft:
           imageAlign === "left" ? boxPaddings?.desktop?.content : undefined,

@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import { NormalCardProps } from "./types";
@@ -9,11 +10,15 @@ import { Hover } from "../hover/Hover";
 import VioletHover from "../hover/VioletHover";
 import LaptopGif from "../AnimationLaptop/laptopGif";
 
+/**
+ * On remet isLaptop, version courte,
+ * pour remplacer <Image> par <LaptopGif>.
+ */
 interface ExtendedNormalCardProps extends NormalCardProps {
   isLaptop?: boolean;
 }
 
-const NormalCard = ({
+const NormalCard: React.FC<ExtendedNormalCardProps> = ({
   title,
   internContent,
   imageSrc,
@@ -22,16 +27,15 @@ const NormalCard = ({
   boxStyle = "default",
   hoverType = "purple",
   isLaptop = false,
-  // Props de style
   imagePositionMobile,
   imagePositionDesktop,
   imageSizeMobile,
   imageSizeDesktop,
   boxPaddings,
-  // Prop pour le breakpoint (gérée dans utils)
   customBreakpoint,
   ...rest
-}: ExtendedNormalCardProps) => {
+}) => {
+  // Récupération de l'objet : { mobile, tablet, desktop }
   const classes = getCardClasses({
     imageAlign,
     boxPaddings,
@@ -54,11 +58,9 @@ const NormalCard = ({
     >
       <HoverComponent>
         <div className="bg-[#100E12] rounded-xl">
-          {/* Bloc de contenu Mobile */}
+          {/* TEXT - mobile */}
           <div
-            className={`${boxStyleClass} ${classes.mobile.visibility} ${
-              isLaptop ? styles.laptopCard : ""
-            } ${isLaptop ? styles.textContainer : ""}`}
+            className={`${boxStyleClass} ${classes.mobile.visibility}`}
             style={classes.mobile.style}
           >
             <p className="text-sm text-center sm:text-base md:text-lg lg:text-xl text-white leading-relaxed">
@@ -66,7 +68,17 @@ const NormalCard = ({
             </p>
           </div>
 
-          {/* Bloc de contenu Desktop */}
+          {/* TEXT - tablet */}
+          <div
+            className={`${boxStyleClass} ${classes.tablet.visibility}`}
+            style={classes.tablet.style}
+          >
+            <p className="text-sm text-center sm:text-base md:text-lg lg:text-xl text-white leading-relaxed">
+              {internContent}
+            </p>
+          </div>
+
+          {/* TEXT - desktop */}
           <div
             className={`${boxStyleClass} ${classes.desktop.visibility}`}
             style={classes.desktop.style}
@@ -78,7 +90,7 @@ const NormalCard = ({
         </div>
       </HoverComponent>
 
-      {/* Image Mobile */}
+      {/* IMAGE - mobile */}
       <div
         className={`${classes.mobile.imagePosition} ${classes.mobile.visibility}`}
         style={classes.mobile.imageStyle}
@@ -89,15 +101,34 @@ const NormalCard = ({
           <Image
             src={imageSrc}
             alt="Card decoration"
-            width={600} 
-            height={400} 
+            width={600}
+            height={400}
             className={`${styles.customShadow} w-full h-full object-contain hover:scale-110 transition-transform duration-300`}
           />
         )}
         {hasEaselAnimation && <EaselAnimation />}
       </div>
 
-      {/* Image Desktop */}
+      {/* IMAGE - tablet */}
+      <div
+        className={`${classes.tablet.imagePosition} ${classes.tablet.visibility}`}
+        style={classes.tablet.imageStyle}
+      >
+        {isLaptop ? (
+          <LaptopGif />
+        ) : (
+          <Image
+            src={imageSrc}
+            alt="Card decoration"
+            width={600}
+            height={400}
+            className={`${styles.customShadow} w-full h-full object-contain hover:scale-110 transition-transform duration-300`}
+          />
+        )}
+        {hasEaselAnimation && <EaselAnimation />}
+      </div>
+
+      {/* IMAGE - desktop */}
       <div
         className={`${classes.desktop.imagePosition} ${classes.desktop.visibility}`}
         style={classes.desktop.imageStyle}
@@ -108,8 +139,8 @@ const NormalCard = ({
           <Image
             src={imageSrc}
             alt="Card decoration"
-            width={600} 
-            height={400} 
+            width={600}
+            height={400}
             className={`${styles.customShadow} w-full h-full object-contain`}
           />
         )}

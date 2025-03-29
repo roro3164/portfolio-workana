@@ -59,6 +59,7 @@ export default function Page() {
               imagePositionDesktop={{ right: "-5%" }}
               boxPaddings={{
                 mobile: { top: "240px" },
+                tablet: { top: "240px" },
                 desktop: { content: "400px" },
               }}
             />
@@ -77,8 +78,8 @@ export default function Page() {
               imageSizeDesktop={{ width: "1000px", height: "1000px" }}
               imagePositionDesktop={{ top: "100%", left: "-12%" }}
               boxPaddings={{
-                mobile: { top: "400px" },
-                tablet: { top: "500px" },
+                mobile: { top: "160px" },
+                tablet: { top: "410px" },
                 desktop: { content: "720px" },
               }}
             />
@@ -96,6 +97,7 @@ export default function Page() {
               imageSizeDesktop={{ width: "680px", height: "680px" }}
               boxPaddings={{
                 mobile: { top: "500px" },
+                tablet: { top: "500px" },
                 desktop: { content: "450px" },
               }}
             />

@@ -24,16 +24,10 @@
   }
 }
 
-/* Écrans petits (sm : 640px - 767px) */
-@media (min-width: 640px) and (max-width: 767px) {
-  .laptopWrapper {
-    width: 600px; /* Largeur fixe intermédiaire pour lg */
-    margin: 0 auto;
-  }
-}
+
 
 /* Écrans moyens (md : 768px - 1023px) */
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 640px) and (max-width: 1023px) {
   .laptopWrapper {
     width: 800px; /* Largeur fixe intermédiaire pour lg */
     margin: 0 auto;
