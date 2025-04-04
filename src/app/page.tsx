@@ -8,11 +8,11 @@ import { Footer } from "./components/Footer/Footer";
 import IntenseCursorLight from "./components/IntenseCursorLight";
 import CarouselCard from "./components/Card/Carousel/CarouselCard";
 import NormalCard from "./components/Card/NormalCard/NormalCard";
-import { ServiceCard } from "./components/Card/ServiceCard/ServiceCard";
 import BaseCard from "./components/Card/BaseCard/BaseCard";
 import "../../i18n"; 
 import { useTranslation } from "react-i18next";
 import { Project } from "./components/Card/Carousel/types";
+import { ServicesSection } from "./components/Card/ServiceCard/ServicesSection";
 
 
 export default function Page() {
@@ -42,41 +42,21 @@ export default function Page() {
 
         <SplitScreen />
 
-        <section className="sectionCard flex flex-col mt-5 sm:mt-0 gap-5 sm:gap-36 sm:p-12 ">
+        <section className="sectionCard flex flex-col  ">
           <IntenseCursorLight />
 
-          {/* Section ABOUT */}
-          <section id="about">
-            <NormalCard
-              title={t("about.title")}
-              internContent={t("about.content")}
-              imageSrc="/image/pictures/photoAbout.webp"
-              imageAlign="right"
-              boxStyle="purple"
-              hoverType="white"
-              imageSizeMobile={{ width: "230px", height: "230px" }}
-              imageSizeDesktop={{ width: "500px", height: "500px" }}
-              imagePositionDesktop={{ right: "-5%" }}
-              boxPaddings={{
-                mobile: { top: "240px" },
-                tablet: { top: "240px" },
-                desktop: { content: "400px" },
-              }}
-            />
-          </section>
-
           {/* Section DEVELOPER */}
-          <section id="developer">
+          <section id="developer" className="z-50">
             <NormalCard
               // Pour afficher le GIF du laptop
               isLaptop={true}
               title={t("developer.title")}
               internContent={t("developer.content")}
               imageSrc="/image/pictures/laptop.png"
-              imageAlign="left"
+              imageAlign="right"
               imagePositionMobile={{ top: "0%", left: "50%" }}
               imageSizeDesktop={{ width: "1000px", height: "1000px" }}
-              imagePositionDesktop={{ top: "100%", left: "-12%" }}
+              imagePositionDesktop={{ top: "128%", right: "-10%" }}
               boxPaddings={{
                 mobile: { top: "160px" },
                 tablet: { top: "410px" },
@@ -89,7 +69,7 @@ export default function Page() {
           <section id="designer" className="lg:mb-40 lg:mt-32">
             <NormalCard
               title={t("designer.title")}
-              imageAlign="right"
+              imageAlign="left"
               internContent={t("designer.content")}
               imageSrc="/image/pictures/chevalet.webp"
               hasEaselAnimation={true}
@@ -102,61 +82,35 @@ export default function Page() {
               }}
             />
           </section>
+          <h3 className="transition-heading text-right">Transformez vos idées en expériences web percutantes.</h3>
+
+
+          {/* Section SERVICES */}
+          <section id="services">
+            <BaseCard
+            title={t("services.title")}
+              titleAlignment="mx-auto"
+              cardAlignment="mx-auto"
+            >
+             
+                <ServicesSection />
+            </BaseCard>
+          </section>
+
+          <h3 className="transition-heading">Des réalisations qui parlent delles-mêmes.</h3>
 
           {/* Section PROJECTS */}
           <section id="projects">
             {/* On transmet le tableau de projets récupéré via i18n */}
             <CarouselCard projects={projects} />
           </section>
-
-          {/* Section SERVICES */}
-          <section id="services">
-            <BaseCard
-              title={t("services.title")}
-              titleAlignment="mx-auto"
-              cardAlignment="mx-auto"
-            >
-              <div className="flex justify-between items-center flex-col gap-10 xl:flex-row">
-                <ServiceCard
-                  title={t("services.uiux.title")}
-                  description={t("services.uiux.description")}
-                  listItems={[
-                    t("services.uiux.items.0"),
-                    t("services.uiux.items.1"),
-                    t("services.uiux.items.2"),
-                    t("services.uiux.items.3"),
-                  ]}
-                />
-
-                <ServiceCard
-                  title={t("services.development.title")}
-                  description={t("services.development.description")}
-                  listItems={[
-                    t("services.development.items.0"),
-                    t("services.development.items.1"),
-                    t("services.development.items.2"),
-                    t("services.development.items.3"),
-                  ]}
-                />
-
-                <ServiceCard
-                  title={t("services.website.title")}
-                  description={t("services.website.description")}
-                  listItems={[
-                    t("services.website.items.0"),
-                    t("services.website.items.1"),
-                    t("services.website.items.2"),
-                    t("services.website.items.3"),
-                  ]}
-                />
-              </div>
-            </BaseCard>
-          </section>
-
+          
+          <h3 className="transition-heading text-center">Prêt à concrétiser votre vision ? Discutons de votre projet maintenant.</h3>
+  
           {/* Section CONTACT */}
           <section id="contact">
             <BaseCard
-              title={t("contactForm.title")}
+           
               titleAlignment="mx-auto"
               cardAlignment="mx-auto"
             >

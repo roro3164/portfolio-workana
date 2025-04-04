@@ -4,11 +4,15 @@ import styles from './main.module.scss';
 import { useTranslation } from "react-i18next";
 
 interface ContactButtonProps {
+  title?: string;
+  className?: string;
   onHoverStart?: () => void;
   onHoverEnd?: () => void;
 }
 
 const ContactButton: React.FC<ContactButtonProps> = ({ 
+  title = "contactme.title",
+  className = "",
   onHoverStart, 
   onHoverEnd 
 }) => {
@@ -16,11 +20,11 @@ const ContactButton: React.FC<ContactButtonProps> = ({
   
   return (
     <button 
-      className={styles.contact_btn}
+      className={`${styles.contact_btn} ${className}`}
       onMouseEnter={onHoverStart}
       onMouseLeave={onHoverEnd}
     >
-      <span className={styles.text}>{t("contactme.title")}</span>
+      <span className={styles.text}>{t(title)}</span>
       <Image
         src="/image/icons/contactMe.svg"
         alt="mail icon"

@@ -9,10 +9,13 @@
     "openMenu": "Ouvrir le menu",
     "closeMenu": "Fermer le menu"
   },
+  "button": {
+    "text": "Demandez votre démo gratuite"
+  },
   "sentences": {
     "first": "Art du design",
     "second": "Puissance du code",
-    "third": "Créons ensemble le site web qui propulsera votre succès"
+    "third": "Un site web pour le prix d'un café par jour!"
   },
   "about": {
     "title": "À propos de moi",
@@ -35,35 +38,48 @@
   },
   "services": {
     "title": "Services",
-    "uiux": {
-      "title": "Design UI/UX",
-      "description": "Je conçois des expériences utilisateur intuitives et visuellement attrayantes, adaptées à vos besoins.",
+    "intro": "🌐 Des sites web tout inclus, à partir de 49€/mois",
+    "subtitle": "Personnalisés, modernes, efficaces.",
+    "promo": "🎁 En ce moment : recevez une démo gratuite sans engagement !",
+    "starter": {
+      "title": "Starter",
+      "description": "L'offre idéale pour se lancer simplement",
       "items": [
-        "Wireframes et maquettes sur Figma",
-        "Prototypes interactifs",
-        "Design graphique personnalisé avec Photoshop",
-        "Design centré sur l'utilisateur"
+        "1 page professionnelle",
+        "Design personnalisé",
+        "Formulaire de contact",
+        "Nom de domaine + hébergement inclus",
+        "Maintenance mensuelle",
+        "1 mise à jour gratuite / mois"
       ]
     },
-    "development": {
-      "title": "Développement",
-      "description": "Je transforme vos designs en sites web modernes et performants.",
+    "pro": {
+      "title": "Pro",
+      "description": "Pour présenter plusieurs services",
+      "prefix": "Tout ce qui est inclus dans Starter, plus :",
       "items": [
-        "Intégration responsive pour mobile, tablette et ordinateur",
-        "Effets visuels modernes et animations",
-        "Optimisation pour des performances rapides et fiables",
-        "Compatibilité cross-browser"
+        "Jusqu'à 5 pages",
+        "Formulaire de réservation",
+        "Meilleur positionnement sur Google",
+        "2 mises à jour gratuites / mois"
       ]
     },
-    "website": {
-      "title": "Site Web Complet",
-      "description": "J'offre des solutions clé en main, de la conception au déploiement.",
+    "premium": {
+      "title": "Premium",
+      "description": "La solution ultra-complète",
+      "prefix": "Tout ce qui est inclus dans Pro, plus :",
       "items": [
-        "Pages d'atterrissage pour maximiser vos conversions",
-        "Effets visuels modernes et animations",
-        "Optimisation SEO et vitesse de chargement rapide",
-        "Hébergement, maintenance et mises à jour inclus"
+        "Jusqu'à 10 pages",
+        "Design haut de gamme",
+        "Animations avancées incluses",
+        "Chatbot d'accueil intégré",
+        "Support prioritaire par mail",
+        "5 mises à jour gratuites / mois"
       ]
+    },
+    "cta": {
+      "title": "Testez sans engagement",
+      "buttonText": "Demandez votre démo gratuite"
     }
   },
  

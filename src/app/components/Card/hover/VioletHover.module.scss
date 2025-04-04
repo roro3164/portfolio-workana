@@ -4,10 +4,9 @@
   transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
   position: relative;
   
-  
   // Nouvelle classe pour l'animation basée sur la visibilité
   &.visible {
-    filter: drop-shadow(0 0 10px #8b5cf680);
+    filter: drop-shadow(0 0 10px var(--hover-shadow, #8b5cf680));
   }
 }
 
@@ -20,8 +19,8 @@
   background: conic-gradient(
     transparent 0deg,
     transparent 30deg,
-    rgba(139, 92, 246, 0.9) 60deg,
-    rgba(124, 58, 237, 0.8) 120deg,
+    var(--hover-color-primary, rgba(139, 92, 246, 0.9)) 60deg,
+    var(--hover-color-secondary, rgba(124, 58, 237, 0.8)) 120deg,
     transparent 150deg,
     transparent 360deg
   );

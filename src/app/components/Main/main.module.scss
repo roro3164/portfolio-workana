@@ -22,7 +22,6 @@
   overflow: hidden;
   
   // Largeur totalement fluide et adaptative
-  width: clamp(190px, 50vw, 300px);
   min-height: clamp(1.8em, 6vw, 2.8em);
   max-width: 100%;
   
@@ -106,16 +105,11 @@
     0px 0px 40px 0px rgba(153, 23, 255, 0.3);
 }
 
-// Ajustements progressifs pour différentes tailles d'écran
-@media (max-width: 1024px) {
-  .contact_btn {
-    width: clamp(180px, 45vw, 250px);
-  }
-}
+
 
 @media (max-width: 768px) {
   .contact_btn {
-    width: clamp(160px, 40vw, 220px);
+   
     
     .text {
       font-size: clamp(12px, 2.8vw, 18px);
@@ -129,7 +123,7 @@
 
 @media (max-width: 576px) {
   .contact_btn {
-    width: clamp(140px, 35vw, 190px);
+    
     min-height: 1.7em;
     padding: clamp(0.2em, 1.5vw, 0.4em) clamp(0.5em, 2.5vw, 0.8em);
     

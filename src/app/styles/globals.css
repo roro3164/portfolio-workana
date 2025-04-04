@@ -267,3 +267,13 @@ span, p {
   font-family: 'Plus Jakarta Sans';
   font-weight: 400;
 }
+
+.transition-heading {
+  color: #fff;
+  text-shadow: 0 0 5px rgba(153, 23, 255, 0.8), 0 0 10px rgba(153, 23, 255, 0.8);
+  font-family: 'Plus Jakarta Sans', sans-serif; /* Assurez-vous d'avoir cette police */
+  font-style: italic;
+  font-size: 36px; /* Ajustez selon vos besoins */
+  font-weight: 500; /* medium weight */
+  margin: 2rem 0;
+}
