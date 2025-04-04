@@ -164,6 +164,7 @@ export const MobileCarousel = ({ projects }: MobileProjectCarouselProps) => {
                           className="min-w-5 h-5 text-sm"
                           key={itemIndex}
                           text={item.replace("✓ ", "")}
+                          color="violet"
                         />
                       ))}
                     </div>
