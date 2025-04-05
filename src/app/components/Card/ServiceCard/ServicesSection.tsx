@@ -15,7 +15,7 @@ export const ServicesSection = () => {
     <section id="services" className=" text-white">
       <div className="container mx-auto px-4 flex flex-col gap-y-8"> 
         <div className="text-center flex flex-col gap-y-6">
-          <h3 className="transition-heading text-4xl font-bold">{t("services.intro")}</h3>
+          <h3 className="transition-heading text-3xl font-bold">{t("services.intro")}</h3>
           <p className="text-2xl font-bold">{t("services.subtitle")}</p>
           <p className="transition-heading italic text-3xl font-bold ">{t("services.promo")}</p>
         </div>
@@ -41,18 +41,20 @@ export const ServicesSection = () => {
             description={t("services.premium.description")}
             prefix={t("services.premium.prefix")}
             listItems={premiumItems}
-            color="violet" // La couleur violette d'origine pour la troisième carte
+            color="orange" // La couleur violette d'origine pour la troisième carte
           />
         </div>
         
         <div className="">
           <h3 className="text-center text-2xl font-bold mb-6">{t("services.cta.title")}</h3>
-          <ContactButton 
-             title="button.text" 
-             icon = "/image/icons/gift.svg"
-             iconWidth={28}
-             className="mx-auto w-auto min-w-[280px] px-6" 
-          />
+          <a href="#contact">
+            <ContactButton 
+               title="button.text" 
+               icon = "/image/icons/gift.svg"
+               iconWidth={28}
+               className="mx-auto w-auto min-w-[280px] px-6" 
+            />
+          </a>
         </div>
       </div>
     </section>

@@ -43,9 +43,6 @@ export const Footer: React.FC = () => {
         <div className={styles.sectionNav}>
           <ul>
             <li>
-              <a href="#about">{t("footer.navigation.about")}</a>
-            </li>
-            <li>
               <a href="#developer">{t("footer.navigation.developer")}</a>
             </li>
             <li>

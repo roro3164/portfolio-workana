@@ -38,7 +38,7 @@ export default function Page() {
 
         <SplitScreen />
 
-        <section className="sectionCard flex flex-col gap-y-24 ">
+        <section className="sectionCard flex flex-col gap-y-20 ">
           <IntenseCursorLight />
 
           {/* Section DEVELOPER */}
@@ -51,7 +51,7 @@ export default function Page() {
               imageAlign="right"
               imagePositionMobile={{ top: "0%", left: "50%" }}
               imageSizeDesktop={{ width: "1000px", height: "1000px" }}
-              imagePositionDesktop={{ top: "128%", right: "-10%" }}
+              imagePositionDesktop={{ top: "100%", right: "-10%" }}
               boxPaddings={{
                 mobile: { top: "160px" },
                 tablet: { top: "410px" },
@@ -69,7 +69,8 @@ export default function Page() {
               imageSrc="/image/pictures/chevalet.webp"
               hasEaselAnimation={true}
               imageSizeMobile={{ width: "300px", height: "450px" }}
-              imageSizeDesktop={{ width: "680px", height: "680px" }}
+              imageSizeDesktop={{ width: "720px", height: "720px" }}
+              imagePositionDesktop={{ top: "40%", right: "" }}
               boxPaddings={{
                 mobile: { top: "500px" },
                 tablet: { top: "500px" },
@@ -78,7 +79,7 @@ export default function Page() {
             />
           </section>
 
-          <h3 className="transition-heading text-center text-3xl">Maîtrisant à la fois le design et le développement, je conçois des sites ultra-complets, esthétiques et efficaces, parfaitement adaptés à vos besoins.</h3>
+          <h3 className="transition-heading text-center text-4xl">Maîtrisant à la fois le design et le développement, je conçois des sites ultra-complets, esthétiques et efficaces, parfaitement adaptés à vos besoins.</h3>
           {/* Section SERVICES */}
           <section id="services">
             <BaseCard
@@ -97,13 +98,13 @@ export default function Page() {
             <CarouselCard projects={projects} />
           </section>
 
-          <h3 className="transition-heading text-center text-4xl">Prêt à concrétiser votre vision ? Discutons de votre projet maintenant.</h3>
+          <h3 className="transition-heading text-center text-4xl">Prêt à concrétiser votre vision ? Discutons de votre projet dès maintenant.</h3>
 
           {/* Section CONTACT */}
           <section id="contact">
-            <BaseCard titleAlignment="mx-auto" cardAlignment="mx-auto">
+           
               <FormCard />
-            </BaseCard>
+        
           </section>
         </section>
 

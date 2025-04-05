@@ -133,9 +133,6 @@ const Header: React.FC = () => {
 
           {/* NAV DESKTOP (cachée en mobile) : en ligne */}
           <nav className="hidden lg:flex lg:gap-14 text-xl font-jakarta">
-            <a href="#about" className={styles.navLink}>
-              {t("header.about")}
-            </a>
             <a href="#developer" className={styles.navLink}>
               {t("header.developer")}
             </a>

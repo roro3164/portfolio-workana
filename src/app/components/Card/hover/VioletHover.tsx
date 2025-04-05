@@ -88,9 +88,9 @@ function getHoverColors(color: string): { primary: string; secondary: string; sh
       };
     case 'orange':
       return {
-        primary: 'rgba(249, 115, 22, 0.9)',
-        secondary: 'rgba(234, 88, 12, 0.8)',
-        shadow: '#f9731680'
+        primary: 'rgba(212, 175, 55, 0.9)',
+        secondary: 'rgba(184, 151, 46, 0.8)',
+        shadow: '#d4af3780'
       };
     case 'red':
       return {

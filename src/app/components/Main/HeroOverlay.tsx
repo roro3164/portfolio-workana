@@ -174,6 +174,7 @@ export default function HeroOverlay({ onOverlayFinish }: HeroOverlayProps) {
           style={{
             display: "block",
             minHeight: "3.5em",
+            lineHeight: "1.3",
           }}
         >
           {linePersist.substring(0, charIndex3)}
