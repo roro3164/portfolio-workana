@@ -14,10 +14,10 @@ export const ServicesSection = () => {
   return (
     <section id="services" className=" text-white">
       <div className="container mx-auto px-4 flex flex-col gap-y-8"> 
-        <div className="text-center">
-          <h3 className="text-3xl font-bold mb-2">{t("services.intro")}</h3>
-          <p className="text-lg mb-4">{t("services.subtitle")}</p>
-          <p className="text-2xl font-bold mb-6">{t("services.promo")}</p>
+        <div className="text-center flex flex-col gap-y-6">
+          <h3 className="transition-heading text-4xl font-bold">{t("services.intro")}</h3>
+          <p className="text-2xl font-bold">{t("services.subtitle")}</p>
+          <p className="transition-heading italic text-3xl font-bold ">{t("services.promo")}</p>
         </div>
         
         <div className="flex justify-between items-center flex-col gap-10 xl:flex-row">
@@ -49,6 +49,8 @@ export const ServicesSection = () => {
           <h3 className="text-center text-2xl font-bold mb-6">{t("services.cta.title")}</h3>
           <ContactButton 
              title="button.text" 
+             icon = "/image/icons/gift.svg"
+             iconWidth={28}
              className="mx-auto w-auto min-w-[280px] px-6" 
           />
         </div>

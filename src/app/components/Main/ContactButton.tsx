@@ -1,6 +1,6 @@
-import React from 'react';
-import Image from 'next/image';
-import styles from './main.module.scss';
+import React from "react";
+import Image from "next/image";
+import styles from "./main.module.scss";
 import { useTranslation } from "react-i18next";
 
 interface ContactButtonProps {
@@ -8,30 +8,50 @@ interface ContactButtonProps {
   className?: string;
   onHoverStart?: () => void;
   onHoverEnd?: () => void;
+  icon?: string; // Chemin de l'image/icône à utiliser
+  emoji?: string; // Option pour utiliser un emoji au lieu d'une image
+  iconAlt?: string; // Texte alternatif pour l'icône
+  iconWidth?: number; // Largeur de l'icône
+  iconHeight?: number; // Hauteur de l'icône
 }
 
-const ContactButton: React.FC<ContactButtonProps> = ({ 
+const ContactButton: React.FC<ContactButtonProps> = ({
   title = "contactme.title",
   className = "",
-  onHoverStart, 
-  onHoverEnd 
+  onHoverStart,
+  onHoverEnd,
+  icon = "/image/icons/contactMe.svg", // Icône par défaut (enveloppe)
+  emoji = "", // Pas d'emoji par défaut
+  iconAlt = "icon",
+  iconWidth = 24,
+  iconHeight = 24,
 }) => {
   const { t } = useTranslation();
-  
+
   return (
-    <button 
+    <button
       className={`${styles.contact_btn} ${className}`}
       onMouseEnter={onHoverStart}
       onMouseLeave={onHoverEnd}
     >
       <span className={styles.text}>{t(title)}</span>
-      <Image
-        src="/image/icons/contactMe.svg"
-        alt="mail icon"
-        width={24}
-        height={24}
-        className={styles.mail_icon}
-      />
+
+      {emoji ? (
+        <span
+          className={styles.emoji_icon}
+          style={{ fontSize: `${iconWidth}px` }}
+        >
+          {emoji}
+        </span>
+      ) : (
+        <Image
+          src={icon}
+          alt={iconAlt}
+          width={iconWidth}
+          height={iconHeight}
+          className={styles.icon} // Changé de mail_icon à icon
+        />
+      )}
     </button>
   );
 };

@@ -72,69 +72,71 @@ export const FormCard = () => {
   };
 
   return (
-    <VioletHover>
-      <div className="bg-[#100E12]">
-        <form onSubmit={handleSubmit} className={styles.glassContact}>
-          <input
-            type="text"
-            name="firstName"
-            value={formData.firstName}
-            onChange={handleChange}
-            className={styles.internBoxContact}
-            // 3. Utiliser t("...") pour le placeholder
-            placeholder={t("contactForm.firstName")}
-            required
-          />
-          <input
-            type="text"
-            name="lastName"
-            value={formData.lastName}
-            onChange={handleChange}
-            className={styles.internBoxContact}
-            placeholder={t("contactForm.lastName")}
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className={styles.internBoxContact}
-            placeholder={t("contactForm.email")}
-            required
-          />
-          <textarea
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            className={`${styles.internBoxContact} ${styles.message}`}
-            placeholder={t("contactForm.message")}
-            required
-          ></textarea>
+    <div className="w-[80%] mx-auto">
+      <VioletHover>
+        <div className="bg-[#100E12]">
+          <form onSubmit={handleSubmit} className={styles.glassContact}>
+            <input
+              type="text"
+              name="firstName"
+              value={formData.firstName}
+              onChange={handleChange}
+              className={styles.internBoxContact}
+              // 3. Utiliser t("...") pour le placeholder
+              placeholder={t("contactForm.firstName")}
+              required
+            />
+            <input
+              type="text"
+              name="lastName"
+              value={formData.lastName}
+              onChange={handleChange}
+              className={styles.internBoxContact}
+              placeholder={t("contactForm.lastName")}
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className={styles.internBoxContact}
+              placeholder={t("contactForm.email")}
+              required
+            />
+            <textarea
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              className={`${styles.internBoxContact} ${styles.message}`}
+              placeholder={t("contactForm.message")}
+              required
+            ></textarea>
 
-          <div className="mx-auto">
-            <button
-              type="submit"
-              disabled={status.submitting}
-              className={status.submitting ? "opacity-50" : ""}
-            >
-              <ContactButton />
-            </button>
-          </div>
-
-          {status.submitted && (
-            <div className="text-green-500 mt-4 text-center">
-              {t("contactForm.success")}
+            <div className="mx-auto">
+              <button
+                type="submit"
+                disabled={status.submitting}
+                className={status.submitting ? "opacity-50" : ""}
+              >
+                <ContactButton />
+              </button>
             </div>
-          )}
 
-          {status.error && (
-            <div className="text-red-500 mt-4 text-center">
-              {t("contactForm.error")} : {status.error}
-            </div>
-          )}
-        </form>
-      </div>
-    </VioletHover>
+            {status.submitted && (
+              <div className="text-green-500 mt-4 text-center">
+                {t("contactForm.success")}
+              </div>
+            )}
+
+            {status.error && (
+              <div className="text-red-500 mt-4 text-center">
+                {t("contactForm.error")} : {status.error}
+              </div>
+            )}
+          </form>
+        </div>
+      </VioletHover>
+    </div>
   );
 };

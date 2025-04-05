@@ -175,7 +175,7 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
       <div className="relative flex w-full">
         {/* Colonne Carrousel */}
         <div
-          className="absolute mt-[20%] w-1/2 h-80"
+          className="absolute mt-[12%] w-1/2 h-80"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
@@ -250,21 +250,21 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
         </div>
 
         {/* 2ème colonne : la description */}
-        <div className="w-full">
+        <div className="w-[45%]"></div>
+        <div className="w-[55%]">
           <VioletHover>
             <div className="bg-[#100E12]">
               <div
-                className={`${styles.internBox} flex min-h-[780px] 2xl:min-h-[870px]`}
+                className={` ${styles.internBox} flex min-h-[780px] 2xl:min-h-[870px]`}
               >
-                {/* Moitié gauche vide */}
-                <div className="w-1/2" />
+           
 
                 {/* Moitié droite : contenu */}
                 <div
                   key={currentProject?.id}
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
-                  className={`w-1/2 ${
+                  className={`${
                     isChangingDescription ? "fade-out" : "fade-in"
                   }`}
                 >

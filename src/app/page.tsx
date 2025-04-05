@@ -14,13 +14,9 @@ import { useTranslation } from "react-i18next";
 import { Project } from "./components/Card/Carousel/types";
 import { ServicesSection } from "./components/Card/ServiceCard/ServicesSection";
 
-
 export default function Page() {
-  // On indique qu'on veut utiliser les namespaces "page" et "dataProjects"
   const { t } = useTranslation(["page", "dataProjects"]);
 
-  // On récupère le tableau de projets depuis dataProjects.json
-  // grâce à la clé "projects" dans le namespace "dataProjects"
   const projects = t("projects", {
     ns: "dataProjects",
     returnObjects: true,
@@ -42,16 +38,15 @@ export default function Page() {
 
         <SplitScreen />
 
-        <section className="sectionCard flex flex-col  ">
+        <section className="sectionCard flex flex-col gap-y-24 ">
           <IntenseCursorLight />
 
           {/* Section DEVELOPER */}
-          <section id="developer" className="z-50">
+          <section id="developer" className="z-50 ">
             <NormalCard
-              // Pour afficher le GIF du laptop
               isLaptop={true}
               title={t("developer.title")}
-              internContent={t("developer.content")}
+              internContent={t("developer.content").split('\n\n').map((p: string, i: number) => <p key={i} className="mb-4">{p}</p>)}
               imageSrc="/image/pictures/laptop.png"
               imageAlign="right"
               imagePositionMobile={{ top: "0%", left: "50%" }}
@@ -70,7 +65,7 @@ export default function Page() {
             <NormalCard
               title={t("designer.title")}
               imageAlign="left"
-              internContent={t("designer.content")}
+              internContent={t("designer.content").split('\n\n').map((p: string, i: number) => <p key={i} className="mb-4">{p}</p>)}
               imageSrc="/image/pictures/chevalet.webp"
               hasEaselAnimation={true}
               imageSizeMobile={{ width: "300px", height: "450px" }}
@@ -82,38 +77,31 @@ export default function Page() {
               }}
             />
           </section>
-          <h3 className="transition-heading text-right">Transformez vos idées en expériences web percutantes.</h3>
 
-
+          <h3 className="transition-heading text-center text-3xl">Maîtrisant à la fois le design et le développement, je conçois des sites ultra-complets, esthétiques et efficaces, parfaitement adaptés à vos besoins.</h3>
           {/* Section SERVICES */}
           <section id="services">
             <BaseCard
-            title={t("services.title")}
+              title={t("services.title")}
               titleAlignment="mx-auto"
               cardAlignment="mx-auto"
             >
-             
-                <ServicesSection />
+              <ServicesSection />
             </BaseCard>
           </section>
 
-          <h3 className="transition-heading">Des réalisations qui parlent delles-mêmes.</h3>
+          <h3 className="transition-heading text-4xl">Des réalisations qui parlent delles-mêmes.</h3>
 
           {/* Section PROJECTS */}
           <section id="projects">
-            {/* On transmet le tableau de projets récupéré via i18n */}
             <CarouselCard projects={projects} />
           </section>
-          
-          <h3 className="transition-heading text-center">Prêt à concrétiser votre vision ? Discutons de votre projet maintenant.</h3>
-  
+
+          <h3 className="transition-heading text-center text-4xl">Prêt à concrétiser votre vision ? Discutons de votre projet maintenant.</h3>
+
           {/* Section CONTACT */}
           <section id="contact">
-            <BaseCard
-           
-              titleAlignment="mx-auto"
-              cardAlignment="mx-auto"
-            >
+            <BaseCard titleAlignment="mx-auto" cardAlignment="mx-auto">
               <FormCard />
             </BaseCard>
           </section>
