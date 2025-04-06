@@ -19,7 +19,7 @@
   "transition": {
     "services": "Maîtrisant à la fois le design et le développement, je conçois des sites ultra-complets, esthétiques et efficaces, parfaitement adaptés à vos besoins.",
     "projects": "Des réalisations qui parlent delles-mêmes.",
-    "contact": " Prêt à concrétiser votre vision ? Discutons de votre projet dès maintenant."
+    "contact": " Discutons de votre projet et demandez votre démo gratuite dès maintenant!"
   },
   "about": {
     "title": "À propos de moi",
@@ -44,7 +44,7 @@
     "title": "Services",
     "intro": "🌐 Des sites web tout inclus, à partir de 49€/mois",
     "subtitle": "Personnalisés, modernes, efficaces.",
-    "promo": "🎁 En ce moment : recevez une démo gratuite sans engagement !",
+    "promo": "🎁 En ce moment : une démo gratuite sans engagement !",
     "starter": {
       "title": "Starter",
       "description": "L'offre idéale pour se lancer simplement",
@@ -61,7 +61,7 @@
     "pro": {
       "title": "Pro",
       "description": "Pour présenter plusieurs services",
-      "prefix": "Tout ce qui est inclus dans Starter, plus :",
+      "prefix": "Ce qui est inclus dans Starter, plus :",
       "items": [
         "Jusqu'à 5 pages",
         "Formulaire de réservation",
@@ -72,7 +72,7 @@
     "premium": {
       "title": "Premium",
       "description": "La solution ultra-complète",
-      "prefix": "Tout ce qui est inclus dans Pro, plus :",
+      "prefix": "Ce qui est inclus dans Pro, plus :",
       "items": [
         "Jusqu'à 10 pages",
         "Design haut de gamme",

@@ -22,7 +22,7 @@
   "transition": {
     "services": "Mastering both design and development, I create highly comprehensive, aesthetic, and efficient websites, perfectly tailored to your needs.",
     "projects": "Creations that speak for themselves.",
-    "contact": "Ready to bring your vision to life? Let’s discuss your project now."
+    "contact": "Let’s talk about your project and request your free demo now!"
   },
 
   "about": {
@@ -49,7 +49,7 @@
     "title": "Services",
     "intro": "🌐 All-inclusive websites, starting at €49/month",
     "subtitle": "Customized, modern, effective.",
-    "promo": "🎁 Currently: get a free demo with no commitment!",
+    "promo": "🎁 Currently: free demo with no commitment!",
     "starter": {
       "title": "Starter",
       "description": "The ideal offer to get started easily",
@@ -66,7 +66,7 @@
     "pro": {
       "title": "Pro",
       "description": "For showcasing multiple services",
-      "prefix": "Everything included in Starter, plus:",
+      "prefix": "Everything included in Starter, more:",
       "items": [
         "Up to 5 pages",
         "Booking form",
@@ -77,7 +77,7 @@
     "premium": {
       "title": "Premium",
       "description": "The ultra-complete solution",
-      "prefix": "Everything included in Pro, plus:",
+      "prefix": "What's included in Pro, more:",
       "items": [
         "Up to 10 pages",
         "High-end design",

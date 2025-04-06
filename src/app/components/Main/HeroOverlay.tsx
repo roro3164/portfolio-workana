@@ -51,7 +51,7 @@ export default function HeroOverlay({ onOverlayFinish }: HeroOverlayProps) {
     <div
       className="
         absolute
-        bottom-[37%] lg:bottom-[28%] 
+        bottom-[35%] lg:bottom-[28%] 
         left-[23%]
         transform -translate-x-1/2
         w-[45%]
