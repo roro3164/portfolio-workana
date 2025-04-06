@@ -39,8 +39,8 @@ const RightComponent: React.FC = () => {
               ease: "easeOut",
             }}
           >
-            <h2 className="font-mono text-white text-right text-[12px] sm:text-base md:text-xl lg:text-2xl xl:text-3xl tracking-wider">
-              {"<h2>"}Developer{"</h2>"}
+            <h2 className="font-mono text-white text-right text-lg md:text-xl lg:text-2xl xl:text-3xl tracking-wider">
+              Developer
             </h2>
           </motion.div>
 

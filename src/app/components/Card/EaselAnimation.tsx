@@ -168,7 +168,7 @@ export default function EaselAnimation() {
         @media (max-width: 1280px) {
           .easel-animation {
             top: 54%;
-            left: 61%;
+            left: 56%;
           }
 
           .letter {

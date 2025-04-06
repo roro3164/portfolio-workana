@@ -80,7 +80,7 @@ export default function Page() {
                 ))}
               imageSrc="/image/pictures/chevalet.webp"
               hasEaselAnimation={true}
-              imageSizeMobile={{ width: "300px", height: "450px" }}
+              imageSizeMobile={{ width: "480px", height: "480px" }}
               imageSizeDesktop={{ width: "720px", height: "720px" }}
               imagePositionDesktop={{ top: "40%", right: "" }}
               boxPaddings={{

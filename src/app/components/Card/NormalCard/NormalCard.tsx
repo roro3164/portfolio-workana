@@ -57,7 +57,7 @@ const NormalCard: React.FC<ExtendedNormalCardProps> = ({
       cardAlignment={classes.cardAlignement}
     >
       <HoverComponent>
-        <div className="bg-[#100E12] rounded-xl">
+        <div className="bg-[#100E12] rounded-xl ">
           {/* TEXT - mobile */}
           <div
             className={`${boxStyleClass} ${classes.mobile.visibility}`}
@@ -80,10 +80,12 @@ const NormalCard: React.FC<ExtendedNormalCardProps> = ({
 
           {/* TEXT - desktop */}
           <div
-            className={`${boxStyleClass} ${classes.desktop.visibility}`}
+            className={`${boxStyleClass} ${classes.desktop.visibility} `}
             style={classes.desktop.style}
           >
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white leading-relaxed">
+            <p
+              className={` text-sm sm:text-base md:text-lg lg:text-xl text-white leading-relaxed`}
+            >
               {internContent}
             </p>
           </div>
