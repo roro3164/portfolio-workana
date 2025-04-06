@@ -4,6 +4,8 @@ import ContactButton from "../../Main/ContactButton";
 import VioletHover from "../hover/VioletHover";
 import styles from "./Form.module.scss";
 
+import { motion } from "framer-motion";
+
 // 1. Importer useTranslation
 import { useTranslation } from "react-i18next";
 
@@ -72,71 +74,77 @@ export const FormCard = () => {
   };
 
   return (
-    <div className="w-[80%] mx-auto">
-      <VioletHover>
-        <div className="bg-[#100E12]">
-          <form onSubmit={handleSubmit} className={styles.glassContact}>
-            <input
-              type="text"
-              name="firstName"
-              value={formData.firstName}
-              onChange={handleChange}
-              className={styles.internBoxContact}
-              // 3. Utiliser t("...") pour le placeholder
-              placeholder={t("contactForm.firstName")}
-              required
-            />
-            <input
-              type="text"
-              name="lastName"
-              value={formData.lastName}
-              onChange={handleChange}
-              className={styles.internBoxContact}
-              placeholder={t("contactForm.lastName")}
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className={styles.internBoxContact}
-              placeholder={t("contactForm.email")}
-              required
-            />
-            <textarea
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              className={`${styles.internBoxContact} ${styles.message}`}
-              placeholder={t("contactForm.message")}
-              required
-            ></textarea>
+    <motion.div
+      initial={{ opacity: 0, y: 20, x: 1 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 0.4 }}
+    >
+      <div className="lg:w-[80%] mx-auto">
+        <VioletHover>
+          <div className="bg-[#100E12]">
+            <form onSubmit={handleSubmit} className={styles.glassContact}>
+              <input
+                type="text"
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleChange}
+                className={styles.internBoxContact}
+                // 3. Utiliser t("...") pour le placeholder
+                placeholder={t("contactForm.firstName")}
+                required
+              />
+              <input
+                type="text"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleChange}
+                className={styles.internBoxContact}
+                placeholder={t("contactForm.lastName")}
+                required
+              />
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className={styles.internBoxContact}
+                placeholder={t("contactForm.email")}
+                required
+              />
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                className={`${styles.internBoxContact} ${styles.message}`}
+                placeholder={t("contactForm.message")}
+                required
+              ></textarea>
 
-            <div className="mx-auto">
-              <button
-                type="submit"
-                disabled={status.submitting}
-                className={status.submitting ? "opacity-50" : ""}
-              >
-                <ContactButton />
-              </button>
-            </div>
-
-            {status.submitted && (
-              <div className="text-green-500 mt-4 text-center">
-                {t("contactForm.success")}
+              <div className="mx-auto">
+                <button
+                  type="submit"
+                  disabled={status.submitting}
+                  className={status.submitting ? "opacity-50" : ""}
+                >
+                  <ContactButton className="text-xl" />
+                </button>
               </div>
-            )}
 
-            {status.error && (
-              <div className="text-red-500 mt-4 text-center">
-                {t("contactForm.error")} : {status.error}
-              </div>
-            )}
-          </form>
-        </div>
-      </VioletHover>
-    </div>
+              {status.submitted && (
+                <div className="text-green-500 mt-4 text-center">
+                  {t("contactForm.success")}
+                </div>
+              )}
+
+              {status.error && (
+                <div className="text-red-500 mt-4 text-center">
+                  {t("contactForm.error")} : {status.error}
+                </div>
+              )}
+            </form>
+          </div>
+        </VioletHover>
+      </div>
+    </motion.div>
   );
 };

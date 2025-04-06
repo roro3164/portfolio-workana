@@ -20,11 +20,6 @@
   transition: all 450ms ease-in-out;
   padding: clamp(0.3em, 2vw, 0.7em) clamp(0.7em, 3vw, 1em);
   overflow: hidden;
-  
-  // Largeur totalement fluide et adaptative
-  min-height: clamp(1.8em, 6vw, 2.8em);
-  max-width: 100%;
-  
   white-space: nowrap;
   text-align: center;
 }
@@ -52,15 +47,7 @@
   animation: shine 1.5s infinite;
 }
 
-.contact_btn .text {
-  font-weight: 700;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  color: #6a5acd;
-  font-size: clamp(14px, 3vw, 20px);
-  z-index: 1;
-  white-space: wrap;
-  
-}
+
 
 /* Nouvelle classe générique pour toutes les icônes d'image */
 .contact_btn .icon {
@@ -145,47 +132,8 @@
     0px 0px 40px 0px rgba(153, 23, 255, 0.3);
 }
 
-@media (max-width: 768px) {
-  .contact_btn {
-   
-    
-    .text {
-      font-size: clamp(12px, 2.8vw, 18px);
-    }
-    
-    .mail_icon, .icon, .emoji_icon {
-      width: clamp(14px, 3.5vw, 20px);
-    }
-  }
-}
 
-@media (max-width: 640px) {
-  .contact_btn {
-    padding: 2px;
-   
-    
-    .text {
-      font-size: clamp(11px, 2.5vw, 16px);
-    }
-    
-    .mail_icon, .icon, .emoji_icon {
-      width: clamp(12px, 3vw, 18px);
-    }
-  }
-}
 
-@media (max-width: 320px) {
-  .contact_btn {
-  
-    .text {
-      font-size: 10px;
-    }
-    
-    .mail_icon, .icon, .emoji_icon {
-      width: 12px;
-    }
-  }
-}
 
 // Animation pour l'effet de rebondissement
 @keyframes bounce {

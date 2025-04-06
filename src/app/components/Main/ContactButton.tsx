@@ -30,11 +30,11 @@ const ContactButton: React.FC<ContactButtonProps> = ({
 
   return (
     <button
-      className={`${styles.contact_btn} ${className}`}
+      className={`${styles.contact_btn} ${className} `}
       onMouseEnter={onHoverStart}
       onMouseLeave={onHoverEnd}
     >
-      <span className={styles.text}>{t(title)}</span>
+      <span className={`${styles.text} font-bold text-[#6a5acd] z-[1] whitespace-normal font-jakarta`}>{t(title)}</span>
 
       {emoji ? (
         <span

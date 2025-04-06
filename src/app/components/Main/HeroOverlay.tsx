@@ -48,6 +48,7 @@ export default function HeroOverlay({ onOverlayFinish }: HeroOverlayProps) {
 
   return (
     <div
+    className="w-[80%] lg:w-full"
       style={{
         position: "absolute",
         top: 0,
@@ -55,7 +56,7 @@ export default function HeroOverlay({ onOverlayFinish }: HeroOverlayProps) {
         right: 0,
         bottom: 0,
         pointerEvents: "none",
-        zIndex: 50,
+        zIndex: 10,
       }}
     >
       <div

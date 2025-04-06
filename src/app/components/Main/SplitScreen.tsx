@@ -17,7 +17,7 @@ const SplitScreen: React.FC = () => {
     // de se positionner par rapport à lui
     <div className="relative w-full">
       {/* Intégration de l'overlay dans SplitScreen */}
-      <HeroOverlay onOverlayFinish={() => console.log("Overlay terminé !")} />
+      <HeroOverlay />
 
       {/* Conteneur invisible pour conserver la hauteur */}
       <div className="invisible">
@@ -137,7 +137,7 @@ const SplitScreen: React.FC = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <ContactButton  title="button.demo"  icon = "/image/icons/gift.svg" className="w-[37vw]"/>
+            <ContactButton  title="button.demo"  icon = "/image/icons/gift.svg" className="w-[42vw] max-w-[500px] text-sm sm:text-base md:text-lg lg:text-xl"/>
           </motion.div>
         </a>
       </div>

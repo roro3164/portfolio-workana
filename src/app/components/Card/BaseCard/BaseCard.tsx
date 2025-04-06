@@ -9,7 +9,6 @@ export const BaseCard = ({
   children,
   titleAlignment = "",
   cardAlignment = "",
-  
 }: BaseCardProps) => (
   <div
     className={`
@@ -34,21 +33,16 @@ export const BaseCard = ({
       <h3>{title}</h3>
     </motion.div>
 
-    
-  
-      {/* Content */}
-      <motion.div
-        className=" w-full text-sm sm:text-base md:text-lg lg:text-xl "
-        initial={{ opacity: 0, y: 20, x: 1 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-      >
-        {children}
-      </motion.div>
-      </div>
-      
-  
-
+    {/* Content */}
+    <motion.div
+      className=" w-full text-sm sm:text-base md:text-lg lg:text-xl "
+      initial={{ opacity: 0, y: 20, x: 1 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 0.4 }}
+    >
+      {children}
+    </motion.div>
+  </div>
 );
 
 export default BaseCard;

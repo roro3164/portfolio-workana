@@ -2,6 +2,7 @@ import { ServiceCard } from "./ServiceCard";
 import "../../../../../i18n";
 import { useTranslation } from "react-i18next"; 
 import ContactButton from "../../Main/ContactButton";
+import { motion } from "framer-motion";
 
 export const ServicesSection = () => {
   const { t } = useTranslation("page");
@@ -13,12 +14,18 @@ export const ServicesSection = () => {
   
   return (
     <section id="services" className=" text-white">
+    
       <div className="container mx-auto px-4 flex flex-col gap-y-8"> 
+      <motion.div  
+      initial={{ x: 30, opacity: 0 }}
+      whileInView={{ x: 0, opacity: 1 }}
+      transition={{ duration: 0.5, delay: 0.2 }}>
         <div className="text-center flex flex-col gap-y-6">
-          <h3 className="transition-heading text-3xl font-bold">{t("services.intro")}</h3>
+          <h3 className="transition-heading text-3xl font-bold ">{t("services.intro")}</h3>
           <p className="text-2xl font-bold">{t("services.subtitle")}</p>
-          <p className="transition-heading italic text-3xl font-bold ">{t("services.promo")}</p>
+          <p className=" italic text-3xl font-bold ">{t("services.promo")}</p>
         </div>
+        </motion.div>
         
         <div className="flex justify-between items-center flex-col gap-10 xl:flex-row">
           <ServiceCard
@@ -52,7 +59,7 @@ export const ServicesSection = () => {
                title="button.demo"
                icon = "/image/icons/gift.svg"
                iconWidth={28}
-               className="mx-auto w-auto min-w-[280px] px-6" 
+               className="mx-auto w-auto min-w-[280px] h-[48px] px-6 text-xl" 
             />
           </a>
         </div>

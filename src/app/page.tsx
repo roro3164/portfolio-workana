@@ -38,11 +38,11 @@ export default function Page() {
 
         <SplitScreen />
 
-        <section className="sectionCard flex flex-col gap-y-20 ">
+        <section className="sectionCard flex flex-col gap-y-10 lg:gap-y-20 ">
           <IntenseCursorLight />
 
           {/* Section DEVELOPER */}
-          <section id="developer" className="z-50 ">
+          <section id="developer" className="z-10 ">
             <NormalCard
               isLaptop={true}
               title={t("developer.title")}
@@ -90,10 +90,16 @@ export default function Page() {
               }}
             />
           </section>
+          <motion.div
+            initial={{ x: 30, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <h3 className="transition-heading text-center italic">
+              {t("transition.services")}
+            </h3>
+          </motion.div>
 
-          <h3 className="transition-heading text-center">
-            {t("transition.services")}
-          </h3>
           {/* Section SERVICES */}
           <section id="services">
             <BaseCard
@@ -105,18 +111,26 @@ export default function Page() {
             </BaseCard>
           </section>
 
-          <h3 className="transition-heading">
-            {t("transition.projects")}
-          </h3>
-
+          <motion.div
+            initial={{ x: 30, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <h3 className="transition-heading italic">{t("transition.projects")}</h3>
+          </motion.div>
           {/* Section PROJECTS */}
           <section id="projects">
             <CarouselCard projects={projects} />
           </section>
-
-          <h3 className="transition-heading text-center">
-            {t("transition.contact")}
-          </h3>
+          <motion.div
+            initial={{ x: 30, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <h3 className="transition-heading italic text-center">
+              {t("transition.contact")}
+            </h3>
+          </motion.div>
 
           {/* Section CONTACT */}
           <section id="contact">
