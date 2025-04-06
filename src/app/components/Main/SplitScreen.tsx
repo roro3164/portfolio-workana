@@ -137,7 +137,7 @@ const SplitScreen: React.FC = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <ContactButton  title="button.demo"  icon = "/image/icons/gift.svg" className="w-[42vw] max-w-[500px] text-sm sm:text-base md:text-lg lg:text-xl"/>
+            <ContactButton  title="button.demo"  icon = "/image/icons/gift.svg" className="w-[44vw] max-w-[500px] h-9 sm:h-auto text-base sm:text-xl lg:text-2xl"/>
           </motion.div>
         </a>
       </div>

@@ -47,6 +47,13 @@
   font-style: normal; 
 }
 
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/font/Plus_Jakarta_Sans/PlusJakartaSans-ExtraBold.ttf') format('truetype');
+  font-weight: 800; /* Bold */
+  font-style: normal; 
+}
+
 
 
 @font-face {

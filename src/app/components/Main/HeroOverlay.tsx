@@ -47,40 +47,34 @@ export default function HeroOverlay({ onOverlayFinish }: HeroOverlayProps) {
   };
 
   return (
+    <div className="absolute top-0 left-0 right-0 bottom-0 pointer-events-none z-10 w-[80%] lg:w-full">
     <div
-    className="w-[80%] lg:w-full"
-      style={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        pointerEvents: "none",
-        zIndex: 10,
-      }}
+      className="
+        absolute
+        bottom-[37%] lg:bottom-[28%] 
+        left-[23%]
+        transform -translate-x-1/2
+        w-[45%]
+        text-left
+      "
+      style={textStyle} // On applique ici le spread de textStyle
     >
-      <div
-        style={{
-          position: "absolute",
-          bottom: "28%",
-          left: "23%",
-          transform: "translateX(-50%)",
-          width: "45%",
-          textAlign: "left",
-          ...textStyle,
-        }}
+      <h2
+        className="
+          font-jakarta 
+          italic 
+          text-lg 
+          sm:text-3xl 
+          md:text-[39px] 
+          font-medium 
+          block 
+          min-h-[3.5em] 
+          leading-[1.3]
+        "
       >
-        <h2
-          className="font-jakarta italic text-[15px] sm:text-3xl md:text-[39px] font-medium"
-          style={{
-            display: "block",
-            minHeight: "3.5em",
-            lineHeight: "1.3",
-          }}
-        >
-          {linePersist.substring(0, charIndex)}
-        </h2>
-      </div>
+        {linePersist.substring(0, charIndex)}
+      </h2>
     </div>
+  </div>
   );
 }

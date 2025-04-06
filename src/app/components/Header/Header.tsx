@@ -48,7 +48,7 @@ const Header: React.FC = () => {
           flex justify-between
           items-start
           h-10 lg:h-16
-          mb-16
+          mb-8 lg:mb-14
           text-white 
           
         "
