@@ -40,7 +40,7 @@ export interface StyleProps {
 
 export interface NormalCardProps extends StyleProps {
   title: string;
-  internContent?: string;
+  internContent?: string | React.ReactNode;
   imageSrc: string;
   hasEaselAnimation?: boolean;
 }

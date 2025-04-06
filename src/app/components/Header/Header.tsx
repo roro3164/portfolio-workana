@@ -139,11 +139,11 @@ const Header: React.FC = () => {
             <a href="#designer" className={styles.navLink}>
               {t("header.designer")}
             </a>
-            <a href="#projects" className={styles.navLink}>
-              {t("header.projects")}
-            </a>
             <a href="#services" className={styles.navLink}>
               {t("header.services")}
+            </a>
+            <a href="#projects" className={styles.navLink}>
+              {t("header.projects")}
             </a>
             <a href="#contact" className={styles.navLink}>
               {t("header.contact")}

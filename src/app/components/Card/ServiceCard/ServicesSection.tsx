@@ -49,7 +49,7 @@ export const ServicesSection = () => {
           <h3 className="text-center text-2xl font-bold mb-6">{t("services.cta.title")}</h3>
           <a href="#contact">
             <ContactButton 
-               title="button.text" 
+               title="button.demo"
                icon = "/image/icons/gift.svg"
                iconWidth={28}
                className="mx-auto w-auto min-w-[280px] px-6" 

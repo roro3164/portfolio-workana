@@ -1,100 +1,123 @@
 {
-    "header": {
+  "header": {
+    "about": "About",
+    "developer": "Developer",
+    "designer": "Designer",
+    "projects": "Projects",
+    "services": "Services",
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+
+  "button": {
+  "demo": "Free demo",
+  "contact": "Contact me"
+  },
+
+  "hero": {
+    "sentence": "A website for the price of a coffee a day!"
+  },
+
+  "transition": {
+    "services": "Mastering both design and development, I create highly comprehensive, aesthetic, and efficient websites, perfectly tailored to your needs.",
+    "projects": "Creations that speak for themselves.",
+    "contact": "Ready to bring your vision to life? Let’s discuss your project now."
+  },
+
+  "about": {
+    "title": "About Me",
+    "content": "Hello, I am a passionate UI/UX Designer and Full-Stack Developer from the sunny south of France, based in Montpellier. I love creating intuitive and visually engaging designs using tools like Figma and Photoshop, while developing modern and efficient applications with C#, React, and ASP.NET. My goal is to bridge design and technology to create solutions that are both practical and aesthetically pleasing. Outside of work, I enjoy traveling, discovering new places, and finding inspiration in different cultures. Whether it’s exploring the latest tech trends or enjoying the Mediterranean lifestyle, I am always looking for new ideas to incorporate into my projects."
+  },
+
+  "developer": {
+    "title": "Full-stack Developer",
+    "content": "I help entrepreneurs and freelancers get a modern, fast website with good Google ranking, using Next.js, a technology renowned for its performance.\n\nI also integrate useful tools like forms, animations, or booking systems into a site that matches your brand, is easy to use, and is designed to convert.\n\nA passionate autodidact, I completed my background with a degree in web development, so I can offer clear, reliable, and tailor-made solutions."
+  },
+
+  "designer": {
+    "title": "UI/UX Designer",
+    "content": "A good design isn’t just pretty — it’s what makes people want to stay, read, and trust.\n\nI help entrepreneurs build a clear, professional visual identity that reflects their world and catches the eye.\n\nCertified in UI/UX design and passionate about aesthetics, I create custom interfaces with Figma and Photoshop, paying attention to every detail.\n\nI design intuitive user flows, with elegant animations that bring the site to life without hindering navigation. My goal: to highlight what you offer, with clarity and style."
+  },
+
+  "projects": {
+    "technologiesUsed": "Technologies used:",
+    "clickToExplore": "Click the card to explore"
+  },
+
+  "services": {
+    "title": "Services",
+    "intro": "🌐 All-inclusive websites, starting at €49/month",
+    "subtitle": "Customized, modern, effective.",
+    "promo": "🎁 Currently: get a free demo with no commitment!",
+    "starter": {
+      "title": "Starter",
+      "description": "The ideal offer to get started easily",
+      "items": [
+        "1 professional page",
+        "Customized design",
+        "Contact form",
+        "Domain name + hosting included",
+        "Monthly maintenance",
+        "1 free update/month"
+      ]
+    },
+    "pro": {
+      "title": "Pro",
+      "description": "For showcasing multiple services",
+      "prefix": "Everything included in Starter, plus:",
+      "items": [
+        "Up to 5 pages",
+        "Booking form",
+        "Better positioning on Google",
+        "2 free updates/month"
+      ]
+    },
+    "premium": {
+      "title": "Premium",
+      "description": "The ultra-complete solution",
+      "prefix": "Everything included in Pro, plus:",
+      "items": [
+        "Up to 10 pages",
+        "High-end design",
+        "Advanced animations included",
+        "Integrated welcome chatbot",
+        "Priority email support",
+        "5 free updates/month"
+      ]
+    },
+    "cta": {
+      "title": "Try without commitment",
+      "buttonText": "Request your free demo"
+    }
+  },
+
+  "contactForm": {
+    "title": "Contact",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Your Email",
+    "message": "Your Message",
+    "success": "Your message has been sent successfully!",
+    "error": "Error"
+  },
+
+  "footer": {
+    "navigation": {
       "about": "About",
       "developer": "Developer",
       "designer": "Designer",
       "projects": "Projects",
       "services": "Services",
-      "contact": "Contact",
-      "openMenu": "Open menu",
-      "closeMenu": "Close menu"
+      "contact": "Contact"
     },
-    "sentences": {
-    "first": "Art of design",
-    "second": "Power of code",
-    "third": "Let's create the website that will drive your success"
-  },
-    "about": {
-      "title": "About Me",
-      "content": "Hello, I am a passionate UI/UX Designer and Full-Stack Developer from the sunny south of France, based in Montpellier. I love creating intuitive and visually engaging designs using tools like Figma and Photoshop, while developing modern and efficient applications with C#, React, and ASP.NET. My goal is to bridge design and technology to create solutions that are both practical and aesthetically pleasing. Outside of work, I enjoy traveling, discovering new places, and finding inspiration in different cultures. Whether it’s exploring the latest tech trends or enjoying the Mediterranean lifestyle, I am always looking for new ideas to incorporate into my projects."
+    "social": {
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "behance": "Behance"
     },
-    "developer": {
-      "title": "Full-Stack Developer",
-      "content": "I am a full-stack developer who loves working with React and Next.js to create fast, dynamic, and user-friendly web applications. I also enjoy working with HTML, CSS, and JavaScript, and I've had the opportunity to explore Angular as well. On the backend, I build robust APIs with C# and ASP.NET. I am always curious and excited to learn new technologies, making every project an opportunity to grow and deliver something exceptional."
-    },
-    "designer": {
-      "title": "UI/UX Designer",
-      "content": "As a UI/UX designer, I thrive on collaborating with teams to bring innovative ideas to life. My approach combines creativity and strategy to design interfaces that are both intuitive and visually compelling. By leveraging tools like Figma and Photoshop, I deliver designs that leave a lasting impression."
-    },
-    "contactme": {
-      "title": "Contact Me"
-    },
-    "projects": {
-    "technologiesUsed": "Technologies used:",
-    "clickToExplore": "Click the card to explore"
-  },
-    "services": {
-      "title": "Services",
-      "uiux": {
-        "title": "UI/UX Design",
-        "description": "I create intuitive and visually appealing user experiences tailored to your needs.",
-        "items": [
-          "Wireframes and mockups using Figma",
-          "Interactive prototypes",
-          "Custom graphic design with Photoshop",
-          "User-centered design"
-        ]
-      },
-      "development": {
-        "title": "Development",
-        "description": "I turn your designs into modern, high-performing websites.",
-        "items": [
-          "Responsive integration for mobile, tablet, and desktop",
-          "Modern visual effects and animations",
-          "Optimization for fast and reliable performance",
-          "Cross-browser compatibility"
-        ]
-      },
-      "website": {
-        "title": "Complete Website",
-        "description": "I offer turnkey solutions from design to deployment.",
-        "items": [
-          "Landing pages to maximize your conversions",
-          "Modern visual effects and animations",
-          "SEO optimization and fast loading speeds",
-          "Hosting, maintenance, and updates included"
-        ]
-      }
-    },
-    
-      "contactForm": {
-        "title": "Contact",
-        "firstName": "First Name",
-        "lastName": "Last Name",
-        "email": "Your Email",
-        "message": "Your Message",
-        "success": "Your message has been sent successfully!",
-        "error": "Error"
-      },
-    
-      "footer": {
-        "navigation": {
-          "about": "About",
-          "developer": "Developer",
-          "designer": "Designer",
-          "projects": "Projects",
-          "services": "Services",
-          "contact": "Contact"
-        },
-        "social": {
-          "github": "GitHub",
-          "linkedin": "LinkedIn",
-          "behance": "Behance"
-        },
-        "copyright": "© {{year}} Romain. All rights reserved."
-      }
+    "copyright": "© {{year}} Romain. All rights reserved."
+  }
 }
-    
-  
-  
+
   

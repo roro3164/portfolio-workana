@@ -9,86 +9,36 @@ type HeroOverlayProps = {
 export default function HeroOverlay({ onOverlayFinish }: HeroOverlayProps) {
   const { t } = useTranslation("page");
 
-  // Traductions
-  const linesFade = [t("sentences.first"), t("sentences.second")];
-  const linePersist = t("sentences.third");
+  // Uniquement la troisième phrase
+  const linePersist = t("hero.sentence");
 
-  const [overlayVisible, setOverlayVisible] = useState(true);
-  const [lineIndex, setLineIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
-  const [typingThirdLine, setTypingThirdLine] = useState(false);
-  const [charIndex3, setCharIndex3] = useState(0);
-  const [typedTexts, setTypedTexts] = useState(["", ""]);
-  const [fadeOut, setFadeOut] = useState(false);
+  const [startAnimation, setStartAnimation] = useState(false);
 
   useEffect(() => {
-    if (overlayVisible) {
-      document.body.style.overflow = "hidden";
-      document.documentElement.style.overflow = "hidden";
+    // Démarrer l'animation après un délai
+    const startDelay = setTimeout(() => {
+      setStartAnimation(true);
+    }, 1000); // 1.5 secondes de délai avant de commencer
+
+    return () => clearTimeout(startDelay);
+  }, []);
+
+  useEffect(() => {
+    if (!startAnimation) return;
+
+    if (charIndex < linePersist.length) {
+      const timer = setTimeout(() => {
+        setCharIndex(charIndex + 1);
+      }, 80); // Animation plus lente (100ms au lieu de 60ms)
+      return () => clearTimeout(timer);
     } else {
-      document.body.style.overflow = "";
-      document.documentElement.style.overflow = "";
+      // Animation terminée
+      onOverlayFinish?.();
     }
-    return () => {
-      document.body.style.overflow = "";
-      document.documentElement.style.overflow = "";
-    };
-  }, [overlayVisible]);
+  }, [charIndex, linePersist, onOverlayFinish, startAnimation]);
 
-  useEffect(() => {
-    if (!overlayVisible) return;
-
-    if (!typingThirdLine) {
-      if (lineIndex >= linesFade.length) {
-        setTypingThirdLine(true);
-        return;
-      }
-      const currentLine = linesFade[lineIndex];
-      if (charIndex < currentLine.length) {
-        const timer = setTimeout(() => {
-          setTypedTexts((prev) => {
-            const newTexts = [...prev];
-            newTexts[lineIndex] += currentLine[charIndex];
-            return newTexts;
-          });
-          setCharIndex(charIndex + 1);
-        }, 60);
-        return () => clearTimeout(timer);
-      } else {
-        const pauseTimer = setTimeout(() => {
-          setLineIndex(lineIndex + 1);
-          setCharIndex(0);
-        }, 700);
-        return () => clearTimeout(pauseTimer);
-      }
-    } else {
-      if (charIndex3 < linePersist.length) {
-        const timer = setTimeout(() => {
-          setCharIndex3(charIndex3 + 1);
-        }, 60);
-        return () => clearTimeout(timer);
-      } else {
-        const fadeTimer = setTimeout(() => {
-          setFadeOut(true);
-        }, 800);
-        return () => clearTimeout(fadeTimer);
-      }
-    }
-  }, [overlayVisible, typingThirdLine, lineIndex, charIndex, charIndex3]);
-
-  useEffect(() => {
-    if (fadeOut) {
-      const removeTimer = setTimeout(() => {
-        setOverlayVisible(false);
-        onOverlayFinish?.();
-      }, 1000);
-      return () => clearTimeout(removeTimer);
-    }
-  }, [fadeOut, onOverlayFinish]);
-
-  if (!overlayVisible && !typingThirdLine) return null;
-
-  const textStyleAllLines: React.CSSProperties = {
+  const textStyle: React.CSSProperties = {
     color: "#fff",
     textShadow: `
       0 0 5px rgba(153, 23, 255, 0.8),
@@ -108,65 +58,15 @@ export default function HeroOverlay({ onOverlayFinish }: HeroOverlayProps) {
         zIndex: 50,
       }}
     >
-      {overlayVisible && (
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundColor: "rgba(15, 14, 18, 0.4)",
-            transition: "opacity 700ms",
-            opacity: fadeOut ? 0 : 1,
-          }}
-        />
-      )}
-
-      {overlayVisible && (
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            transition: "opacity 700ms",
-            opacity: fadeOut ? 0 : 1,
-          }}
-        >
-          <h1
-            className="font-jakarta italic text-[15px] sm:text-2xl md:text-4xl font-bold"
-            style={{
-              ...textStyleAllLines,
-              position: "absolute",
-              top: "35%",
-              left: "35%",
-              width: "45%",
-              transform: "translate(-50%, -50%)",
-            }}
-          >
-            {typedTexts[0]}
-          </h1>
-          <h1
-            className="font-jakarta italic text-[15px] sm:text-2xl md:text-4xl font-bold"
-            style={{
-              ...textStyleAllLines,
-              position: "absolute",
-              top: "35%",
-              left: "80%",
-              width: "45%",
-              transform: "translate(-50%, -50%)",
-            }}
-          >
-            {typedTexts[1]}
-          </h1>
-        </div>
-      )}
-
       <div
         style={{
           position: "absolute",
-          bottom: "25%",
+          bottom: "28%",
           left: "23%",
           transform: "translateX(-50%)",
           width: "45%",
           textAlign: "left",
-          ...textStyleAllLines,
+          ...textStyle,
         }}
       >
         <h2
@@ -177,7 +77,7 @@ export default function HeroOverlay({ onOverlayFinish }: HeroOverlayProps) {
             lineHeight: "1.3",
           }}
         >
-          {linePersist.substring(0, charIndex3)}
+          {linePersist.substring(0, charIndex)}
         </h2>
       </div>
     </div>

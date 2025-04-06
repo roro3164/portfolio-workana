@@ -16,7 +16,7 @@ interface ContactButtonProps {
 }
 
 const ContactButton: React.FC<ContactButtonProps> = ({
-  title = "contactme.title",
+  title = "button.contact",
   className = "",
   onHoverStart,
   onHoverEnd,
