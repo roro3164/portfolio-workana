@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import styles from "./header.module.scss";
 
 const Header: React.FC = () => {
-  const [menuOpen, setMenuOpen] = useState(false);       // Pour le menu mobile
+  const [menuOpen, setMenuOpen] = useState(false); // Pour le menu mobile
   const [langMenuOpen, setLangMenuOpen] = useState(false); // Pour le sélecteur de langue
   const { t, i18n } = useTranslation();
 
@@ -38,7 +38,7 @@ const Header: React.FC = () => {
         return "/image/icons/englishFlag.svg";
     }
   };
-  
+
   return (
     <>
       {/* HEADER PRINCIPAL */}
@@ -103,28 +103,28 @@ const Header: React.FC = () => {
             <div className="lg:hidden z-50">
               <button
                 onClick={toggleMenu}
-                className="relative w-8 h-6 flex flex-col justify-between items-center focus:outline-none group"
+                className="relative w-8 h-6 flex flex-col justify-center items-center focus:outline-none group"
                 aria-label={
                   menuOpen ? t("header.closeMenu") : t("header.openMenu")
                 }
               >
                 <span
-                  className={`block w-full h-[3px] bg-white rounded-full transform transition-all duration-300 ease-in-out group-active:scale-90 ${
+                  className={`absolute block w-full h-[3px] bg-white rounded-full transform transition-all duration-300 ease-in-out group-active:scale-90 ${
                     menuOpen
-                      ? "rotate-45 translate-y-2.5 opacity-100"
-                      : "rotate-0 translate-y-0 opacity-100"
+                      ? "rotate-45 opacity-100"
+                      : "rotate-0 translate-y-[-8px] opacity-100"
                   }`}
                 />
                 <span
-                  className={`block w-full h-[3px] bg-white rounded-full transition-all duration-300 ease-in-out group-active:scale-90 ${
+                  className={`absolute block w-full h-[3px] bg-white rounded-full transition-all duration-300 ease-in-out group-active:scale-90 ${
                     menuOpen ? "opacity-0" : "opacity-100"
                   }`}
                 />
                 <span
-                  className={`block w-full h-[3px] bg-white rounded-full transform transition-all duration-300 ease-in-out group-active:scale-90 ${
+                  className={`absolute block w-full h-[3px] bg-white rounded-full transform transition-all duration-300 ease-in-out group-active:scale-90 ${
                     menuOpen
-                      ? "-rotate-45 -translate-y-2.5 opacity-100"
-                      : "rotate-0 translate-y-0 opacity-100"
+                      ? "-rotate-45 opacity-100"
+                      : "rotate-0 translate-y-[8px] opacity-100"
                   }`}
                 />
               </button>
@@ -162,13 +162,6 @@ const Header: React.FC = () => {
       >
         <nav className="flex flex-col items-center justify-center h-full space-y-8">
           <a
-            href="#about"
-            className="text-white text-2xl transform transition-transform duration-300 active:scale-95"
-            onClick={toggleMenu}
-          >
-            {t("header.about")}
-          </a>
-          <a
             href="#developer"
             className="text-white text-2xl transform transition-transform duration-300 active:scale-95"
             onClick={toggleMenu}
@@ -183,18 +176,18 @@ const Header: React.FC = () => {
             {t("header.designer")}
           </a>
           <a
-            href="#projects"
-            className="text-white text-2xl transform transition-transform duration-300 active:scale-95"
-            onClick={toggleMenu}
-          >
-            {t("header.projects")}
-          </a>
-          <a
             href="#services"
             className="text-white text-2xl transform transition-transform duration-300 active:scale-95"
             onClick={toggleMenu}
           >
             {t("header.services")}
+          </a>
+          <a
+            href="#projects"
+            className="text-white text-2xl transform transition-transform duration-300 active:scale-95"
+            onClick={toggleMenu}
+          >
+            {t("header.projects")}
           </a>
           <a
             href="#contact"
