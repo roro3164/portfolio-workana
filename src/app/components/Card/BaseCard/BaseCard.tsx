@@ -30,7 +30,7 @@ export const BaseCard = ({
       whileInView={{ x: 0, opacity: 1 }}
       transition={{ duration: 0.5, delay: 0.2 }}
     >
-      <h3>{title}</h3>
+      <h2>{title}</h2>
     </motion.div>
 
     {/* Content */}

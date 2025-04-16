@@ -59,7 +59,7 @@ export default function HeroOverlay({ onOverlayFinish }: HeroOverlayProps) {
       "
       style={textStyle} // On applique ici le spread de textStyle
     >
-      <h2
+      <h1
         className="
           font-jakarta 
           italic 
@@ -73,7 +73,7 @@ export default function HeroOverlay({ onOverlayFinish }: HeroOverlayProps) {
         "
       >
         {linePersist.substring(0, charIndex)}
-      </h2>
+      </h1>
     </div>
   </div>
   );
