@@ -65,7 +65,7 @@ const Header: React.FC = () => {
             />
           </div>
           <Image
-            src="/image/icons/logo.svg"
+            src="/image/icons/logo2.svg"
             alt="ROMAIN DEV Logo"
             width={150}
             height={40}

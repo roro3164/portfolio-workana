@@ -10,7 +10,7 @@ export const ServiceCard = ({
   prefix,
   color = "violet", // Nouvelle propriété avec valeur par défaut "violet"
 }: ServiceCardProps) => (
-  <div className="w-[30%] min-w-[316px] transition-transform duration-400 hover:scale-105">
+  <div className="w-[29%] min-w-[316px] transition-transform duration-400 hover:scale-105">
     <VioletHover color={color}>
       <div className="bg-[#100E12] rounded-xl">
         <div className={`rounded-xl h-[600px] flex flex-col p-6  gap-y-6 ${styles.glassCard}`}>

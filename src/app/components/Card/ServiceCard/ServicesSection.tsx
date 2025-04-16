@@ -13,9 +13,9 @@ export const ServicesSection = () => {
   const premiumItems = t("services.premium.items", { returnObjects: true }) as string[];
   
   return (
-    <section id="services" className=" text-white">
+    <section id="services" className="text-white">
     
-      <div className="container mx-auto flex flex-col gap-y-8"> 
+      <div className="mx-auto flex flex-col gap-y-8"> 
       <motion.div  
       initial={{ x: 30, opacity: 0 }}
       whileInView={{ x: 0, opacity: 1 }}

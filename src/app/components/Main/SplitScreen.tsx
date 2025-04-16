@@ -40,7 +40,7 @@ const SplitScreen: React.FC = () => {
 
       {/* Section droite avec clip-path */}
       <div
-        className="absolute inset-0 bg-[#0F0E12] transition-all duration-500"
+        className="absolute inset-0 bg-[#0F0E12] transition-all duration-700"
         style={{
           clipPath:
             activeZone === "left"
@@ -56,7 +56,7 @@ const SplitScreen: React.FC = () => {
 
       {/* Barre verticale (effet laser) */}
       <div
-        className="absolute top-0 bottom-0 transition-all mt-5 duration-500 md:h-[560px]"
+        className="absolute top-0 bottom-0 transition-all mt-5 duration-700 md:h-[560px]"
         style={{
           left:
             activeZone === "left"
