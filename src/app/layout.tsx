@@ -13,10 +13,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "romaindesigncode",
-  description: "Un site web pour le prix d'un café par jour!",
+  title: "Romain Design Code – Création de sites web modernes & performants",
+  description:
+    "Développeur freelance. Création de sites web sur mesure, rapides et bien référencés, pour les entrepreneurs et indépendants. Démo gratuite disponible.",
   icons: {
-    icon: "/image/icons/favicon.svg", 
+    icon: "/image/icons/favicon.svg",
   },
 };
 
