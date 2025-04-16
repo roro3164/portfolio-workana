@@ -8,19 +8,15 @@ type HeroOverlayProps = {
 
 export default function HeroOverlay({ onOverlayFinish }: HeroOverlayProps) {
   const { t } = useTranslation("page");
-
-  // Uniquement la troisième phrase
   const linePersist = t("hero.sentence");
 
   const [charIndex, setCharIndex] = useState(0);
   const [startAnimation, setStartAnimation] = useState(false);
 
   useEffect(() => {
-    // Démarrer l'animation après un délai
     const startDelay = setTimeout(() => {
       setStartAnimation(true);
-    }, 1000); // 1.5 secondes de délai avant de commencer
-
+    }, 1000);
     return () => clearTimeout(startDelay);
   }, []);
 
@@ -30,10 +26,9 @@ export default function HeroOverlay({ onOverlayFinish }: HeroOverlayProps) {
     if (charIndex < linePersist.length) {
       const timer = setTimeout(() => {
         setCharIndex(charIndex + 1);
-      }, 80); // Animation plus lente (100ms au lieu de 60ms)
+      }, 80);
       return () => clearTimeout(timer);
     } else {
-      // Animation terminée
       onOverlayFinish?.();
     }
   }, [charIndex, linePersist, onOverlayFinish, startAnimation]);
@@ -48,33 +43,47 @@ export default function HeroOverlay({ onOverlayFinish }: HeroOverlayProps) {
 
   return (
     <div className="absolute top-0 left-0 right-0 bottom-0 pointer-events-none z-10 w-[80%] lg:w-full">
-    <div
-      className="
-        absolute
-        bottom-[35%] lg:bottom-[24%] 
-        left-[23%]
-        transform -translate-x-1/2
-        w-[45%]
-        text-left
-      "
-      style={textStyle} // On applique ici le spread de textStyle
-    >
-      <h1
+      <div
         className="
-          font-jakarta 
-          italic 
-          text-lg 
-          sm:text-3xl 
-          md:text-[39px] 
-          font-medium 
-          block 
-          min-h-[3.5em] 
-          leading-[1.3]
+          absolute
+          bottom-[35%] lg:bottom-[24%] 
+          left-[23%]
+          transform -translate-x-1/2
+          w-[45%]
+          text-left
         "
+        style={textStyle}
       >
-        {linePersist.substring(0, charIndex)}
-      </h1>
+        {/* H1 statique masqué pour Google SEO */}
+        <h1
+          style={{
+            position: "absolute",
+            left: "-9999px",
+            width: "1px",
+            height: "1px",
+            overflow: "hidden",
+          }}
+        >
+          {linePersist}
+        </h1>
+
+        {/* H1 animé pour les visiteurs */}
+        <h1
+          className="
+            font-jakarta 
+            italic 
+            text-lg 
+            sm:text-3xl 
+            md:text-[39px] 
+            font-medium 
+            block 
+            min-h-[3.5em] 
+            leading-[1.3]
+          "
+        >
+          {linePersist.substring(0, charIndex)}
+        </h1>
+      </div>
     </div>
-  </div>
   );
 }

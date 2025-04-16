@@ -95,9 +95,9 @@ export default function Page() {
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h3 className="transition-heading text-center italic">
+            <h4 className="transition-heading text-center italic">
               {t("transition.services")}
-            </h3>
+            </h4>
           </motion.div>
 
           {/* Section SERVICES */}
@@ -116,7 +116,7 @@ export default function Page() {
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h3 className="transition-heading italic">{t("transition.projects")}</h3>
+            <h4 className="transition-heading italic">{t("transition.projects")}</h4>
           </motion.div>
           {/* Section PROJECTS */}
           <section id="projects">
@@ -127,9 +127,9 @@ export default function Page() {
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h3 className="transition-heading italic text-center">
+            <h4 className="transition-heading italic text-center">
               {t("transition.contact")}
-            </h3>
+            </h4>
           </motion.div>
 
           {/* Section CONTACT */}
