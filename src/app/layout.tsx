@@ -13,12 +13,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Romain Design Code – Création de sites web modernes & performants",
+  title: "Romain DesignCode – Création de sites web modernes & performants",
   description:
     "Développeur freelance. Création de sites web sur mesure, rapides et bien référencés, pour les entrepreneurs et indépendants. Démo gratuite disponible.",
-  icons: {
-    icon: "/image/icons/favicon.svg",
-  },
+  
 };
 
 export default function RootLayout({

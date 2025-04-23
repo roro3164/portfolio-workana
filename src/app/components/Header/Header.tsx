@@ -58,7 +58,7 @@ const Header: React.FC = () => {
           <div className="absolute inset-0 filter blur-[6px] opacity-50">
             <Image
               src="/image/icons/logo.svg"
-              alt=""
+              alt="Romain DesignCode"
               width={150}
               height={40}
               className="w-auto h-full"
