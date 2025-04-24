@@ -16,7 +16,6 @@ export const metadata: Metadata = {
   title: "Romain DesignCode – Création de sites web modernes & performants",
   description:
     "Développeur freelance. Création de sites web sur mesure, rapides et bien référencés, pour les entrepreneurs et indépendants. Démo gratuite disponible.",
-  
 };
 
 export default function RootLayout({
