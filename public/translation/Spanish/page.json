@@ -37,7 +37,7 @@
 
   "designer": {
     "title": "Diseñador UI/UX",
-    "content": "Un buen diseño no solo es bonito: es lo que hace que la gente quiera quedarse, leer y confiar.\n\nAyudo a los emprendedores a construir una identidad visual clara y profesional, que refleje su universo y capte la atención.\n\nCertificado en diseño UI/UX y apasionado por la estética, creo interfaces personalizadas con Figma y Photoshop, cuidando cada detalle.\n\nDiseño recorridos intuitivos, con animaciones elegantes que dan vida al sitio sin entorpecer la navegación. Mi objetivo: destacar lo que ofreces, con claridad y estilo."
+    "content": "Cada píxel cuenta: un buen diseño convierte una visita ocasional en una experiencia inolvidable.\n\nAsí, ayudo a los emprendedores a construir una identidad visual clara y profesional, que refleje su universo y capte la atención.\n\nCertificado en diseño UI/UX y apasionado por la estética, creo interfaces personalizadas con Figma y Photoshop, cuidando cada detalle.\n\nDiseño recorridos intuitivos, con animaciones elegantes que dan vida al sitio sin entorpecer la navegación. Mi objetivo: destacar lo que ofreces, con claridad y estilo."
   },
 
   "projects": {
@@ -117,6 +117,6 @@
       "linkedin": "LinkedIn",
       "behance": "Behance"
     },
-    "copyright": "© {{year}} Romain. Todos los derechos reservados."
+    "copyright": "© {{year}} Hecho por Romain DesignCode. Todos los derechos reservados."
   }
 }

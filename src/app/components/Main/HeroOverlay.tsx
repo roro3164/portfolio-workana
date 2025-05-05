@@ -13,6 +13,7 @@ export default function HeroOverlay({ onOverlayFinish }: HeroOverlayProps) {
   const [charIndex, setCharIndex] = useState(0);
   const [startAnimation, setStartAnimation] = useState(false);
 
+  // Démarre l'animation après 1s
   useEffect(() => {
     const startDelay = setTimeout(() => {
       setStartAnimation(true);
@@ -24,9 +25,7 @@ export default function HeroOverlay({ onOverlayFinish }: HeroOverlayProps) {
     if (!startAnimation) return;
 
     if (charIndex < linePersist.length) {
-      const timer = setTimeout(() => {
-        setCharIndex(charIndex + 1);
-      }, 80);
+      const timer = setTimeout(() => setCharIndex(idx => idx + 1), 80);
       return () => clearTimeout(timer);
     } else {
       onOverlayFinish?.();
@@ -42,19 +41,12 @@ export default function HeroOverlay({ onOverlayFinish }: HeroOverlayProps) {
   };
 
   return (
-    <div className="absolute top-0 left-0 right-0 bottom-0 pointer-events-none z-10 w-[80%] lg:w-full">
+    <div className="absolute inset-0 pointer-events-none z-10">
       <div
-        className="
-          absolute
-          bottom-[35%] lg:bottom-[24%] 
-          left-[23%]
-          transform -translate-x-1/2
-          w-[45%]
-          text-left
-        "
+        className="absolute bottom-[12%] md:bottom-[14%] text-left"
         style={textStyle}
       >
-        {/* H1 statique masqué pour Google SEO */}
+        {/* H1 statique masqué pour SEO */}
         <h1
           style={{
             position: "absolute",
@@ -67,19 +59,9 @@ export default function HeroOverlay({ onOverlayFinish }: HeroOverlayProps) {
           {linePersist}
         </h1>
 
-        {/* H1 animé pour les visiteurs */}
+        {/* H1 animé */}
         <h1
-          className="
-            font-jakarta 
-            italic 
-            text-lg 
-            sm:text-3xl 
-            md:text-[39px] 
-            font-medium 
-            block 
-            min-h-[3.5em] 
-            leading-[1.3]
-          "
+          className="font-jakarta italic text-lg sm:text-3xl md:text-[39px] font-medium block min-h-[3.5em] leading-[1.3]"
         >
           {linePersist.substring(0, charIndex)}
         </h1>

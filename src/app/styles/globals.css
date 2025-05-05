@@ -79,6 +79,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'courier';
+  src: url('/font/CourierPrime-Regular.ttf') format('truetype');
+  font-weight: 900; /* Black */
+  font-style: normal;
+}
+
 html, body { overflow-x: hidden; }
 
 body {

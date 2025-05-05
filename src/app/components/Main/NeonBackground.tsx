@@ -19,7 +19,7 @@ const NeonBackground: React.FC = () => {
   }, []);
 
   return (
-    <div className="grid grid-rows-4  h-[85%] w-full  translate-y-4 sm:translate-y-20 lg:translate-y-28">
+    <div className="grid grid-rows-4 h-[85%] w-full  translate-y-4 sm:translate-y-20 lg:translate-y-28">
       
       {/* Première ligne */}
       <div className="grid grid-cols-5 gap-x-4 justify-items-center ">

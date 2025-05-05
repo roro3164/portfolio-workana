@@ -128,7 +128,7 @@ const SplitScreen: React.FC = () => {
       )}
 
       {/* Bouton de contact */}
-      <div className="absolute" style={{ zIndex: 20, bottom: "14%", left: "0%" }}>
+      <div className="absolute z-20 bottom-[2%] md:bottom-[14%] left-0">
         <a href="#contact">
           <motion.div
             onMouseEnter={() => setDimOverlay(true)}

@@ -4,11 +4,7 @@ import styles from "./footer.module.scss";
 import { useTranslation } from "react-i18next";
 
 export const Footer: React.FC = () => {
-  // Votre defaultNS est "page", donc on peut se contenter de useTranslation()
-  // ou faire useTranslation(["page"]) si vous préférez.
   const { t } = useTranslation();
-
-  // Fonction pour faire défiler jusqu'au formulaire de contact
   const scrollToContactForm = () => {
     const contactSection = document.getElementById("contact");
     if (contactSection) {
@@ -19,7 +15,7 @@ export const Footer: React.FC = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        {/* Lien e-mail -> fait défiler vers la section contact */}
+        {/* Lien e-mail */}
         <div className={styles.email}>
           <a
             href="#contact"
@@ -39,28 +35,18 @@ export const Footer: React.FC = () => {
           </a>
         </div>
 
-        {/* Navigation : on va chercher "footer.navigation.*" dans page.json */}
+        {/* Navigation */}
         <div className={styles.sectionNav}>
           <ul>
-            <li>
-              <a href="#developer">{t("footer.navigation.developer")}</a>
-            </li>
-            <li>
-              <a href="#designer">{t("footer.navigation.designer")}</a>
-            </li>
-            <li>
-              <a href="#services">{t("footer.navigation.services")}</a>
-            </li>
-            <li>
-              <a href="#projects">{t("footer.navigation.projects")}</a>
-            </li>
-            <li>
-              <a href="#contact">{t("footer.navigation.contact")}</a>
-            </li>
+            <li><a href="#developer">{t("footer.navigation.developer")}</a></li>
+            <li><a href="#designer">{t("footer.navigation.designer")}</a></li>
+            <li><a href="#services">{t("footer.navigation.services")}</a></li>
+            <li><a href="#projects">{t("footer.navigation.projects")}</a></li>
+            <li><a href="#contact">{t("footer.navigation.contact")}</a></li>
           </ul>
         </div>
 
-        {/* Réseaux sociaux : on va chercher "footer.social.*" dans page.json */}
+        {/* Réseaux sociaux */}
         <div className={styles.socialNetwork}>
           <ul>
             {/* GitHub */}
@@ -87,7 +73,6 @@ export const Footer: React.FC = () => {
                 {t("footer.social.github")}
               </a>
             </li>
-
             {/* LinkedIn */}
             <li className="relative">
               <a
@@ -112,7 +97,6 @@ export const Footer: React.FC = () => {
                 {t("footer.social.linkedin")}
               </a>
             </li>
-
             {/* Behance */}
             <li className="relative">
               <a
@@ -141,10 +125,22 @@ export const Footer: React.FC = () => {
         </div>
       </div>
 
-      {/* Bas de page */}
-      <div className={styles.footerBottom}>
-        {/* On va chercher "footer" -> "copyright" */}
-        <p>{t("footer.copyright", { year: new Date().getFullYear() })}</p>
+      {/* Bas de page centré avec padding */}
+      <div
+        className={styles.footerBottom}
+        style={{ textAlign: "center", padding: "1rem 0" }}
+      >
+        <p style={{ margin: 0, marginBottom: "1rem" }}>
+          {t("footer.copyright", { year: new Date().getFullYear() })}
+        </p>
+        {/* Logo centré */}
+        <Image
+          src="/image/icons/logoCentre.svg"
+          alt="Logo Romain DesignCode"
+          width={160}
+          height={160}
+          style={{ display: "inline-block", marginTop: "1rem" }}
+        />
       </div>
     </footer>
   );

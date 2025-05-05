@@ -78,6 +78,10 @@ export default {
 			brush: [
 				'brush',
 				'sans-serif'
+			],
+			courier: [
+				'Courier',
+				'sans-serif'
 			]
   		},
   		screens: {
