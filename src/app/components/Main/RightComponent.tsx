@@ -9,7 +9,7 @@ const RightComponent: React.FC = () => {
     <div className="relative w-full md:h-[650px]">
       <div className="relative w-full h-[90%]">
         {/* Neon background behind everything */}
-        <div className="absolute left-0 right-0 top-24 sm:top-10 bottom-0 z-0">
+        <div className="absolute left-0 right-0 top-16 sm:top-10 bottom-0 z-0">
           <NeonBackground />
         </div>
 

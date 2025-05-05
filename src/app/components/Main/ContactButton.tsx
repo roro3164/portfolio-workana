@@ -8,11 +8,11 @@ interface ContactButtonProps {
   className?: string;
   onHoverStart?: () => void;
   onHoverEnd?: () => void;
-  icon?: string; // Chemin de l'image/icône à utiliser
-  emoji?: string; // Option pour utiliser un emoji au lieu d'une image
-  iconAlt?: string; // Texte alternatif pour l'icône
+  icon?: string;      // Chemin de l'image/icône à utiliser
+  emoji?: string;     // Option pour utiliser un emoji au lieu d'une image
+  iconAlt?: string;   // Texte alternatif pour l'icône
   iconWidth?: number; // Largeur de l'icône
-  iconHeight?: number; // Hauteur de l'icône
+  iconHeight?: number;// Hauteur de l'icône
 }
 
 const ContactButton: React.FC<ContactButtonProps> = ({
@@ -20,8 +20,8 @@ const ContactButton: React.FC<ContactButtonProps> = ({
   className = "",
   onHoverStart,
   onHoverEnd,
-  icon = "/image/icons/contactMe.svg", // Icône par défaut (enveloppe)
-  emoji = "", // Pas d'emoji par défaut
+  icon = "/image/icons/contactMe.svg",
+  emoji = "",
   iconAlt = "icon",
   iconWidth = 24,
   iconHeight = 24,
@@ -30,11 +30,16 @@ const ContactButton: React.FC<ContactButtonProps> = ({
 
   return (
     <button
-      className={`${styles.contact_btn} ${className} `}
+      className={`${styles.contact_btn} ${className}`}
+      onClick={(e) => e.currentTarget.blur()}    // enlève l’état actif/hover après clic
       onMouseEnter={onHoverStart}
       onMouseLeave={onHoverEnd}
     >
-      <span className={`${styles.text} font-bold text-[#6a5acd] z-[1] whitespace-normal font-jakarta`}>{t(title)}</span>
+      <span
+        className={`${styles.text} font-bold text-[#6a5acd] z-[1] whitespace-normal font-jakarta`}
+      >
+        {t(title)}
+      </span>
 
       {emoji ? (
         <span
@@ -49,7 +54,7 @@ const ContactButton: React.FC<ContactButtonProps> = ({
           alt={iconAlt}
           width={iconWidth}
           height={iconHeight}
-          className={styles.icon} // Changé de mail_icon à icon
+          className={styles.icon}
         />
       )}
     </button>
