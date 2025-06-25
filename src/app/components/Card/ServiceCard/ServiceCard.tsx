@@ -21,11 +21,7 @@ export const ServiceCard = ({
     className={`transition-transform duration-400 hover:scale-105 ${
       width ? '' : 'w-[29%] min-w-[316px]'
     }`}
-    style={width ? { 
-      width: width,
-      maxWidth: '400px', // Limite sur mobile
-      margin: '0 auto'   // Centre sur mobile
-    } : {}}
+    style={width ? { width } : {}}
   >
     <VioletHover color={color} disabled={disableHover}>
       <div className="bg-[#100E12] rounded-xl">

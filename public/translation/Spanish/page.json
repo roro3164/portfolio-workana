@@ -11,8 +11,8 @@
   },
 
   "button": {
-  "demo": "Demo gratuita",
-  "contact": "Contáctame"
+    "demo": "Demo gratuita",
+    "contact": "Contáctame"
   },
 
   "hero": {
@@ -22,7 +22,7 @@
   "transition": {
     "services": "Dominando tanto el diseño como el desarrollo, creo sitios ultra completos, estéticos y eficientes, perfectamente adaptados a tus necesidades.",
     "projects": "Proyectos que hablan por sí solos.",
-    "contact": "Hablemos de tu proyecto y solicita tu demo gratuita ahora!"
+    "contact": "¡Hablemos de tu proyecto y solicita tu demo gratuita ahora!"
   },
 
   "about": {
@@ -40,6 +40,10 @@
     "content": "Cada píxel cuenta: un buen diseño convierte una visita ocasional en una experiencia inolvidable.\n\nAsí, ayudo a los emprendedores a construir una identidad visual clara y profesional, que refleje su universo y capte la atención.\n\nCertificado en diseño UI/UX y apasionado por la estética, creo interfaces personalizadas con Figma y Photoshop, cuidando cada detalle.\n\nDiseño recorridos intuitivos, con animaciones elegantes que dan vida al sitio sin entorpecer la navegación. Mi objetivo: destacar lo que ofreces, con claridad y estilo."
   },
 
+  "contactme": {
+    "title": "Contáctame"
+  },
+
   "projects": {
     "technologiesUsed": "Tecnologías utilizadas:",
     "clickToExplore": "Haz clic en la tarjeta para explorar"
@@ -50,45 +54,74 @@
     "intro": "🌐 Sitios web todo incluido, desde 49€/mes",
     "subtitle": "Personalizados, modernos, eficaces.",
     "promo": "🎁 Actualmente: ¡demo gratuita sin compromiso!",
-    "starter": {
-      "title": "Starter",
-      "description": "La oferta ideal para lanzarse fácilmente",
+    "essentiel": {
+      "title": "Esencial",
+      "description": "Para empezar simplemente",
       "items": [
-        "Adaptado a todos los tamaños de pantalla",
-        "1 página profesional",
-        "Diseño personalizado",
-        "Formulario de contacto",
+        "Adaptado a todos los formatos de pantalla",
+        "1 landing page optimizada",
+        "Diseño y animaciones estándar",
         "Nombre de dominio + hosting incluidos",
         "Mantenimiento mensual",
-        "1 actualización gratuita / mes"
+        "1 modificación/mes"
       ]
     },
     "pro": {
       "title": "Pro",
-      "description": "Para presentar varios servicios",
-      "prefix": "Todo lo que incluye Starter, más:",
+      "description": "Para desarrollar tu actividad",
+      "prefix": "Lo que incluye Starter, más:",
       "items": [
         "Hasta 5 páginas",
-        "Formulario de reservas",
-        "Mejor posicionamiento en Google",
-        "2 actualizaciones gratuitas / mes"
+        "Diseño premium y animaciones avanzadas",
+        "3 modificaciones/mes",
+        "Soporte prioritario"
       ]
     },
-    "premium": {
-      "title": "Premium",
-      "description": "La solución ultra completa",
-      "prefix": "Todo lo que incluye Pro, más:",
+    "business": {
+      "title": "Business",
+      "description": "Para explotar tus ventas",
+      "prefix": "Lo que incluye Pro, más:",
       "items": [
         "Hasta 10 páginas",
-        "Diseño de alta gama",
-        "Animaciones avanzadas incluidas",
-        "Chatbot de bienvenida integrado",
-        "Soporte prioritario por correo",
-        "5 actualizaciones gratuitas / mes"
+        "5 actualizaciones gratuitas/mes",
+        "E-commerce completo integrado",
+        "Analytics avanzados"
       ]
     },
+    "stratégie": {
+      "title": "Estrategia Visibilidad",
+      "description": "Para explotar tus ventas",
+      "prefix": "Lo que incluye Pro, más:",
+      "items": [
+        "Seguimiento mensual del SEO",
+        "Gestión Google My Business",
+        "E-commerce completo integrado",
+        "Respuesta a comentarios Google",
+        "Posts semanales"
+      ]
+    },
+    "pack": {
+      "banner": "🔥 OFERTA RECOMENDADA",
+      "title": "Pack Visibilidad",
+      "description": "La solución completa para un sitio profesional y una visibilidad local máxima para atraer nuevos clientes cada mes.",
+      "prefix": "Lo que incluye Pro, más:",
+      "items": [
+        "Hasta 10 páginas",
+        "5 actualizaciones gratuitas/mes",
+        "E-commerce completo integrado",
+        "Analytics avanzados"
+      ],
+      "explication": {
+        "title": "**Máxima Visibilidad**",
+        "content": "Sitio profesional + Visibilidad local máxima"
+      },
+      "pour": {
+        "title": "Perfecto para:",
+        "content": "Artesanos • Comerciantes • Peluqueros • Profesiones liberales • Restaurantes • Servicios locales"
+      }
+    },
     "cta": {
-      "title": "Pruébalo sin compromiso",
+      "title": "Prueba sin compromiso",
       "buttonText": "Solicita tu demo gratuita"
     }
   },

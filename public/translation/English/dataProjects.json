@@ -1,256 +1,255 @@
 {
-    "projects": [
-      {
-        "id": 1,
-        "imageProject": "/image/projects/MockUpSportclubpng.webp",
-        "logoProject": "/image/projects/logoSportclub .svg",
-        "title": "Sport Club",
-        "description": "Comprehensive UX redesign for a leading Argentine fitness chain with over 500k active users. Focused on user interviews, tree testing, and mid-fidelity wireframes (MFVD) to validate and refine a new app architecture.",
-        "sections": [
-          {
-            "title": "UX Research & Strategy",
-            "content": [
-              "Conducted user interviews",
-              "Performed tree testing with Maze",
-              "Created MFVD wireframes for rapid iteration"
-            ]
-          },
-          {
-            "title": "Key Enhancements",
-            "content": [
-              "Streamlined onboarding (7 → 3 steps)",
-              "Visual calendar system for classes",
-              "Workout tracking & social sharing",
-              "Loyalty program overhaul"
-            ]
-          },
-          {
-            "title": "Visual Design System",
-            "content": [
-              "Established motion UI guidelines",
-              "Developed dark mode variant",
-              "WCAG-compliant contrast ratios",
-              "Updated iconography system"
-            ]
-          }
-        ],
-        "technologies": [
-          {
-            "name": "Figma",
-            "icon": "/image/technoIcons/figma.svg"
-          }
-        ],
-        "note": "This project was completed as my final UI/UX certification project, focused exclusively on design with no development work.",
-        "moreInfoUrl": "https://www.behance.net/gallery/166552523/Rediseno-SportClub"
-      },
-      {
-        "id": 2,
-        "imageProject": "/image/projects/mockUpLapin.webp",
-        "logoProject": "/image/projects/LogoLapin.svg",
-        "title": "Lapin Deco",
-        "description": "Self-initiated e-commerce project for a home decor and furniture store, designed and developed from concept to deployment to showcase both design and front-end development skills.",
-        "sections": [
-          {
-            "title": "Design & Visual Identity",
-            "content": [
-              "Modern interface with intuitive navigation",
-              "Cohesive product showcase identity",
-              "Micro-interactions for enhanced UX",
-              "Custom product category visualization"
-            ]
-          },
-          {
-            "title": "Development Highlights",
-            "content": [
-              "HTML5/CSS3 & SASS architecture",
-              "Cross-browser compatibility",
-              "Responsive grid system",
-              "Lighthouse score optimization (95+)",
-              "Hand-coded with no frameworks"
-            ]
-          }
-        ],
-        "technologies": [
-          {
-            "name": "HTML5",
-            "icon": "/image/technoIcons/html.svg"
-          },
-          {
-            "name": "CSS3",
-            "icon": "/image/technoIcons/css.svg"
-          },
-          {
-            "name": "SASS",
-            "icon": "/image/technoIcons/sass.svg"
-          },
-          {
-            "name": "Figma",
-            "icon": "/image/technoIcons/figma.svg"
-          }
-        ],
-        "note": "Personal project showcasing end-to-end design and development skills.",
-        "moreInfoUrl": "https://roro3164.github.io/Lapin-Deco/index.html"
-      },
-      {
-        "id": 3,
-        "imageProject": "/image/projects/mockUpCrypto.webp",
-        "logoProject": "/image/projects/logoCrypto.svg",
-        "title": "Crypto Cloud Expo",
-        "description": "Single-page React application designed for a temporary cryptocurrency conference in Dubai. Focused on creating a visually striking landing page with strong conversion elements.",
-        "sections": [
-          {
-            "title": "Design & Development",
-            "content": [
-              "Visually striking crypto-themed layout",
-              "Interactive React components",
-              "Mobile-first responsive design",
-              "Speaker lineup & schedule integration",
-              "Lead generation optimization"
-            ]
-          },
-          {
-            "title": "Technical Features",
-            "content": [
-              "React.js component architecture",
-              "Tailwind CSS for styling",
-              "Optimized for speed and SEO",
-              "Animated UI transitions",
-              "Form validation and submission"
-            ]
-          }
-        ],
-        "technologies": [
-          {
-            "name": "Figma",
-            "icon": "/image/technoIcons/figma.svg"
-          },
-          {
-            "name": "React",
-            "icon": "/image/technoIcons/react.svg"
-          },
-          {
-            "name": "Tailwind CSS",
-            "icon": "/image/technoIcons/tailwindcss.svg"
-          },
-          {
-            "name": "GitHub",
-            "icon": "/image/technoIcons/github.svg"
-          }
-        ],
-        "note": "Ephemeral site created for a one-time event, highlighting rapid prototyping skills."
-      },
-      {
-        "id": 4,
-        "imageProject": "/image/projects/mockUpEco.webp",
-        "logoProject": "/image/projects/logoEco.svg",
-        "title": "EcoMove",
-        "description": "Full-stack platform promoting eco-friendly mobility solutions, developed as a certification project for .NET Application Developer certification.",
-        "sections": [
-          {
-            "title": "Design Achievements",
-            "content": [
-              "Figma prototypes & wireframes",
-              "Eco-themed UI system",
-              "Interactive dashboard design",
-              "Accessibility-first approach",
-              "User journey mapping"
-            ]
-          },
-          {
-            "title": "Technical Implementation",
-            "content": [
-              "Angular/Tailwind frontend",
-              ".NET 8/C# REST API",
-              "Dockerized MySQL database",
-              "JWT authentication system",
-              "Entity Framework Core",
-              "Database modeling and optimization",
-              "Secure API endpoints"
-            ]
-          }
-        ],
-        "technologies": [
-          {
-            "name": "Figma",
-            "icon": "/image/technoIcons/figma.svg"
-          },
-          {
-            "name": "Angular",
-            "icon": "/image/technoIcons/angular.svg"
-          },
-          {
-            "name": "Tailwind CSS",
-            "icon": "/image/technoIcons/tailwindcss.svg"
-          },
-          {
-            "name": "C#",
-            "icon": "/image/technoIcons/csharp.svg"
-          },
-          {
-            "name": ".NET",
-            "icon": "/image/technoIcons/NET core.svg"
-          },
-          {
-            "name": "Docker",
-            "icon": "/image/technoIcons/docker.svg"
-          },
-          {
-            "name": "MySQL",
-            "icon": "/image/technoIcons/mySql.svg"
-          }
-        ],
-        "note": "Final project for .NET Application Developer certification, showcasing both design and full-stack development skills."
-      },
-      {
-        "id": 5,
-        "imageProject": "/image/projects/mockUpAqui.webp",
-        "logoProject": "/image/projects/logoAqui.svg",
-        "title": "Aqui Acampamos",
-        "description": "Comprehensive camping reservation platform for Argentina, featuring interactive maps, advanced search filters, and secure booking functionality.",
-        "sections": [
-          {
-            "title": "Design Process",
-            "content": [
-              "Mobile-first UX prototyping",
-              "Interactive Figma mockups",
-              "User flow optimization",
-              "Brand identity development",
-              "Logo design and visual language"
-            ]
-          },
-          {
-            "title": "Technical Stack",
-            "content": [
-              "Next.js/TypeScript frontend",
-              "Dynamic search filters",
-              "SSR performance optimization",
-              "Map integration system",
-              "Responsive layout for all devices",
-              "Progressive Web App capabilities"
-            ]
-          }
-        ],
-        "technologies": [
-          {
-            "name": "Next.js",
-            "icon": "/image/technoIcons/Next.js.svg"
-          },
-          {
-            "name": "TypeScript",
-            "icon": "/image/technoIcons/typescript.svg"
-          },
-          {
-            "name": "Tailwind CSS",
-            "icon": "/image/technoIcons/tailwindcss.svg"
-          },
-          {
-            "name": "Figma",
-            "icon": "/image/technoIcons/figma.svg"
-          }
-        ],
-        "note": "Work in progress: Ongoing development with new features being implemented.",
-        "moreInfoUrl": "https://aquiacampamos-phi.vercel.app/"
-      }
-    ]
-  }
-  
+  "projects": [
+    {
+      "id": 1,
+      "imageProject": "/image/projects/mockupBarber.png",
+      "logoProject": "/image/projects/logoBarber.svg",
+      "title": "Premium Barber Shop",
+      "description": "Modern showcase website for a barber shop, combining contemporary design with intuitive navigation. A fast and elegant site that perfectly reflects the premium image of the salon.",
+      "sections": [
+        {
+          "title": "Design & Experience",
+          "content": [
+            "Modern interface with elegant animations",
+            "Photo gallery with authentic Polaroid effect",
+            "Service presentation with interactive cards",
+            "Responsive design for all screens (mobile, tablet, desktop)",
+            "Refined color palette and premium typography"
+          ]
+        },
+        {
+          "title": "Performance & Speed",
+          "content": [
+            "Ultra-fast site (Google score: 96/100)",
+            "Instant page loading",
+            "Optimized for optimal Google SEO",
+            "Smooth navigation without latency",
+            "Compatible with all browsers"
+          ]
+        },
+        {
+          "title": "Features",
+          "content": [
+            "Continuous customer testimonials carousel",
+            "Service grid with detailed preview on hover",
+            "Integrated contact information and hours",
+            "Interactive photo gallery",
+            "Professional and modern design"
+          ]
+        }
+      ],
+      "technologies": [
+        {
+          "name": "Framer",
+          "icon": "/image/technoIcons/framer.svg"
+        },
+        {
+          "name": "React",
+          "icon": "/image/technoIcons/react.svg"
+        },
+        {
+          "name": "Figma",
+          "icon": "/image/technoIcons/figma.svg"
+        }
+      ],
+      "note": "Premium showcase site optimized for performance and user experience.",
+      "moreInfoUrl": "https://familiar-memory-305534.framer.app/"
+    },
+    {
+      "id": 2,
+      "imageProject": "/image/projects/mockupArt.png",
+      "logoProject": "/image/projects/logoArtDuCheveux.svg",
+      "title": "Elegance Hair Salon",
+      "description": "Sophisticated showcase website for an upscale hair salon, combining visual elegance with intuitive navigation. Designed to reflect the standing and quality of services.",
+      "sections": [
+        {
+          "title": "Refined Design",
+          "content": [
+            "Elegant interface with clean lines",
+            "Service presentation with interactive grid",
+            "Photo gallery with smooth transitions",
+            "Purple and gold palette for a premium look",
+            "Careful typography and harmonious spaces"
+          ]
+        },
+        {
+          "title": "Optimal Performance",
+          "content": [
+            "Very fast site (Google score: 95/100)",
+            "Near-instant loading",
+            "Optimized natural SEO",
+            "Smooth navigation without waiting",
+            "Adapted to all devices"
+          ]
+        },
+        {
+          "title": "Elegant Features",
+          "content": [
+            "Service grid with detailed preview",
+            "Testimonials carousel with intuitive controls",
+            "Contact and hours information cards",
+            "Simple and accessible navigation",
+            "Professional high-end design"
+          ]
+        }
+      ],
+      "technologies": [
+        {
+          "name": "Framer",
+          "icon": "/image/technoIcons/framer.svg"
+        },
+        {
+          "name": "React",
+          "icon": "/image/technoIcons/react.svg"
+        },
+        {
+          "name": "Figma",
+          "icon": "/image/technoIcons/figma.svg"
+        }
+      ],
+      "note": "High-end showcase site combining performance and elegant design.",
+      "moreInfoUrl": "https://brave-star-149335.framer.app/"
+    },
+    {
+      "id": 3,
+      "imageProject": "/image/projects/MockUpSportclubpng.webp",
+      "logoProject": "/image/projects/logoSportclub .svg",
+      "title": "Sport Club",
+      "description": "Complete UX redesign for a major Argentine fitness chain with over 500k active users. Focused on user interviews, tree testing, and mid-fidelity wireframes (MFVD) to validate and refine a new application architecture.",
+      "sections": [
+        {
+          "title": "UX Research & Strategy",
+          "content": [
+            "Conducted user interviews",
+            "Performed tree testing with Maze",
+            "Created mid-fidelity wireframes for rapid iterations"
+          ]
+        },
+        {
+          "title": "Key Improvements",
+          "content": [
+            "Simplified onboarding process (7 → 3 steps)",
+            "Visual calendar system for classes",
+            "Workout tracking and social sharing",
+            "Loyalty program redesign"
+          ]
+        },
+        {
+          "title": "Visual Design System",
+          "content": [
+            "Established UI animation guidelines",
+            "Developed dark mode",
+            "WCAG-compliant contrast ratios",
+            "Updated icon system"
+          ]
+        }
+      ],
+      "technologies": [
+        {
+          "name": "Figma",
+          "icon": "/image/technoIcons/figma.svg"
+        }
+      ],
+      "note": "This project was completed as part of my UI/UX certification, focusing exclusively on design (no development).",
+      "moreInfoUrl": "https://www.behance.net/gallery/166552523/Rediseno-SportClub"
+    },
+    {
+      "id": 4,
+      "imageProject": "/image/projects/mockUpLapin.webp",
+      "logoProject": "/image/projects/LogoLapin.svg",
+      "title": "Lapin Deco",
+      "description": "Self-initiated e-commerce project for a decoration and furniture store, designed and developed from A to Z to showcase both design and front-end development skills.",
+      "sections": [
+        {
+          "title": "Design & Visual Identity",
+          "content": [
+            "Modern interface with intuitive navigation",
+            "Coherent visual identity for product presentation",
+            "Micro-interactions to enhance UX",
+            "Custom product category visualization"
+          ]
+        },
+        {
+          "title": "Development Highlights",
+          "content": [
+            "HTML5/CSS3 & SASS architecture",
+            "Cross-browser compatibility",
+            "Responsive grid system",
+            "Lighthouse optimization (95+ score)",
+            "Hand-coded without frameworks"
+          ]
+        }
+      ],
+      "technologies": [
+        {
+          "name": "HTML5",
+          "icon": "/image/technoIcons/html.svg"
+        },
+        {
+          "name": "CSS3",
+          "icon": "/image/technoIcons/css.svg"
+        },
+        {
+          "name": "SASS",
+          "icon": "/image/technoIcons/sass.svg"
+        },
+        {
+          "name": "Figma",
+          "icon": "/image/technoIcons/figma.svg"
+        }
+      ],
+      "note": "Personal project demonstrating end-to-end design and development skills.",
+      "moreInfoUrl": "https://roro3164.github.io/Lapin-Deco/index.html"
+    },
+    {
+      "id": 5,
+      "imageProject": "/image/projects/mockUpAqui.webp",
+      "logoProject": "/image/projects/logoAqui.svg",
+      "title": "Aqui Acampamos",
+      "description": "Camping reservation platform for Argentina, integrating interactive maps, advanced search filters, and secure booking functionality.",
+      "sections": [
+        {
+          "title": "Design Process",
+          "content": [
+            "Mobile-first prototyping",
+            "Interactive mockups on Figma",
+            "User flow optimization",
+            "Brand identity development",
+            "Logo design and visual language"
+          ]
+        },
+        {
+          "title": "Technical Stack",
+          "content": [
+            "Next.js/TypeScript frontend",
+            "Dynamic search filters",
+            "SSR performance optimization",
+            "Interactive map integration",
+            "Responsive layout for all devices",
+            "PWA capabilities"
+          ]
+        }
+      ],
+      "technologies": [
+        {
+          "name": "Next.js",
+          "icon": "/image/technoIcons/Next.js.svg"
+        },
+        {
+          "name": "TypeScript",
+          "icon": "/image/technoIcons/typescript.svg"
+        },
+        {
+          "name": "Tailwind CSS",
+          "icon": "/image/technoIcons/tailwindcss.svg"
+        },
+        {
+          "name": "Figma",
+          "icon": "/image/technoIcons/figma.svg"
+        }
+      ],
+      "note": "Work in progress: new features are being developed.",
+      "moreInfoUrl": "https://aquiacampamos-phi.vercel.app/"
+    }
+  ]
+}

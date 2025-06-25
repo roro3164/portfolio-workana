@@ -11,8 +11,8 @@
   },
 
   "button": {
-  "demo": "Free demo",
-  "contact": "Contact me"
+    "demo": "Free demo",
+    "contact": "Contact me"
   },
 
   "hero": {
@@ -22,12 +22,12 @@
   "transition": {
     "services": "Mastering both design and development, I create highly comprehensive, aesthetic, and efficient websites, perfectly tailored to your needs.",
     "projects": "Creations that speak for themselves.",
-    "contact": "Let’s talk about your project and request your free demo now!"
+    "contact": "Let's talk about your project and request your free demo now!"
   },
 
   "about": {
     "title": "About Me",
-    "content": "Hello, I am a passionate UI/UX Designer and Full-Stack Developer from the sunny south of France, based in Montpellier. I love creating intuitive and visually engaging designs using tools like Figma and Photoshop, while developing modern and efficient applications with C#, React, and ASP.NET. My goal is to bridge design and technology to create solutions that are both practical and aesthetically pleasing. Outside of work, I enjoy traveling, discovering new places, and finding inspiration in different cultures. Whether it’s exploring the latest tech trends or enjoying the Mediterranean lifestyle, I am always looking for new ideas to incorporate into my projects."
+    "content": "Hello, I am a passionate UI/UX Designer and Full-Stack Developer from the sunny south of France, based in Montpellier. I love creating intuitive and visually engaging designs using tools like Figma and Photoshop, while developing modern and efficient applications with C#, React, and ASP.NET. My goal is to bridge design and technology to create solutions that are both practical and aesthetically pleasing. Outside of work, I enjoy traveling, discovering new places, and finding inspiration in different cultures. Whether it's exploring the latest tech trends or enjoying the Mediterranean lifestyle, I am always looking for new ideas to incorporate into my projects."
   },
 
   "developer": {
@@ -40,6 +40,10 @@
     "content": "Every pixel matters: great design turns a casual visit into a memorable experience.\n\nI help entrepreneurs build a clear, professional visual identity that reflects their world and catches the eye.\n\nCertified in UI/UX design and passionate about aesthetics, I create custom interfaces with Figma and Photoshop, paying attention to every detail.\n\nI design intuitive user flows, with elegant animations that bring the site to life without hindering navigation. My goal: to highlight what you offer, with clarity and style."
   },
 
+  "contactme": {
+    "title": "Contact me"
+  },
+
   "projects": {
     "technologiesUsed": "Technologies used:",
     "clickToExplore": "Click the card to explore"
@@ -50,42 +54,71 @@
     "intro": "🌐 All-inclusive websites, starting at €49/month",
     "subtitle": "Customized, modern, effective.",
     "promo": "🎁 Currently: free demo with no commitment!",
-    "starter": {
-      "title": "Starter",
-      "description": "The ideal offer to get started easily",
+    "essentiel": {
+      "title": "Essential",
+      "description": "To get started simply",
       "items": [
-        "Adapted to all screen sizes",
-        "1 professional page",
-        "Customized design",
-        "Contact form",
+        "Adapted to all screen formats",
+        "1 optimized landing page",
+        "Standard design & animations",
         "Domain name + hosting included",
         "Monthly maintenance",
-        "1 free update/month"
+        "1 modification/month"
       ]
     },
     "pro": {
       "title": "Pro",
-      "description": "For showcasing multiple services",
-      "prefix": "Everything included in Starter, more:",
+      "description": "To develop your business",
+      "prefix": "What's included in Starter, plus:",
       "items": [
         "Up to 5 pages",
-        "Booking form",
-        "Better positioning on Google",
-        "2 free updates/month"
+        "Premium design & advanced animations",
+        "3 modifications/month",
+        "Priority support"
       ]
     },
-    "premium": {
-      "title": "Premium",
-      "description": "The ultra-complete solution",
-      "prefix": "What's included in Pro, more:",
+    "business": {
+      "title": "Business",
+      "description": "To boost your sales",
+      "prefix": "What's included in Pro, plus:",
       "items": [
         "Up to 10 pages",
-        "High-end design",
-        "Advanced animations included",
-        "Integrated welcome chatbot",
-        "Priority email support",
-        "5 free updates/month"
+        "5 free updates/month",
+        "Complete integrated e-commerce",
+        "Advanced analytics"
       ]
+    },
+    "stratégie": {
+      "title": "Visibility Strategy",
+      "description": "To boost your sales",
+      "prefix": "What's included in Pro, plus:",
+      "items": [
+        "Monthly SEO monitoring",
+        "Google My Business management",
+        "Complete integrated e-commerce",
+        "Google reviews responses",
+        "Weekly posts"
+      ]
+    },
+    "pack": {
+      "banner": "🔥 RECOMMENDED OFFER",
+      "title": "Visibility Pack",
+      "description": "The complete solution for a professional website and maximum local visibility to attract new customers every month.",
+      "prefix": "What's included in Pro, plus:",
+      "items": [
+        "Up to 10 pages",
+        "5 free updates/month",
+        "Complete integrated e-commerce",
+        "Advanced analytics"
+      ],
+      "explication": {
+        "title": "**Maximum Visibility**",
+        "content": "Professional website + Maximum local visibility"
+      },
+      "pour": {
+        "title": "Perfect for:",
+        "content": "Artisans • Merchants • Hairdressers • Liberal professions • Restaurants • Local services"
+      }
     },
     "cta": {
       "title": "Try without commitment",
@@ -120,5 +153,3 @@
     "copyright": "© {{year}} Made by Romain DesignCode. All rights reserved."
   }
 }
-
-  

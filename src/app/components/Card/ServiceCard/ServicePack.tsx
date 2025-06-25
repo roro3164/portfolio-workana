@@ -24,77 +24,86 @@ export const ServicePack = ({
   const { t } = useTranslation("page");
 
   return (
-    <div className="w-full min-w-[316px] transition-transform duration-400 hover:scale-105">
+    <div className="w-full min-w-[320px] transition-transform duration-400 hover:scale-105">
       <VioletHover color={color}>
         <div className="bg-[#100E12] rounded-xl">
-          <div className={`rounded-xl min-h-[600px] flex flex-col p-8 gap-y-10 ${styles.glassCard}`}>
-          <div className="text-right mt-2 mb-2">
-          <span className="bg-gradient-to-r from-yellow-500 to-orange-600 text-white text-lg font-bold px-4 py-2 rounded-full shadow-lg">
-          🔥 OFFRE RECOMMANDÉE
-</span>
+          <div className={`rounded-xl min-h-[600px] flex flex-col p-4 sm:p-6 lg:p-8 gap-y-6 lg:gap-y-10 ${styles.glassCard}`}>
+            {/* Banner */}
+            <div className="text-right mt-2 mb-2">
+              <span className="bg-gradient-to-r from-yellow-500 to-orange-600 text-white text-sm sm:text-base lg:text-xl font-bold px-3 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-lg">
+                {t("services.pack.banner")}
+              </span>
             </div>
             
+            {/* Titre */}
             <div
               className={`
                 mx-auto text-center
-                text-white text-2xl font-jakarta font-semibold
-                py-2 px-10 w-full rounded-xl
+                text-white text-lg sm:text-xl lg:text-2xl font-jakarta font-semibold
+                py-2 px-4 sm:px-6 lg:px-10 w-full rounded-xl
                 ${styles.titleBox}
               `}
               style={{ 
                 '--card-color': getColorVariable(color) 
               } as React.CSSProperties}
             >
-              <h3>{title}</h3>
+              <h3 className="break-words">{title}</h3>
             </div>
          
-            <div
-              className={`
-                rounded-xl p-6 
-                ${styles.internBox}
-              `}
-            >
-              <p className="text-white text-center text-lg sm:text-xl italic">{description}</p>
+            {/* Description */}
+            <div className={`rounded-xl p-4 sm:p-6 ${styles.internBox}`}>
+              <p className="text-white text-center text-base sm:text-lg lg:text-xl italic leading-relaxed">
+                {description}
+              </p>
             </div>
 
-            <div className="flex flex-col lg:flex-row justify-center items-center gap-10">
-  <div className="flex-shrink-0">
-    <ServiceCard
-      title={proCard.title}
-      description={proCard.description}
-      prefix={proCard.prefix}
-      listItems={proCard.listItems}
-      color="blue"
-      disableHover={true}
-      width="w-full lg:w-[45%] max-w-[400px] mx-auto" 
-    />
-  </div>
+            {/* Section des cartes - Layout unique responsive */}
+            <div className="flex flex-col lg:flex-row  justify-center items-center gap-4 lg:gap-6">
+              {/* Première carte */}
+              <div className="w-full sm:flex-1 sm:min-w-[280px] sm:max-w-[400px] max-w-[320px] mx-auto sm:mx-0">
+                <ServiceCard
+                  title={proCard.title}
+                  description={proCard.description}
+                  prefix={proCard.prefix}
+                  listItems={proCard.listItems}
+                  color="blue"
+                  disableHover={true}
+                  width="100%"
+                />
+              </div>
 
-  <div>
-    <span className="text-7xl">+</span>
-  </div>
-  
-  <div className="flex-shrink-0">
-    <ServiceCard
-      title={strategieCard.title}
-      description={strategieCard.description}
-      prefix={strategieCard.prefix}
-      listItems={strategieCard.listItems}
-      color="orange"
-      disableHover={true}
-      width="w-full lg:w-[45%] max-w-[400px] mx-auto" 
-    />
-  </div>
-</div>
-
-            <div className="text-center">
-              <h4 className="text-amber-400 text-2xl font-bold">{t("services.pack.explication.title")}</h4>
+              {/* Séparateur + */}
+              <div className="flex-shrink-0 ">
+                <span className="text-white text-7xl font-bold">+</span>
+              </div>
               
+              {/* Deuxième carte */}
+              <div className="w-full sm:flex-1 sm:min-w-[280px] sm:max-w-[400px] max-w-[320px] mx-auto sm:mx-0">
+                <ServiceCard
+                  title={strategieCard.title}
+                  description={strategieCard.description}
+                  prefix={strategieCard.prefix}
+                  listItems={strategieCard.listItems}
+                  color="orange"
+                  disableHover={true}
+                  width="100%"
+                />
+              </div>
             </div>
 
-            <div className="text-center">
-              <h4 className="text-amber-400 text-xl font-bold mb-4">{t("services.pack.pour.title")}</h4>
-              <p className="text-white text-lg">
+            {/* Explication */}
+            <div className="text-center px-2">
+              <h4 className="text-amber-400 text-xl lg:text-2xl font-bold break-words">
+                {t("services.pack.explication.title")}
+              </h4>
+            </div>
+
+            {/* Pour qui */}
+            <div className="text-center px-2">
+              <h4 className="text-amber-400 text-lg lg:text-xl font-bold mb-3 lg:mb-4 break-words">
+                {t("services.pack.pour.title")}
+              </h4>
+              <p className="text-white text-base lg:text-lg leading-relaxed">
                 {t("services.pack.pour.content")}
               </p>
             </div>
