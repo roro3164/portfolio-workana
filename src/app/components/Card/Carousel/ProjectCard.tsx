@@ -2,22 +2,36 @@ import { Project } from "./types";
 import styles from './Carousel.module.scss';
 import Image from "next/image";
 
-export const ProjectCard: React.FC<Project> = ({imageProject, logoProject}) => (
+interface ProjectCardProps extends Project {
+  imageOpacity?: number;
+}
+
+export const ProjectCard: React.FC<ProjectCardProps> = ({
+  imageProject, 
+  logoProject, 
+  imageOpacity = 1
+}) => (
     <div className={styles.glassCardProject}>
         <div className={styles.imageContainer}>
         <Image
           src={imageProject}
           alt="project preview"
-          width={800}      // Indique une taille "de base"
-          height={600}     // (ex: ratio 4:3)
-        
+          width={800}
+          height={600}
+          style={{ 
+            opacity: imageOpacity,
+            transition: 'opacity 0.7s ease-in-out'
+          }}
         />
         </div>
         <div className={styles.boxBottomCard}>
             <img 
                 src={logoProject} 
-                alt="project logo" 
-                
+                alt="project logo"
+                style={{ 
+                  opacity: imageOpacity,
+                  transition: 'opacity 0.7s ease-in-out'
+                }}
             />
         </div>
     </div>

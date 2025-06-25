@@ -45,42 +45,72 @@
     "intro": "🌐 Des sites web tout inclus, à partir de 49€/mois",
     "subtitle": "Personnalisés, modernes, efficaces.",
     "promo": "🎁 En ce moment : une démo gratuite sans engagement !",
-    "starter": {
-      "title": "Starter",
-      "description": "L'offre idéale pour se lancer simplement",
+    "essentiel": {
+      "title": "Essentiel",
+      "description": "Pour se lancer simplement",
       "items": [
         "Adapté à tous les formats d'écrans",
-        "1 page professionnelle",
-        "Design personnalisé",
-        "Formulaire de contact",
+        "1 landing page optimisée",
+        "Design & animations standard",
         "Nom de domaine + hébergement inclus",
         "Maintenance mensuelle",
-        "1 mise à jour gratuite / mois"
+        "1 modifications/mois"
       ]
     },
     "pro": {
       "title": "Pro",
-      "description": "Pour présenter plusieurs services",
+      "description": "Pour développer votre activité",
       "prefix": "Ce qui est inclus dans Starter, plus :",
       "items": [
         "Jusqu'à 5 pages",
-        "Formulaire de réservation",
-        "Meilleur positionnement sur Google",
-        "2 mises à jour gratuites / mois"
+        "Design premium & animations avancées",
+        "3 modifications/mois",
+        "Support prioritaire"
       ]
     },
-    "premium": {
-      "title": "Premium",
-      "description": "La solution ultra-complète",
+    "business": {
+      "title": "Business",
+      "description": "Pour exploser vos ventes",
       "prefix": "Ce qui est inclus dans Pro, plus :",
       "items": [
         "Jusqu'à 10 pages",
-        "Design haut de gamme",
-        "Animations avancées incluses",
-        "Chatbot d'accueil intégré",
-        "Support prioritaire par mail",
-        "5 mises à jour gratuites / mois"
+        "5 mises à jour gratuites / mois",
+        "E-commerce complet intégré",
+        "Analytics avancés"
+
       ]
+    },
+    "stratégie": {
+      "title": "Stratégie visibilité",
+      "description": "Pour exploser vos ventes",
+      "prefix": "Ce qui est inclus dans Pro, plus :",
+      "items": [
+        "Suivi mensuel du référencement",
+        "Gestion Google My Business",
+        "E-commerce complet intégré",
+        "Réponse aux commentaires Google",
+        "Posts hebdomadaires"
+
+      ]
+    },
+    "pack": {
+      "title": "Pack Visibilité",
+      "description": "La solution complète pour un site professionnel et une visibilité locale maximale pour attirer de nouveaux clients chaque mois.",
+      "prefix": "Ce qui est inclus dans Pro, plus :",
+      "items": [
+        "Jusqu'à 10 pages",
+        "5 mises à jour gratuites / mois",
+        "E-commerce complet intégré",
+        "Analytics avancés"
+      ],
+      "explication": {
+        "title": "**Maximum de Visibilité**",
+        "content": "Site professionnel + Visibilité locale maximale"
+      },
+      "pour": {
+        "title": "Parfait pour :",
+        "content": "Artisans • Commerçants • Coiffeurs • Professions libérales • Restaurants • Services locaux"
+      }
     },
     "cta": {
       "title": "Testez sans engagement",

@@ -5,18 +5,22 @@ import styles from "./VioletHover.module.scss";
 interface VioletHoverProps {
   children: ReactNode;
   className?: string;
-  color?: string; // Nouvelle propriété
+  color?: string;
+  disabled?: boolean;
 }
 
 export const VioletHover: React.FC<VioletHoverProps> = ({
   children,
   className = "",
-  color = "violet" // Valeur par défaut
+  color = "violet",
+  disabled = false
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const elementRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    if (disabled) return;
+
     const currentElement = elementRef.current;
 
     const observer = new IntersectionObserver(
@@ -39,39 +43,38 @@ export const VioletHover: React.FC<VioletHoverProps> = ({
         observer.unobserve(currentElement);
       }
     };
-  }, []);
+  }, [disabled]);
 
-  // Obtenir les valeurs de couleur pour l'animation
   const { primary, secondary, shadow } = getHoverColors(color);
 
   return (
     <div
       ref={elementRef}
-      className={`${styles.cardContainer} ${
-        isVisible ? styles.visible : ""
-      } ${className}`}
+      className={`${styles.cardContainer} ${className}`}
       style={{ 
-        '--hover-shadow': shadow 
+        '--hover-shadow': shadow,
+        filter: `drop-shadow(0 0 10px ${shadow})`
       } as React.CSSProperties}
     >
-      <div className="absolute inset-0 w-full h-full rounded-xl overflow-hidden -z-10">
-        <div
-          className={`${styles.animationContainer} ${
-            isVisible ? styles.active : ""
-          }`}
-          style={{ 
-            '--hover-color-primary': primary,
-            '--hover-color-secondary': secondary
-          } as React.CSSProperties}
-        />
-      </div>
+      {!disabled && (
+        <div className="absolute inset-0 w-full h-full rounded-xl overflow-hidden -z-10">
+          <div
+            className={`${styles.animationContainer} ${
+              isVisible ? styles.active : ""
+            }`}
+            style={{ 
+              '--hover-color-primary': primary,
+              '--hover-color-secondary': secondary
+            } as React.CSSProperties}
+          />
+        </div>
+      )}
 
       <div className={styles.contentContainer}>{children}</div>
     </div>
   );
 };
 
-// Fonction utilitaire pour obtenir les valeurs de couleur d'effet de survol
 function getHoverColors(color: string): { primary: string; secondary: string; shadow: string } {
   switch (color) {
     case 'blue':
@@ -86,11 +89,17 @@ function getHoverColors(color: string): { primary: string; secondary: string; sh
         secondary: 'rgba(22, 163, 74, 0.8)',
         shadow: '#22c55e80'
       };
-    case 'orange':
+    case 'yellow':
       return {
         primary: 'rgba(212, 175, 55, 0.9)',
         secondary: 'rgba(184, 151, 46, 0.8)',
         shadow: '#d4af3780'
+      };
+    case 'orange':
+      return {
+        primary: 'rgba(255, 140, 0, 0.9)',
+        secondary: 'rgba(230, 120, 0, 0.8)',
+        shadow: '#ff8c0080'
       };
     case 'red':
       return {

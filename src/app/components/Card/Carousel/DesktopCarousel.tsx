@@ -39,11 +39,11 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
     setTimeout(() => {
       setIsExiting(false);
       setActiveIndex((current) => (current + 1) % projects.length);
+      // On remet la description après avoir changé l'index
+      setTimeout(() => {
+        setIsChangingDescription(false);
+      }, 50); // Petit délai pour s'assurer que l'index a changé
     }, 600);
-
-    setTimeout(() => {
-      setIsChangingDescription(false);
-    }, 300);
 
     setTimeout(() => setIsAnimating(false), 800);
   }, [isAnimating, selectedCard, projects.length]);
@@ -60,11 +60,11 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
       setActiveIndex(
         (current) => (current - 1 + projects.length) % projects.length
       );
+      // On remet la description après avoir changé l'index
+      setTimeout(() => {
+        setIsChangingDescription(false);
+      }, 50); // Petit délai pour s'assurer que l'index a changé
     }, 600);
-
-    setTimeout(() => {
-      setIsChangingDescription(false);
-    }, 300);
 
     setTimeout(() => setIsAnimating(false), 800);
   }, [isAnimating, selectedCard, projects.length]);
@@ -96,6 +96,15 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
     const isSelected = selectedCard === index;
 
     let transform = "";
+    let opacity = 1;
+    let visibility: "visible" | "hidden" = "visible";
+    
+    // On n'affiche que 5 cartes maximum : l'active + 4 suivantes
+    if (diff > 4) {
+      opacity = 0;
+      visibility = "hidden";
+    }
+    
     const zIndex = projects.length - diff;
 
     if (isActive) {
@@ -109,6 +118,7 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
         transform = "translate(-45%, -8%) rotate(-12deg) scale(0.95)";
       }
     } else {
+      // Retour à l'espacement original de 12px pour 5 cartes max
       const offset = diff * 12;
       transform = `translate(calc(-50% + ${offset}px), -${offset}px)`;
     }
@@ -119,7 +129,9 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
       top: "-30%",
       transform,
       zIndex,
-      filter: !isActive ? "blur(0.8px)" : "none",
+      opacity,
+      visibility,
+      filter: "none",
       transition: "all 0.7s ease-in-out",
       cursor: "pointer",
     };
@@ -146,10 +158,15 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
     setIsGoingBack(index < activeIndex);
     setIsAnimating(true);
     setIsExiting(true);
+    setIsChangingDescription(true);
 
     setTimeout(() => {
       setActiveIndex(index);
       setIsExiting(false);
+      // On remet la description après avoir changé l'index
+      setTimeout(() => {
+        setIsChangingDescription(false);
+      }, 50);
     }, 600);
 
     setTimeout(() => {
@@ -162,11 +179,8 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
   return (
     <BaseCard
       title={
-        <div
-          key={currentProject?.id}
-          className={isChangingDescription ? "fade-out" : "fade-in"}
-        >
-          {currentProject?.title}
+        <div className={isChangingDescription ? "fade-out" : "fade-in"}>
+          {currentProject?.title || "\u00A0"}
         </div>
       }
       titleAlignment={classes.titleAlignment}
@@ -244,6 +258,7 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
               <ProjectCard
                 imageProject={project.imageProject}
                 logoProject={project.logoProject}
+                imageOpacity={index === activeIndex ? 1 : 0.4}
               />
             </div>
           ))}
@@ -261,90 +276,94 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
 
                 {/* Moitié droite : contenu */}
                 <div
-                  key={currentProject?.id}
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                   className={`${
                     isChangingDescription ? "fade-out" : "fade-in"
-                  }`}
+                  } min-h-[600px] flex flex-col justify-start`}
                 >
-                  {/* Partie Description */}
-                  <div className="flex flex-col gap-6">
-                    {/* Introduction */}
-                    <p className="text-gray-300 text-lg leading-relaxed">
-                      {currentProject?.description?.split("\n\n")[0]}
-                    </p>
+                  {/* On affiche le contenu seulement quand il n'y a pas de transition */}
+                  {!isChangingDescription && (
+                    <>
+                      {/* Partie Description */}
+                      <div className="flex flex-col gap-6">
+                        {/* Introduction */}
+                        <p className="text-gray-300 text-lg leading-relaxed">
+                          {currentProject?.description?.split("\n\n")[0]}
+                        </p>
 
-                    {/* Sections avec titre et listes */}
-                    {currentProject?.sections?.map((section, index) => (
-                      <div key={index} className="flex flex-col gap-4">
-                        <h3
-                          className={`
-                            text-left
-                            text-white text-base font-jakarta font-semibold
-                            py-0.5 px-4 w-fit rounded-full
-                            ${styles.titleBox}
-                          `}
-                        >
-                          {section.title}
-                        </h3>
-                        <div className="space-y-2">
-                          {section.content.map((item, itemIndex) => (
-                            <CircleListItem
-                              className="min-w-5 h-5 text-sm"
-                              key={itemIndex}
-                              text={item.replace("✓ ", "")}
-                              color="violet"
-                            />
-                          ))}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Partie Technologies */}
-                  {currentProject?.technologies && (
-                    <div className="mt-6">
-                      {/* Remplace "Technologies used:" par t("projects.technologiesUsed") */}
-                      <p className="text-sm text-gray-400 mb-3">
-                        {t("projects.technologiesUsed")}
-                      </p>
-                      <div className="flex flex-wrap gap-4">
-                        {currentProject.technologies.map((tech, index) => (
-                          <div key={index} className="flex items-center gap-2">
-                            <Image
-                              src={tech.icon}
-                              alt={tech.name}
-                              width={32}
-                              height={32}
-                              className="object-contain"
-                            />
-                            <span className="text-sm text-gray-400">
-                              {tech.name}
-                            </span>
+                        {/* Sections avec titre et listes */}
+                        {currentProject?.sections?.map((section, index) => (
+                          <div key={index} className="flex flex-col gap-4">
+                            <h3
+                              className={`
+                                text-left
+                                text-white text-base font-jakarta font-semibold
+                                py-0.5 px-4 w-fit rounded-full
+                                ${styles.titleBox}
+                              `}
+                            >
+                              {section.title}
+                            </h3>
+                            <div className="space-y-2">
+                              {section.content.map((item, itemIndex) => (
+                                <CircleListItem
+                                  className="min-w-5 h-5 text-sm"
+                                  key={itemIndex}
+                                  text={item.replace("✓ ", "")}
+                                  color="violet"
+                                />
+                              ))}
+                            </div>
                           </div>
                         ))}
                       </div>
-                    </div>
-                  )}
 
-                  {/* Note/Additional Text */}
-                  {currentProject?.note && (
-                    <div className="mt-6">
-                      <p className="text-sm text-gray-300 italic">
-                        {currentProject.note}
-                      </p>
-                    </div>
-                  )}
+                      {/* Partie Technologies */}
+                      {currentProject?.technologies && (
+                        <div className="mt-6">
+                          {/* Remplace "Technologies used:" par t("projects.technologiesUsed") */}
+                          <p className="text-sm text-gray-400 mb-3">
+                            {t("projects.technologiesUsed")}
+                          </p>
+                          <div className="flex flex-wrap gap-4">
+                            {currentProject.technologies.map((tech, index) => (
+                              <div key={index} className="flex items-center gap-2">
+                                <Image
+                                  src={tech.icon}
+                                  alt={tech.name}
+                                  width={32}
+                                  height={32}
+                                  className="object-contain"
+                                />
+                                <span className="text-sm text-gray-400">
+                                  {tech.name}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
 
-                  {/* Indication de clic */}
-                  {currentProject?.moreInfoUrl && (
-                    <div className="mt-4">
-                      {/* Remplace "Click the card to explore" par t("projects.clickToExplore") */}
-                      <span className="text-sm text-gray-400">
-                        {t("projects.clickToExplore")}
-                      </span>
-                    </div>
+                      {/* Note/Additional Text */}
+                      {currentProject?.note && (
+                        <div className="mt-6">
+                          <p className="text-sm text-gray-300 italic">
+                            {currentProject.note}
+                          </p>
+                        </div>
+                      )}
+
+                      {/* Indication de clic */}
+                      {currentProject?.moreInfoUrl && (
+                        <div className="mt-4">
+                          {/* Remplace "Click the card to explore" par t("projects.clickToExplore") */}
+                          <span className="text-sm text-gray-400">
+                            {t("projects.clickToExplore")}
+                          </span>
+                        </div>
+                      )}
+                    </>
                   )}
                 </div>
               </div>

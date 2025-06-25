@@ -1,4 +1,5 @@
 import { ServiceCard } from "./ServiceCard";
+import { ServicePack } from "./ServicePack";
 import "../../../../../i18n";
 import { useTranslation } from "react-i18next"; 
 import ContactButton from "../../Main/ContactButton";
@@ -8,14 +9,15 @@ export const ServicesSection = () => {
   const { t } = useTranslation("page");
   
   // Récupérer les tableaux explicitement et s'assurer qu'ils sont bien typés
-  const starterItems = t("services.starter.items", { returnObjects: true }) as string[];
+  const starterItems = t("services.essentiel.items", { returnObjects: true }) as string[];
   const proItems = t("services.pro.items", { returnObjects: true }) as string[];
-  const premiumItems = t("services.premium.items", { returnObjects: true }) as string[];
+  const businessItems = t("services.business.items", { returnObjects: true }) as string[];
+  const strategieItems = t("services.stratégie.items", { returnObjects: true }) as string[];
   
   return (
     <section id="services" className="text-white">
     
-      <div className="mx-auto flex flex-col gap-y-8"> 
+      <div className="mx-auto flex flex-col gap-y-16"> 
       <motion.div  
       initial={{ x: 30, opacity: 0 }}
       whileInView={{ x: 0, opacity: 1 }}
@@ -29,8 +31,8 @@ export const ServicesSection = () => {
         
         <div className="flex justify-between items-center flex-col gap-10 xl:flex-row">
           <ServiceCard
-            title={t("services.starter.title")}
-            description={t("services.starter.description")}
+            title={t("services.essentiel.title")}
+            description={t("services.essentiel.description")}
             listItems={starterItems}
             color="green"
           />
@@ -40,17 +42,34 @@ export const ServicesSection = () => {
             description={t("services.pro.description")}
             prefix={t("services.pro.prefix")}
             listItems={proItems}
-            color="blue" // Couleur bleue pour la deuxième carte
+            color="blue"
           />
           
           <ServiceCard
-            title={t("services.premium.title")}
-            description={t("services.premium.description")}
-            prefix={t("services.premium.prefix")}
-            listItems={premiumItems}
-            color="orange" // La couleur violette d'origine pour la troisième carte
+            title={t("services.business.title")}
+            description={t("services.business.description")}
+            prefix={t("services.business.prefix")}
+            listItems={businessItems}
+            color="violet"
           />
         </div>
+
+        <ServicePack
+          title={t("services.pack.title")}
+          description={t("services.pack.description")}
+          proCard={{
+            title: t("services.pro.title"),
+            description: t("services.pro.description"),
+            prefix: t("services.pro.prefix"),
+            listItems: proItems
+          }}
+          strategieCard={{
+            title: t("services.stratégie.title"),
+            description: t("services.stratégie.description"),
+            prefix: t("services.stratégie.prefix"),
+            listItems: strategieItems
+          }}
+        />
         
         <div className="">
           <h3 className="text-center text-2xl font-bold mb-6">{t("services.cta.title")}</h3>

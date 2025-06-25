@@ -8,14 +8,14 @@ interface ContactButtonProps {
   className?: string;
   onHoverStart?: () => void;
   onHoverEnd?: () => void;
-  icon?: string;      // Chemin de l'image/icône à utiliser
-  emoji?: string;     // Option pour utiliser un emoji au lieu d'une image
-  iconAlt?: string;   // Texte alternatif pour l'icône
-  iconWidth?: number; // Largeur de l'icône
-  iconHeight?: number;// Hauteur de l'icône
+  icon?: string;
+  emoji?: string;
+  iconAlt?: string;
+  iconWidth?: number;
+  iconHeight?: number;
 }
 
-const ContactButton: React.FC<ContactButtonProps> = ({
+export const ContactButton: React.FC<ContactButtonProps> = ({
   title = "button.contact",
   className = "",
   onHoverStart,
@@ -28,10 +28,30 @@ const ContactButton: React.FC<ContactButtonProps> = ({
 }) => {
   const { t } = useTranslation();
 
+  // Blur button after a short delay to ensure active styles are cleared on mobile
+  const blurDelayed = (button: HTMLButtonElement) => {
+    setTimeout(() => button.blur(), 50);
+  };
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    blurDelayed(e.currentTarget);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent<HTMLButtonElement>) => {
+    blurDelayed(e.currentTarget);
+  };
+
+  const handlePointerDown = (e: React.PointerEvent<HTMLButtonElement>) => {
+    // ensure immediate blur for pointer interactions
+    e.currentTarget.blur();
+  };
+
   return (
     <button
       className={`${styles.contact_btn} ${className}`}
-      onClick={(e) => e.currentTarget.blur()}    // enlève l’état actif/hover après clic
+      onClick={handleClick}
+      onTouchEnd={handleTouchEnd}
+      onPointerDown={handlePointerDown}
       onMouseEnter={onHoverStart}
       onMouseLeave={onHoverEnd}
     >

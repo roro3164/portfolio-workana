@@ -14,6 +14,7 @@ import { useTranslation } from "react-i18next";
 import { Project } from "./components/Card/Carousel/types";
 import { ServicesSection } from "./components/Card/ServiceCard/ServicesSection";
 
+
 export default function Page() {
   const { t } = useTranslation(["page", "dataProjects"]);
 

@@ -33,8 +33,10 @@ function getColorVariable(color: string): string {
       return 'rgba(64, 153, 211, 0.3)';
     case 'green':
       return 'rgba(64, 211, 111, 0.3)';
-    case 'orange':
+    case 'yellow':
       return 'rgba(212, 175, 55, 0.5)';
+    case 'orange':
+      return 'rgba(255, 140, 0, 0.5)';
     case 'red':
       return 'rgba(211, 64, 64, 0.3)';
     case 'violet':
