@@ -39,9 +39,9 @@ export default function Page() {
 
         <SplitScreen />
 
-        <section className="sectionCard flex flex-col gap-y-10 lg:gap-y-20 ">
+        <section className="sectionCard flex flex-col gap-y-10 lg:gap-y-20">
           <IntenseCursorLight />
-
+          <section className="skillCards flex flex-col gap-y-10 lg:gap-y-44">
           <section id="seo" className="z-10 ">
             <NormalCard
               title={t("seo.title")}
@@ -91,7 +91,7 @@ export default function Page() {
           </section>
 
           {/* Section DESIGNER */}
-          <section id="designer" className="lg:mb-40 lg:mt-32">
+          <section id="designer" className="lg:mb-32 ">
             <NormalCard
               title={t("designer.title")}
               imageAlign="left"
@@ -114,6 +114,9 @@ export default function Page() {
               }}
             />
           </section>
+
+          </section>
+          
           <motion.div
             initial={{ x: 30, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}

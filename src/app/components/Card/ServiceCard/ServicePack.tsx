@@ -91,10 +91,13 @@ export const ServicePack = ({
             </div>
 
             {/* Explication */}
-            <div className="text-center px-2">
+            <div className="text-center px-2 flex flex-col gap-4">
               <h4 className="text-amber-400 text-xl lg:text-2xl font-bold break-words">
                 {t("services.pack.explication.title")}
               </h4>
+              <p className="text-white text-xl lg:text-2xl font-bold leading-relaxed">
+                {t("services.pack.explication.content")}
+              </p>
             </div>
 
             {/* Pour qui */}
