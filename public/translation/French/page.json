@@ -1,6 +1,6 @@
 {
   "header": {
-    "about": "À propos",
+    "seo": "Expert",
     "developer": "Développeur",
     "designer": "Designer",
     "projects": "Projets",
@@ -17,7 +17,7 @@
     "sentence": "Creation de site web pour le prix d'un café par jour!"
   },
   "transition": {
-    "services": "Maîtrisant à la fois le design et le développement, je conçois des sites ultra-complets, esthétiques et efficaces, parfaitement adaptés à vos besoins.",
+    "services": "Je crée ainsi une synergie unique : des sites ultra-performants, modernes et esthétiques, couplés à une gestion de votre présence locale via votre fiche Google. Cette triple compétence garantit des résultats concrets pour attirer de nouveaux clients et développer votre activité.",
     "projects": "Des réalisations qui parlent delles-mêmes.",
     "contact": " Discutons de votre projet et demandez votre démo gratuite dès maintenant!"
   },
@@ -25,6 +25,10 @@
     "title": "À propos de moi",
     "content": "Bonjour, je suis un Designer UI/UX et Développeur Full-Stack passionné, originaire du sud de la France, basé à Montpellier. J'aime créer des designs intuitifs et visuellement attrayants avec des outils comme Figma et Photoshop, tout en développant des applications modernes et efficaces avec C#, React et ASP.NET. Mon objectif est de faire le lien entre le design et la technologie pour créer des solutions à la fois pratiques et esthétiques. En dehors du travail, j'adore voyager, découvrir de nouveaux endroits et trouver de l'inspiration dans différentes cultures. Que ce soit en explorant les dernières tendances technologiques ou en profitant de l'art de vivre méditerranéen, je suis toujours à la recherche de nouvelles idées à intégrer dans mes projets."
   },
+  "seo": {
+  "title": "Expert Visibilité Google",
+  "content": "Chaque optimisation compte : un site bien référencé transforme une simple recherche en client conquis.\n\nJ'aide les PME et TPE à être trouvées sur Google grâce à des sites ultra-performants et une gestion experte de leur présence locale.\n\nSpécialisé en référencement technique et local, j'optimise chaque élément : vitesse de chargement, structure du site, contenu ciblé et fiche Google My Business.\n\nJe conçois des stratégies SEO sur mesure, avec suivi mensuel des performances et ajustements continus pour maximiser votre visibilité et attirer de nouveaux clients chaque mois."
+},
   "developer": {
     "title": "Développeur Full-stack",
    "content": "J’aide les entrepreneurs et indépendants à avoir un site web moderne, rapide et bien positionné sur Google, grâce à Next.js, une technologie reconnue pour ses performances.\n\nJ’intègre aussi des outils utiles comme des formulaires, des animations ou des réservations, dans un site à ton image, simple à utiliser et pensé pour convertir.\n\nAutodidacte passionné, j’ai complété mon parcours avec un diplôme en développement web, pour pouvoir proposer des solutions claires, fiables et sur mesure."
@@ -41,7 +45,7 @@
     "clickToExplore": "Cliquez sur la carte pour explorer"
   },
   "services": {
-    "title": "Services",
+    "title": "Mes Offres",
     "intro": "🌐 Des sites web tout inclus, à partir de 49€/mois",
     "subtitle": "Personnalisés, modernes, efficaces.",
     "promo": "🎁 En ce moment : une démo gratuite sans engagement !",

@@ -42,6 +42,29 @@ export default function Page() {
         <section className="sectionCard flex flex-col gap-y-10 lg:gap-y-20 ">
           <IntenseCursorLight />
 
+          <section id="seo" className="z-10 ">
+            <NormalCard
+              title={t("seo.title")}
+              internContent={t("seo.content")
+                .split("\n\n")
+                .map((p: string, i: number) => (
+                  <p key={i} className="mb-4">
+                    {p}
+                  </p>
+                ))}
+              imageSrc="/image/pictures/expert.png" 
+              imagePositionMobile={{ top: "7%", left: "50%" }}
+              imageSizeDesktop={{ width: "520px", height: "1000px" }}
+              imageSizeMobile={{ width: "260px", height: "260px" }}
+              imagePositionDesktop={{ top: "50%", left: "8%" }}
+              boxPaddings={{
+                mobile: { top: "360px" },
+                tablet: { top: "400px" }, 
+                desktop: { content: "720px" },
+              }}
+            />
+          </section>
+
           {/* Section DEVELOPER */}
           <section id="developer" className="z-10 ">
             <NormalCard

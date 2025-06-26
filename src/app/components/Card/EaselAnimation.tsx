@@ -2,10 +2,10 @@
 import React, { useEffect, useState } from "react";
 
 const WORDS = [
-  "Prototyping",
-  "Wireframing",
-  "Accessibility Design",
-  "Design Systems",
+  "Modern",
+  "Aesthetic",
+  "Intuitive",
+  "Responsive",
 ];
 
 export default function EaselAnimation() {

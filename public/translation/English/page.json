@@ -1,6 +1,6 @@
 {
   "header": {
-    "about": "About",
+    "seo": "Expert",
     "developer": "Developer",
     "designer": "Designer",
     "projects": "Projects",
@@ -9,48 +9,43 @@
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
   },
-
   "button": {
     "demo": "Free demo",
     "contact": "Contact me"
   },
-
   "hero": {
     "sentence": "Website creation for the price of a coffee a day!"
   },
-
   "transition": {
-    "services": "Mastering both design and development, I create highly comprehensive, aesthetic, and efficient websites, perfectly tailored to your needs.",
+    "services": "I thus create a unique synergy: ultra-performing, modern and aesthetic websites, coupled with management of your local presence via your Google listing. This triple expertise guarantees concrete results to attract new clients and develop your business.",
     "projects": "Creations that speak for themselves.",
     "contact": "Let's talk about your project and request your free demo now!"
   },
-
   "about": {
     "title": "About Me",
     "content": "Hello, I am a passionate UI/UX Designer and Full-Stack Developer from the sunny south of France, based in Montpellier. I love creating intuitive and visually engaging designs using tools like Figma and Photoshop, while developing modern and efficient applications with C#, React, and ASP.NET. My goal is to bridge design and technology to create solutions that are both practical and aesthetically pleasing. Outside of work, I enjoy traveling, discovering new places, and finding inspiration in different cultures. Whether it's exploring the latest tech trends or enjoying the Mediterranean lifestyle, I am always looking for new ideas to incorporate into my projects."
   },
-
+  "seo": {
+    "title": "Google Visibility Expert",
+    "content": "Every optimization counts: a well-ranked website turns a simple search into a conquered client.\n\nI help SMEs and small businesses be found on Google through ultra-performing websites and expert management of their local presence.\n\nSpecialized in technical and local SEO, I optimize every element: loading speed, site structure, targeted content and Google My Business listing.\n\nI design custom SEO strategies, with monthly performance tracking and continuous adjustments to maximize your visibility and attract new clients every month."
+  },
   "developer": {
     "title": "Full-stack Developer",
     "content": "I help entrepreneurs and freelancers get a modern, fast website with good Google ranking, using Next.js, a technology renowned for its performance.\n\nI also integrate useful tools like forms, animations, or booking systems into a site that matches your brand, is easy to use, and is designed to convert.\n\nA passionate autodidact, I completed my background with a degree in web development, so I can offer clear, reliable, and tailor-made solutions."
   },
-
   "designer": {
     "title": "UI/UX Designer",
     "content": "Every pixel matters: great design turns a casual visit into a memorable experience.\n\nI help entrepreneurs build a clear, professional visual identity that reflects their world and catches the eye.\n\nCertified in UI/UX design and passionate about aesthetics, I create custom interfaces with Figma and Photoshop, paying attention to every detail.\n\nI design intuitive user flows, with elegant animations that bring the site to life without hindering navigation. My goal: to highlight what you offer, with clarity and style."
   },
-
   "contactme": {
     "title": "Contact me"
   },
-
   "projects": {
     "technologiesUsed": "Technologies used:",
     "clickToExplore": "Click the card to explore"
   },
-
   "services": {
-    "title": "Services",
+    "title": "My Offers",
     "intro": "🌐 All-inclusive websites, starting at €49/month",
     "subtitle": "Customized, modern, effective.",
     "promo": "🎁 Currently: free demo with no commitment!",
@@ -69,7 +64,7 @@
     "pro": {
       "title": "Pro",
       "description": "To develop your business",
-      "prefix": "What's included in Starter, plus:",
+      "prefix": "What's included in Essential, plus:",
       "items": [
         "Up to 5 pages",
         "Premium design & advanced animations",
@@ -125,7 +120,6 @@
       "buttonText": "Request your free demo"
     }
   },
-
   "contactForm": {
     "title": "Contact",
     "firstName": "First Name",
@@ -135,7 +129,6 @@
     "success": "Your message has been sent successfully!",
     "error": "Error"
   },
-
   "footer": {
     "navigation": {
       "about": "About",

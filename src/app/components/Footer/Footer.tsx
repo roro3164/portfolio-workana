@@ -31,7 +31,7 @@ export const Footer: React.FC = () => {
               height={24}
               className={styles.icon}
             />
-            mornet.romain2@gmail.com
+            romaindesigncode@gmail.com
           </a>
         </div>
 

@@ -25,7 +25,7 @@ export const ServiceCard = ({
   >
     <VioletHover color={color} disabled={disableHover}>
       <div className="bg-[#100E12] rounded-xl">
-        <div className={`rounded-xl h-[600px] flex flex-col p-6 gap-y-6 ${styles.glassCard}`}>
+        <div className={`rounded-xl h-[520px] flex flex-col p-6 gap-y-6 ${styles.glassCard}`}>
           
           <div
             className={`

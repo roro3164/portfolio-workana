@@ -1,6 +1,6 @@
 {
   "header": {
-    "about": "Sobre mí",
+    "seo": "Experto",
     "developer": "Desarrollador",
     "designer": "Diseñador",
     "projects": "Proyectos",
@@ -9,49 +9,44 @@
     "openMenu": "Abrir menú",
     "closeMenu": "Cerrar menú"
   },
-
   "button": {
     "demo": "Demo gratuita",
     "contact": "Contáctame"
   },
-
   "hero": {
     "sentence": "¡Creación de páginas web por el precio de un café al día!"
   },
-
   "transition": {
-    "services": "Dominando tanto el diseño como el desarrollo, creo sitios ultra completos, estéticos y eficientes, perfectamente adaptados a tus necesidades.",
+    "services": "Creo así una sinergia única: sitios ultra-performantes, modernos y estéticos, acoplados con gestión de tu presencia local vía tu ficha Google. Esta triple competencia garantiza resultados concretos para atraer nuevos clientes y desarrollar tu actividad.",
     "projects": "Proyectos que hablan por sí solos.",
     "contact": "¡Hablemos de tu proyecto y solicita tu demo gratuita ahora!"
   },
-
   "about": {
     "title": "Sobre mí",
     "content": "Hola, soy un Diseñador UI/UX y Desarrollador Full-Stack apasionado del sur de Francia, radicado en Montpellier. Me encanta crear diseños intuitivos y visualmente atractivos con herramientas como Figma y Photoshop, mientras desarrollo aplicaciones modernas y eficientes usando C#, React y ASP.NET. Mi objetivo es unir el diseño y la tecnología para crear soluciones que sean tanto prácticas como hermosas. Fuera del trabajo, soy un gran aficionado a viajar, descubrir nuevos lugares y encontrar inspiración en diferentes culturas. Ya sea explorando las últimas tendencias tecnológicas o disfrutando del estilo de vida mediterráneo, siempre estoy buscando ideas frescas para incorporar en mis proyectos."
   },
-
+  "seo": {
+    "title": "Experto en Visibilidad Google",
+    "content": "Cada optimización cuenta: un sitio bien posicionado convierte una simple búsqueda en cliente conquistado.\n\nAyudo a PYMEs y pequeños negocios a ser encontrados en Google gracias a sitios web ultra-performantes y gestión experta de su presencia local.\n\nEspecializado en SEO técnico y local, optimizo cada elemento: velocidad de carga, estructura del sitio, contenido dirigido y ficha Google My Business.\n\nDiseño estrategias SEO personalizadas, con seguimiento mensual del rendimiento y ajustes continuos para maximizar tu visibilidad y atraer nuevos clientes cada mes."
+  },
   "developer": {
     "title": "Desarrollador Full-stack",
     "content": "Ayudo a emprendedores y autónomos a tener un sitio web moderno, rápido y bien posicionado en Google, utilizando Next.js, una tecnología reconocida por su rendimiento.\n\nTambién integro herramientas útiles como formularios, animaciones o sistemas de reservas en un sitio adaptado a tu imagen, fácil de usar y diseñado para convertir.\n\nComo autodidacta apasionado, completé mi formación con un título en desarrollo web para poder ofrecer soluciones claras, confiables y a medida."
   },
-
   "designer": {
     "title": "Diseñador UI/UX",
     "content": "Cada píxel cuenta: un buen diseño convierte una visita ocasional en una experiencia inolvidable.\n\nAsí, ayudo a los emprendedores a construir una identidad visual clara y profesional, que refleje su universo y capte la atención.\n\nCertificado en diseño UI/UX y apasionado por la estética, creo interfaces personalizadas con Figma y Photoshop, cuidando cada detalle.\n\nDiseño recorridos intuitivos, con animaciones elegantes que dan vida al sitio sin entorpecer la navegación. Mi objetivo: destacar lo que ofreces, con claridad y estilo."
   },
-
   "contactme": {
     "title": "Contáctame"
   },
-
   "projects": {
     "technologiesUsed": "Tecnologías utilizadas:",
     "clickToExplore": "Haz clic en la tarjeta para explorar"
   },
-
   "services": {
-    "title": "Servicios",
-    "intro": "🌐 Sitios web todo incluido, desde 49€/mes",
+    "title": "Mis Ofertas",
+    "intro": "🌐 Sitios web todo incluido, desde €49/mes",
     "subtitle": "Personalizados, modernos, eficaces.",
     "promo": "🎁 Actualmente: ¡demo gratuita sin compromiso!",
     "essentiel": {
@@ -69,7 +64,7 @@
     "pro": {
       "title": "Pro",
       "description": "Para desarrollar tu actividad",
-      "prefix": "Lo que incluye Starter, más:",
+      "prefix": "Lo que incluye Esencial, más:",
       "items": [
         "Hasta 5 páginas",
         "Diseño premium y animaciones avanzadas",
@@ -125,7 +120,6 @@
       "buttonText": "Solicita tu demo gratuita"
     }
   },
-
   "contactForm": {
     "title": "Contacto",
     "firstName": "Nombre",
@@ -135,7 +129,6 @@
     "success": "¡Tu mensaje se ha enviado con éxito!",
     "error": "Error"
   },
-
   "footer": {
     "navigation": {
       "about": "Sobre mí",
