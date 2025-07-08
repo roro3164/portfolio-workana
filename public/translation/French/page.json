@@ -1,25 +1,36 @@
 {
   "header": {
-    "seo": "Expert",
+    "seo": "Visibilité",
     "developer": "Développeur",
     "designer": "Designer",
     "projects": "Projets",
-    "services": "Services",
+    "services": "Offres",
     "contact": "Contact",
     "openMenu": "Ouvrir le menu",
     "closeMenu": "Fermer le menu"
   },
   "button": {
-    "demo": "Démo gratuite",
-    "contact": "Contactez-moi"
+    "demo": "Votre bilan gratuit",
+    "contact": "Demandez votre bilan gratuit"
   },
   "hero": {
-    "sentence": "Creation de site web pour le prix d'un café par jour!"
+    "title": "Expert Visibilité - Apparaissez N°1 sur Google dans votre Secteur",
+    "services": {
+      "seo": "Gestion fiche Google",
+      "developer": "Site web performant",
+      "designer": "Design moderne"
+    },
+    "description": "Ne laissez plus vos concurrents passer devant vous et prendre vos clients",
+    "cta": {
+      "title": " Découvrez Votre Position",
+      "button": "Mon bilan gratuit"
+    }
+    
   },
   "transition": {
     "services": "Je crée ainsi une synergie unique : des sites ultra-performants, modernes et esthétiques, couplés à une gestion de votre présence locale via votre fiche Google. Cette triple compétence garantit des résultats concrets pour attirer de nouveaux clients et développer votre activité.",
-    "projects": "Des réalisations qui parlent delles-mêmes.",
-    "contact": " Discutons de votre projet et demandez votre démo gratuite dès maintenant!"
+    "projects": "Des réalisations qui parlent d'elles-mêmes.",
+    "contact": " Discutons de votre projet et demandez votre bilan visibilité !"
   },
   "about": {
     "title": "À propos de moi",
@@ -48,7 +59,7 @@
     "title": "Mes Offres",
     "intro": "🌐 Des sites web tout inclus, à partir de 49€/mois",
     "subtitle": "Personnalisés, modernes, efficaces.",
-    "promo": "🎁 En ce moment : une démo gratuite sans engagement !",
+    "promo": "🎁 En ce moment : une maquette gratuite de votre site sans engagement !",
     "essentiel": {
       "title": "Essentiel",
       "description": "Pour se lancer simplement",
@@ -85,13 +96,12 @@
       ]
     },
     "stratégie": {
-      "title": "Stratégie visibilité",
+      "title": "Gestion fiche google",
       "description": "Pour maximiser votre visibilité",
       "prefix": "Ce qui est inclus dans Pro, plus :",
       "items": [
         "Suivi mensuel du référencement",
         "Gestion Google My Business",
-        "E-commerce complet intégré",
         "Réponse aux commentaires Google",
         "Posts hebdomadaires"
 
@@ -118,7 +128,7 @@
       }
     },
     "cta": {
-      "title": "Testez sans engagement",
+      "title": "Boostez votre visibilité dès aujourd'hui, demandez votre bilan!",
       "buttonText": "Demandez votre démo gratuite"
     }
   },
@@ -127,6 +137,7 @@
     "title": "Contact",
     "firstName": "Prénom",
     "lastName": "Nom",
+    "company": "Nom de votre entreprise (optionnel)",
     "email": "Votre e-mail",
     "message": "Votre message",
     "success": "Votre message a été envoyé avec succès !",
@@ -136,11 +147,11 @@
 
   "footer": {
     "navigation": {
-      "about": "À propos",
+      "seo": "Visibilité",
       "developer": "Développeur",
       "designer": "Designer",
       "projects": "Projets",
-      "services": "Services",
+      "services": "Offres",
       "contact": "Contact"
     },
     "social": {

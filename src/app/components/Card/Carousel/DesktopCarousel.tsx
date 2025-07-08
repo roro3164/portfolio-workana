@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { Project } from "./types";
 import styles from "./Carousel.module.scss";
 import { getCardClasses } from "../NormalCard/utils";
@@ -25,9 +25,37 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
   const [isPaused, setIsPaused] = useState(false);
   const [selectedCard] = useState<number | null>(null);
   const [isChangingDescription, setIsChangingDescription] = useState(false);
+  const [isInView, setIsInView] = useState(false); // Nouveau state pour la visibilité
+  
+  // Ref pour observer la section
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   // Au lieu de stocker "currentProject" dans un state, on le calcule directement
   const currentProject = projects[activeIndex];
+
+  // Observer pour détecter si la section est visible
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // La section est considérée "au milieu" si au moins 50% est visible
+        setIsInView(entry.isIntersecting && entry.intersectionRatio >= 0.5);
+      },
+      {
+        threshold: 0.5, // 50% de la section doit être visible
+        rootMargin: "-10% 0px -10% 0px" // Marge pour être plus précis sur le "milieu"
+      }
+    );
+
+    if (carouselRef.current) {
+      observer.observe(carouselRef.current);
+    }
+
+    return () => {
+      if (carouselRef.current) {
+        observer.unobserve(carouselRef.current);
+      }
+    };
+  }, []);
 
   const nextSlide = useCallback(() => {
     if (isAnimating || selectedCard !== null) return;
@@ -39,10 +67,9 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
     setTimeout(() => {
       setIsExiting(false);
       setActiveIndex((current) => (current + 1) % projects.length);
-      // On remet la description après avoir changé l'index
       setTimeout(() => {
         setIsChangingDescription(false);
-      }, 50); // Petit délai pour s'assurer que l'index a changé
+      }, 50);
     }, 600);
 
     setTimeout(() => setIsAnimating(false), 800);
@@ -60,35 +87,31 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
       setActiveIndex(
         (current) => (current - 1 + projects.length) % projects.length
       );
-      // On remet la description après avoir changé l'index
       setTimeout(() => {
         setIsChangingDescription(false);
-      }, 50); // Petit délai pour s'assurer que l'index a changé
+      }, 50);
     }, 600);
 
     setTimeout(() => setIsAnimating(false), 800);
   }, [isAnimating, selectedCard, projects.length]);
 
-  // Carrousel automatique
+  // Carrousel automatique SEULEMENT si la section est visible
   useEffect(() => {
     let intervalId: ReturnType<typeof setInterval> | undefined;
 
-    if (!isPaused && selectedCard === null) {
+    // Condition mise à jour : isInView ET !isPaused ET selectedCard === null
+    if (isInView && !isPaused && selectedCard === null) {
       intervalId = setInterval(() => {
         nextSlide();
       }, 3000);
     }
+    
     return () => {
       if (intervalId) {
         clearInterval(intervalId);
       }
     };
-  }, [isPaused, nextSlide, selectedCard]);
-
-  // (Optionnel) Pour réinitialiser le slide à 0 si la liste change (changement de langue)
-  // useEffect(() => {
-  //   setActiveIndex(0);
-  // }, [projects]);
+  }, [isInView, isPaused, nextSlide, selectedCard]); // Ajout d'isInView dans les dépendances
 
   const getCardStyle = (index: number) => {
     const diff = (index - activeIndex + projects.length) % projects.length;
@@ -99,7 +122,6 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
     let opacity = 1;
     let visibility: "visible" | "hidden" = "visible";
     
-    // On n'affiche que 5 cartes maximum : l'active + 4 suivantes
     if (diff > 4) {
       opacity = 0;
       visibility = "hidden";
@@ -118,7 +140,6 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
         transform = "translate(-45%, -8%) rotate(-12deg) scale(0.95)";
       }
     } else {
-      // Retour à l'espacement original de 12px pour 5 cartes max
       const offset = diff * 12;
       transform = `translate(calc(-50% + ${offset}px), -${offset}px)`;
     }
@@ -163,7 +184,6 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
     setTimeout(() => {
       setActiveIndex(index);
       setIsExiting(false);
-      // On remet la description après avoir changé l'index
       setTimeout(() => {
         setIsChangingDescription(false);
       }, 50);
@@ -177,313 +197,311 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
   const { t } = useTranslation();
 
   return (
-    <BaseCard
-      title={
-        <div className={isChangingDescription ? "fade-out" : "fade-in"}>
-          {currentProject?.title || "\u00A0"}
-        </div>
-      }
-      titleAlignment={classes.titleAlignment}
-      cardAlignment={classes.cardAlignement}
-    >
-      <div className="relative flex w-full">
-        {/* Colonne Carrousel */}
-        <div
-          className="absolute mt-[12%] w-1/2 h-80"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          <div className="absolute bottom-[-170px] left-1/2 -translate-x-1/2 flex items-center gap-6 z-50">
-            {/* Flèche gauche */}
-            <div
-              className="nav-arrow"
-              onClick={(e) => {
-                e.stopPropagation();
-                previousSlide();
-              }}
-            >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="white"
+    <div ref={carouselRef}> {/* Ref ajoutée ici pour observer la section */}
+      <BaseCard
+        title={
+          <div className={isChangingDescription ? "fade-out" : "fade-in"}>
+            {currentProject?.title || "\u00A0"}
+          </div>
+        }
+        titleAlignment={classes.titleAlignment}
+        cardAlignment={classes.cardAlignement}
+      >
+        <div className="relative flex w-full">
+          {/* Colonne Carrousel */}
+          <div
+            className="absolute mt-[12%] w-1/2 h-80"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <div className="absolute bottom-[-170px] left-1/2 -translate-x-1/2 flex items-center gap-6 z-50">
+              {/* Flèche gauche */}
+              <div
+                className="nav-arrow"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  previousSlide();
+                }}
               >
-                <path d="M15 18l-6-6 6-6" />
-              </svg>
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="white"
+                >
+                  <path d="M15 18l-6-6 6-6" />
+                </svg>
+              </div>
+
+              {/* Points */}
+              <div className="flex gap-4">
+                {projects.map((_, index) => (
+                  <div
+                    key={index}
+                    className={`dot ${index === activeIndex ? "active" : ""}`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleDotClick(index);
+                    }}
+                  />
+                ))}
+              </div>
+
+              {/* Flèche droite */}
+              <div
+                className="nav-arrow"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  nextSlide();
+                }}
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="white"
+                >
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+              </div>
             </div>
 
-            {/* Points */}
-            <div className="flex gap-4">
-              {projects.map((_, index) => (
-                <div
-                  key={index}
-                  className={`dot ${index === activeIndex ? "active" : ""}`}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleDotClick(index);
-                  }}
+            {/* Cartes */}
+            {projects.map((project, index) => (
+              <div
+                key={project.id}
+                style={getCardStyle(index)}
+                onClick={() => handleCardClick(index)}
+                className={index === activeIndex ? "active-card" : ""}
+              >
+                <ProjectCard
+                  imageProject={project.imageProject}
+                  logoProject={project.logoProject}
+                  imageOpacity={index === activeIndex ? 1 : 0.4}
                 />
-              ))}
-            </div>
-
-            {/* Flèche droite */}
-            <div
-              className="nav-arrow"
-              onClick={(e) => {
-                e.stopPropagation();
-                nextSlide();
-              }}
-            >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="white"
-              >
-                <path d="M9 18l6-6-6-6" />
-              </svg>
-            </div>
+              </div>
+            ))}
           </div>
 
-          {/* Cartes */}
-          {projects.map((project, index) => (
-            <div
-              key={project.id}
-              style={getCardStyle(index)}
-              onClick={() => handleCardClick(index)}
-              className={index === activeIndex ? "active-card" : ""}
-            >
-              <ProjectCard
-                imageProject={project.imageProject}
-                logoProject={project.logoProject}
-                imageOpacity={index === activeIndex ? 1 : 0.4}
-              />
-            </div>
-          ))}
-        </div>
-
-        {/* 2ème colonne : la description */}
-        <div className="w-[45%]"></div>
-        <div className="w-[55%]">
-          <VioletHover>
-            <div className="bg-[#100E12]">
-              <div
-                className={` ${styles.internBox} flex min-h-[780px] 2xl:min-h-[870px]`}
-              >
-           
-
-                {/* Moitié droite : contenu */}
+          {/* 2ème colonne : la description */}
+          <div className="w-[45%]"></div>
+          <div className="w-[55%]">
+            <VioletHover>
+              <div className="bg-[#100E12]">
                 <div
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                  className={`${
-                    isChangingDescription ? "fade-out" : "fade-in"
-                  } min-h-[600px] flex flex-col justify-start`}
+                  className={` ${styles.internBox} flex min-h-[780px] 2xl:min-h-[870px]`}
                 >
-                  {/* On affiche le contenu seulement quand il n'y a pas de transition */}
-                  {!isChangingDescription && (
-                    <>
-                      {/* Partie Description */}
-                      <div className="flex flex-col gap-6">
-                        {/* Introduction */}
-                        <p className="text-gray-300 text-lg leading-relaxed">
-                          {currentProject?.description?.split("\n\n")[0]}
-                        </p>
+                  {/* Moitié droite : contenu */}
+                  <div
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                    className={`${
+                      isChangingDescription ? "fade-out" : "fade-in"
+                    } min-h-[600px] flex flex-col justify-start`}
+                  >
+                    {/* On affiche le contenu seulement quand il n'y a pas de transition */}
+                    {!isChangingDescription && (
+                      <>
+                        {/* Partie Description */}
+                        <div className="flex flex-col gap-6">
+                          {/* Introduction */}
+                          <p className="text-gray-300 text-lg leading-relaxed">
+                            {currentProject?.description?.split("\n\n")[0]}
+                          </p>
 
-                        {/* Sections avec titre et listes */}
-                        {currentProject?.sections?.map((section, index) => (
-                          <div key={index} className="flex flex-col gap-4">
-                            <h3
-                              className={`
-                                text-left
-                                text-white text-base font-jakarta font-semibold
-                                py-0.5 px-4 w-fit rounded-full
-                                ${styles.titleBox}
-                              `}
-                            >
-                              {section.title}
-                            </h3>
-                            <div className="space-y-2">
-                              {section.content.map((item, itemIndex) => (
-                                <CircleListItem
-                                  className="min-w-5 h-5 text-sm"
-                                  key={itemIndex}
-                                  text={item.replace("✓ ", "")}
-                                  color="violet"
-                                />
+                          {/* Sections avec titre et listes */}
+                          {currentProject?.sections?.map((section, index) => (
+                            <div key={index} className="flex flex-col gap-4">
+                              <h3
+                                className={`
+                                  text-left
+                                  text-white text-base font-jakarta font-semibold
+                                  py-0.5 px-4 w-fit rounded-full
+                                  ${styles.titleBox}
+                                `}
+                              >
+                                {section.title}
+                              </h3>
+                              <div className="space-y-2">
+                                {section.content.map((item, itemIndex) => (
+                                  <CircleListItem
+                                    className="min-w-5 h-5 text-sm"
+                                    key={itemIndex}
+                                    text={item.replace("✓ ", "")}
+                                    color="violet"
+                                  />
+                                ))}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Partie Technologies */}
+                        {currentProject?.technologies && (
+                          <div className="mt-6">
+                            <p className="text-sm text-gray-400 mb-3">
+                              {t("projects.technologiesUsed")}
+                            </p>
+                            <div className="flex flex-wrap gap-4">
+                              {currentProject.technologies.map((tech, index) => (
+                                <div key={index} className="flex items-center gap-2">
+                                  <Image
+                                    src={tech.icon}
+                                    alt={tech.name}
+                                    width={32}
+                                    height={32}
+                                    className="object-contain"
+                                  />
+                                  <span className="text-sm text-gray-400">
+                                    {tech.name}
+                                  </span>
+                                </div>
                               ))}
                             </div>
                           </div>
-                        ))}
-                      </div>
+                        )}
 
-                      {/* Partie Technologies */}
-                      {currentProject?.technologies && (
-                        <div className="mt-6">
-                          {/* Remplace "Technologies used:" par t("projects.technologiesUsed") */}
-                          <p className="text-sm text-gray-400 mb-3">
-                            {t("projects.technologiesUsed")}
-                          </p>
-                          <div className="flex flex-wrap gap-4">
-                            {currentProject.technologies.map((tech, index) => (
-                              <div key={index} className="flex items-center gap-2">
-                                <Image
-                                  src={tech.icon}
-                                  alt={tech.name}
-                                  width={32}
-                                  height={32}
-                                  className="object-contain"
-                                />
-                                <span className="text-sm text-gray-400">
-                                  {tech.name}
-                                </span>
-                              </div>
-                            ))}
+                        {/* Note/Additional Text */}
+                        {currentProject?.note && (
+                          <div className="mt-6">
+                            <p className="text-sm text-gray-300 italic">
+                              {currentProject.note}
+                            </p>
                           </div>
-                        </div>
-                      )}
+                        )}
 
-                      {/* Note/Additional Text */}
-                      {currentProject?.note && (
-                        <div className="mt-6">
-                          <p className="text-sm text-gray-300 italic">
-                            {currentProject.note}
-                          </p>
-                        </div>
-                      )}
-
-                      {/* Indication de clic */}
-                      {currentProject?.moreInfoUrl && (
-                        <div className="mt-4">
-                          {/* Remplace "Click the card to explore" par t("projects.clickToExplore") */}
-                          <span className="text-sm text-gray-400">
-                            {t("projects.clickToExplore")}
-                          </span>
-                        </div>
-                      )}
-                    </>
-                  )}
+                        {/* Indication de clic */}
+                        {currentProject?.moreInfoUrl && (
+                          <div className="mt-4">
+                            <span className="text-sm text-gray-400">
+                              {t("projects.clickToExplore")}
+                            </span>
+                          </div>
+                        )}
+                      </>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-          </VioletHover>
+            </VioletHover>
+          </div>
         </div>
-      </div>
 
-      {/* Animations globales */}
-      <style jsx global>{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateX(-20px);
+        {/* Animations globales */}
+        <style jsx global>{`
+          @keyframes fadeIn {
+            from {
+              opacity: 0;
+              transform: translateX(-20px);
+            }
+            to {
+              opacity: 1;
+              transform: translateX(0);
+            }
           }
-          to {
-            opacity: 1;
-            transform: translateX(0);
+
+          @keyframes fadeOut {
+            from {
+              opacity: 1;
+              transform: translateX(0);
+            }
+            to {
+              opacity: 0;
+              transform: translateX(20px);
+            }
           }
-        }
 
-        @keyframes fadeOut {
-          from {
-            opacity: 1;
-            transform: translateX(0);
+          .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
           }
-          to {
-            opacity: 0;
-            transform: translateX(20px);
+
+          .fade-out {
+            animation: fadeOut 0.3s ease-in forwards;
           }
-        }
 
-        .fade-in {
-          animation: fadeIn 0.5s ease-out forwards;
-        }
-
-        .fade-out {
-          animation: fadeOut 0.3s ease-in forwards;
-        }
-
-        @keyframes bounce3D {
-          0%,
-          100% {
-            transform: translate(-45%, -8%) rotate(-12deg) scale(0.95)
-              translateZ(0);
+          @keyframes bounce3D {
+            0%,
+            100% {
+              transform: translate(-45%, -8%) rotate(-12deg) scale(0.95)
+                translateZ(0);
+            }
+            50% {
+              transform: translate(-45%, -8%) rotate(-12deg) scale(1.15)
+                translateZ(50px);
+            }
           }
-          50% {
-            transform: translate(-45%, -8%) rotate(-12deg) scale(1.15)
-              translateZ(50px);
+
+          .active-card:hover {
+            animation: bounce3D 4s infinite ease-in-out;
           }
-        }
 
-        .active-card:hover {
-          animation: bounce3D 4s infinite ease-in-out;
-        }
+          .active-card > div {
+            position: relative;
+            overflow: hidden;
+          }
 
-        .active-card > div {
-          position: relative;
-          overflow: hidden;
-        }
-
-        .active-card > div::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: -100%;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(
-            90deg,
-            transparent,
-            rgba(255, 255, 255, 0.2),
-            transparent
-          );
-          transform: skewX(-15deg);
-          animation: shine 2.5s infinite;
-          z-index: 2;
-          border-radius: inherit;
-        }
-
-        @keyframes shine {
-          0% {
+          .active-card > div::before {
+            content: "";
+            position: absolute;
+            top: 0;
             left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+              90deg,
+              transparent,
+              rgba(255, 255, 255, 0.2),
+              transparent
+            );
+            transform: skewX(-15deg);
+            animation: shine 2.5s infinite;
+            z-index: 2;
+            border-radius: inherit;
           }
-          100% {
-            left: 100%;
+
+          @keyframes shine {
+            0% {
+              left: -100%;
+            }
+            100% {
+              left: 100%;
+            }
           }
-        }
 
-        .nav-arrow {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          background: rgba(255, 255, 255, 0.1);
-          transition: all 0.3s ease;
-          cursor: pointer;
-        }
+          .nav-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+          }
 
-        .nav-arrow:hover {
-          background: rgba(255, 255, 255, 0.2);
-          transform: scale(1.1);
-        }
+          .nav-arrow:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+          }
 
-        .dot {
-          width: 10px;
-          height: 10px;
-          border-radius: 50%;
-          background: #333;
-          transition: all 0.3s ease;
-          cursor: pointer;
-        }
+          .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #333;
+            transition: all 0.3s ease;
+            cursor: pointer;
+          }
 
-        .dot.active {
-          background: #8b5cf680;
-          transform: scale(1.3);
-        }
-      `}</style>
-    </BaseCard>
+          .dot.active {
+            background: #8b5cf680;
+            transform: scale(1.3);
+          }
+        `}</style>
+      </BaseCard>
+    </div>
   );
 };

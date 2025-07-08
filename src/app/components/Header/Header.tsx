@@ -5,29 +5,47 @@ import { useTranslation } from "react-i18next";
 import styles from "./header.module.scss";
 
 const Header: React.FC = () => {
-  const [menuOpen, setMenuOpen] = useState(false); // Pour le menu mobile
-  const [langMenuOpen, setLangMenuOpen] = useState(false); // Pour le sélecteur de langue
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [langMenuOpen, setLangMenuOpen] = useState(false);
   const { t, i18n } = useTranslation();
 
-  // Ouvre/ferme le menu mobile (hamburger)
+  // Fonction de scroll personnalisée
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const headerHeight = 120; // Ajuste selon ton header
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+      
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const handleNavClick = (sectionId: string) => {
+    setMenuOpen(false); // Ferme le menu mobile
+    // Petit délai pour laisser les animations se terminer
+    setTimeout(() => {
+      scrollToSection(sectionId);
+    }, 100);
+  };
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
-  // Ouvre/ferme le petit menu de langues
   const toggleLangMenu = () => {
     setLangMenuOpen(!langMenuOpen);
   };
 
-  // Change la langue et referme le menu de langues
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
     setLangMenuOpen(false);
   };
 
-  // Retourne l'icône du drapeau selon la langue active
   const getCurrentFlag = () => {
-    const shortLang = i18n.language?.substring(0, 2); // "fr-FR" → "fr"
+    const shortLang = i18n.language?.substring(0, 2);
     switch (shortLang) {
       case "fr":
         return "/image/icons/frenchFlag.svg";
@@ -100,7 +118,7 @@ const Header: React.FC = () => {
             </button>
 
             {/* Bouton Hamburger (visible seulement en mobile) */}
-            <div className="lg:hidden z-50">
+            <div className="xl:hidden z-50">
               <button
                 onClick={toggleMenu}
                 className="relative w-8 h-6 flex flex-col justify-center items-center focus:outline-none group"
@@ -132,25 +150,25 @@ const Header: React.FC = () => {
           </div>
 
           {/* NAV DESKTOP (cachée en mobile) : en ligne */}
-          <nav className="hidden lg:flex lg:gap-14 text-xl font-jakarta">
-          <a href="#seo" className={styles.navLink}>
+          <nav className="hidden xl:flex xl:gap-14 text-xl font-jakarta">
+            <button onClick={() => handleNavClick('seo')} className={styles.navLink}>
               {t("header.seo")}
-            </a>
-            <a href="#developer" className={styles.navLink}>
+            </button>
+            <button onClick={() => handleNavClick('developer')} className={styles.navLink}>
               {t("header.developer")}
-            </a>
-            <a href="#designer" className={styles.navLink}>
+            </button>
+            <button onClick={() => handleNavClick('designer')} className={styles.navLink}>
               {t("header.designer")}
-            </a>
-            <a href="#services" className={styles.navLink}>
+            </button>
+            <button onClick={() => handleNavClick('services')} className={styles.navLink}>
               {t("header.services")}
-            </a>
-            <a href="#projects" className={styles.navLink}>
+            </button>
+            <button onClick={() => handleNavClick('projects')} className={styles.navLink}>
               {t("header.projects")}
-            </a>
-            <a href="#contact" className={styles.navLink}>
+            </button>
+            <button onClick={() => handleNavClick('contact')} className={styles.navLink}>
               {t("header.contact")}
-            </a>
+            </button>
           </nav>
         </div>
       </header>
@@ -164,41 +182,42 @@ const Header: React.FC = () => {
         `}
       >
         <nav className="flex flex-col items-center justify-center h-full space-y-8">
-          <a
-            href="#developer"
+          <button
+            onClick={() => handleNavClick('seo')}
             className="text-white text-2xl transform transition-transform duration-300 active:scale-95"
-            onClick={toggleMenu}
+          >
+            {t("header.seo")}
+          </button>
+          <button
+            onClick={() => handleNavClick('developer')}
+            className="text-white text-2xl transform transition-transform duration-300 active:scale-95"
           >
             {t("header.developer")}
-          </a>
-          <a
-            href="#designer"
+          </button>
+          <button
+            onClick={() => handleNavClick('designer')}
             className="text-white text-2xl transform transition-transform duration-300 active:scale-95"
-            onClick={toggleMenu}
           >
             {t("header.designer")}
-          </a>
-          <a
-            href="#services"
+          </button>
+          <button
+            onClick={() => handleNavClick('services')}
             className="text-white text-2xl transform transition-transform duration-300 active:scale-95"
-            onClick={toggleMenu}
           >
             {t("header.services")}
-          </a>
-          <a
-            href="#projects"
+          </button>
+          <button
+            onClick={() => handleNavClick('projects')}
             className="text-white text-2xl transform transition-transform duration-300 active:scale-95"
-            onClick={toggleMenu}
           >
             {t("header.projects")}
-          </a>
-          <a
-            href="#contact"
+          </button>
+          <button
+            onClick={() => handleNavClick('contact')}
             className="text-white text-2xl transform transition-transform duration-300 active:scale-95"
-            onClick={toggleMenu}
           >
             {t("header.contact")}
-          </a>
+          </button>
         </nav>
       </div>
 

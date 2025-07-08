@@ -1,23 +1,27 @@
 "use client";
-import { motion } from "framer-motion";
+
 import { useState } from "react";
-import ContactButton from "./ContactButton";
-import { DesignerAnimation } from "./DesignerAnimation";
+
 import LeftComponent from "./LeftComponent";
 import RightComponent from "./RightComponent";
-import HeroOverlay from "./HeroOverlay";
+
 
 const SplitScreen: React.FC = () => {
   const [activeZone, setActiveZone] = useState<"left" | "right" | null>(null);
   // État pour assombrir le fond lors du hover sur le bouton
-  const [dimOverlay, setDimOverlay] = useState(false);
+ 
 
   return (
     // Ce conteneur est en relative, ce qui permet à HeroOverlay (en absolute)
     // de se positionner par rapport à lui
-    <div className="relative w-full">
-      {/* Intégration de l'overlay dans SplitScreen */}
-      <HeroOverlay />
+    <div className="relative w-full"
+    style={{
+      maskImage: 'linear-gradient(to bottom, black 0%, black 75%, transparent 100%)',
+      WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 75%, transparent 100%)',
+    }}>
+      
+      
+     
 
       {/* Conteneur invisible pour conserver la hauteur */}
       <div className="invisible">
@@ -25,22 +29,15 @@ const SplitScreen: React.FC = () => {
       </div>
 
       {/* Section gauche en fond */}
-      <div className="absolute inset-0 bg-[#0F0E12]" style={{ zIndex: 1 }}>
+      <div className="absolute inset-0" style={{ zIndex: 1 }}>
         <div className="relative">
-          <motion.div
-            initial={{ opacity: 0, x: -100 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <DesignerAnimation />
-          </motion.div>
           <LeftComponent />
         </div>
       </div>
 
       {/* Section droite avec clip-path */}
       <div
-        className="absolute inset-0 bg-[#0F0E12] transition-all duration-700"
+        className="absolute inset-0 bg-[#0F0E12] transition-all duration-700 "
         style={{
           clipPath:
             activeZone === "left"
@@ -49,6 +46,7 @@ const SplitScreen: React.FC = () => {
               ? "inset(0 0 0 0)"
               : "inset(0 0 0 50%)",
           zIndex: activeZone === "right" ? 5 : 2,
+          
         }}
       >
         <RightComponent />
@@ -56,7 +54,7 @@ const SplitScreen: React.FC = () => {
 
       {/* Barre verticale (effet laser) */}
       <div
-        className="absolute top-0 bottom-0 transition-all mt-5 duration-700 md:h-[560px]"
+        className="absolute top-0 bottom-0 transition-all mt-5 duration-700 md:h-[530px]"
         style={{
           left:
             activeZone === "left"
@@ -119,31 +117,12 @@ const SplitScreen: React.FC = () => {
         onMouseLeave={() => setActiveZone(null)}
       />
 
-      {/* Overlay d'assombrissement supplémentaire (au hover sur le bouton) */}
-      {dimOverlay && (
-        <div
-          className="absolute inset-0 bg-[#0F0E12] bg-opacity-50 transition-all duration-300 pointer-events-none"
-          style={{ zIndex: 15 }}
-        />
-      )}
-
-      {/* Bouton de contact */}
-      <div className="absolute z-20 bottom-[2%] md:bottom-[14%] left-0">
-        <a href="#contact">
-          <motion.div
-            onMouseEnter={() => setDimOverlay(true)}
-            onMouseLeave={() => setDimOverlay(false)}
-            initial={{ y: 100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <ContactButton  title="button.demo"  icon = "/image/icons/gift.svg" className="w-[44vw] max-w-[500px] h-9 sm:h-auto text-sm sm:text-xl lg:text-2xl"/>
-          </motion.div>
-        </a>
-      </div>
-
-      {/* Effet de gradient en bas */}
-      <div className="absolute w-full bottom-0 md:bottom-16 -left-8 -right-8 h-16 bg-gradient-to-t from-[#0F0E12] via-[#0F0E12]/70 to-transparent z-10" />
+      
+         {/* Effet de gradient en bas */}
+         
+   
+       
+     
     </div>
   );
 };

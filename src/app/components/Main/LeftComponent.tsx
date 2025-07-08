@@ -5,16 +5,22 @@ import Image from "next/image";
 
 const LeftComponent: React.FC = () => {
   return (
-    <div className="relative w-full md:h-[650px]">
-      <div className="w-full h-[90%] relative">
+    <div className="relative w-full md:h-[620px]">
+      <div 
+        className="w-full h-[90%] relative"
+        style={{
+          maskImage: 'linear-gradient(to bottom, black 0%, black 70%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 70%, transparent 100%)',
+        }}
+      >
         {/* Image d'arrière-plan (Next.js) */}
         <Image
           src="/image/pictures/bgDesign.png"
           alt="background design"
-          className="w-full h-full object-cover xl:object-top object-center"
-          width={1200} // Ajustez selon vos besoins, 1000 -> 1200 px
+          className="w-full h-full object-contain 2xl:object-cover xl:object-top object-center"
+          width={1200}
           height={800}
-          priority // Gardez si vous jugez l'arrière-plan comme LCP
+          priority
           style={{ position: "absolute", top: 0, left: 0 }}
         />
 

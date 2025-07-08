@@ -21,7 +21,7 @@ export const BaseCard = ({
     <motion.div
       className={`
             w-fit mb-6 sm:mb-7 md:mb-8 py-1  
-            text-white text-2xl sm:text-3xl md:text-[44px] font-jakarta font-semibold
+            text-white text-2xl sm:text-3xl md:text-4xl font-jakarta font-semibold
             rounded-lg
             ${styles.titleGradient}}
             ${titleAlignment}

@@ -83,7 +83,7 @@ export const ServicePack = ({
                   title={strategieCard.title}
                   description={strategieCard.description}
                   listItems={strategieCard.listItems}
-                  color="orange"
+                  color=""
                   disableHover={true}
                   width="100%"
                 />
@@ -125,7 +125,7 @@ function getColorVariable(color: string): string {
     case 'yellow':
       return 'rgba(255, 193, 37, 0.5)';
     case 'orange':
-      return 'rgba(255, 140, 0, 0.5)';
+      return 'rgba(255, 140, 0, 0.4)';
     case 'red':
       return 'rgba(211, 64, 64, 0.3)';
     case 'violet':

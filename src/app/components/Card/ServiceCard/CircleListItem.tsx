@@ -1,7 +1,20 @@
-import { CircleListItemProps } from './types';
 import styles from './ServiceCard.module.scss';
 
-export const CircleListItem = ({ text, className = "", color = "violet" }: CircleListItemProps) => {
+interface CircleListItemProps {
+  text: string;
+  className?: string;
+  color?: string;
+  textClassName?: string;
+  spacing?: string;
+}
+
+export const CircleListItem = ({ 
+  text, 
+  className = "", 
+  color = "violet",
+  textClassName = "",
+  spacing = "mr-2 sm:mr-4"
+}: CircleListItemProps) => {
   // Obtenir la valeur de couleur basée sur le nom
   const colorValue = getColorVariable(color);
   
@@ -10,7 +23,7 @@ export const CircleListItem = ({ text, className = "", color = "violet" }: Circl
       <div 
         className={`
           flex items-center justify-center
-          mr-4
+          ${spacing}
           text-white rounded-full
           ${styles.circle}
           ${className || 'min-w-8 h-8'}
@@ -21,7 +34,9 @@ export const CircleListItem = ({ text, className = "", color = "violet" }: Circl
       >
         ✓
       </div>
-      <span className="text-white text-sm lg:text-base">{text}</span>
+      <span className={`text-white ${textClassName || 'text-sm lg:text-base'}`}>
+        {text}
+      </span>
     </div>
   );
 };

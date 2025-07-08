@@ -1,6 +1,6 @@
 {
   "header": {
-    "seo": "Experto",
+    "seo": "Visibilidad",
     "developer": "Desarrollador",
     "designer": "Diseñador",
     "projects": "Proyectos",
@@ -10,16 +10,26 @@
     "closeMenu": "Cerrar menú"
   },
   "button": {
-    "demo": "Demo gratuita",
-    "contact": "Contáctame"
+    "demo": "Su auditoría gratuita",
+    "contact": "Solicite su auditoría gratuita"
   },
   "hero": {
-    "sentence": "¡Creación de páginas web por el precio de un café al día!"
+    "title": "Experto Visibilidad - Aparece N°1 en Google en tu Sector",
+    "services": {
+      "seo": "Gestión ficha Google",
+      "developer": "Sitio web performante",
+      "designer": "Diseño moderno"
+    },
+    "description": "No dejes que tus competidores se adelanten y te quiten clientes",
+    "cta": {
+      "title": "Descubre Tu Posición",
+      "button": "Mi auditoría gratuita"
+    }
   },
   "transition": {
     "services": "Creo así una sinergia única: sitios ultra-performantes, modernos y estéticos, acoplados con gestión de tu presencia local vía tu ficha Google. Esta triple competencia garantiza resultados concretos para atraer nuevos clientes y desarrollar tu actividad.",
     "projects": "Proyectos que hablan por sí solos.",
-    "contact": "¡Hablemos de tu proyecto y solicita tu demo gratuita ahora!"
+    "contact": "¡Hablemos de tu proyecto!"
   },
   "about": {
     "title": "Sobre mí",
@@ -48,7 +58,7 @@
     "title": "Mis Ofertas",
     "intro": "🌐 Sitios web todo incluido, desde €49/mes",
     "subtitle": "Personalizados, modernos, eficaces.",
-    "promo": "🎁 Actualmente: ¡demo gratuita sin compromiso!",
+    "promo": "🎁 Actualmente: auditoría visibilidad + maqueta gratuita sin compromiso!",
     "essentiel": {
       "title": "Esencial",
       "description": "Para empezar simplemente",
@@ -84,13 +94,11 @@
       ]
     },
     "stratégie": {
-      "title": "Estrategia Visibilidad",
-      "description": "Para explotar tus ventas",
-      "prefix": "Lo que incluye Pro, más:",
+      "title": "Gestión ficha Google",
+      "description": "Para maximizar tu visibilidad",
       "items": [
         "Seguimiento mensual del SEO",
         "Gestión Google My Business",
-        "E-commerce completo integrado",
         "Respuesta a comentarios Google",
         "Posts semanales"
       ]
@@ -99,12 +107,12 @@
       "banner": "🔥 OFERTA RECOMENDADA",
       "title": "Pack Visibilidad",
       "description": "La solución completa para un sitio profesional y una visibilidad local máxima para atraer nuevos clientes cada mes.",
-      "prefix": "Lo que incluye Pro, más:",
       "items": [
-        "Hasta 10 páginas",
-        "5 actualizaciones gratuitas/mes",
-        "E-commerce completo integrado",
-        "Analytics avanzados"
+        "Sitio Pro completo (hasta 5 páginas)",
+        "Gestión Google My Business completa",
+        "Seguimiento mensual del SEO",
+        "Respuesta a comentarios Google",
+        "3 modificaciones/mes incluidas"
       ],
       "explication": {
         "title": "**Máxima Visibilidad**",
@@ -116,22 +124,23 @@
       }
     },
     "cta": {
-      "title": "Prueba sin compromiso",
-      "buttonText": "Solicita tu demo gratuita"
+      "title": "¿Listo para impulsar tu visibilidad?",
+      "buttonText": "Mi auditoría gratuita"
     }
   },
   "contactForm": {
-    "title": "Contacto",
+    "title": "Solicite su auditoría de visibilidad",
     "firstName": "Nombre",
     "lastName": "Apellido",
-    "email": "Tu correo",
-    "message": "Tu mensaje",
-    "success": "¡Tu mensaje se ha enviado con éxito!",
+    "company": "Nombre de su empresa (opcional)",
+    "email": "Su correo",
+    "message": "Su mensaje",
+    "success": "¡Su mensaje se ha enviado con éxito!",
     "error": "Error"
   },
   "footer": {
     "navigation": {
-      "about": "Sobre mí",
+      "seo": "Visibilidad",
       "developer": "Desarrollador",
       "designer": "Diseñador",
       "projects": "Proyectos",

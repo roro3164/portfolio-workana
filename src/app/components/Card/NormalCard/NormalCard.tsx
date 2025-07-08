@@ -63,9 +63,9 @@ const NormalCard: React.FC<ExtendedNormalCardProps> = ({
             className={`${boxStyleClass} ${classes.mobile.visibility}`}
             style={classes.mobile.style}
           >
-            <p className="text-sm text-center sm:text-base md:text-lg lg:text-xl text-white leading-relaxed">
+            <div className="text-sm text-center sm:text-base md:text-lg lg:text-xl text-white leading-relaxed">
               {internContent}
-            </p>
+            </div>
           </div>
 
           {/* TEXT - tablet */}
@@ -73,9 +73,9 @@ const NormalCard: React.FC<ExtendedNormalCardProps> = ({
             className={`${boxStyleClass} ${classes.tablet.visibility}`}
             style={classes.tablet.style}
           >
-            <p className="text-sm text-center sm:text-base md:text-lg lg:text-xl text-white leading-relaxed">
+            <div className="text-sm text-center sm:text-base md:text-lg lg:text-xl text-white leading-relaxed">
               {internContent}
-            </p>
+            </div>
           </div>
 
           {/* TEXT - desktop */}
@@ -83,11 +83,11 @@ const NormalCard: React.FC<ExtendedNormalCardProps> = ({
             className={`${boxStyleClass} ${classes.desktop.visibility} `}
             style={classes.desktop.style}
           >
-            <p
+            <div
               className={` text-sm sm:text-base md:text-lg lg:text-xl text-white leading-relaxed`}
             >
               {internContent}
-            </p>
+            </div>
           </div>
         </div>
       </HoverComponent>

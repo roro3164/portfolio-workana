@@ -16,6 +16,7 @@ export const FormCard = () => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
+    company: "", // Nouveau champ
     email: "",
     message: "",
   });
@@ -55,7 +56,7 @@ export const FormCard = () => {
       }
 
       setStatus({ submitted: true, submitting: false, error: null });
-      setFormData({ firstName: "", lastName: "", email: "", message: "" });
+      setFormData({ firstName: "", lastName: "", company: "", email: "", message: "" });
 
       setTimeout(() => {
         setStatus({ submitted: false, submitting: false, error: null });
@@ -73,6 +74,16 @@ export const FormCard = () => {
     }
   };
 
+  // Fonction pour soumettre le formulaire depuis le ContactButton
+  const handleButtonClick = () => {
+    if (!status.submitting) {
+      const form = document.querySelector('form');
+      if (form) {
+        form.requestSubmit();
+      }
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20, x: 1 }}
@@ -82,14 +93,15 @@ export const FormCard = () => {
       <div className="lg:w-[80%] mx-auto">
         <VioletHover>
           <div className="bg-[#100E12]">
+            
             <form onSubmit={handleSubmit} className={styles.glassContact}>
+              
               <input
                 type="text"
                 name="firstName"
                 value={formData.firstName}
                 onChange={handleChange}
                 className={styles.internBoxContact}
-                // 3. Utiliser t("...") pour le placeholder
                 placeholder={t("contactForm.firstName")}
                 required
               />
@@ -101,6 +113,14 @@ export const FormCard = () => {
                 className={styles.internBoxContact}
                 placeholder={t("contactForm.lastName")}
                 required
+              />
+              <input
+                type="text"
+                name="company"
+                value={formData.company}
+                onChange={handleChange}
+                className={styles.internBoxContact}
+                placeholder={t("contactForm.company")}
               />
               <input
                 type="email"
@@ -121,13 +141,12 @@ export const FormCard = () => {
               ></textarea>
 
               <div className="mx-auto">
-                <button
-                  type="submit"
-                  disabled={status.submitting}
-                  className={status.submitting ? "opacity-50" : ""}
+                <div
+                  onClick={handleButtonClick}
+                  className={`cursor-pointer ${status.submitting ? "opacity-50 cursor-not-allowed" : ""}`}
                 >
-                  <ContactButton className="text-xl" />
-                </button>
+                  <ContactButton className="w-full h-12 sm:h-auto text-base sm:text-xl lg:text-2xl" />
+                </div>
               </div>
 
               {status.submitted && (

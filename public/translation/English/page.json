@@ -1,6 +1,6 @@
 {
   "header": {
-    "seo": "Expert",
+    "seo": "Visibility",
     "developer": "Developer",
     "designer": "Designer",
     "projects": "Projects",
@@ -10,16 +10,26 @@
     "closeMenu": "Close menu"
   },
   "button": {
-    "demo": "Free demo",
-    "contact": "Contact me"
+    "demo": "Your free audit",
+    "contact": "Request your free audit"
   },
   "hero": {
-    "sentence": "Website creation for the price of a coffee a day!"
+    "title": "Visibility Expert - Appear #1 on Google in Your Industry",
+    "services": {
+      "seo": "Google listing management",
+      "developer": "High-performing website",
+      "designer": "Modern design"
+    },
+    "description": "Don't let your competitors get ahead of you and take your customers",
+    "cta": {
+      "title": "Discover Your Position",
+      "button": "My free audit"
+    }
   },
   "transition": {
     "services": "I thus create a unique synergy: ultra-performing, modern and aesthetic websites, coupled with management of your local presence via your Google listing. This triple expertise guarantees concrete results to attract new clients and develop your business.",
     "projects": "Creations that speak for themselves.",
-    "contact": "Let's talk about your project and request your free demo now!"
+    "contact": "Let's talk about your project!"
   },
   "about": {
     "title": "About Me",
@@ -48,7 +58,7 @@
     "title": "My Offers",
     "intro": "🌐 All-inclusive websites, starting at €49/month",
     "subtitle": "Customized, modern, effective.",
-    "promo": "🎁 Currently: free demo with no commitment!",
+    "promo": "🎁 Currently: visibility audit + free mockup with no commitment!",
     "essentiel": {
       "title": "Essential",
       "description": "To get started simply",
@@ -84,13 +94,11 @@
       ]
     },
     "stratégie": {
-      "title": "Visibility Strategy",
-      "description": "To boost your sales",
-      "prefix": "What's included in Pro, plus:",
+      "title": "Google listing management",
+      "description": "To maximize your visibility",
       "items": [
         "Monthly SEO monitoring",
         "Google My Business management",
-        "Complete integrated e-commerce",
         "Google reviews responses",
         "Weekly posts"
       ]
@@ -99,12 +107,12 @@
       "banner": "🔥 RECOMMENDED OFFER",
       "title": "Visibility Pack",
       "description": "The complete solution for a professional website and maximum local visibility to attract new customers every month.",
-      "prefix": "What's included in Pro, plus:",
       "items": [
-        "Up to 10 pages",
-        "5 free updates/month",
-        "Complete integrated e-commerce",
-        "Advanced analytics"
+        "Complete Pro website (up to 5 pages)",
+        "Complete Google My Business management",
+        "Monthly SEO monitoring",
+        "Google reviews responses",
+        "3 modifications/month included"
       ],
       "explication": {
         "title": "**Maximum Visibility**",
@@ -116,14 +124,15 @@
       }
     },
     "cta": {
-      "title": "Try without commitment",
-      "buttonText": "Request your free demo"
+      "title": "Ready to boost your visibility?",
+      "buttonText": "My free audit"
     }
   },
   "contactForm": {
-    "title": "Contact",
+    "title": "Request your visibility audit",
     "firstName": "First Name",
     "lastName": "Last Name",
+    "company": "Your company name (optional)",
     "email": "Your Email",
     "message": "Your Message",
     "success": "Your message has been sent successfully!",
@@ -131,7 +140,7 @@
   },
   "footer": {
     "navigation": {
-      "about": "About",
+      "seo": "Visibility",
       "developer": "Developer",
       "designer": "Designer",
       "projects": "Projects",

@@ -22,34 +22,30 @@ const NeonBackground: React.FC = () => {
     <div className="grid grid-rows-4 h-[85%] w-full  translate-y-4 sm:translate-y-20 lg:translate-y-28">
       
       {/* Première ligne */}
-      <div className="grid grid-cols-5 gap-x-4 justify-items-center ">
+      <div className="grid grid-cols-4 gap-x-4 justify-items-center ">
 
         <span className="neon-word">{"<html>"}</span>
-        <span className="neon-word">{"React"}</span>
         <span className="neon-word">{"<div>"}</span>
         <span className="neon-word">{"React"}</span>
-        <span className="neon-word">{"<div>"}</span>
+        <span className="neon-word">{"<div/>"}</span>
         
    
       </div>
 
       {/* Deuxième ligne */}
-      <div className="grid grid-cols-6 gap-x-4 justify-items-center">
+      <div className="grid grid-cols-4 gap-x-4 justify-items-center">
         <span className="neon-word">{"<script>"}</span>
         <span className="neon-word">{"Node.js"}</span>
         <span className="neon-word">{"<footer>"}</span>
         <span className="neon-word">{"SQL"}</span>
-        <span className="neon-word">{"<section>"}</span>
-        <span className="neon-word">{"Docker"}</span>
       </div>
 
       {/* Troisième ligne */}
-      <div className="grid grid-cols-5 gap-x-4 justify-items-center">
-        <span className="neon-word">{""}</span>
-        <span className="neon-word">{""}</span>
+      <div className="grid grid-cols-4 gap-x-4 justify-items-center">
+        <span className="neon-word">{"javascript"}</span>
+        <span className="neon-word">{"<header>"}</span>
         <span className="neon-word">{"C#"}</span>
         <span className="neon-word">{"HTML5"}</span>
-        <span className="neon-word">{"<header>"}</span>
       </div>
 
       {/* Quatrième ligne */}

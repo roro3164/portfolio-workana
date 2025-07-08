@@ -7,8 +7,8 @@ console.log('SMTP_SECURE:', process.env.SMTP_SECURE);
 
 export async function POST(request: Request) {
   try {
-    // On récupère les champs envoyés par le formulaire
-    const { firstName, lastName, email, message } = await request.json();
+    // ✅ AJOUT du champ company
+    const { firstName, lastName, company, email, message } = await request.json();
 
     // Configuration Nodemailer
     // On utilise les variables d'environnement
@@ -22,15 +22,27 @@ export async function POST(request: Request) {
       },
     });
 
-    // Contenu de l'e-mail
+    // ✅ Contenu de l'e-mail avec company
     const mailOptions = {
       from: process.env.CONTACT_EMAIL, // Adresse d'envoi
       to: process.env.CONTACT_EMAIL,   // Adresse de réception (peut être la même ou différente)
-      subject: `Nouveau message de ${firstName} ${lastName}`,
-      text: message, // version texte
+      subject: `Nouveau message de ${firstName} ${lastName}${company ? ` - ${company}` : ''}`,
+      text: `
+Nom: ${firstName} ${lastName}
+${company ? `Entreprise: ${company}` : ''}
+Email: ${email}
+
+Message:
+${message}
+      `, // version texte
       html: `
-        <p><strong>De :</strong> ${firstName} ${lastName} (<em>${email}</em>)</p>
-        <p>${message}</p>
+        <h3>Nouveau message de contact</h3>
+        <p><strong>Nom :</strong> ${firstName} ${lastName}</p>
+        ${company ? `<p><strong>Entreprise :</strong> ${company}</p>` : ''}
+        <p><strong>Email :</strong> <a href="mailto:${email}">${email}</a></p>
+        <br>
+        <p><strong>Message :</strong></p>
+        <p style="background: #f5f5f5; padding: 15px; border-radius: 5px;">${message}</p>
       `,
     };
 
