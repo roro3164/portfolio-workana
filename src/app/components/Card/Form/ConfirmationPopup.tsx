@@ -74,7 +74,7 @@ export const ConfirmationPopup: React.FC<ConfirmationPopupProps> = ({
 
                 {/* Message */}
                 <div className="text-center px-4 sm:px-6 lg:px-8 pb-4 sm:pb-6">
-                  <p className="text-gray-300 leading-relaxed text-sm sm:text-base lg:text-lg max-w-md mx-auto">
+                  <p className="text-gray-300 leading-relaxed text-base lg:text-lg max-w-md mx-auto">
                     {t("popup.message")}
                   </p>
                 </div>
