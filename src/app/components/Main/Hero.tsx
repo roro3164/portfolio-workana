@@ -56,7 +56,7 @@ export const Hero: React.FC = () => {
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
         >
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-white via-gray-200 to-gray-300 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-white via-gray-200 to-gray-300 bg-clip-text text-transparent">
             {t("hero.title")}
           </h1>
 
@@ -85,8 +85,8 @@ export const Hero: React.FC = () => {
             {t("hero.description")}
           </p>
 
-          <div className="flex flex-col gap-4 lg:gap-6 w-full items-center lg:items-start">
-            <div className="text-[#9788fb] font-bold uppercase tracking-wide text-lg sm:text-xl">
+          <div className="flex flex-col gap-2 lg:gap-6 w-full items-center lg:items-start">
+            <div className="text-[#9788fb] font-bold uppercase tracking-wide text-base sm:text-xl">
               {t("hero.cta.title")}
             </div>
             
