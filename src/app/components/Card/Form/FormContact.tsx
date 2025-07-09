@@ -83,14 +83,12 @@ export const FormCard = () => {
         submitting: false,
         error: message,
       });
-      // Masquer la popup en cas d'erreur
       setShowConfirmation(false);
     }
   };
 
   const handleButtonClick = () => {
     if (!status.submitting) {
-      // Reset des erreurs
       setFieldErrors({
         firstName: '',
         lastName: '',
@@ -106,7 +104,6 @@ export const FormCard = () => {
         email: ''
       };
 
-      // Validation des champs obligatoires
       if (!formData.firstName.trim()) {
         newErrors.firstName = 'Le prénom est requis';
         hasErrors = true;
@@ -126,7 +123,6 @@ export const FormCard = () => {
         newErrors.email = 'L\'email est requis';
         hasErrors = true;
       } else {
-        // Validation email si rempli
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(formData.email)) {
           newErrors.email = 'Format email invalide';
@@ -134,7 +130,6 @@ export const FormCard = () => {
         }
       }
 
-      // Afficher les erreurs si il y en a
       if (hasErrors) {
         setFieldErrors(newErrors);
         return;
@@ -142,10 +137,7 @@ export const FormCard = () => {
 
       const formElement = document.querySelector("form");
       if (formElement) {
-        // Tous les champs sont valides -> afficher la popup
         setShowConfirmation(true);
-        
-        // Soumettre le formulaire
         formElement.requestSubmit();
       }
     }
@@ -176,7 +168,10 @@ export const FormCard = () => {
                   autoComplete="off"
                   required
                 />
-                
+                {fieldErrors.firstName && (
+                  <div className="text-red-500 text-sm mt-1">{fieldErrors.firstName}</div>
+                )}
+
                 <input
                   type="text"
                   name="lastName"
@@ -187,7 +182,10 @@ export const FormCard = () => {
                   autoComplete="off"
                   required
                 />
-                
+                {fieldErrors.lastName && (
+                  <div className="text-red-500 text-sm mt-1">{fieldErrors.lastName}</div>
+                )}
+
                 <input
                   type="tel"
                   name="phone"
@@ -198,7 +196,10 @@ export const FormCard = () => {
                   autoComplete="off"
                   required
                 />
-                
+                {fieldErrors.phone && (
+                  <div className="text-red-500 text-sm mt-1">{fieldErrors.phone}</div>
+                )}
+
                 <input
                   type="email"
                   name="email"
@@ -209,6 +210,9 @@ export const FormCard = () => {
                   autoComplete="off"
                   required
                 />
+                {fieldErrors.email && (
+                  <div className="text-red-500 text-sm mt-1">{fieldErrors.email}</div>
+                )}
                 
                 <input
                   type="text"
@@ -251,7 +255,6 @@ export const FormCard = () => {
         </div>
       </motion.div>
 
-      {/* Popup OUTSIDE tout conteneur - centrée sur la fenêtre */}
       <ConfirmationPopup 
         isOpen={showConfirmation}
         onClose={() => setShowConfirmation(false)}
