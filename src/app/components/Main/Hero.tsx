@@ -44,19 +44,19 @@ export const Hero: React.FC = () => {
       <div className="relative flex-1 flex flex-col lg:flex-row">
         {/* BgGradient responsive avec props */}
         <BgGradient 
-          className="absolute bottom-20 left-1/2 transform -translate-x-1/2 w-1/2 h-1/2 lg:bottom-20 lg:left-0 lg:transform-none lg:translate-x-0 lg:w-1/3 lg:h-1/3"
+          className="absolute -bottom-40 left-1/2 transform -translate-x-1/2 w-1/2 h-1/2 lg:bottom-20 lg:left-0 lg:transform-none lg:translate-x-0 lg:w-1/3 lg:h-1/3"
           color="purple"
           blur="blur-[400px] lg:blur-[250px]"
         />
 
         {/* Contenu texte centré et responsive */}
         <motion.div 
-          className="w-full lg:w-1/3 flex flex-col justify-start lg:justify-center items-center lg:items-start text-center lg:text-left gap-2 lg:gap-8  lg:p-0 lg:pb-16 order-2 lg:order-1 mb-8 lg:mb-0"
+          className="w-full lg:w-1/3 flex flex-col justify-start lg:justify-center items-center lg:items-start text-center lg:text-left gap-2 sm:gap-4 lg:gap-8  lg:p-0 lg:pb-16 order-2 lg:order-1 mb-16 lg:mb-0"
           initial={{ x: -50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
         >
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-white via-gray-200 to-gray-300 bg-clip-text text-transparent">
+          <h1 className="text-[22px] sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-white via-gray-200 to-gray-300 bg-clip-text text-transparent">
             {t("hero.title")}
           </h1>
 
@@ -85,7 +85,7 @@ export const Hero: React.FC = () => {
             {t("hero.description")}
           </p>
 
-          <div className="flex flex-col gap-2 lg:gap-6 w-full items-center lg:items-start">
+          <div className="flex flex-col gap-2 sm:gap-4 lg:gap-6 w-full items-center lg:items-start">
             <div className="text-[#9788fb] font-bold uppercase tracking-wide text-base sm:text-xl">
               {t("hero.cta.title")}
             </div>
