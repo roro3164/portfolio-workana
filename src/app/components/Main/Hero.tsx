@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import ContactButton from "./ContactButton";
 import Header from "../Header/Header";
 import { CircleListItem } from "../Card/ServiceCard/CircleListItem";
-import BgGradient from "./BgHero";
+import BgGradient from "./BgGradient";
 
 export const Hero: React.FC = () => {
   const { t } = useTranslation();
@@ -42,11 +42,16 @@ export const Hero: React.FC = () => {
       </motion.div>
 
       <div className="relative flex-1 flex flex-col lg:flex-row">
-        <BgGradient />
+        {/* BgGradient responsive avec props */}
+        <BgGradient 
+          className="absolute -bottom-40 left-1/2 transform -translate-x-1/2 w-1/3 h-1/2 lg:bottom-20 lg:left-0 lg:transform-none lg:translate-x-0 lg:w-1/3 lg:h-1/3"
+          color="purple"
+          blur="blur-[400px] lg:blur-[250px]"
+        />
 
         {/* Contenu texte centré et responsive */}
         <motion.div 
-          className="w-full lg:w-1/3 flex flex-col justify-center items-center lg:items-start text-center lg:text-left gap-2 lg:gap-8  lg:p-0 lg:pb-16 order-2 lg:order-1 mb-8 lg:mb-0"
+          className="w-full lg:w-1/3 flex flex-col justify-center items-center lg:items-start text-center lg:text-left gap-4 lg:gap-8  lg:p-0 lg:pb-16 order-2 lg:order-1 mb-8 lg:mb-0"
           initial={{ x: -50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
@@ -80,11 +85,12 @@ export const Hero: React.FC = () => {
             {t("hero.description")}
           </p>
 
-          <div className="flex flex-col gap-2 lg:gap-6 w-full items-center lg:items-start">
+          <div className="flex flex-col gap-4 lg:gap-6 w-full items-center lg:items-start">
             <div className="text-[#9788fb] font-bold uppercase tracking-wide text-lg sm:text-xl">
               {t("hero.cta.title")}
             </div>
             
+            {/* ✅ CORRECTION : Remplacé button par div */}
             <div
               onClick={handleContactClick}
               className="w-full max-w-[400px] lg:max-w-[500px] relative z-30 cursor-pointer"

@@ -8,20 +8,13 @@ import RightComponent from "./RightComponent";
 
 const SplitScreen: React.FC = () => {
   const [activeZone, setActiveZone] = useState<"left" | "right" | null>(null);
-  // État pour assombrir le fond lors du hover sur le bouton
- 
 
   return (
-    // Ce conteneur est en relative, ce qui permet à HeroOverlay (en absolute)
-    // de se positionner par rapport à lui
-    <div className="relative w-full"
+    <div className="relative w-full md:h-[620px]"
     style={{
       maskImage: 'linear-gradient(to bottom, black 0%, black 75%, transparent 100%)',
       WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 75%, transparent 100%)',
     }}>
-      
-      
-     
 
       {/* Conteneur invisible pour conserver la hauteur */}
       <div className="invisible">
@@ -37,7 +30,7 @@ const SplitScreen: React.FC = () => {
 
       {/* Section droite avec clip-path */}
       <div
-        className="absolute inset-0 bg-[#0F0E12] transition-all duration-700 "
+        className="absolute inset-0 bg-[#0F0E12] transition-all duration-700"
         style={{
           clipPath:
             activeZone === "left"
@@ -46,7 +39,6 @@ const SplitScreen: React.FC = () => {
               ? "inset(0 0 0 0)"
               : "inset(0 0 0 50%)",
           zIndex: activeZone === "right" ? 5 : 2,
-          
         }}
       >
         <RightComponent />
@@ -54,7 +46,7 @@ const SplitScreen: React.FC = () => {
 
       {/* Barre verticale (effet laser) */}
       <div
-        className="absolute top-0 bottom-0 transition-all mt-5 duration-700 md:h-[530px]"
+        className="absolute top-0 bottom-0 transition-all mt-5 duration-700 h-[calc(100%-20px)] md:h-[530px]"
         style={{
           left:
             activeZone === "left"
@@ -116,13 +108,6 @@ const SplitScreen: React.FC = () => {
         onMouseEnter={() => setActiveZone("right")}
         onMouseLeave={() => setActiveZone(null)}
       />
-
-      
-         {/* Effet de gradient en bas */}
-         
-   
-       
-     
     </div>
   );
 };

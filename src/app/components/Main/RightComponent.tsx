@@ -8,7 +8,7 @@ const RightComponent: React.FC = () => {
   return (
     <div className="relative w-full md:h-[620px]">
       <div 
-        className="relative w-full h-[90%]"
+        className="relative w-full h-auto md:h-[90%]"
         style={{
           maskImage: 'linear-gradient(to bottom, black 0%, black 70%, transparent 100%)',
           WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 70%, transparent 100%)',
@@ -21,7 +21,7 @@ const RightComponent: React.FC = () => {
 
         {/* Portrait image */}
         <motion.div
-          className="relative z-10 w-full h-full"
+          className="relative z-10 w-full h-auto md:h-full"
           initial={{ scale: 0.95, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{
@@ -32,7 +32,7 @@ const RightComponent: React.FC = () => {
           <Image
             src="/image/pictures/portraitDev.webp"
             alt="portrait dev"
-            className="w-full h-full object-contain"
+            className="w-full h-auto md:h-full object-contain"
             width={1200}
             height={800}
             priority
