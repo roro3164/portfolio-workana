@@ -73,8 +73,8 @@ export const ServicePack = ({
               </div>
 
               {/* Séparateur + */}
-              <div className="flex-shrink-0 ">
-                <span className="text-white text-7xl font-bold">+</span>
+              <div className="flex justify-items-center ">
+                <span className="text-white text-5xl sm:text-6xl lg:7xl font-bold">+</span>
               </div>
               
               {/* Deuxième carte */}

@@ -96,7 +96,7 @@ export const MobileCarousel = ({ projects }: MobileProjectCarouselProps) => {
       cardAlignment={classes.cardAlignement}
     >
       <VioletHover>
-        <div className="bg-[#100E12]">
+        <div className="bg-[#100E12] rounded-xl">
           <div className={`${styles.internBox} w-full`}>
             {/* Partie Carrousel */}
             <div

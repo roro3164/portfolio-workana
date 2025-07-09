@@ -289,7 +289,7 @@ export const DesktopCarousel: React.FC<ProjectCarouselProps> = ({
           <div className="w-[45%]"></div>
           <div className="w-[55%]">
             <VioletHover>
-              <div className="bg-[#100E12]">
+              <div className="bg-[#100E12] rounded-xl">
                 <div
                   className={` ${styles.internBox} flex min-h-[780px] 2xl:min-h-[870px]`}
                 >

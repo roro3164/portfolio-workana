@@ -129,15 +129,21 @@
     }
   },
   "contactForm": {
-    "title": "Solicite su auditoría de visibilidad",
-    "firstName": "Nombre",
-    "lastName": "Apellido",
-    "company": "Nombre de su empresa (opcional)",
-    "email": "Su correo",
-    "message": "Su mensaje",
-    "success": "¡Su mensaje se ha enviado con éxito!",
-    "error": "Error"
-  },
+      "title": "Contacto",
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "company": "Nombre de su empresa (opcional)",
+      "email": "Su correo electrónico",
+      "phone": "Su teléfono",
+      "message": "Su mensaje",
+      "success": "¡Su mensaje ha sido enviado con éxito!",
+      "error": "Error"
+    },
+  "popup": {
+    "title": "🎯 Evaluación de Visibilidad en Proceso",
+    "message": "Su evaluación personalizada de visibilidad está en curso. Me pondré en contacto con usted en menos de 24 horas para comunicarle los resultados completos."
+    },
+    
   "footer": {
     "navigation": {
       "seo": "Visibilidad",

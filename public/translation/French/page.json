@@ -134,15 +134,21 @@
   },
  
   "contactForm": {
-    "title": "Contact",
-    "firstName": "Prénom",
-    "lastName": "Nom",
-    "company": "Nom de votre entreprise (optionnel)",
-    "email": "Votre e-mail",
-    "message": "Votre message",
-    "success": "Votre message a été envoyé avec succès !",
-    "error": "Erreur"
-  },
+      "title": "Contact",
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "company": "Nom de votre entreprise (optionnel)",
+      "email": "Votre e-mail",
+      "phone": "Votre téléphone",
+      "message": "Votre message",
+      "success": "Votre message a été envoyé avec succès !",
+      "error": "Erreur"
+    },
+
+  "popup": {
+      "title": "🎯 Bilan Visibilité en cours",
+      "message": "Votre bilan de visibilité personnalisé est actuellement en cours de réalisation. Je vous contacterai dans moins de 24h pour vous communiquer les résultats complets."
+    },
   
 
   "footer": {

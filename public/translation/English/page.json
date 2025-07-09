@@ -129,14 +129,19 @@
     }
   },
   "contactForm": {
-    "title": "Request your visibility audit",
-    "firstName": "First Name",
-    "lastName": "Last Name",
-    "company": "Your company name (optional)",
-    "email": "Your Email",
-    "message": "Your Message",
-    "success": "Your message has been sent successfully!",
-    "error": "Error"
+      "title": "Contact",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "company": "Your company name (optional)",
+      "email": "Your email",
+      "phone": "Your phone",
+      "message": "Your message",
+      "success": "Your message has been sent successfully!",
+      "error": "Error"
+    },
+    "popup": {
+      "title": "🎯 Visibility Assessment in Progress",
+      "message": "Your personalized visibility assessment is currently being processed. I will contact you within 24 hours to share the complete results."
   },
   "footer": {
     "navigation": {

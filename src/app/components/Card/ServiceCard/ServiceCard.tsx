@@ -30,7 +30,7 @@ export const ServiceCard = ({
           <div
             className={`
               mx-auto text-center
-              text-white text-2xl font-jakarta font-semibold
+              text-white text-lg sm:text-xl lg:text-2xl font-jakarta font-semibold
               py-2 px-10 w-full rounded-xl
               ${styles.titleBox}
             `}
@@ -47,11 +47,11 @@ export const ServiceCard = ({
               ${styles.internBox}
             `}
           >
-            <p className="text-white text-center text-lg sm:text-xl italic">{description}</p>
+            <p className="text-white text-center text-base sm:text-lg lg:text-xl italic leading-relaxed">{description}</p>
           </div>
 
           <div className="flex flex-col gap-3">
-            {prefix && <p className="text-white text-md my-2 font-jakarta font-bold">{prefix}</p>}
+            {prefix && <p className="text-white text-left text-base sm:text-lg lg:text-xl  my-2 font-jakarta font-bold">{prefix}</p>}
             {listItems.map((item, index) => (
               <CircleListItem key={index} text={item} color={color} />
             ))}

@@ -7,8 +7,8 @@ console.log('SMTP_SECURE:', process.env.SMTP_SECURE);
 
 export async function POST(request: Request) {
   try {
-    // ✅ AJOUT du champ company
-    const { firstName, lastName, company, email, message } = await request.json();
+    // ✅ AJOUT du champ phone
+    const { firstName, lastName, company, email, phone, message } = await request.json();
 
     // Configuration Nodemailer
     // On utilise les variables d'environnement
@@ -22,7 +22,7 @@ export async function POST(request: Request) {
       },
     });
 
-    // ✅ Contenu de l'e-mail avec company
+    // ✅ Contenu de l'e-mail avec company et phone
     const mailOptions = {
       from: process.env.CONTACT_EMAIL, // Adresse d'envoi
       to: process.env.CONTACT_EMAIL,   // Adresse de réception (peut être la même ou différente)
@@ -31,6 +31,7 @@ export async function POST(request: Request) {
 Nom: ${firstName} ${lastName}
 ${company ? `Entreprise: ${company}` : ''}
 Email: ${email}
+${phone ? `Téléphone: ${phone}` : ''}
 
 Message:
 ${message}
@@ -40,6 +41,7 @@ ${message}
         <p><strong>Nom :</strong> ${firstName} ${lastName}</p>
         ${company ? `<p><strong>Entreprise :</strong> ${company}</p>` : ''}
         <p><strong>Email :</strong> <a href="mailto:${email}">${email}</a></p>
+        ${phone ? `<p><strong>Téléphone :</strong> <a href="tel:${phone}">${phone}</a></p>` : ''}
         <br>
         <p><strong>Message :</strong></p>
         <p style="background: #f5f5f5; padding: 15px; border-radius: 5px;">${message}</p>
