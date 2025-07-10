@@ -60,7 +60,7 @@ export const ServicePack = ({
             {/* Section des cartes - Layout unique responsive */}
             <div className="flex flex-col lg:flex-row  justify-center items-center gap-4 lg:gap-6">
               {/* Première carte */}
-              <div className="w-full sm:flex-1 sm:min-w-[280px] sm:max-w-[400px] max-w-[320px] mx-auto sm:mx-0">
+              <div className="w-full sm:flex-1 sm:min-w-[280px] max-w-[316px] lg:max-w-[500px] mx-auto sm:mx-0">
                 <ServiceCard
                   title={proCard.title}
                   description={proCard.description}
@@ -78,7 +78,7 @@ export const ServicePack = ({
               </div>
               
               {/* Deuxième carte */}
-              <div className="w-full sm:flex-1 sm:min-w-[280px] sm:max-w-[400px] max-w-[320px] mx-auto sm:mx-0">
+              <div className=" sm:flex-1 sm:min-w-[280px] max-w-[316px] lg:max-w-[500px] mx-auto sm:mx-0">
                 <ServiceCard
                   title={strategieCard.title}
                   description={strategieCard.description}

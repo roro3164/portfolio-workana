@@ -63,7 +63,7 @@ const NormalCard: React.FC<ExtendedNormalCardProps> = ({
             className={`${boxStyleClass} ${classes.mobile.visibility}`}
             style={classes.mobile.style}
           >
-            <div className="text-sm text-center sm:text-base md:text-lg lg:text-xl text-white leading-relaxed">
+            <div className="text-base text-center md:text-lg lg:text-xl text-white leading-relaxed">
               {internContent}
             </div>
           </div>

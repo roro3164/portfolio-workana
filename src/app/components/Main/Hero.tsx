@@ -64,19 +64,19 @@ export const Hero: React.FC = () => {
 
           <section className="flex flex-row items-start lg:flex-col gap-2 text-xs sm:text-xl">
             <CircleListItem
-              className="min-w-4 h-4 sm:min-w-8 sm:h-8"
+              className="min-w-6 h-6 sm:min-w-8 sm:h-8"
               text={t("hero.services.seo")}
               textClassName="text-xs sm:text-lg font-medium"
               spacing="mr-1 sm:mr-3"
             />
             <CircleListItem
-              className="min-w-4 h-4 sm:min-w-8 sm:h-8"
+              className="min-w-6 h-6 sm:min-w-8 sm:h-8"
               text={t("hero.services.developer")}
               textClassName="text-xs sm:text-lg font-medium"
               spacing="mr-1 sm:mr-3"
             />
             <CircleListItem
-              className="min-w-4 h-4 sm:min-w-8 sm:h-8"
+              className="min-w-6 h-6 sm:min-w-8 sm:h-8"
               text={t("hero.services.designer")}
               textClassName="text-xs sm:text-lg font-medium"
               spacing="mr-1 sm:mr-3"

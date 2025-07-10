@@ -18,14 +18,14 @@ export const ServiceCard = ({
   width, // Nouvelle prop
 }: ExtendedServiceCardProps) => (
   <div 
-    className={`transition-transform duration-400 hover:scale-105 ${
-      width ? '' : 'w-[29%] min-w-[316px]'
+    className={`transition-transform duration-400 hover:scale-105  ${
+      width ? '' : ':w-[29%]  min-w-[316px]'
     }`}
     style={width ? { width } : {}}
   >
     <VioletHover color={color} disabled={disableHover}>
-      <div className="bg-[#100E12] rounded-xl">
-        <div className={`rounded-xl h-[520px] flex flex-col p-6 gap-y-6 ${styles.glassCard}`}>
+      <div className="bg-[#100E12] rounded-xl ">
+        <div className={`rounded-xl h-[540px] flex flex-col p-6 gap-y-6 ${styles.glassCard}`}>
           
           <div
             className={`

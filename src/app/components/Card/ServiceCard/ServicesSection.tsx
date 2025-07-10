@@ -48,7 +48,7 @@ export const ServicesSection = () => {
         </div>
         </motion.div>
         
-        <div className="flex justify-between items-center flex-col gap-10 xl:flex-row">
+        <div className="flex justify-around items-center flex-col gap-10 xl:flex-row">
           <ServiceCard
             title={t("services.essentiel.title")}
             description={t("services.essentiel.description")}
