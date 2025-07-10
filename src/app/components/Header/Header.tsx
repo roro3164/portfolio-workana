@@ -176,7 +176,7 @@ const Header: React.FC = () => {
       {/* MENU MOBILE (plein écran) */}
       <div
         className={`
-          lg:hidden fixed top-0 left-0 w-full h-screen bg-black/90 z-40
+          xl:hidden fixed top-0 left-0 w-full h-screen bg-black/90 z-40
           transition-transform duration-500 ease-in-out
           ${menuOpen ? "translate-x-0" : "translate-x-full"}
         `}

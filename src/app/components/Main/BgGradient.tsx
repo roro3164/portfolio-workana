@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+
 interface BgHeroProps {
   className?: string;
   color?: 'purple' | 'blue' | 'green' | 'orange' | 'pink';
@@ -10,7 +12,30 @@ export default function BgGradient({
   blur = 'blur-[250px]'
 }: BgHeroProps) {
   
-  // Couleurs prédéfinies
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Détection responsive en temps réel
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Détection navigateur
+  const isFirefox = typeof window !== 'undefined' && /Firefox/i.test(navigator.userAgent);
+  const isSafari = typeof window !== 'undefined' && /Safari/i.test(navigator.userAgent) && !/Chrome/i.test(navigator.userAgent);
+  
+  // Désactiver sur Firefox, Safari ou mobile
+  if (isFirefox || isSafari || isMobile) {
+    return null;
+  }
+
+  // Couleurs prédéfinies (gradient original)
   const colors = {
     'purple': 'radial-gradient(ellipse 300px 1000px, rgba(147, 51, 234, 1) 0%, rgba(139, 92, 246, 0.8) 30%, rgba(168, 85, 247, 0.6) 60%, rgba(168, 85, 247, 0.4) 80%, transparent 100%)',
     'blue': 'radial-gradient(ellipse 300px 1000px, rgba(59, 130, 246, 1) 0%, rgba(96, 165, 250, 0.8) 30%, rgba(147, 197, 253, 0.6) 60%, rgba(147, 197, 253, 0.4) 80%, transparent 100%)',
