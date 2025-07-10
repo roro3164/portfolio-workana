@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import ContactButton from "./ContactButton";
 import Header from "../Header/Header";
 import { CircleListItem } from "../Card/ServiceCard/CircleListItem";
-import BgGradient from "./BgGradient";
+
 
 export const Hero: React.FC = () => {
   const { t } = useTranslation();
@@ -43,11 +43,7 @@ export const Hero: React.FC = () => {
 
       <div className="relative flex-1 flex flex-col lg:flex-row">
         {/* BgGradient responsive avec props */}
-        <BgGradient 
-          className="absolute -bottom-40 left-1/2 transform -translate-x-1/2 w-1/2 h-1/2 lg:bottom-20 lg:left-0 lg:transform-none lg:translate-x-0 lg:w-1/3 lg:h-1/3"
-          color="purple"
-          blur="blur-[400px] lg:blur-[250px]"
-        />
+       
 
         {/* Contenu texte centré et responsive */}
         <motion.div 
