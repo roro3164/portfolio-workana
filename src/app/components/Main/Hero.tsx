@@ -53,7 +53,7 @@ export const Hero: React.FC = () => {
 
         {/* Contenu texte centré et responsive */}
         <motion.div
-          className="w-full lg:w-1/3 flex flex-col justify-start lg:justify-center items-center lg:items-start text-center lg:text-left gap-2 sm:gap-4 lg:gap-8  lg:p-0 lg:pb-16 order-2 lg:order-1 -mt-10 mb-12 lg:mb-0 lg:mt-0"
+          className="w-full lg:w-1/3 flex flex-col justify-start lg:justify-center items-center lg:items-start text-center lg:text-left gap-2 sm:gap-4 lg:gap-8  lg:p-0 lg:pb-16 order-2 lg:order-1  mb-20 lg:mb-0 lg:mt-0"
           initial={{ x: -50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
