@@ -19,7 +19,7 @@ export const ServiceCard = ({
 }: ExtendedServiceCardProps) => (
   <div 
     className={`transition-transform duration-400 hover:scale-105  ${
-      width ? '' : ':w-[29%]  min-w-[316px]'
+      width ? '' : 'w-[29%]  min-w-[316px] sm:min-w-[400px]'
     }`}
     style={width ? { width } : {}}
   >

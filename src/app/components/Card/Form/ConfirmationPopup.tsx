@@ -27,7 +27,7 @@ export const ConfirmationPopup: React.FC<ConfirmationPopupProps> = ({
           onClick={onClose}
         >
           <motion.div
-            className="w-full max-w-2xl min-w-[300px] sm:min-w-[500px]"
+            className="w-full max-w-3xl min-w-[300px] sm:min-w-[500px]"
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
@@ -73,9 +73,12 @@ export const ConfirmationPopup: React.FC<ConfirmationPopupProps> = ({
                 </div>
 
                 {/* Message */}
-                <div className="text-center px-4 sm:px-6 lg:px-8 pb-4 sm:pb-6">
-                  <p className="text-gray-300 leading-relaxed text-base lg:text-lg max-w-md mx-auto">
+                <div className="flex flex-col gap-6 text-center px-4 sm:px-6 lg:px-8 pb-4 sm:pb-6">
+                  <p className="text-gray-300 leading-relaxed text-base lg:text-lg">
                     {t("popup.message")}
+                  </p>
+                  <p className="text-gray-300 italic leading-relaxed font-bold text-lg lg:text-xl ">
+                    {t("popup.offer")}
                   </p>
                 </div>
               </div>

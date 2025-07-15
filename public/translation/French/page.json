@@ -62,7 +62,7 @@
     "promo": "🎁 En ce moment : une maquette gratuite de votre site sans engagement !",
     "essentiel": {
       "title": "Essentiel",
-      "description": "Pour se lancer simplement",
+      "description": "Page web pour se lancer simplement",
       "items": [
         "Adapté à tous les formats d'écrans",
         "1 landing page optimisée",
@@ -74,8 +74,8 @@
     },
     "pro": {
       "title": "Pro",
-      "description": "Pour développer votre activité",
-      "prefix": "Ce qui est inclus dans Starter, plus :",
+      "description": "Site Web complet pour professionel",
+      "prefix": "Ce qui est inclus dans Essentiel + :",
       "items": [
         "Jusqu'à 5 pages",
         "Design premium & animations avancées",
@@ -147,7 +147,8 @@
 
   "popup": {
       "title": "🎯 Bilan Visibilité en cours",
-      "message": "Votre bilan de visibilité personnalisé est actuellement en cours de réalisation. Je vous contacterai dans moins de 24h pour vous communiquer les résultats complets."
+      "message": "Votre bilan de visibilité personnalisé est actuellement en cours de réalisation. Je vous contacterai dans moins de 24h pour vous communiquer les résultats complets.",
+      "offer": "🎁 Offre limitée : Maquette gratuite de votre futur site - Profitez-en maintenant !"
     },
   
 
