@@ -70,6 +70,8 @@ function getColorVariable(color: string): string {
       return 'rgba(64, 211, 111, 0.3)';
     case 'yellow':
       return 'rgba(212, 175, 55, 0.5)';
+    case 'or': 
+      return 'rgba(255, 215, 0, 0.7)';
     case 'orange':
       return 'rgba(255, 140, 0, 0.5)'; 
     case 'red':

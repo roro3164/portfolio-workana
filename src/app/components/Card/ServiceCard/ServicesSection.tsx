@@ -29,7 +29,7 @@ export const ServicesSection = () => {
   };
   
   // Récupérer les tableaux explicitement et s'assurer qu'ils sont bien typés
-  const starterItems = t("services.essentiel.items", { returnObjects: true }) as string[];
+  const businessItems = t("services.business.items", { returnObjects: true }) as string[];
   const proItems = t("services.pro.items", { returnObjects: true }) as string[];
   const strategieItems = t("services.stratégie.items", { returnObjects: true }) as string[];
   
@@ -49,25 +49,26 @@ export const ServicesSection = () => {
         </motion.div>
         
         <div className="flex justify-around items-center flex-col gap-10 xl:flex-row">
-          <ServiceCard
-            title={t("services.essentiel.title")}
-            description={t("services.essentiel.description")}
-            listItems={starterItems}
+        <ServiceCard
+            title={t("services.stratégie.title")}
+            description={t("services.stratégie.description")}
+            listItems={strategieItems}
             color="green"
           />
           
           <ServiceCard
             title={t("services.pro.title")}
             description={t("services.pro.description")}
-            prefix={t("services.pro.prefix")}
             listItems={proItems}
             color="blue"
           />
           
-          <ServiceCard
-            title={t("services.stratégie.title")}
-            description={t("services.stratégie.description")}
-            listItems={strategieItems}
+         
+          
+           <ServiceCard
+            title={t("services.business.title")}
+            description={t("services.business.description")}
+            listItems={businessItems}
             color=""
           />
         </div>

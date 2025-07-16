@@ -61,12 +61,11 @@ export const ServicePack = ({
             <div className="flex flex-col lg:flex-row  justify-center items-center gap-4 lg:gap-6">
               {/* Première carte */}
               <div className="w-full sm:flex-1 sm:min-w-[280px] max-w-[316px] lg:max-w-[500px] mx-auto sm:mx-0">
-                <ServiceCard
-                  title={proCard.title}
-                  description={proCard.description}
-                  prefix={proCard.prefix}
-                  listItems={proCard.listItems}
-                  color="blue"
+              <ServiceCard
+                  title={strategieCard.title}
+                  description={strategieCard.description}
+                  listItems={strategieCard.listItems}
+                  color="green"
                   disableHover={true}
                   width="100%"
                 />
@@ -79,11 +78,13 @@ export const ServicePack = ({
               
               {/* Deuxième carte */}
               <div className=" sm:flex-1 sm:min-w-[280px] max-w-[316px] lg:max-w-[500px] mx-auto sm:mx-0">
+                
                 <ServiceCard
-                  title={strategieCard.title}
-                  description={strategieCard.description}
-                  listItems={strategieCard.listItems}
-                  color=""
+                  title={proCard.title}
+                  description={proCard.description}
+                  prefix={proCard.prefix}
+                  listItems={proCard.listItems}
+                  color="blue"
                   disableHover={true}
                   width="100%"
                 />
@@ -124,8 +125,9 @@ function getColorVariable(color: string): string {
       return 'rgba(64, 211, 111, 0.3)';
     case 'yellow':
       return 'rgba(255, 193, 37, 0.5)';
+      
     case 'orange':
-      return 'rgba(255, 140, 0, 0.4)';
+      return 'rgba(255, 140, 0, 0.6)';
     case 'red':
       return 'rgba(211, 64, 64, 0.3)';
     case 'violet':
