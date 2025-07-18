@@ -82,7 +82,6 @@ export const ServicePack = ({
                 <ServiceCard
                   title={proCard.title}
                   description={proCard.description}
-                  prefix={proCard.prefix}
                   listItems={proCard.listItems}
                   color="blue"
                   disableHover={true}
