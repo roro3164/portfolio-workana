@@ -129,11 +129,9 @@ export const Footer: React.FC = () => {
       {/* Bas de page centré avec padding */}
       <div
         className={styles.footerBottom}
-        style={{ textAlign: "center", padding: "1rem 0" }}
+        style={{ textAlign: "center", padding: "100px" }}
       >
-        <p style={{ margin: 0, marginBottom: "1rem" }}>
-          {t("footer.copyright", { year: new Date().getFullYear() })}
-        </p>
+        
         {/* Logo centré */}
         <Image
           src="/image/icons/logoCentre.svg"

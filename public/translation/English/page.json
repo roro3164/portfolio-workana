@@ -14,134 +14,138 @@
     "contact": "Request your free audit"
   },
   "hero": {
-    "title": "Visibility Expert - Appear #1 on Google in Your Industry",
+    "title": "Visibility Expert – Appear #1 on Google in Your Sector",
     "services": {
       "seo": "Google listing management",
-      "developer": "High-performing website",
+      "developer": "High-performance website",
       "designer": "Modern design"
     },
-    "description": "Don't let your competitors get ahead of you and take your customers",
+    "description": "Don’t let your competitors get ahead and take your clients",
     "cta": {
-      "title": "Discover Your Position",
+      "title": " Discover Your Position",
       "button": "My free audit"
     }
   },
   "transition": {
-    "services": "I thus create a unique synergy: ultra-performing, modern and aesthetic websites, coupled with management of your local presence via your Google listing. This triple expertise guarantees concrete results to attract new clients and develop your business.",
-    "projects": "Creations that speak for themselves.",
-    "contact": "Let's talk about your project!"
+    "services": "I create a unique synergy: ultra-performant, modern, and aesthetic websites combined with the management of your local presence via your Google listing. This triple skill set ensures concrete results to attract new customers and grow your business.",
+    "projects": "Projects that speak for themselves.",
+    "contact": " Let’s discuss your project and request your visibility audit!"
   },
   "about": {
-    "title": "About Me",
-    "content": "Hello, I am a passionate UI/UX Designer and Full-Stack Developer from the sunny south of France, based in Montpellier. I love creating intuitive and visually engaging designs using tools like Figma and Photoshop, while developing modern and efficient applications with C#, React, and ASP.NET. My goal is to bridge design and technology to create solutions that are both practical and aesthetically pleasing. Outside of work, I enjoy traveling, discovering new places, and finding inspiration in different cultures. Whether it's exploring the latest tech trends or enjoying the Mediterranean lifestyle, I am always looking for new ideas to incorporate into my projects."
+    "title": "About me",
+    "content": "Hello, I’m a passionate UI/UX Designer and Full-Stack Developer from the south of France, based in Montpellier. I enjoy creating intuitive and visually appealing designs with tools like Figma and Photoshop, while developing modern and efficient applications with C#, React, and ASP.NET. My goal is to bridge the gap between design and technology to create solutions that are both practical and aesthetic. Outside of work, I love traveling, discovering new places, and finding inspiration in different cultures. Whether exploring the latest tech trends or enjoying the Mediterranean lifestyle, I’m always looking for new ideas to integrate into my projects."
   },
   "seo": {
     "title": "Google Visibility Expert",
-    "content": "Every optimization counts: a well-ranked website turns a simple search into a conquered client.\n\nI help SMEs and small businesses be found on Google through ultra-performing websites and expert management of their local presence.\n\nSpecialized in technical and local SEO, I optimize every element: loading speed, site structure, targeted content and Google My Business listing.\n\nI design custom SEO strategies, with monthly performance tracking and continuous adjustments to maximize your visibility and attract new clients every month."
+    "content": "Every optimization counts: a well-referenced site turns a simple search into a loyal customer.\n\nI help SMEs and small businesses get found on Google with ultra-performant websites and expert management of their local presence.\n\nSpecialized in technical and local SEO, I optimize every element: loading speed, site structure, targeted content, and Google My Business profile.\n\nI create custom SEO strategies with monthly performance tracking and continuous adjustments to maximize your visibility and attract new clients every month."
   },
   "developer": {
-    "title": "Full-stack Developer",
-    "content": "I help entrepreneurs and freelancers get a modern, fast website with good Google ranking, using Next.js, a technology renowned for its performance.\n\nI also integrate useful tools like forms, animations, or booking systems into a site that matches your brand, is easy to use, and is designed to convert.\n\nA passionate autodidact, I completed my background with a degree in web development, so I can offer clear, reliable, and tailor-made solutions."
+    "title": "Full-Stack Developer",
+    "content": "I help entrepreneurs and freelancers have a modern, fast, and well-ranked website on Google, thanks to Next.js, a technology recognized for its performance.\n\nI also integrate useful tools like forms, animations, or bookings into a website tailored to you, simple to use and designed to convert.\n\nA passionate self-learner, I complemented my background with a degree in web development to offer clear, reliable, and tailor-made solutions."
   },
   "designer": {
     "title": "UI/UX Designer",
-    "content": "Every pixel matters: great design turns a casual visit into a memorable experience.\n\nI help entrepreneurs build a clear, professional visual identity that reflects their world and catches the eye.\n\nCertified in UI/UX design and passionate about aesthetics, I create custom interfaces with Figma and Photoshop, paying attention to every detail.\n\nI design intuitive user flows, with elegant animations that bring the site to life without hindering navigation. My goal: to highlight what you offer, with clarity and style."
+    "content": "Every pixel matters: a successful design turns a simple visit into a memorable experience.\n\nI help entrepreneurs build a clear and professional visual identity that reflects their brand and captures attention.\n\nCertified in UI/UX design and passionate about aesthetics, I design tailor-made interfaces with Figma and Photoshop, paying attention to every detail.\n\nI create intuitive user journeys with elegant animations that bring the site to life without disrupting navigation. My goal: highlight what you offer with clarity and style."
   },
   "contactme": {
     "title": "Contact me"
   },
   "projects": {
     "technologiesUsed": "Technologies used:",
-    "clickToExplore": "Click the card to explore"
+    "clickToExplore": "Click on the card to explore"
   },
   "services": {
-    "title": "My Offers",
-    "intro": "🌐 All-inclusive websites, starting at €49/month",
-    "subtitle": "Customized, modern, effective.",
-    "promo": "🎁 Currently: visibility audit + free mockup with no commitment!",
+    "title": "My Services",
+    "intro": "🌐 All-inclusive websites",
+    "subtitle": "Custom, modern, effective.",
+    "promo": "🎁 Right now: a free mockup of your site with no commitment!",
     "essentiel": {
       "title": "Essential",
-      "description": "To get started simply",
+      "description": "Web page to start simply",
       "items": [
-        "Adapted to all screen formats",
+        "Adapted to all screen sizes",
         "1 optimized landing page",
         "Standard design & animations",
         "Domain name + hosting included",
         "Monthly maintenance",
-        "1 modification/month"
+        "1 update/month"
       ]
     },
     "pro": {
       "title": "Pro",
-      "description": "To develop your business",
-      "prefix": "What's included in Essential, plus:",
+      "description": "Complete website for professionals",
+      "prefix": "Includes everything in Essential + :",
       "items": [
+        "Adapted to all screen sizes",
         "Up to 5 pages",
         "Premium design & advanced animations",
-        "3 modifications/month",
-        "Priority support"
+        "3 updates/month",
+        "Hosting included",
+        "Monthly maintenance"
       ]
     },
     "business": {
       "title": "Business",
-      "description": "To boost your sales",
-      "prefix": "What's included in Pro, plus:",
+      "description": "E-Commerce website to boost your sales",
+      "prefix": "Includes everything in Pro, plus:",
       "items": [
         "Up to 10 pages",
         "5 free updates/month",
-        "Complete integrated e-commerce",
+        "Full e-commerce integration",
         "Advanced analytics"
       ]
     },
     "stratégie": {
       "title": "Google listing management",
       "description": "To maximize your visibility",
+      "prefix": "Includes everything in Pro, plus:",
       "items": [
         "Monthly SEO monitoring",
         "Google My Business management",
-        "Google reviews responses",
+        "Reply to Google reviews",
         "Weekly posts"
       ]
     },
     "pack": {
       "banner": "🔥 RECOMMENDED OFFER",
       "title": "Visibility Pack",
-      "description": "The complete solution for a professional website and maximum local visibility to attract new customers every month.",
+      "description": "The complete solution for a professional website and maximum local visibility to attract new clients every month.",
+      "prefix": "Includes everything in Pro, plus:",
       "items": [
-        "Complete Pro website (up to 5 pages)",
-        "Complete Google My Business management",
-        "Monthly SEO monitoring",
-        "Google reviews responses",
-        "3 modifications/month included"
+        "Up to 10 pages",
+        "5 free updates/month",
+        "Full e-commerce integration",
+        "Advanced analytics"
       ],
       "explication": {
         "title": "**Maximum Visibility**",
-        "content": "Get ahead of your competitors and attract 3x more clients!"
+        "content": "Get ahead of your competitors and attract 3× more clients!"
       },
       "pour": {
         "title": "Perfect for:",
-        "content": "Artisans • Merchants • Hairdressers • Liberal professions • Restaurants • Local services"
+        "content": "Craftsmen • Retailers • Hairdressers • Liberal professions • Restaurants • Local services"
       }
     },
     "cta": {
-      "title": "Ready to boost your visibility?",
-      "buttonText": "My free audit"
+      "title": "Boost your visibility today, request your audit!",
+      "buttonText": "Request your free demo"
     }
   },
   "contactForm": {
-      "title": "Contact",
-      "firstName": "First name",
-      "lastName": "Last name",
-      "company": "Your company name (optional)",
-      "email": "Your email",
-      "phone": "Your phone",
-      "message": "Your message",
-      "success": "Your message has been sent successfully!",
-      "error": "Error"
-    },
-    "popup": {
-      "title": "🎯 Visibility Assessment in Progress",
-      "message": "Your personalized visibility assessment is currently being processed. I will contact you within 24 hours to share the complete results."
+    "title": "Contact",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "company": "Your company name (optional)",
+    "email": "Your email",
+    "phone": "Your phone",
+    "message": "Your message",
+    "success": "Your message has been sent successfully!",
+    "error": "Error"
+  },
+  "popup": {
+    "title": "🎯 Visibility audit in progress",
+    "message": "Your personalized visibility audit is currently being processed. I will contact you within 24h to give you the full results.",
+    "offer": "🎁 Limited offer: Free mockup of your future website – Take advantage now!"
   },
   "footer": {
     "navigation": {
@@ -157,6 +161,6 @@
       "linkedin": "LinkedIn",
       "behance": "Behance"
     },
-    "copyright": "© {{year}} Made by Romain DesignCode. All rights reserved."
+    "copyright": "© {{year}} Created by Romain DesignCode. All rights reserved."
   }
 }

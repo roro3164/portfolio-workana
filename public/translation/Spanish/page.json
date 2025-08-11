@@ -10,58 +10,58 @@
     "closeMenu": "Cerrar menú"
   },
   "button": {
-    "demo": "Su auditoría gratuita",
-    "contact": "Solicite su auditoría gratuita"
+    "demo": "Tu diagnóstico gratuito",
+    "contact": "Solicita tu diagnóstico gratuito"
   },
   "hero": {
-    "title": "Experto Visibilidad - Aparece N°1 en Google en tu Sector",
+    "title": "Experto en Visibilidad – Aparece N.º 1 en Google en tu sector",
     "services": {
-      "seo": "Gestión ficha Google",
-      "developer": "Sitio web performante",
+      "seo": "Gestión de ficha de Google",
+      "developer": "Sitio web de alto rendimiento",
       "designer": "Diseño moderno"
     },
-    "description": "No dejes que tus competidores se adelanten y te quiten clientes",
+    "description": "No dejes que tus competidores te adelanten y te roben clientes",
     "cta": {
-      "title": "Descubre Tu Posición",
-      "button": "Mi auditoría gratuita"
+      "title": " Descubre tu posición",
+      "button": "Mi diagnóstico gratuito"
     }
   },
   "transition": {
-    "services": "Creo así una sinergia única: sitios ultra-performantes, modernos y estéticos, acoplados con gestión de tu presencia local vía tu ficha Google. Esta triple competencia garantiza resultados concretos para atraer nuevos clientes y desarrollar tu actividad.",
-    "projects": "Proyectos que hablan por sí solos.",
-    "contact": "¡Hablemos de tu proyecto!"
+    "services": "Creo una sinergia única: sitios ultra-rendidores, modernos y estéticos, combinados con una gestión de tu presencia local vía tu ficha de Google. Esta triple competencia garantiza resultados concretos para atraer nuevos clientes y desarrollar tu negocio.",
+    "projects": "Proyectos que hablan por sí mismos.",
+    "contact": " Hablemos de tu proyecto y solicita tu diagnóstico de visibilidad !"
   },
   "about": {
     "title": "Sobre mí",
-    "content": "Hola, soy un Diseñador UI/UX y Desarrollador Full-Stack apasionado del sur de Francia, radicado en Montpellier. Me encanta crear diseños intuitivos y visualmente atractivos con herramientas como Figma y Photoshop, mientras desarrollo aplicaciones modernas y eficientes usando C#, React y ASP.NET. Mi objetivo es unir el diseño y la tecnología para crear soluciones que sean tanto prácticas como hermosas. Fuera del trabajo, soy un gran aficionado a viajar, descubrir nuevos lugares y encontrar inspiración en diferentes culturas. Ya sea explorando las últimas tendencias tecnológicas o disfrutando del estilo de vida mediterráneo, siempre estoy buscando ideas frescas para incorporar en mis proyectos."
+    "content": "Hola, soy un diseñador UI/UX y desarrollador full-stack apasionado, originario del sur de Francia, establecido en Montpellier. Me gusta crear diseños intuitivos y visualmente atractivos con herramientas como Figma y Photoshop, mientras desarrollo aplicaciones modernas y eficientes con C#, React y ASP.NET. Mi objetivo es unir diseño y tecnología para crear soluciones prácticas y estéticas. Fuera del trabajo, me encanta viajar, descubrir nuevos lugares e inspirarme en distintas culturas. Ya sea explorando las últimas tendencias tecnológicas o disfrutando del estilo de vida mediterráneo, siempre busco nuevas ideas para integrar en mis proyectos."
   },
   "seo": {
-    "title": "Experto en Visibilidad Google",
-    "content": "Cada optimización cuenta: un sitio bien posicionado convierte una simple búsqueda en cliente conquistado.\n\nAyudo a PYMEs y pequeños negocios a ser encontrados en Google gracias a sitios web ultra-performantes y gestión experta de su presencia local.\n\nEspecializado en SEO técnico y local, optimizo cada elemento: velocidad de carga, estructura del sitio, contenido dirigido y ficha Google My Business.\n\nDiseño estrategias SEO personalizadas, con seguimiento mensual del rendimiento y ajustes continuos para maximizar tu visibilidad y atraer nuevos clientes cada mes."
+    "title": "Experto en Visibilidad en Google",
+    "content": "Cada optimización cuenta: un sitio bien posicionado convierte una simple búsqueda en un cliente conquistado.\n\nAyudo a pymes y autónomos a ser encontrados en Google gracias a sitios ultra-rendidores y una gestión experta de su presencia local.\n\nEspecializado en SEO técnico y local, optimizo cada elemento: velocidad de carga, estructura del sitio, contenido dirigido y ficha de Google My Business.\n\nDiseño estrategias SEO personalizadas, con seguimiento mensual de rendimiento y ajustes continuos para maximizar tu visibilidad y atraer nuevos clientes cada mes."
   },
   "developer": {
     "title": "Desarrollador Full-stack",
-    "content": "Ayudo a emprendedores y autónomos a tener un sitio web moderno, rápido y bien posicionado en Google, utilizando Next.js, una tecnología reconocida por su rendimiento.\n\nTambién integro herramientas útiles como formularios, animaciones o sistemas de reservas en un sitio adaptado a tu imagen, fácil de usar y diseñado para convertir.\n\nComo autodidacta apasionado, completé mi formación con un título en desarrollo web para poder ofrecer soluciones claras, confiables y a medida."
+    "content": "Ayudo a emprendedores y autónomos a tener un sitio web moderno, rápido y bien posicionado en Google, gracias a Next.js, una tecnología reconocida por su rendimiento.\n\nTambién incorporo herramientas útiles como formularios, animaciones o reservas, en un sitio a tu medida, fácil de usar y pensado para convertir.\n\nAutodidacta apasionado, complementé mi formación con un diploma en desarrollo web, para poder ofrecer soluciones claras, fiables y a medida."
   },
   "designer": {
     "title": "Diseñador UI/UX",
-    "content": "Cada píxel cuenta: un buen diseño convierte una visita ocasional en una experiencia inolvidable.\n\nAsí, ayudo a los emprendedores a construir una identidad visual clara y profesional, que refleje su universo y capte la atención.\n\nCertificado en diseño UI/UX y apasionado por la estética, creo interfaces personalizadas con Figma y Photoshop, cuidando cada detalle.\n\nDiseño recorridos intuitivos, con animaciones elegantes que dan vida al sitio sin entorpecer la navegación. Mi objetivo: destacar lo que ofreces, con claridad y estilo."
+    "content": "Cada píxel cuenta: un diseño exitoso convierte una simple visita en una experiencia memorable.\n\nAyudo a emprendedores a construir una identidad visual clara y profesional que refleje su universo y capte atención.\n\nCertificado en diseño UI/UX y apasionado por la estética, diseño interfaces a medida con Figma y Photoshop, cuidando cada detalle.\n\nDiseño recorridos intuitivos, con animaciones elegantes que dan vida al sitio sin entorpecer la navegación. Mi objetivo: destacar lo que ofreces, con claridad y estilo."
   },
   "contactme": {
     "title": "Contáctame"
   },
   "projects": {
-    "technologiesUsed": "Tecnologías utilizadas:",
+    "technologiesUsed": "Tecnologías utilizadas :",
     "clickToExplore": "Haz clic en la tarjeta para explorar"
   },
   "services": {
-    "title": "Mis Ofertas",
-    "intro": "🌐 Sitios web todo incluido, desde €49/mes",
-    "subtitle": "Personalizados, modernos, eficaces.",
-    "promo": "🎁 Actualmente: auditoría visibilidad + maqueta gratuita sin compromiso!",
+    "title": "Mis Servicios",
+    "intro": "🌐 Sitios web todo incluido",
+    "subtitle": "Personalizados, modernos, efectivos.",
+    "promo": "🎁 En este momento: ¡una maqueta gratis de tu sitio sin compromiso!",
     "essentiel": {
       "title": "Esencial",
-      "description": "Para empezar simplemente",
+      "description": "Página web para empezar de forma simple",
       "items": [
         "Adaptado a todos los formatos de pantalla",
         "1 landing page optimizada",
@@ -73,77 +73,80 @@
     },
     "pro": {
       "title": "Pro",
-      "description": "Para desarrollar tu actividad",
-      "prefix": "Lo que incluye Esencial, más:",
+      "description": "Sitio web completo para profesional",
+      "prefix": "Incluye lo de Esencial + :",
       "items": [
+        "Adaptado a todos los formatos de pantalla",
         "Hasta 5 páginas",
         "Diseño premium y animaciones avanzadas",
         "3 modificaciones/mes",
-        "Soporte prioritario"
+        "Hosting incluido",
+        "Mantenimiento mensual"
       ]
     },
     "business": {
       "title": "Business",
-      "description": "Para explotar tus ventas",
-      "prefix": "Lo que incluye Pro, más:",
+      "description": "Sitio e-Commerce para disparar tus ventas",
+      "prefix": "Incluye lo de Pro, además :",
       "items": [
         "Hasta 10 páginas",
-        "5 actualizaciones gratuitas/mes",
+        "5 actualizaciones gratis/mes",
         "E-commerce completo integrado",
         "Analytics avanzados"
       ]
     },
     "stratégie": {
-      "title": "Gestión ficha Google",
+      "title": "Gestión de ficha de Google",
       "description": "Para maximizar tu visibilidad",
+      "prefix": "Incluye lo de Pro, además :",
       "items": [
-        "Seguimiento mensual del SEO",
-        "Gestión Google My Business",
-        "Respuesta a comentarios Google",
-        "Posts semanales"
+        "Seguimiento mensual de SEO",
+        "Gestión de Google My Business",
+        "Respuesta a comentarios en Google",
+        "Publicaciones semanales"
       ]
     },
     "pack": {
       "banner": "🔥 OFERTA RECOMENDADA",
       "title": "Pack Visibilidad",
-      "description": "La solución completa para un sitio profesional y una visibilidad local máxima para atraer nuevos clientes cada mes.",
+      "description": "La solución completa para un sitio profesional y visibilidad local máxima para atraer nuevos clientes cada mes.",
+      "prefix": "Incluye lo de Pro, además :",
       "items": [
-        "Sitio Pro completo (hasta 5 páginas)",
-        "Gestión Google My Business completa",
-        "Seguimiento mensual del SEO",
-        "Respuesta a comentarios Google",
-        "3 modificaciones/mes incluidas"
+        "Hasta 10 páginas",
+        "5 actualizaciones gratis/mes",
+        "E-commerce completo integrado",
+        "Analytics avanzados"
       ],
       "explication": {
         "title": "**Máxima Visibilidad**",
-        "content": "¡Supere a sus competidores y atraiga 3x más clientes!"
+        "content": " ¡Adelántate a tus competidores y atrae 3 × más clientes!"
       },
       "pour": {
-        "title": "Perfecto para:",
+        "title": "Ideal para:",
         "content": "Artesanos • Comerciantes • Peluqueros • Profesiones liberales • Restaurantes • Servicios locales"
       }
     },
     "cta": {
-      "title": "¿Listo para impulsar tu visibilidad?",
-      "buttonText": "Mi auditoría gratuita"
+      "title": "Impulsa tu visibilidad hoy mismo, solicita tu diagnóstico!",
+      "buttonText": "Solicita tu demo gratis"
     }
   },
   "contactForm": {
-      "title": "Contacto",
-      "firstName": "Nombre",
-      "lastName": "Apellido",
-      "company": "Nombre de su empresa (opcional)",
-      "email": "Su correo electrónico",
-      "phone": "Su teléfono",
-      "message": "Su mensaje",
-      "success": "¡Su mensaje ha sido enviado con éxito!",
-      "error": "Error"
-    },
+    "title": "Contacto",
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "company": "Nombre de tu empresa (opcional)",
+    "email": "Tu correo electrónico",
+    "phone": "Tu teléfono",
+    "message": "Tu mensaje",
+    "success": "¡Tu mensaje se ha enviado con éxito!",
+    "error": "Error"
+  },
   "popup": {
-    "title": "🎯 Evaluación de Visibilidad en Proceso",
-    "message": "Su evaluación personalizada de visibilidad está en curso. Me pondré en contacto con usted en menos de 24 horas para comunicarle los resultados completos."
-    },
-    
+    "title": "🎯 Diagnóstico de visibilidad en curso",
+    "message": "Tu diagnóstico de visibilidad personalizado está en proceso. Me pondré en contacto contigo en menos de 24 h para entregarte los resultados completos.",
+    "offer": "🎁 Oferta limitada: Maqueta gratuita de tu futuro sitio – ¡Aprovéchala ahora!"
+  },
   "footer": {
     "navigation": {
       "seo": "Visibilidad",
@@ -158,6 +161,6 @@
       "linkedin": "LinkedIn",
       "behance": "Behance"
     },
-    "copyright": "© {{year}} Hecho por Romain DesignCode. Todos los derechos reservados."
+    "copyright": "© {{year}} Realizado por Romain DesignCode. Todos los derechos reservados."
   }
 }
