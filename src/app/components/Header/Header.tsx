@@ -166,9 +166,6 @@ const Header: React.FC = () => {
             <button onClick={() => handleNavClick('projects')} className={styles.navLink}>
               {t("header.projects")}
             </button>
-            <button onClick={() => handleNavClick('contact')} className={styles.navLink}>
-              {t("header.contact")}
-            </button>
           </nav>
         </div>
       </header>
@@ -211,12 +208,6 @@ const Header: React.FC = () => {
             className="text-white text-2xl transform transition-transform duration-300 active:scale-95"
           >
             {t("header.projects")}
-          </button>
-          <button
-            onClick={() => handleNavClick('contact')}
-            className="text-white text-2xl transform transition-transform duration-300 active:scale-95"
-          >
-            {t("header.contact")}
           </button>
         </nav>
       </div>

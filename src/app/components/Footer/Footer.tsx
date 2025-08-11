@@ -20,7 +20,6 @@ export const Footer: React.FC = () => {
             <li><a href="#designer">{t("footer.navigation.designer")}</a></li>
             <li><a href="#services">{t("footer.navigation.services")}</a></li>
             <li><a href="#projects">{t("footer.navigation.projects")}</a></li>
-            <li><a href="#contact">{t("footer.navigation.contact")}</a></li>
           </ul>
         </div>
 
