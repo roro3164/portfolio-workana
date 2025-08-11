@@ -28,7 +28,7 @@
 }
 
 .sectionNav {
-  @apply rounded-lg p-4;
+  @apply rounded-lg p-4 mx-auto;
   background-color: rgba(7, 0, 0, 0.35);
   border: 1.5px solid rgba(255, 255, 255, 0.15);
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);

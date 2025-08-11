@@ -2,7 +2,6 @@
 import SplitScreen from "./SplitScreen";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import ContactButton from "./ContactButton";
 import Header from "../Header/Header";
 import { CircleListItem } from "../Card/ServiceCard/CircleListItem";
 import BgGradient from "./BgGradient";
@@ -10,26 +9,9 @@ import BgGradient from "./BgGradient";
 export const Hero: React.FC = () => {
   const { t } = useTranslation();
 
-  // Fonction de scroll (même que Header)
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const headerHeight = 120;
-      const elementPosition =
-        element.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+  
 
-      window.scrollTo({
-        top: elementPosition,
-        behavior: "smooth",
-      });
-    }
-  };
-
-  const handleContactClick = () => {
-    setTimeout(() => {
-      scrollToSection("contact");
-    }, 100);
-  };
+ 
 
   return (
     <div className="min-h-[700px] lg:h-[84vh] flex flex-col">
@@ -92,17 +74,7 @@ export const Hero: React.FC = () => {
               {t("hero.cta.title")}
             </div>
 
-            {/* ✅ CORRECTION : Remplacé button par div */}
-            <div
-              onClick={handleContactClick}
-              className="w-full max-w-[400px] lg:max-w-[500px] relative z-30 cursor-pointer"
-            >
-              <ContactButton
-                title="hero.cta.button"
-                icon="/image/icons/gift.svg"
-                className="w-full h-10 sm:h-auto text-base sm:text-xl lg:text-2xl"
-              />
-            </div>
+           
           </div>
         </motion.div>
 

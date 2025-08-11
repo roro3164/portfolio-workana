@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FormCard } from "./components/Card/Form/FormContact";
 import { Footer } from "./components/Footer/Footer";
 import IntenseCursorLight from "./components/IntenseCursorLight";
 import CarouselCard from "./components/Card/Carousel/CarouselCard";
@@ -140,20 +139,7 @@ export default function Page() {
             <CarouselCard projects={projects} />
           </section>
 
-          {/* Section CONTACT */}
-          <section id="contact" className="scroll-mt-4">
-            <motion.div
-              initial={{ x: 30, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <h4 className="transition-heading italic text-center mb-8">
-                {t("transition.contact")}
-              </h4>
-            </motion.div>
-
-            <FormCard />
-          </section>
+          
         </section>
 
         <Footer />

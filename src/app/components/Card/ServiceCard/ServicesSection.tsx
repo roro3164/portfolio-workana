@@ -2,31 +2,14 @@ import { ServiceCard } from "./ServiceCard";
 import { ServicePack } from "./ServicePack";
 import "../../../../../i18n";
 import { useTranslation } from "react-i18next"; 
-import ContactButton from "../../Main/ContactButton";
 import { motion } from "framer-motion";
 
 export const ServicesSection = () => {
   const { t } = useTranslation("page");
   
-  // Fonction de scroll (même que Header et Hero)
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const headerHeight = 120;
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-      
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
 
-  const handleContactClick = () => {
-    setTimeout(() => {
-      scrollToSection('contact');
-    }, 100);
-  };
+
+ 
   
   // Récupérer les tableaux explicitement et s'assurer qu'ils sont bien typés
   const businessItems = t("services.business.items", { returnObjects: true }) as string[];
@@ -92,14 +75,7 @@ export const ServicesSection = () => {
         
         <div className="">
           <h3 className="text-center text-2xl font-bold mb-6">{t("services.cta.title")}</h3>
-          <div onClick={handleContactClick} className="w-full flex justify-center">
-            <ContactButton 
-               title="hero.cta.button"
-               icon = "/image/icons/gift.svg"
-               iconWidth={28}
-               className="mx-auto :w-auto min-w-[280px] px-6 text-xl lg:text-2xl"
-            />
-          </div>
+         
         </div>
       </div>
     </section>
